@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntranetPortal", "IntranetPortal\IntranetPortal.csproj", "{7C679D0A-EE1B-4F24-ABE8-9BCFE9A963D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DevExtreme NuGet.config", "DevExtreme NuGet.config", "{E6C5D0C1-1E13-4F66-9923-9CA49E5D0AD2}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.config = NuGet.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C679D0A-EE1B-4F24-ABE8-9BCFE9A963D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C679D0A-EE1B-4F24-ABE8-9BCFE9A963D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C679D0A-EE1B-4F24-ABE8-9BCFE9A963D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C679D0A-EE1B-4F24-ABE8-9BCFE9A963D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FEA16EA8-32A5-4085-9444-E40501F6BC2A}
+	EndGlobalSection
+EndGlobal

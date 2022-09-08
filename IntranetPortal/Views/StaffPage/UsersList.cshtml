@@ -1,0 +1,208 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_StaffMaster.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div class="page-header card">
+<div class="row align-items-end">
+<div class="col-lg-8">
+<div class="page-header-title">
+<i class="feather icon-home bg-c-blue"></i>
+<div class="d-inline">
+<h5>System Setup</h5>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-body">
+
+<div class="row">
+
+
+
+
+
+
+
+<div class="col-xl-12 col-md-6">
+<div class="card table-card">
+<div class="card-header">
+<h5>Manage  Users</h5>
+<div class="card-header-right">
+<ul class="list-unstyled card-option">
+<li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+<li><i class="feather icon-maximize full-card"></i></li>
+<li><i class="feather icon-minus minimize-card"></i></li>
+<li><i class="feather icon-refresh-cw reload-card"></i></li>
+<li><i class="feather icon-trash close-card"></i></li>
+<li><i class="feather icon-chevron-left open-card-option"></i></li>
+</ul>
+</div>
+</div>
+<div class="card-block">
+  
+
+                                @(
+                                    Html.DevExtreme().DataGrid<IntranetPortal.Models.User>
+                                                                ()
+                                                                .DataSource(ds => ds.Mvc()
+                                                                .Controller("SetupAPI")
+                                                                .InsertAction("AddNewUser")
+                                                                 .LoadAction("GetListOfUsers")
+                                                                .UpdateAction("UpdateUser")
+                                                                .Key("PFNumber")
+                                                                 
+
+                                                                )
+                                                                
+                                                                .RemoteOperations(true)
+                                                                     
+                                                                 
+                                                                   
+                                                                
+                                                                
+                                                                .ID("UserDG")
+                                                                .Columns(columns =>
+                                                                {
+
+
+
+                                                                    columns.AddFor(m => m.PFNumber).Caption("PF Number");
+                                                                    columns.AddFor(m => m.FirstName);
+                                                                columns.AddFor(m => m.MiddleName).Visible(false);
+                                                                    columns.AddFor(m => m.DutyStation).Visible(false);
+                                                                    columns.AddFor(m => m.LastName);
+                                                                columns.AddFor(m => m.DesignationCode).Caption("Designation").Lookup(r => r
+                                                                        .DataSource(ds => ds.Mvc().Controller("SetupAPI").LoadAction("GetDesignation").Key("DesignationCode"))
+                                                               .ValueExpr("DesignationCode")
+                                                                   .DisplayExpr("StaffDesignation"))
+                                                               .ValidationRules(r => r
+                                                                .AddRequired()
+                                                                .Message("Staff Designation"));
+                                                                columns.AddFor(m => m.DateOfBirth).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                                                    columns.AddFor(m => m.DutyStation).Visible(false);
+                                                                    columns.AddFor(m => m.Email);
+                                                                    columns.AddFor(m => m.MobileNumber).Visible(false);
+                                                                        columns.AddFor(m => m.ReportingTo).Caption("Designation").Lookup(r => r
+                                                                            .DataSource(ds => ds.Mvc().Controller("SetupAPI").LoadAction("GetSupervisoryDesignation").Key("DesignationCode"))
+                                                                   .ValueExpr("DesignationCode")
+                                                                       .DisplayExpr("StaffDesignation"))
+                                                                   .ValidationRules(r => r
+                                                                    .AddRequired()
+                                                                    .Message("Reporting  to is required"));
+
+
+                                                                    })
+
+                                                                        .SearchPanel(f => f.Visible(true))
+
+                                                                        .Paging(p => p.PageSize(10))
+                                                                        .HeaderFilter(f => f.Visible(true))
+
+                                                                        .Grouping(g => g.ContextMenuEnabled(true))
+                                                                        .Grouping(g => g.AutoExpandAll(true))
+                                                                        .RemoteOperations(true)
+
+                                                                        .Selection(s => s.Mode(SelectionMode.Multiple))
+                                                                        .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
+                                                                             .Editing(e => e
+                                                                             .AllowAdding(true)
+                                                                        .Popup(p => p
+                                                                        .Title("Add New User")
+                                                                        .ShowTitle(true)
+                                                                            .Width(1000)
+.Height(400)
+
+
+
+                                                                        )
+
+                                                                        .AllowUpdating(true)
+                                                                        .AllowDeleting(false)
+                                                                        .Mode(GridEditMode.Popup)
+                                                                        .UseIcons(true)
+                                                                        .Form(f => f
+                                                                        .ID("UserCreation")
+                                                                        .ColCount(1)
+                                                                        .Items(items =>
+                                                                        {
+                                                                            items.AddGroup()
+                                                                                 .ColCount(3)
+                                                                              .Items(groupItems =>
+                                                                           {
+                                                                              
+                                                                                   
+                                                                                   
+                                                                                
+                                                                                
+                                                                           });
+                                                                            items.AddGroup()
+                                                                                  .ColCount(3)
+                                                                            .Items(groupItems =>
+                                                                                {
+                                                                                    groupItems.AddSimpleFor(m => m.PFNumber); 
+                                                                                    groupItems.AddSimpleFor(m => m.FirstName);
+                                                                                    groupItems.AddSimpleFor(m => m.MiddleName);
+                                                                                    groupItems.AddSimpleFor(m => m.LastName);
+                                                                                    groupItems.AddSimpleFor(m => m.DutyStation);
+                                                                                    groupItems.AddSimpleFor(m => m.DesignationCode);
+                                                                                    groupItems.AddSimpleFor(m => m.DateOfBirth).Editor(e=>e.DateBox());
+                                                                                    groupItems.AddSimpleFor(m => m.Email);
+                                                                                    groupItems.AddSimpleFor(m => m.MobileNumber);
+                                                                                    groupItems.AddSimpleFor(m => m.ReportingTo);
+                                                                                    
+                                                                                  
+                                                                                 
+                                                                             
+                                                                            });
+                                                                               
+
+                                                                    })
+
+                                                                    )
+                                                                    )
+                                        )
+
+</div>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+
+    function getSections(options) {
+        return {
+            store: DevExpress.data.AspNet.createStore({
+                key: "SectionName",
+                loadUrl: '@Url.Action("GetSection", "SetupAPI", new { httproute = true })'
+            }),
+            filter: options.data?["DepartmentCode", "=", options.data.DepartmentCode] : null
+        };
+    }
+    function setDepartmentCode(rowData, value) {
+
+        rowData.DepartmentCode = value;
+        rowData.SectionName = null;
+    }
+
+    
+
+</script>
+
+

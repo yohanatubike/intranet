@@ -1,0 +1,150 @@
+﻿Activity Name :  <%= data.Activity.ActivityName %> 
+@(Html.DevExtreme().DataGrid<IntranetPortal.Models.AssignedOfficersDetail>()
+                                                                                                       .ColumnAutoWidth(true)
+                                                                                                    .OnInitNewRow(string.Format("function(e) {{ onInitNewRow(e, {0}); }}", new JS("data.ActivityId")))
+
+                                                                                                       .ShowBorders(true)
+                                                                                                      .Columns(columns =>
+                                                                                                      {
+
+
+                                         columns.AddFor(m => m.Pfnumber).SortOrder(SortOrder.Desc).Caption("Staff Name").Lookup(r => r
+                                        .DataSource(ds => ds.Mvc().Controller("SetupAPI").LoadAction("GetListOfUsers").Key("PFNumber"))
+                                        .ValueExpr("PFNumber")
+                                        .DisplayExpr("Email"))
+                                        .ValidationRules(r => r
+                                        .AddRequired()
+                                        .Message("Staff Name is required"));
+
+                                         columns.AddFor(m => m.ActivityId).SortOrder(SortOrder.Desc).Caption("Activity Name").Lookup(r => r
+                                        .DataSource(ds => ds.Mvc().Controller("ActivitiesAPI").LoadAction("GetDepartmentActivities").Key("ActivityId"))
+                                        .ValueExpr("ActivityId")
+                                        .DisplayExpr("ActivityName"))
+                                        .ValidationRules(r => r
+                                        .AddRequired()
+                                        .Message("Activity Name is required")).Visible(false);
+                                                                                                          columns.AddFor(m => m.AssignedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                                                                                          columns.AddFor(m => m.OfficersComment).Visible(false);
+                                                                                                          columns.AddFor(m => m.SupervisorsComment).Visible(false);
+                                                                                                          columns.AddFor(m => m.IsForcalPerson); 
+                                                                                                          
+                                                                                                
+                                                                                                          
+                                                                               
+
+                                                                                                      })
+
+            .SearchPanel(f => f.Visible(true))
+            .Paging(p => p.PageSize(10))
+            .HeaderFilter(f => f.Visible(true))
+            .Grouping(g => g.ContextMenuEnabled(true))
+            .Grouping(g => g.AutoExpandAll(true))
+            .Selection(s => s.Mode(SelectionMode.Multiple))
+            .Export(e => e.Enabled(true).FileName("ListofShareholders").AllowExportSelectedData(true))
+            .Editing(e => e
+            .AllowAdding(false)
+            .Popup(p => p
+            .Title("Report Section")
+            .ShowTitle(true)
+            .Width(1000)
+            .Height(400)
+
+            .Position(pos => pos
+            .My(HorizontalAlignment.Center, VerticalAlignment.Center)
+            .At(HorizontalAlignment.Center, VerticalAlignment.Center)
+            .Of(new JS("window"))
+            )
+            )
+
+            .AllowUpdating(true)
+            .AllowAdding(false)
+          
+            
+            .Mode(GridEditMode.Popup)
+            .UseIcons(true)
+            .Form(f => f
+            .ID("ActivitiesAssignment")
+            .ColCount(1)
+            .Items(items =>
+            {
+                items.AddGroup()
+                    .ColCount(2)
+                .Items(groupItems =>
+                {
+                        groupItems.AddSimpleFor(m => m.Pfnumber).Visible(false); 
+                    groupItems.AddSimpleFor(m => m.ActivityId).Visible(false);
+                        groupItems.AddSimpleFor(m => m.AssignedDate).Editor(e => e.DateBox()).Visible(false);
+                        groupItems.AddSimpleFor(m => m.IsForcalPerson).Editor(e => e.CheckBox()).Visible(false);
+
+
+
+
+                    });
+                items.AddGroup()
+ .Items(groupItems =>
+                                                                    {
+                                                                        groupItems.AddSimpleFor(m => m.OfficersComment).Editor(e => e
+                                                                            .HtmlEditor()
+                                                                            .Height(200)
+                                                                            .Toolbar(toolbar => toolbar.Items(
+                                                                                items =>
+                                                                                {
+                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                                                                })
+                                                                            ));
+
+
+
+
+
+
+                                                                    });
+                    items.AddGroup()
+
+               .Items(groupItems =>
+                                                                {
+                                                                    groupItems.AddSimpleFor(m => m.SupervisorsComment).Editor(e => e
+                                                                        .HtmlEditor()
+                                                                        .Height(200)
+                                                                        .Toolbar(toolbar => toolbar.Items(
+                                                                            items =>
+                                                                            {
+                                                                                items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                                                                items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                                                                items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                                                                items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                                                                items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                                                                items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                                                            })
+                                                                        ));
+
+
+
+
+
+
+                                                                });
+
+            })
+
+            )
+            )
+            .DataSource(ds => ds.Mvc()
+                                                .Controller("ActivitiesAPI")
+                                                .InsertAction("AddOfficersActivity")
+                                                    .LoadAction("ActivitiesByOfficer")
+                                                .UpdateAction("UpdateRole")
+                                                
+                                                    .Key("AssignedOfficerDetailsId")
+                                                .LoadParams(new { ActivityId = new JS("data.ActivityId") })
+                                                
+       
+                                                )
+)
+
+
