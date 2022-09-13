@@ -46,6 +46,7 @@ builder.Services.AddAuthorization(config =>
 builder.Services.AddScoped<IAuthorizationHandler, PoliciesAuthorizationHandler>();
 builder.Services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddSession();
 var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
@@ -55,7 +56,8 @@ if (!app.Environment.IsDevelopment())
        
 
         app.UseRouting();
-       // app.UseSession();
+        app.UseSession();
+
         app.UseAuthentication();
         app.UseAuthorization();
         

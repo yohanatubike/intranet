@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IntranetPortal.Controllers
 {
-    [Authorize(Policy ="Supervisor")]
+    //[Authorize(Policy ="Supervisor")]
+    [Authorize]
     public class ActivitiesManagementController : Controller
     {
 
@@ -11,8 +12,10 @@ namespace IntranetPortal.Controllers
         {
             return View();
         }
-        public IActionResult  ActivitisAttachments()
+        public IActionResult  ActivitisAttachments(string ActivityCode)
         {
+
+            HttpContext.Session.SetString("ActivityCode", ActivityCode.Trim('"'));
             return View();
         }
     }

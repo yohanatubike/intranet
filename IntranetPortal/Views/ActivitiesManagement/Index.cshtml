@@ -87,7 +87,7 @@
                                                                                                                        .DataSource(new string[] {
 "Normal",
 "High",
-    "Low"
+ "Low"
 
 
                                                                                                                        }
@@ -101,7 +101,7 @@ columns.AddFor(m => m.Description).Caption("Description").DataField("Description
 @<text>
 
 
-                                                                                    <a href="ActivitiesManagement/ActivitisAttachments/"><div class="feather icon-paperclip  text-primary">Attachment</div></a>
+                                            <a href="ActivitiesManagement/ActivitisAttachments?ActivityCode=<%= data.ActivityCode%>"><div class="feather icon-paperclip  text-primary">Attachment</div></a>
 
 
 
@@ -178,7 +178,7 @@ columns.AddFor(m => m.Description).Caption("Description").DataField("Description
                                                                                  .Items(groupItems =>
                                                                                      {
                                                                                         
-                                                                                         groupItems.AddSimpleFor(m => m.ActivityCode);
+                                                                                         
                                                                                          groupItems.AddSimpleFor(m => m.ActivityName);
                                                                                          groupItems.AddSimpleFor(m => m.StartDate).Editor(e => e.DateBox()); 
                                                                                          groupItems.AddSimpleFor(m => m.EndDate).Editor(e => e.DateBox()); ;

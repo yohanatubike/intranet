@@ -85,6 +85,28 @@ namespace IntranetPortal.Controllers
             var resultJson = JsonConvert.SerializeObject(result, settings);
             return Content(resultJson, "application/json");
         }
+
+
+        public string GenerateActivityCode()
+        {
+            Random Ino = new Random();
+            long ran_no = Ino.Next(1, 10000);
+            DateTime now = DateTime.Now;
+            return DepartmentCode + now.Year + "-" + ran_no.ToString() + now.Month + now.Day;
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateOfficerActivities(long key, string values)
+        {
+            var getActivityDetails = await myContext.AssignedOfficersDetails.FirstOrDefaultAsync(item => item.AssignedOfficerDetailsId == key);
+            JsonConvert.PopulateObject(values, getActivityDetails);
+
+            //if (!TryValidateModel(getActivityDetails))
+
+            //    return BadRequest(ValidationErrorMessage);
+
+            await myContext.SaveChangesAsync();
+            return Ok();
+        }
         [HttpPost]
         public async Task<IActionResult> AddNewActivity(string values)
         {
@@ -93,6 +115,7 @@ namespace IntranetPortal.Controllers
             newActivity.CreatedBy = UserEmail;
             newActivity.CreatedDate = DateTime.Now;
             newActivity.UpdateDate = DateTime.Now;
+            newActivity.ActivityCode = GenerateActivityCode();
             newActivity.DepartmentCode = DepartmentCode;
             newActivity.SectionCode = SectionCode;
             if (!TryValidateModel(newActivity))
@@ -116,9 +139,9 @@ namespace IntranetPortal.Controllers
 
 
 
-            if (!TryValidateModel(newActivityAssignment))
+            //if (!TryValidateModel(newActivityAssignment))
 
-                return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
+            //    return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
             myContext.AssignedOfficersDetails.Add(newActivityAssignment);
             await myContext.SaveChangesAsync();
 

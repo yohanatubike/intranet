@@ -1,6 +1,7 @@
 ﻿using DevExtreme.AspNet.Mvc.FileManagement;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting.Internal;
+using System.IO;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace IntranetPortal.Controllers
@@ -13,14 +14,23 @@ namespace IntranetPortal.Controllers
         {
             _hostingEnvironment = hostingEnvironment;
         }
+       
 
         [Route("api/file-manager-file-system", Name = "FileManagementFileSystemApi")]
         public object FileSystem(FileSystemCommand command, string arguments)
         {
+            var ActivityCode = HttpContext.Session.GetString("ActivityCode").ToString();
+         
+            string attachmentPath = "Attachments/Activities/"+ActivityCode.Trim('"');
+            if (!Directory.Exists(attachmentPath))
+            {
+                DirectoryInfo directory = new DirectoryInfo(attachmentPath);
+                Directory.CreateDirectory(attachmentPath);
+            }
             var config = new FileSystemConfiguration
             {
                 Request = Request,
-                FileSystemProvider = new PhysicalFileSystemProvider(_hostingEnvironment.ContentRootPath + "/Attachments/ActivitiesDocuments"),
+                FileSystemProvider = new PhysicalFileSystemProvider(_hostingEnvironment.ContentRootPath + attachmentPath),
                 //uncomment the code below to enable file/folder management
                 AllowCopy = true,
                 AllowCreate = true,

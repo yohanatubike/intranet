@@ -23,8 +23,8 @@
                                         .AddRequired()
                                         .Message("Activity Name is required"));
                                                                                                           columns.AddFor(m => m.AssignedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
-                                                                                                          columns.AddFor(m => m.OfficersComment).Visible(false);
-                                                                                                          columns.AddFor(m => m.SupervisorsComment).Visible(false);
+                                                                                                          columns.AddFor(m => m.Comment).Visible(false);
+                                                                                                       
                                                                                                           columns.AddFor(m => m.IsForcalPerson); 
                                                                                                           
                                                                                                 
@@ -82,7 +82,7 @@
                 items.AddGroup()
  .Items(groupItems =>
                                                                     {
-                                                                        groupItems.AddSimpleFor(m => m.OfficersComment).Editor(e => e
+                                                                        groupItems.AddSimpleFor(m => m.Comment).Editor(e => e
                                                                             .HtmlEditor()
                                                                             .Height(200)
                                                                             .Toolbar(toolbar => toolbar.Items(
@@ -103,31 +103,7 @@
 
 
                                                                     });
-                    items.AddGroup()
-
-               .Items(groupItems =>
-                                                                {
-                                                                    groupItems.AddSimpleFor(m => m.SupervisorsComment).Editor(e => e
-                                                                        .HtmlEditor()
-                                                                        .Height(200)
-                                                                        .Toolbar(toolbar => toolbar.Items(
-                                                                            items =>
-                                                                            {
-                                                                                items.Add().FormatName(HtmlEditorToolbarItem.Bold);
-                                                                                items.Add().FormatName(HtmlEditorToolbarItem.Italic);
-                                                                                items.Add().FormatName(HtmlEditorToolbarItem.Underline);
-                                                                                items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
-                                                                                items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
-                                                                                items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
-                                                                            })
-                                                                        ));
-
-
-
-
-
-
-                                                                });
+                  
 
             })
 

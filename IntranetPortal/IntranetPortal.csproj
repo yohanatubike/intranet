@@ -15,6 +15,13 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Attachments\ActivitiesDocuments\**" />
+    <Content Remove="Attachments\ActivitiesDocuments\**" />
+    <EmbeddedResource Remove="Attachments\ActivitiesDocuments\**" />
+    <None Remove="Attachments\ActivitiesDocuments\**" />
+    <TypeScriptCompile Remove="Attachments\ActivitiesDocuments\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="wwwroot\node_modules\balanced-match\package.json" />
     <Content Include="wwwroot\node_modules\brace-expansion\package.json" />
     <Content Include="wwwroot\node_modules\cli\package.json" />
@@ -1459,11 +1466,7 @@
   <ItemGroup>
     <PackageReference Include="Arch.EntityFrameworkCore.Design" Version="2.1.15" />
     <PackageReference Include="DevExtreme.AspNet.Data" Version="2.8.6" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.7">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.7">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -1488,7 +1491,7 @@
     <TypeScriptCompile Include="wwwroot\node_modules\dom-serializer\node_modules\entities\lib\src\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Attachments\ActivitiesDocuments\" />
+    <Folder Include="Attachments\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\lib\bootstrap\" />
     <Folder Include="wwwroot\lib\bootstrap\dist\js\" />

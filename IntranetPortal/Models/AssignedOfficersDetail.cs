@@ -9,8 +9,8 @@ namespace IntranetPortal.Models
         public string Pfnumber { get; set; } = null!;
         public bool IsForcalPerson { get; set; }
         public DateTime AssignedDate { get; set; }
-        public string? OfficersComment { get; set; }
-        public string? SupervisorsComment { get; set; }
+        public string? Comment { get; set; }
+       
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public string CreatedBy { get; set; } = null!;
