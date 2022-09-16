@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Security.Claims;
+
 using System.Text;
 
 namespace IntranetPortal.Controllers
@@ -118,5 +119,11 @@ namespace IntranetPortal.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //[ChildActionOnly]
+        //public ActionResult StudentList()
+        //{
+        //    return PartialView(students);
+        //}
     }
 }

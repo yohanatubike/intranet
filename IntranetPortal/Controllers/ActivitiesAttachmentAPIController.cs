@@ -14,8 +14,8 @@ namespace IntranetPortal.Controllers
         {
             _hostingEnvironment = hostingEnvironment;
         }
-       
 
+        
         [Route("api/file-manager-file-system", Name = "FileManagementFileSystemApi")]
         public object FileSystem(FileSystemCommand command, string arguments)
         {

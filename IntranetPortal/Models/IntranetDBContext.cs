@@ -16,16 +16,19 @@ namespace IntranetPortal.Models
         {
         }
 
+        public virtual DbSet<ActivitiesComment> ActivitiesComments { get; set; } = null!;
         public virtual DbSet<ActivitiesDetail> ActivitiesDetails { get; set; } = null!;
         public virtual DbSet<AssignedOfficersDetail> AssignedOfficersDetails { get; set; } = null!;
         public virtual DbSet<Department> Departments { get; set; } = null!;
         public virtual DbSet<Designation> Designations { get; set; } = null!;
         public virtual DbSet<FrontEndSlider> FrontEndSliders { get; set; } = null!;
+        public virtual DbSet<Meeting> Meetings { get; set; } = null!;
         public virtual DbSet<Permission> Permissions { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<Section> Sections { get; set; } = null!;
         public virtual DbSet<StaffNotification> StaffNotifications { get; set; } = null!;
         public virtual DbSet<SupportsTicket> SupportsTickets { get; set; } = null!;
+        public virtual DbSet<TasacForm> TasacForms { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<UserRole> UserRoles { get; set; } = null!;
 
@@ -33,12 +36,29 @@ namespace IntranetPortal.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseNpgsql("Host=localhost;Database=IntranetDB;Username=postgres;Password=53401/T2005");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ActivitiesComment>(entity =>
+            {
+                entity.HasKey(e => e.ActivitiesCommentsId)
+                    .HasName("ActivitiesComments_pkey");
+
+                entity.Property(e => e.ActivitiesCommentsId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("ActivitiesCommentsID");
+
+                entity.Property(e => e.ActivityId).HasColumnName("ActivityID");
+
+                entity.Property(e => e.CreatedBy).HasMaxLength(100);
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
+            });
+
             modelBuilder.Entity<ActivitiesDetail>(entity =>
             {
                 entity.HasKey(e => e.ActivityId)
@@ -124,7 +144,7 @@ namespace IntranetPortal.Models
                 entity.HasKey(e => e.DesignationCode)
                     .HasName("Positions_pkey");
 
-                entity.Property(e => e.DesignationCode).HasMaxLength(20);
+                entity.Property(e => e.DesignationCode).HasMaxLength(200);
 
                 entity.Property(e => e.CreatedBy).HasMaxLength(100);
 
@@ -158,6 +178,31 @@ namespace IntranetPortal.Models
                 entity.Property(e => e.PublishStatus).HasDefaultValueSql("false");
 
                 entity.Property(e => e.UpdatedBy).HasMaxLength(100);
+            });
+
+            modelBuilder.Entity<Meeting>(entity =>
+            {
+                entity.Property(e => e.MeetingId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("MeetingID");
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.DepartmentCode).HasColumnType("character varying");
+
+                entity.Property(e => e.EndDate).HasColumnType("timestamp without time zone");
+
+                entity.Property(e => e.Location).HasColumnType("character varying");
+
+                entity.Property(e => e.SectionCode).HasColumnType("character varying");
+
+                entity.Property(e => e.StartDate).HasColumnType("timestamp without time zone");
+
+                entity.Property(e => e.Status).HasColumnType("character varying");
+
+                entity.Property(e => e.Title).HasColumnType("character varying");
+
+                entity.Property(e => e.UpdatedBy).HasColumnType("character varying");
             });
 
             modelBuilder.Entity<Permission>(entity =>
@@ -213,21 +258,29 @@ namespace IntranetPortal.Models
             modelBuilder.Entity<StaffNotification>(entity =>
             {
                 entity.HasKey(e => e.NotificationId)
-                    .HasName("StaffNotifications_pkey");
+                    .HasName("StaffNotification_pkey");
 
                 entity.Property(e => e.NotificationId)
                     .HasColumnName("NotificationID")
                     .UseIdentityAlwaysColumn();
 
+                entity.Property(e => e.Category).HasMaxLength(100);
+
+                entity.Property(e => e.CreatedBy).HasMaxLength(100);
+
                 entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
 
-                entity.Property(e => e.NotificationType).HasColumnType("character varying");
+                entity.Property(e => e.EnableComment).HasDefaultValueSql("false");
 
                 entity.Property(e => e.Pfnumber)
                     .HasColumnType("character varying")
                     .HasColumnName("PFNumber");
 
-                entity.Property(e => e.Status).HasMaxLength(20);
+                entity.Property(e => e.Status).HasColumnType("character varying");
+
+                entity.Property(e => e.Subject).HasMaxLength(100);
+
+                entity.Property(e => e.UpdatedBy).HasColumnType("character varying");
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("timestamp without time zone");
             });
@@ -252,6 +305,26 @@ namespace IntranetPortal.Models
                 entity.Property(e => e.Status).HasColumnType("character varying");
 
                 entity.Property(e => e.TicketTypes).HasColumnType("character varying");
+            });
+
+            modelBuilder.Entity<TasacForm>(entity =>
+            {
+                entity.HasKey(e => e.FormId)
+                    .HasName("Forms_pkey");
+
+                entity.Property(e => e.FormId).UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
+
+                entity.Property(e => e.DepartmentCode).HasColumnType("character varying");
+
+                entity.Property(e => e.Description).HasColumnType("character varying");
+
+                entity.Property(e => e.FileUrl).HasColumnType("character varying");
+
+                entity.Property(e => e.FormName).HasColumnType("character varying");
             });
 
             modelBuilder.Entity<User>(entity =>

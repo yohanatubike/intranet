@@ -5,10 +5,10 @@ namespace IntranetPortal.Models
 {
     public partial class ActivitiesDetail
     {
-        //public ActivitiesDetail()
-        //{
-        //    AssignedOfficersDetails = new HashSet<AssignedOfficersDetail>();
-        //}
+        public ActivitiesDetail()
+        {
+            //AssignedOfficersDetails = new HashSet<AssignedOfficersDetail>();
+        }
 
         public long ActivityId { get; set; }
         public string ActivityCode { get; set; } = null!;

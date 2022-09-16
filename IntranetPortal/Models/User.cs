@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntranetPortal.Models
@@ -19,13 +18,9 @@ namespace IntranetPortal.Models
         public string MobileNumber { get; set; } = null!;
         public string ReportingTo { get; set; } = null!;
         public string DutyStation { get; set; } = null!;
-        [DataType(DataType.Date)]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         public string? Password { get; set; }
-
         [ForeignKey("DesignationCode")]
-        public virtual Designation Designations  { get; set; }
-       
+        public virtual Designation Designations { get; set; } 
     }
 }
-

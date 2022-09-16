@@ -17,7 +17,7 @@ builder.Services.AddAuthentication("CookieAuthentication").AddCookie("CookieAuth
     options.Cookie.Name = "UserProfile";
     options.LoginPath = "/Home/Login";
     options.SlidingExpiration = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
 });
 builder.Services.AddAuthorization(config =>
 {
@@ -46,7 +46,10 @@ builder.Services.AddAuthorization(config =>
 builder.Services.AddScoped<IAuthorizationHandler, PoliciesAuthorizationHandler>();
 builder.Services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddSession();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(60);//You can set Time   
+}); ;
 var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {

@@ -10,7 +10,6 @@ namespace IntranetPortal.Models
         public bool IsForcalPerson { get; set; }
         public DateTime AssignedDate { get; set; }
         public string? Comment { get; set; }
-       
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public string CreatedBy { get; set; } = null!;
