@@ -93,7 +93,7 @@
                                                                     columns.AddFor(m => m.DutyStation).Visible(false);
                                                                     columns.AddFor(m => m.Email);
                                                                     columns.AddFor(m => m.MobileNumber).Visible(false);
-                                                                        columns.AddFor(m => m.ReportingTo).Caption("Designation").Lookup(r => r
+                                                                        columns.AddFor(m => m.ReportingTo).Caption("Reporting To").Lookup(r => r
                                                                             .DataSource(ds => ds.Mvc().Controller("SetupAPI").LoadAction("GetSupervisoryDesignation").Key("DesignationCode"))
                                                                    .ValueExpr("DesignationCode")
                                                                        .DisplayExpr("StaffDesignation"))

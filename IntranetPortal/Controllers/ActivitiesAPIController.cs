@@ -148,6 +148,24 @@ namespace IntranetPortal.Controllers
             return Ok(newActivityAssignment);
         }
         [HttpPut]
+        public async Task<IActionResult> UpdateActivity(int key, string values)
+        {
+            var ActivityData = await myContext.ActivitiesDetails.FirstOrDefaultAsync(item => item.ActivityId == key);
+            JsonConvert.PopulateObject(values, ActivityData);
+            ActivityData.UpdatedBy = UserEmail;
+            ActivityData.UpdateDate = DateTime.Now;
+            ActivityData.DepartmentCode = DepartmentCode;
+            ActivityData.SectionCode = SectionCode;
+
+            if (!TryValidateModel(ActivityData))
+                return BadRequest(ValidationErrorMessage);
+
+            await myContext.SaveChangesAsync();
+            return Ok();
+        }
+
+
+        [HttpPut]
         public async Task<IActionResult> UpdateRole(int key, string values)
         {
             var RoleDetails = await myContext.Roles.FirstOrDefaultAsync(item => item.Id == key);
