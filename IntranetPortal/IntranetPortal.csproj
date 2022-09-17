@@ -1492,6 +1492,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Attachments\" />
+    <Folder Include="Views\NewFolder\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\lib\bootstrap\" />
     <Folder Include="wwwroot\lib\bootstrap\dist\js\" />

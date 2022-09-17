@@ -18,7 +18,6 @@ namespace IntranetPortal.Controllers
         private IntranetDBContext myContext = new IntranetDBContext();
         string ValidationErrorMessage = null;
 
-
         #region for roles  
 
         [HttpGet]
@@ -71,6 +70,7 @@ namespace IntranetPortal.Controllers
         }
 
         #endregion roles management
+
         #region for Department
         [HttpGet]
         public async Task<IActionResult> GetDepartments(DataSourceLoadOptions loadOptions)
@@ -177,8 +177,6 @@ namespace IntranetPortal.Controllers
         }
         #endregion
 
-
-
         #region Designation Management
         [HttpGet]
         public async Task<IActionResult> GetDesignation(DataSourceLoadOptions loadOptions)
@@ -234,7 +232,6 @@ namespace IntranetPortal.Controllers
         }
         #endregion
 
-
         #region  Users Management
         [HttpGet]
         public async Task<IActionResult> GetListOfUsers(DataSourceLoadOptions loadOptions)
@@ -268,6 +265,7 @@ namespace IntranetPortal.Controllers
             return Ok();
         }
         #endregion
+
         #region  User's Role
         [HttpGet]
         public async Task<IActionResult> GetListOfUserRoles(DataSourceLoadOptions loadOptions)
