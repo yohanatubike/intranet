@@ -122,19 +122,18 @@
                                                                                                                                                                                                .Message("Position is required")
                                                                                                                                                                                                );
 
-                                                                                                                    columns.AddFor(m => m.Activity.ImpelementationStatus).DataField("ImpelementationStatus").Caption("Comments").CellTemplate(@<text>
-                                                                                                                                                            <% if(data.ImpelementationStatus=="Started")
-                        {%>
-                                                                                                                                                                                        <a href="#"><div class="feather icon-copy text-danger"> Started</div></a>
-                                                                                                                                    <% }
-                      if(data.ImpelementationStatus=="Pending")
-                        {%>
-                                                                                                                                                                                                    <a href="/OfficersEvaluation/OfficersEvaluationLevelAmend?CompanyTIN=<%= data.CompanyTIN%>&&AmendmentID=<%= data.AmendmentID%>&&ProjectID=<%= data.ProjectID%>"><div class="fa fa-trending-up text-success"></div></a>
-                                                                                                                                    <% }
+                                            columns.AddFor(m => m.Activity.ImpelementationStatus).DataField("ImpelementationStatus").Caption("Comments").CellTemplate(@<text>
 
 
-                        %>
-                                                                                                                    </text>);
+                                                <a href="ActivitiesManagement/ActivitiesComment?ActivityCode=<%= data.Activity.ActivityCode%>"><div class="feather icon-message-square  text-success"> Comments</div></a>
+
+
+
+
+
+
+                                            </text>);
+
 
 
 

@@ -19,6 +19,7 @@ namespace IntranetPortal.Models
         public virtual DbSet<ActivitiesComment> ActivitiesComments { get; set; } = null!;
         public virtual DbSet<ActivitiesDetail> ActivitiesDetails { get; set; } = null!;
         public virtual DbSet<AssignedOfficersDetail> AssignedOfficersDetails { get; set; } = null!;
+        public virtual DbSet<BusinessCard> BusinessCards { get; set; } = null!;
         public virtual DbSet<Department> Departments { get; set; } = null!;
         public virtual DbSet<Designation> Designations { get; set; } = null!;
         public virtual DbSet<FrontEndSlider> FrontEndSliders { get; set; } = null!;
@@ -119,6 +120,32 @@ namespace IntranetPortal.Models
                 //    .HasForeignKey(d => d.ActivityId)
                 //    .OnDelete(DeleteBehavior.ClientSetNull)
                 //    .HasConstraintName("OfficersActivityAssignment");
+            });
+
+            modelBuilder.Entity<BusinessCard>(entity =>
+            {
+                entity.HasKey(e => e.Pfnumber)
+                    .HasName("BusinessCards_pkey");
+
+                entity.Property(e => e.Pfnumber)
+                    .HasColumnType("character varying")
+                    .HasColumnName("PFNumber");
+
+                entity.Property(e => e.Email).HasColumnType("character varying");
+
+                entity.Property(e => e.Fax).HasColumnType("character varying");
+
+                entity.Property(e => e.FirstName).HasColumnType("character varying");
+
+                entity.Property(e => e.LastName).HasColumnType("character varying");
+
+                entity.Property(e => e.MiddleName).HasColumnType("character varying");
+
+                entity.Property(e => e.MobileNumber).HasColumnType("character varying");
+
+                entity.Property(e => e.Telephone).HasColumnType("character varying");
+
+                entity.Property(e => e.Title).HasColumnType("character varying");
             });
 
             modelBuilder.Entity<Department>(entity =>

@@ -97,35 +97,36 @@
 
                                             columns.AddFor(m => m.Subject);
 
-                                                columns.AddFor(m => m.Status).Lookup(r => r
-                                        .DataSource(new string[] {
-                                "Create",
+                                            columns.AddFor(m => m.Status).DataField("Status").Caption("Status").CellTemplate(
+                                        @<text>
+                                            <% if(data.Status=="Created")
+                                    {%>
+                                            <a href="#"><div class="feather icon-bell text-danger"> Waiting</div></a>
+                                            <% }
+                                    if(data.Status=="Activated")
+                                    {%>
+                                            <a href="#"><div class="feather icon-bell text-success"> Active</div></a>
+                                            <% }
+
+
+                                    %>
+                                                                </text>
+                                                        ).Lookup(r => r
+                                                                .DataSource(new string[] {
+                                "Created",
                                 "Activated",
                                 "Closed"
 
 
-                                        }
-                                        )
-                                        )
-                                        .ValidationRules(r => r
-                                        .AddRequired()
-                                        .Message("Priority is required")
-                                        ); 
+                                            }
+                                                                )
+                                                                )
+                                                                .ValidationRules(r => r
+                                                                .AddRequired()
+                                                                .Message("Priority is required")
+                                                                );
 
-                                            columns.AddFor(m => m.Category).DataField("ImpelementationStatus").Caption("Comments").CellTemplate(
-                                @<text>
-                                                <% if(data.ImpelementationStatus=="Started")
-                                    {%>
-                                                <a href="#"><div class="feather icon-copy text-danger"> Started</div></a>
-                                                <% }
-                                    if(data.ImpelementationStatus=="Pending")
-                                    {%>
-                                                <a href="/OfficersEvaluation/OfficersEvaluationLevelAmend?CompanyTIN=<%= data.CompanyTIN%>&&AmendmentID=<%= data.AmendmentID%>&&ProjectID=<%= data.ProjectID%>"><div class="fa fa-trending-up text-success"></div></a>
-                                                <% }
-
-
-                                    %>
-                                            </text>);
+                                                    columns.AddFor(m => m.Category).Visible(false);
 
 
 

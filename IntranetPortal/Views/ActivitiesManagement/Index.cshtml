@@ -109,10 +109,12 @@ columns.AddFor(m => m.Description).Caption("Description").DataField("Description
                                                         </text>);
                                                         columns.AddFor(m => m.ImpelementationStatus).Lookup(r => r
                                                         .DataSource(new string[] {
-"Started",
-"Completed",
-"Pending"
 
+                                "Planned",
+                                "Implementation",
+                                "Completed",
+                                "Archive",
+                                "Cancelled",
 
                                                                                                                    }
                                                                                                                    )
@@ -123,16 +125,11 @@ columns.AddFor(m => m.Description).Caption("Description").DataField("Description
                                                                                                                    );
 
                                                         columns.AddFor(m => m.ImpelementationStatus).DataField("ImpelementationStatus").Caption("Comments").CellTemplate(@<text>
-                                                                        <% if(data.ImpelementationStatus=="Started")
+                                                                        
                         {%>
-                                                                                                    <a href="#"><div class="feather icon-copy text-danger"> Started</div></a>
-                                                <% }
-                      if(data.ImpelementationStatus=="Pending")
-                        {
-                        %>
-                      <a href="/OfficersEvaluation/OfficersEvaluationLevelAmend?CompanyTIN=<%= data.CompanyTIN%>&&AmendmentID=<%= data.AmendmentID%>&&ProjectID=<%= data.ProjectID%>"><div class="fa fa-trending-up text-success"></div></a>
-                        <% 
-                        }
+                                                <a href="ActivitiesManagement/ActivitisAttachments?ActivityCode=<%= data.ActivityCode%>"><div class="feather icon-message-square  text-success"> Comments</div></a>
+                                               
+                     
 
 
                         %>

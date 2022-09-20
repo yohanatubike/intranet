@@ -18,5 +18,11 @@ namespace IntranetPortal.Controllers
             HttpContext.Session.SetString("ActivityCode", ActivityCode.Trim('"'));
             return View();
         }
+        public IActionResult ActivitiesComment(string ActivityCode)
+        {
+
+            HttpContext.Session.SetString("ActivityCode", ActivityCode.Trim('"'));
+            return View();
+        }
     }
 }

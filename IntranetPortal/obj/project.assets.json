@@ -4575,9 +4575,9 @@
       "path": "devextreme.aspnet.core/20.2.11",
       "files": [
         ".nupkg.metadata",
-        "DevExtreme.AspNet.Core.20.2.11.nupkg.sha512",
-        "DevExtreme.AspNet.Core.nuspec",
         "LICENSE.txt",
+        "devextreme.aspnet.core.20.2.11.nupkg.sha512",
+        "devextreme.aspnet.core.nuspec",
         "dxlogo.png",
         "lib/netstandard2.0/DevExtreme.AspNet.Core.dll",
         "lib/netstandard2.0/DevExtreme.AspNet.Core.xml"

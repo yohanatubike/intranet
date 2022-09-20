@@ -1,0 +1,117 @@
+﻿@{
+    ViewData["Title"] = "Finance Unit Forms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewData["Title"] = "Finance Unit Forms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-file bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Employee Details Form</h5>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class=" breadcrumb breadcrumb-title">
+                    <li class="breadcrumb-item">
+                        <a href="index.html"><i class="feather icon-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#!">Dashboard</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row" style="margin:20px;">
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>Perfonal Details</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="padding:20px;">
+                                <div style="color:red">@ViewBag.Error</div><div style="color:green">@ViewBag.Success</div>
+@using DevExtreme.AspNet.Mvc
+                    @using IntranetPortal.Models
+                    @model BusinessCard
+                                @using (Html.BeginForm("SaveDetails", "BusinessCard", FormMethod.Post, new { id = "formAssignment", enctype = "multipart/form-data" }))
+                    {
+                        @(Html.DevExtreme().Form<BusinessCard>()
+                            .ID("form")
+
+
+                            .Items(items =>
+                            {
+                                items.AddGroup()
+                             
+                                .ColCount(3)
+                                .Items(groupItems =>
+                                {
+                                    groupItems.AddSimpleFor(m => m.Pfnumber);
+                                    groupItems.AddSimpleFor(m => m.FirstName);
+                                    groupItems.AddSimpleFor(m => m.MiddleName);
+                                    groupItems.AddSimpleFor(m => m.LastName);
+                                                groupItems.AddSimpleFor(m => m.Email);
+                                                groupItems.AddSimpleFor(m => m.MobileNumber);
+                                    
+                                   
+
+                                });
+
+                                items.AddGroup()
+
+                                .ColCount(3)
+                                .Items(groupItems =>
+                                {
+
+                                                groupItems.AddSimpleFor(m => m.Title);
+                                    groupItems.AddSimpleFor(m => m.Telephone);
+                                                groupItems.AddSimpleFor(m => m.Fax);
+                                    groupItems.AddButton().HorizontalAlignment(HorizontalAlignment.Center)
+                                .ButtonOptions(b => b.Text("Submit")
+                                .Type(ButtonType.Success)
+                                .UseSubmitBehavior(true)
+                                );
+
+                                });
+
+
+
+
+
+                            })
+                            .FormData(Model)
+                            )
+                    }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
