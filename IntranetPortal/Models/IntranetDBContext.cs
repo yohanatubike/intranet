@@ -41,7 +41,7 @@ namespace IntranetPortal.Models
         public virtual DbSet<Documentation> Documentations { get; set; } = null!;
         public virtual DbSet<TasacSystem> TasacSystems { get; set; } = null!;
         public virtual DbSet<TasacLibrary> TasacLibraries { get; set; } = null!;
-
+        public virtual DbSet<PermissionCategorie> PermissionCategories { get; set; } = null!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -208,6 +208,19 @@ namespace IntranetPortal.Models
 
                 entity.Property(e => e.UpdatedBy).HasMaxLength(100);
             });
+
+            modelBuilder.Entity<PermissionCategorie>(entity =>
+            {
+                entity.HasKey(e => e.PermissionCategoryId)
+                    .HasName("PermissionCategorie_pkey");
+                entity.Property(e => e.PermissionCategoryId)
+                    .HasColumnName("PermissionCategoryID")
+                    .UseIdentityAlwaysColumn();
+                entity.Property(e => e.PermissionName).HasColumnType("character varying");
+                entity.Property(e => e.Address).HasMaxLength(200);
+
+            });
+
 
             modelBuilder.Entity<Meeting>(entity =>
             {

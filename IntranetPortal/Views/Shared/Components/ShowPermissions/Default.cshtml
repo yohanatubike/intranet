@@ -1,16 +1,15 @@
 ﻿@model IEnumerable<Permission>
 <ul class="pcoded-submenu">
    
-
+     
      @foreach (var notif in Model)
                 {
         <li class=" ">
-            <a href="form-elements-component.html" class="waves-effect waves-dark">
+            <a href="/ContentManager/Index?parameter=@notif.Address" class="waves-effect waves-dark">
                 <span class="pcoded-mtext">@notif.PermissionName</span>
             </a>
         </li>
-            
-                }
-                
+           
+                }    
             }
 </ul>

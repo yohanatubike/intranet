@@ -29,6 +29,7 @@ namespace IntranetPortal.Repositories
                 .Where(t => t.Pfnumber == PFNumber && t.Status == true).Select(permission => new Permission()
                 {
                     PermissionName = permission.PermissionName,
+                    Address = permission.Address
 
 
                 }).ToList();
