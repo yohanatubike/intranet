@@ -3,27 +3,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="page-header card">
-<div class="row align-items-end">
-<div class="col-lg-8">
-<div class="page-header-title">
-<i class="feather icon-file bg-c-blue"></i>
-<div class="d-inline">
-<h5>Finance and Administration Forms</h5>
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-file bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Finance and Administration Forms</h5>
 
-</div>
-</div>
-</div>
-<div class="col-lg-4">
-<div class="page-header-breadcrumb">
-<ul class=" breadcrumb breadcrumb-title">
-<li class="breadcrumb-item">
-<a href="index.html"><i class="feather icon-home"></i></a>
-</li>
-<li class="breadcrumb-item"><a href="#!">Dashboard</a> </li>
-</ul>
-</div>
-</div>
-</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class=" breadcrumb breadcrumb-title">
+                    <li class="breadcrumb-item">
+                        <a href="index.html"><i class="feather icon-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#!">Dashboard</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="pcoded-inner-content">
@@ -51,9 +51,9 @@
                                     ()
                                     .DataSource(ds => ds.Mvc()
                                     .Controller("FormsApi")
-                                   
-                                    .LoadAction("GetForms")
-                                    
+
+                                    .LoadAction("GetFAUForms")
+
                                     .Key("FormId")
 
                                     )
@@ -62,9 +62,24 @@
                                     {
                                         columns.AddFor(m => m.FormName);
                                         columns.AddFor(m => m.DepartmentCode).Caption("Department Name");
-                                        
+
                                         columns.AddFor(m => m.Description);
-                                       
+                                            columns.AddFor(m => m.FileUrl).Caption("Preview").CellTemplate(
+                                        @<text>
+                                            <% if(data.FileUrl == null) {%>
+
+                                            <a href="javascript:void(0)">
+                                                <div class="feather icon-alert-circle  text-danger"> No Attachment</div>
+                                            </a>
+
+                                            <% } if(data.FileUrl != null) { %>
+
+                                            <a href="GetPdf?Filename=<%= data.FileUrl%>" target="_blank">
+                                                <div class="feather icon-paperclip  text-primary"> Preview Attachment</div>
+                                            </a>
+                                            <%}%>
+                                        </text>);
+
                                     })
 
                                     .SearchPanel(f => f.Visible(true))

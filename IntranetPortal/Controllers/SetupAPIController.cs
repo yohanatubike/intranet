@@ -30,6 +30,30 @@ namespace IntranetPortal.Controllers
             return  Content( resultJson, "application/json");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetPermissions(DataSourceLoadOptions loadOptions)
+        {
+            var result = DataSourceLoader.Load(myContext.Permissions, loadOptions);
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddNewPermisson(string values)
+        {
+            var newPermission = new Permission();
+
+            JsonConvert.PopulateObject(values, newPermission);
+            //if (!TryValidateModel(newPermission))
+
+            //    return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
+            newPermission.CreatedBy = "mustafa.juma@tasac.go.tz";
+            newPermission.CreatedDate = DateTime.Now;
+            myContext.Permissions.Add(newPermission);
+            await myContext.SaveChangesAsync();
+            return Ok(newPermission);
+        }
         [HttpPost]
         public async Task<IActionResult> AddNewRole (string values)
         {
@@ -86,12 +110,13 @@ namespace IntranetPortal.Controllers
         public async Task<IActionResult> AddDepartment(string values)
         {
             var newDepartment = new  Department();
+
             JsonConvert.PopulateObject(values, newDepartment);
             if (!TryValidateModel(newDepartment))
-
+            
             return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
             newDepartment.CreatedBy = "mustafa.juma@tasac.go.tz";
-            newDepartment.CreatedDate = DateTime.Now;
+            newDepartment.CreatedDate = DateTime.UtcNow;
             newDepartment.DepartmentCode.ToUpper();
             newDepartment.DepartmentName.ToUpper();
 
@@ -108,6 +133,7 @@ namespace IntranetPortal.Controllers
             JsonConvert.PopulateObject(values, DepartmentDetails);
 
             if (!TryValidateModel(DepartmentDetails))
+
                 return BadRequest(ValidationErrorMessage);
 
             await myContext.SaveChangesAsync();

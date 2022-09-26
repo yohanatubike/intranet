@@ -1,6 +1,8 @@
 
+using IntranetPortal.Components;
 using IntranetPortal.CustomHandler;
 using IntranetPortal.Models;
+using IntranetPortal.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -45,6 +47,7 @@ builder.Services.AddAuthorization(config =>
 
 builder.Services.AddScoped<IAuthorizationHandler, PoliciesAuthorizationHandler>();
 builder.Services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();
+builder.Services.AddScoped<GetIndexData>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession(options =>
 {

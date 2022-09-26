@@ -24,14 +24,23 @@ namespace IntranetPortal.Models
         public virtual DbSet<Designation> Designations { get; set; } = null!;
         public virtual DbSet<FrontEndSlider> FrontEndSliders { get; set; } = null!;
         public virtual DbSet<Meeting> Meetings { get; set; } = null!;
+        public virtual DbSet<MeetingComment> MeetingComments { get; set; } = null!;
+        public virtual DbSet<MeetingInvitation> MeetingInvitations { get; set; } = null!;
+        public virtual DbSet<NotificationComment> NotificationComments { get; set; } = null!;
         public virtual DbSet<Permission> Permissions { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<Section> Sections { get; set; } = null!;
+        public virtual DbSet<ServiceCategory> ServiceCategories { get; set; } = null!;
+        public virtual DbSet<ServiceSubCategory> ServiceSubCategories { get; set; } = null!;
         public virtual DbSet<StaffNotification> StaffNotifications { get; set; } = null!;
         public virtual DbSet<SupportsTicket> SupportsTickets { get; set; } = null!;
+        public virtual DbSet<SupportsTicketsComment> SupportsTicketsComments { get; set; } = null!;
         public virtual DbSet<TasacForm> TasacForms { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<UserRole> UserRoles { get; set; } = null!;
+        public virtual DbSet<Documentation> Documentations { get; set; } = null!;
+        public virtual DbSet<TasacSystem> TasacSystems { get; set; } = null!;
+        public virtual DbSet<TasacLibrary> TasacLibraries { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -114,12 +123,6 @@ namespace IntranetPortal.Models
                 entity.Property(e => e.UpdateBy).HasColumnType("character varying");
 
                 entity.Property(e => e.UpdatedDate).HasColumnType("timestamp without time zone");
-
-                //entity.HasOne(d => d.Activity)
-                //    .WithMany(p => p.AssignedOfficersDetails)
-                //    .HasForeignKey(d => d.ActivityId)
-                //    .OnDelete(DeleteBehavior.ClientSetNull)
-                //    .HasConstraintName("OfficersActivityAssignment");
             });
 
             modelBuilder.Entity<BusinessCard>(entity =>
@@ -210,8 +213,8 @@ namespace IntranetPortal.Models
             modelBuilder.Entity<Meeting>(entity =>
             {
                 entity.Property(e => e.MeetingId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("MeetingID");
+                   .HasColumnName("MeetingID")
+                   .UseIdentityAlwaysColumn();
 
                 entity.Property(e => e.CreatedBy).HasColumnType("character varying");
 
@@ -230,6 +233,64 @@ namespace IntranetPortal.Models
                 entity.Property(e => e.Title).HasColumnType("character varying");
 
                 entity.Property(e => e.UpdatedBy).HasColumnType("character varying");
+            });
+
+            modelBuilder.Entity<MeetingComment>(entity =>
+            {
+                entity.Property(e => e.MeetingCommentId)
+                    .HasColumnName("MeetingCommentID")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
+
+                entity.Property(e => e.MeetingId).HasColumnName("MeetingID");
+
+                entity.Property(e => e.Pfnumber)
+                    .HasColumnType("character varying")
+                    .HasColumnName("PFNumber");
+            });
+
+            modelBuilder.Entity<MeetingInvitation>(entity =>
+            {
+                entity.ToTable("MeetingInvitation");
+
+                entity.Property(e => e.MeetingInvitationId)
+                    .HasColumnName("MeetingInvitationID")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.InvitedBy).HasColumnType("character varying");
+                entity.Property(e => e.AcceptanceStatus).HasColumnType("character varying");
+                entity.Property(e => e.InvitedDate).HasColumnType("timestamp without time zone");
+                entity.Property(e => e.IsFocalPerson).HasDefaultValueSql("false");
+                entity.Property(e => e.UpdateDate).HasColumnType("timestamp without time zone");
+
+                entity.Property(e => e.MeetingId).HasColumnName("MeetingID");
+
+                entity.Property(e => e.Pfnumber)
+                    .HasColumnType("character varying")
+                    .HasColumnName("PFNumber");
+
+                entity.Property(e => e.UpdatedBy).HasColumnType("character varying");
+            });
+
+            modelBuilder.Entity<NotificationComment>(entity =>
+            {
+                entity.HasKey(e => e.NitificationCommentId)
+                    .HasName("NotificationComment_pkey");
+
+                entity.ToTable("NotificationComment");
+
+                entity.Property(e => e.NitificationCommentId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("NitificationCommentID");
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
+
+                entity.Property(e => e.NotificationId).HasColumnName("NotificationID");
             });
 
             modelBuilder.Entity<Permission>(entity =>
@@ -282,6 +343,35 @@ namespace IntranetPortal.Models
                 entity.Property(e => e.SectionName).HasMaxLength(100);
             });
 
+            modelBuilder.Entity<ServiceCategory>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("ServiceCategory");
+
+                entity.Property(e => e.ServiceCategoryCode).HasColumnType("character varying");
+
+                entity.Property(e => e.ServiceCategoryId)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("ServiceCategoryID")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.ServiceName).HasColumnType("character varying");
+            });
+
+            modelBuilder.Entity<ServiceSubCategory>(entity =>
+            {
+                entity.ToTable("ServiceSubCategory");
+
+                entity.Property(e => e.ServiceSubCategoryId)
+                    .HasColumnName("ServiceSubCategoryID")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.ServiceCategoryCode).HasColumnType("character varying");
+
+                entity.Property(e => e.ServiceSubCategoryName).HasColumnType("character varying");
+            });
+
             modelBuilder.Entity<StaffNotification>(entity =>
             {
                 entity.HasKey(e => e.NotificationId)
@@ -321,7 +411,17 @@ namespace IntranetPortal.Models
                     .HasColumnName("TicketID")
                     .UseIdentityAlwaysColumn();
 
-                entity.Property(e => e.AttendedBy).HasMaxLength(100);
+                entity.Property(e => e.AssignedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.AssignedDate).HasColumnType("timestamp without time zone");
+
+                entity.Property(e => e.AssignedStatus).HasColumnType("character varying");
+
+                entity.Property(e => e.AssignedTo).HasMaxLength(100);
+
+                entity.Property(e => e.ClosedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.ClosedDate).HasColumnType("timestamp without time zone");
 
                 entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
 
@@ -329,9 +429,27 @@ namespace IntranetPortal.Models
 
                 entity.Property(e => e.LodgedBy).HasColumnType("character varying");
 
+                entity.Property(e => e.ServiceCategoryCode).HasColumnType("character varying");
+
                 entity.Property(e => e.Status).HasColumnType("character varying");
 
                 entity.Property(e => e.TicketTypes).HasColumnType("character varying");
+            });
+
+            modelBuilder.Entity<SupportsTicketsComment>(entity =>
+            {
+                entity.HasKey(e => e.CommentId)
+                    .HasName("SupportsTicketsComments_pkey");
+
+                entity.Property(e => e.CommentId)
+                    .HasColumnName("CommentID")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
+
+                entity.Property(e => e.TicketId).HasColumnName("TicketID");
             });
 
             modelBuilder.Entity<TasacForm>(entity =>

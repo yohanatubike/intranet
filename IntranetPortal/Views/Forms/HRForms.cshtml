@@ -52,7 +52,7 @@
                                     .DataSource(ds => ds.Mvc()
                                     .Controller("FormsApi")
 
-                                    .LoadAction("GetForms")
+                                    .LoadAction("GetHRForms")
 
                                     .Key("FormId")
 
@@ -64,6 +64,21 @@
                                         columns.AddFor(m => m.DepartmentCode).Caption("Department Name");
 
                                         columns.AddFor(m => m.Description);
+                                            columns.AddFor(m => m.FileUrl).Caption("Preview").CellTemplate(
+                                        @<text>
+                                            <% if(data.FileUrl == null) {%>
+
+                                            <a href="javascript:void(0)>">
+                                                <div class="feather icon-alert-circle text-danger"> Attachment</div>
+                                            </a>
+
+                                            <% } if(data.FileUrl != null) { %>
+
+                                            <a href="GetPdf?Filename=<%= data.FileUrl%>" target="_blank">
+                                                <div class="feather icon-paperclip  text-primary"> Preview Attachment</div>
+                                            </a>
+                                            <%}%>
+                                        </text>);
 
                                     })
 

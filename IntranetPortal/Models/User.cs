@@ -21,6 +21,6 @@ namespace IntranetPortal.Models
         public DateTime? DateOfBirth { get; set; }
         public string? Password { get; set; }
         [ForeignKey("DesignationCode")]
-        public virtual Designation Designations { get; set; } 
+        public virtual Designation Designations { get; set; }
     }
 }

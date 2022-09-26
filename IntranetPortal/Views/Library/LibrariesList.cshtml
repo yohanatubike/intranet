@@ -1,0 +1,122 @@
+﻿@using DevExtreme.AspNet.Mvc
+@{
+    ViewData["Title"] = "Libraries";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-file bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Tasac Libraries</h5>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class=" breadcrumb breadcrumb-title">
+                    <li class="breadcrumb-item">
+                        <a href="index.html"><i class="feather icon-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#!">Dashboard</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>Libraries</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
+                                @(Html.DevExtreme().DataGrid<IntranetPortal.Models.TasacLibrary>
+                                        ()
+                                        .DataSource(ds => ds.Mvc()
+                                        .Controller("LibraryApi")
+                                        .LoadAction("GetLibraries")
+                                        .Key("LibraryId")
+
+                                        )
+                                        .RemoteOperations(true)
+                                        .Columns(columns =>
+                                        {
+                                            columns.AddFor(m => m.Name);
+                                            columns.AddFor(m => m.DepartmentCode).Caption("Department Name");
+                                            columns.AddFor(m => m.Description);
+                                            columns.AddFor(m => m.FileUrl).Caption("Preview").CellTemplate(
+                                        @<text>
+                                            <% if(data.FileUrl == null) {%>
+                                            <a href="javascript:void(0)">
+                                                <div class="feather icon-alert-circle text-danger"> No Attachment</div>
+                                            </a>
+                                            <% } if(data.FileUrl != null) { %>
+                                            <a href="GetPdf?Filename=<%= data.FileUrl%>" target="_blank">
+                                                <div class="feather icon-paperclip  text-primary"> Preview Attachment</div>
+                                            </a>
+                                            <%}%>
+                                        </text>);
+                                        })
+
+                                    .SearchPanel(f => f.Visible(true))
+                                    .Paging(p => p.PageSize(10))
+                                    .HeaderFilter(f => f.Visible(true))
+                                    .Grouping(g => g.ContextMenuEnabled(true))
+                                    .Grouping(g => g.AutoExpandAll(true))
+                                    .RemoteOperations(true)
+                                    .Selection(s => s.Mode(SelectionMode.Multiple))
+                                    .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
+                                    .Editing(e => e
+                                    .AllowAdding(false)
+                                    .Popup(p => p
+                                    .Title("Add New Form")
+                                    .ShowTitle(true)
+                                    .Width(500)
+                                    .Height(250)
+                                    )
+
+                                    .AllowUpdating(false)
+                                    .AllowDeleting(false)
+                                    .Mode(GridEditMode.Popup)
+                                    .UseIcons(true)
+                                    .Form(f => f
+                                    .ID("FormCreation")
+                                    .ColCount(1)
+                                    .Items(items =>
+                                    {
+                                        items.AddGroup()
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.Name);
+                                            groupItems.AddSimpleFor(m => m.Description);
+                                        });
+                                    })
+                                    )
+                                    )
+                                    )
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

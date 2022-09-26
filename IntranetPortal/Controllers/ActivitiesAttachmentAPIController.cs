@@ -1,4 +1,5 @@
 ﻿using DevExtreme.AspNet.Mvc.FileManagement;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting.Internal;
 using System.IO;
@@ -6,6 +7,7 @@ using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace IntranetPortal.Controllers
 {
+    [Authorize]
     public class ActivitiesAttachmentAPIController : Controller
     {
         IHostingEnvironment _hostingEnvironment;
@@ -31,7 +33,7 @@ namespace IntranetPortal.Controllers
             {
                 Request = Request,
                 FileSystemProvider = new PhysicalFileSystemProvider(_hostingEnvironment.ContentRootPath + attachmentPath),
-                //uncomment the code below to enable file/folder management
+            
                 AllowCopy = true,
                 AllowCreate = true,
                 AllowMove = true,

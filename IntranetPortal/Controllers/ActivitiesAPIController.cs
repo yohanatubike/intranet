@@ -92,7 +92,7 @@ namespace IntranetPortal.Controllers
             Random Ino = new Random();
             long ran_no = Ino.Next(1, 10000);
             DateTime now = DateTime.Now;
-            return DepartmentCode + now.Year + "-" + ran_no.ToString() + now.Month + now.Day;
+            return DepartmentCode + now.Year + "-A" + ran_no.ToString() + now.Month + now.Day;
         }
         [HttpPut]
         public async Task<IActionResult> UpdateOfficerActivities(long key, string values)

@@ -11,10 +11,14 @@ namespace IntranetPortal.Models
         public DateTime CreatedDate { get; set; }
         public string LodgedBy { get; set; } = null!;
         public string Description { get; set; } = null!;
-        public string? AttendedBy { get; set; }
-        public string? OfficersComments { get; set; }
+        public string? AssignedTo { get; set; }
         public DateTime? AttendedDate { get; set; }
-        public string? SupervisorsComments { get; set; }
         public string Status { get; set; } = null!;
+        public DateTime? ClosedDate { get; set; }
+        public string? AssignedStatus { get; set; }
+        public string? AssignedBy { get; set; }
+        public string? ClosedBy { get; set; }
+        public string? ServiceCategoryCode { get; set; }
+        public DateTime? AssignedDate { get; set; }
     }
 }

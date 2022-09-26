@@ -1,0 +1,130 @@
+﻿Meeting  Name :  <%= data.Title %>
+    @(Html.DevExtreme().DataGrid<IntranetPortal.Models.MeetingInvitation>()
+                                                                                                           .ColumnAutoWidth(true)
+                                                                                                           .OnInitNewRow(string.Format("function(e) {{ onInitNewRow(e, {0}); }}", new JS("data.MeetingId")))
+
+                                                                                                           .ShowBorders(true)
+                                                                                                          .Columns(columns =>
+                                                                                                          {
+
+
+                                                                                                              columns.AddFor(m => m.Pfnumber).SortOrder(SortOrder.Desc).Caption("Staff Name").Lookup(r => r
+                                             .DataSource(ds => ds.Mvc().Controller("MeetingManagementAPI").LoadAction("GetListofOfficers").Key("PFNumber"))
+                                            .ValueExpr("PFNumber")
+                                            .DisplayExpr("Email"))
+                                            .ValidationRules(r => r
+                                            .AddRequired()
+                                            .Message("Staff Name is required"));
+                                                                                                              columns.AddFor(m => m.MeetingId).SortOrder(SortOrder.Desc).Caption("Meeting Name").Lookup(r => r
+                                                    .DataSource(ds => ds.Mvc().Controller("MeetingManagementAPI").LoadAction("GetMeetings").Key("MeetingId"))
+                                                .ValueExpr("MeetingId")
+                                            .DisplayExpr("Title"))
+                                            .ValidationRules(r => r
+                                            .AddRequired()
+                                            .Message("Meeting Name is required")).Visible(false);
+                                                                                                              columns.AddFor(m => m.InvitedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                                                                                            
+
+                                                                                                              columns.AddFor(m => m.IsFocalPerson);
+                                                                                                                                                                    
+                                                                                                                                                                        columns.AddFor(m => m.AcceptanceStatus).Lookup(r => r
+                                                                                                  .DataSource(new string[] {
+                                "Accepted",
+                                "Rejected",
+                                
+
+
+                                                                                                  }
+                                                                                                  )
+                                                                                                  )
+                                                                                                  .ValidationRules(r => r
+                                                                                                  .AddRequired()
+                                                                                                  .Message("Priority is required")
+                                                                                                  ).Caption("Acceptance Status").CellTemplate(@<text>
+                                                                                                                                 <% if( data.AcceptanceStatus=="Accepted")
+    
+    {%>
+                                                                                                                                 <a href="#"><div class="fa fa-check text-primary">Accepted</div></a>
+                                                                                                                                 <% }
+    if(  data.AcceptanceStatus=="Rejected")
+    {%>
+                                            <a href="#"><div class="fa fa-share text-danger"> Rejected</div></a>
+                                                                                                                                 <% }
+    if(  data.AcceptanceStatus==null)
+    {%>
+                                                                                                                  <a href="#"><div class="fa fa-pause text-danger"> Waiting</div></a>
+                                                                                                                  <% }
+
+    %>
+                                                                                                                                 </text>);
+
+
+
+
+                                                                                                          })
+
+                .SearchPanel(f => f.Visible(true))
+                .Paging(p => p.PageSize(10))
+                .HeaderFilter(f => f.Visible(true))
+                .Grouping(g => g.ContextMenuEnabled(true))
+                .Grouping(g => g.AutoExpandAll(true))
+                .Selection(s => s.Mode(SelectionMode.Multiple))
+                .Export(e => e.Enabled(true).FileName("ListofShareholders").AllowExportSelectedData(true))
+                .Editing(e => e
+                .AllowAdding(false)
+                .Popup(p => p
+                .Title("Invite Staff")
+                .ShowTitle(true)
+                .Width(1000)
+                .Height(400)
+
+                .Position(pos => pos
+                .My(HorizontalAlignment.Center, VerticalAlignment.Center)
+                .At(HorizontalAlignment.Center, VerticalAlignment.Center)
+                .Of(new JS("window"))
+                )
+                )
+
+                .AllowUpdating(true)
+                .AllowAdding(true)
+
+
+                .Mode(GridEditMode.Popup)
+                .UseIcons(true)
+                .Form(f => f
+                .ID("ActivitiesAssignment")
+                .ColCount(1)
+                .Items(items =>
+                {
+                    items.AddGroup()
+                        .ColCount(2)
+                    .Items(groupItems =>
+                    {
+                        groupItems.AddSimpleFor(m => m.Pfnumber);
+                       
+                        groupItems.AddSimpleFor(m => m.InvitedDate).Editor(e => e.DateBox());
+                            groupItems.AddSimpleFor(m => m.AcceptanceStatus);
+                        groupItems.AddSimpleFor(m => m.IsFocalPerson).Editor(e => e.CheckBox());
+
+
+
+
+                    });
+                })
+
+                )
+                )
+                .DataSource(ds => ds.Mvc()
+                                                        .Controller("MeetingManagementAPI")
+                                                        .InsertAction("InviteOfficers")
+                                                        .LoadAction("GetListofAssignedOfficersMeeting")
+                                                            .UpdateAction("UpdateInviteOfficers")
+
+                                                            .Key("MeetingInvitationId")
+                                                            .LoadParams(new { MeetingId = new JS("data.MeetingId") })
+
+
+                                                    )
+    )
+
+

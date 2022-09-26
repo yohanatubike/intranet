@@ -8,5 +8,10 @@ namespace IntranetPortal.Controllers
         {
             return View();
         }
+
+        public IActionResult LibrariesList()
+        {
+            return View();
+        }
     }
 }

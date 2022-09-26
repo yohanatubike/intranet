@@ -15,7 +15,6 @@ namespace IntranetPortal.Models
         public string CreatedBy { get; set; } = null!;
         public string? UpdateBy { get; set; }
         public long ActivityId { get; set; }
-
         public virtual ActivitiesDetail Activity { get; set; } = null!;
     }
 }

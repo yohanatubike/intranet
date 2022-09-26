@@ -378,7 +378,7 @@
                                                 </li>
 
                                                 <li class=" ">
-                                                    <a href="/StaffPage/Groups" class="waves-effect waves-dark">
+                                                    <a href="/StaffPage/UserPermission" class="waves-effect waves-dark">
                                                         <span class="pcoded-mtext">Permission</span>
                                                     </a>
                                                 </li>
@@ -415,45 +415,9 @@
 <span class="pcoded-micon">
 <i class="feather icon-refresh-cw"></i>
 </span>
-<span class="pcoded-mtext" >Content Management</span>
+<span class="pcoded-mtext" >Manage Contents</span>
 </a>
-<ul class="pcoded-submenu">
-<li class=" ">
-<a href="form-elements-component.html" class="waves-effect waves-dark">
-<span class="pcoded-mtext">Front Sliders</span>
-</a>
-</li>
-<li class=" ">
-<a href="form-elements-add-on.html" class="waves-effect waves-dark">
-<span class="pcoded-mtext">Ongoing Activities</span>
-</a>
-</li>
-<li class=" ">
-<a href="form-elements-add-on.html" class="waves-effect waves-dark">
-<span class="pcoded-mtext">News & Event</span>
-</a>
-</li>
-<li class=" ">
-<a href="form-elements-add-on.html" class="waves-effect waves-dark">
-<span class="pcoded-mtext">Tips Manager</span>
-</a>
-</li>
-<li class=" ">
-<a href="form-elements-add-on.html" class="waves-effect waves-dark">
-<span class="pcoded-mtext">Quiz Manager</span>
-</a>
-</li>
-<li class=" ">
-<a href="form-elements-add-on.html" class="waves-effect waves-dark">
-<span class="pcoded-mtext">Articles Manager</span>
-</a>
-</li>
-<li class=" ">
-<a href="form-elements-add-on.html" class="waves-effect waves-dark">
-<span class="pcoded-mtext">Library</span>
-</a>
-</li>
-</ul>
+                                            @await Component.InvokeAsync("ShowPermissions")
 </li>}
  @if ((await AuthorizationService.AuthorizeAsync(User, "Supervisor")).Succeeded)
                                     {

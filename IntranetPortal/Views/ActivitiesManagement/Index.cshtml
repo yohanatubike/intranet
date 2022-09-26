@@ -78,16 +78,16 @@
 
 
 
-                                                        columns.AddFor(m => m.ActivityCode).Visible(false); 
-                                                        columns.AddFor(m => m.ActivityName);
-                                                            
+                                                        
+                                                    columns.AddFor(m => m.ActivityCode).Visible(false); 
+                                                    columns.AddFor(m => m.ActivityName);        
                                                     columns.AddFor(m => m.StartDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy"); 
                                                     columns.AddFor(m => m.EndDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy"); 
                                                     columns.AddFor(m => m.Priority).Lookup(r => r
-                                                                                                                       .DataSource(new string[] {
+                                                   .DataSource(new string[] {
 "Normal",
 "High",
- "Low"
+"Low"
 
 
                                                                                                                        }

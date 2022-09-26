@@ -1,0 +1,149 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using IntranetPortal.Models
+@model Documentation
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "New Documentation";
+    //var enumType = Model.DocumentType.GetType();
+}
+
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-home bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Documentation Setup</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>Manage Documentations</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
+                                <div id="form">
+                                    @(
+                                            Html.DevExtreme().DataGrid<Documentation>()
+                                            .ShowBorders(false)
+                                            .DataSource(ds => ds.Mvc()
+                                            .Controller("DocumentationApi")
+                                            .InsertAction("AddDocumentation")
+                                            .LoadAction("GetDocumentations")
+                                            .UpdateAction("UpdateDocumentation")
+                                            .DeleteAction("RemoveDocumentation")
+                                            .Key("DocumentationId")
+                                            )
+                                            .RemoteOperations(true)
+                                            .ID("DocumentsDG")
+                                            .Columns(columns =>
+                                            {
+                                                columns.AddFor(m => m.Title).Caption("Document Title");
+                                                columns.AddFor(m => m.DepartmentCode).Caption("Department Name").Lookup(r => r
+                                                .DataSource(ds => ds.Mvc().Controller("SetupAPI").LoadAction("GetDepartments").Key("DepartmentCode"))
+                                                .ValueExpr("DepartmentCode")
+                                                .DisplayExpr("DepartmentCode"))
+                                                .ValidationRules(r => r
+                                                .AddRequired()
+                                                .Message("Department Code"));
+                                                columns.AddFor(m => m.Status);
+                                                columns.AddFor(m => m.DocumentType).Caption("Document Type");
+                                                columns.AddFor(m => m.Description).Caption("Description");
+
+                                                columns.AddFor(m => m.Url).Caption("Preview").CellTemplate(
+                                            @<text>
+                                                <% if(data.Url == null) {%>
+
+                                                <a href="Documentation/UploadDocument?DocumentId=<%= data.DocumentationId%>">
+                                                    <div class="feather icon-alert-circle  text-danger"> No Attachment</div>
+                                                </a>
+
+                                                <% } if(data.Url != null) { %>
+
+                                                <a href="Documentation/GetPdf?Filename=<%= data.Url%>" target="_blank">
+                                                    <div class="feather icon-paperclip  text-primary"> Preview Attachment</div>
+                                                </a>
+                                                <%}%>
+                                            </text>);
+
+                                                columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                            })
+                                        .SearchPanel(f => f.Visible(true))
+                                        .Paging(p => p.PageSize(10))
+                                        .HeaderFilter(f => f.Visible(true))
+                                        .Grouping(g => g.ContextMenuEnabled(true))
+                                        .Grouping(g => g.AutoExpandAll(true))
+                                        .Selection(s => s.Mode(SelectionMode.Multiple))
+                                        .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
+                                        .Editing(e => e
+                                        .AllowAdding(true)
+                                        .Popup(p => p
+                                        .Title("Add New Document")
+                                        .ShowTitle(true)
+                                        .Width(1000)
+                                        .Height(350)
+                                        )
+
+                                        .AllowUpdating(true)
+                                        .AllowDeleting(true)
+                                        .Mode(GridEditMode.Popup)
+                                        .UseIcons(true)
+
+                                        .Form(f => f
+                                        .ID("documentation-form")
+                                        .ColCount(2)
+                                        .Items(items =>
+                                        {
+                                            items.AddSimpleFor(m => m.Title);
+                                            items.AddSimpleFor(m => m.Description);
+                                            items.AddSimpleFor(m => m.DepartmentCode);
+                                            items.AddSimpleFor(m => m.Status).Editor(e => e
+                                            .SelectBox()
+                                            .DataSource(new[]
+                                            {
+                                                "Active",
+                                                "Inactive",
+                                            }));
+
+                                            items.AddSimpleFor(m => m.DocumentType).Editor(e => e
+                                            .SelectBox()
+                                            .DataSource(new[]
+                                            {
+                                                "Policy",
+                                                "Guideline",
+                                                "Procedure"
+                                            }));
+
+                                        }).FormData(Model)
+                                        )
+                                        )
+                                        )
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

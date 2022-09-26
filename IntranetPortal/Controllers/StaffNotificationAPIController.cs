@@ -3,6 +3,7 @@ using DevExtreme.AspNet.Mvc;
 using IntranetPortal.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Security.Claims;
 
@@ -34,12 +35,34 @@ namespace IntranetPortal.Controllers
         [HttpGet]
         public async Task<IActionResult> GetActiveNotification(DataSourceLoadOptions loadOptions)
         {
-            var result = DataSourceLoader.Load(myContext.StaffNotifications.Where(t => t.Pfnumber == PFNumber), loadOptions);
+            var result = DataSourceLoader.Load(myContext.StaffNotifications.Where(t => t.Pfnumber == PFNumber &&  t.Status != "Closed"), loadOptions);
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
             var resultJson = JsonConvert.SerializeObject(result, settings);
             return Content(resultJson, "application/json");
         }
+        [HttpGet]
+        public async Task<IActionResult> GetClosedNotification(DataSourceLoadOptions loadOptions)
+        {
+            var result = DataSourceLoader.Load(myContext.StaffNotifications.Where(t => t.Pfnumber == PFNumber && t.Status=="Closed"), loadOptions);
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateNotification(int key, string values)
+        {
+            var notificationDetails = await myContext.StaffNotifications.FirstOrDefaultAsync(item => item.NotificationId == key);
+            JsonConvert.PopulateObject(values, notificationDetails);
+
+            if (!TryValidateModel(notificationDetails))
+                return BadRequest(ValidationErrorMessage);
+
+            await myContext.SaveChangesAsync();
+            return Ok();
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddNewNotification(string values)
         {

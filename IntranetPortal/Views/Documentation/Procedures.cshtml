@@ -1,0 +1,85 @@
+﻿@using DevExtreme.AspNet.Mvc
+@using IntranetPortal.Models
+@model Documentation
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "New Documentation";
+}
+
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-home bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Procedures</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>Manage Procedures</h5>
+                            </div>
+                            <div class="card-block">
+                                <div id="form">
+                                    @(
+                                            Html.DevExtreme().DataGrid<Documentation>()
+                                            .ShowBorders(true)
+                                            .DataSource(ds => ds.Mvc()
+                                            .Controller("DocumentationApi")
+                                            .LoadAction("GetProcedures")
+                                            .Key("DocumentationId")
+                                            )
+                                            .RemoteOperations(false)
+                                            .ID("PoliciesDG")
+                                            .Columns(columns =>
+                                            {
+                                                columns.AddFor(m => m.Title).Caption("Document Title");
+                                                columns.AddFor(m => m.DepartmentCode).Caption("Department");
+                                                columns.AddFor(m => m.Status);
+                                                columns.AddFor(m => m.Description).Caption("Description");
+
+                                                columns.AddFor(m => m.Url).Caption("Preview").CellTemplate(
+                                            @<text>
+                                                <% if(data.Url == null) {%>
+
+                                                <a href="javascript:void(0)">
+                                                    <div class="feather icon-alert-circle  text-danger"> No Attachment</div>
+                                                </a>
+
+                                                <% } if(data.Url != null) { %>
+
+                                                <a href="GetPdf?Filename=<%= data.Url%>" target="_blank">
+                                                    <div class="feather icon-paperclip  text-primary"> Preview Attachment</div>
+                                                </a>
+                                                <%}%>
+                                            </text>);
+
+                                                columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                            })
+                                        .SearchPanel(f => f.Visible(true))
+                                        .Paging(p => p.PageSize(10))
+                                        .HeaderFilter(f => f.Visible(true))
+                                        .Grouping(g => g.ContextMenuEnabled(true))
+                                        .Grouping(g => g.AutoExpandAll(true))
+                                        .RemoteOperations(true)
+                                        )
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

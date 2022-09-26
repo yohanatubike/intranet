@@ -5,11 +5,6 @@ namespace IntranetPortal.Models
 {
     public partial class ActivitiesDetail
     {
-        public ActivitiesDetail()
-        {
-            //AssignedOfficersDetails = new HashSet<AssignedOfficersDetail>();
-        }
-
         public long ActivityId { get; set; }
         public string ActivityCode { get; set; } = null!;
         public string ActivityName { get; set; } = null!;
@@ -24,7 +19,5 @@ namespace IntranetPortal.Models
         public string? UpdatedBy { get; set; }
         public DateTime? UpdateDate { get; set; }
         public DateTime? CreatedDate { get; set; }
-
-        //public virtual ICollection<AssignedOfficersDetail> AssignedOfficersDetails { get; set; }
     }
 }

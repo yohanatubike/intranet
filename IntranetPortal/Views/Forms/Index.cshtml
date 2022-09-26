@@ -1,0 +1,146 @@
+﻿@using DevExtreme.AspNet.Mvc
+@{
+    ViewData["Title"] = "Add New Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-file bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Add New Forms</h5>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class=" breadcrumb breadcrumb-title">
+                    <li class="breadcrumb-item">
+                        <a href="index.html"><i class="feather icon-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#!">Dashboard</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>Add New Forms</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
+                                <div id="form">
+                                    @(Html.DevExtreme().DataGrid<IntranetPortal.Models.TasacForm>
+                                            ()
+                                            .DataSource(ds => ds.Mvc()
+                                            .Controller("FormsApi")
+                                            .InsertAction("AddForm")
+                                            .LoadAction("GetForms")
+                                            .UpdateAction("UpdateForm")
+                                            .DeleteAction("RemoveForm")
+                                            .Key("FormId")
+
+                                            )
+                                            .RemoteOperations(true)
+                                            .ID("FormsDG")
+                                            .Columns(columns =>
+                                            {
+                                                columns.AddFor(m => m.FormName);
+                                                columns.AddFor(m => m.DepartmentCode).Caption("Department Name").Lookup(r => r
+                                                .DataSource(ds => ds.Mvc().Controller("SetupAPI").LoadAction("GetDepartments").Key("DepartmentCode"))
+                                                .ValueExpr("DepartmentCode")
+                                                .DisplayExpr("DepartmentCode"))
+                                                .ValidationRules(r => r
+                                                .AddRequired()
+                                                .Message("Department Code"));
+
+                                                columns.AddFor(m => m.Status).Caption("Status");
+                                                columns.AddFor(m => m.Description);
+                                                columns.AddFor(m => m.FileUrl).Caption("Preview").CellTemplate(
+                                                @<text>
+                                                    <% if(data.FileUrl == null) {%>
+
+                                                    <a href="Forms/UploadForm?FormId=<%= data.FormId%>">
+                                                        <div class="feather icon-paperclip  text-primary"> Add Attachment</div>
+                                                    </a>
+
+                                                    <% } if(data.FileUrl != null) { %>
+
+                                                    <a href="Forms/GetPdf?Filename=<%= data.FileUrl%>" target="_blank">
+                                                        <div class="feather icon-paperclip  text-primary"> Preview Attachment</div>
+                                                    </a>
+                                                    <%}%>
+                                                </text>);
+
+                                            })
+
+                                        .SearchPanel(f => f.Visible(true))
+
+                                        .Paging(p => p.PageSize(10))
+                                        .HeaderFilter(f => f.Visible(true))
+
+                                        .Grouping(g => g.ContextMenuEnabled(true))
+                                        .Grouping(g => g.AutoExpandAll(true))
+                                        .RemoteOperations(true)
+                                        .Selection(s => s.Mode(SelectionMode.Multiple))
+                                        .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
+                                        .Editing(e => e
+                                        .AllowAdding(true)
+                                        .Popup(p => p
+                                        .Title("Add New Form")
+                                        .ShowTitle(true)
+                                        .Width(1000)
+                                        .Height(300)
+                                        )
+
+                                        .AllowUpdating(true)
+                                        .AllowDeleting(true)
+                                        .Mode(GridEditMode.Popup)
+                                        .UseIcons(true)
+                                        .Form(f => f
+                                        .ID("FormCreation")
+                                        .ColCount(2)
+                                        .Items(items =>
+                                        {
+                                            items.AddSimpleFor(m => m.FormName);
+                                            items.AddSimpleFor(m => m.Description);
+                                            items.AddSimpleFor(m => m.DepartmentCode);
+                                            items.AddSimpleFor(m => m.Status).Editor(e => e
+                                            .SelectBox()
+                                            .DataSource(new[]
+                                            {
+                                                "Active",
+                                                "Inactive",
+                                            }));
+                                        }).FormData(Model)
+                                        )
+                                        )
+                                        )
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

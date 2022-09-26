@@ -63,7 +63,7 @@
                                         .Controller("StaffNotificationAPI")
                                         .InsertAction("AddNewNotification")
                                         .LoadAction("GetActiveNotification")
-                                        .UpdateAction("UpdateRole")
+                                        .UpdateAction("UpdateNotification")
                                         .DeleteAction("RemoveRole")
                                         .Key("NotificationId")
 
@@ -81,7 +81,12 @@
                                 "Martenity Leave",
                                 "Paternity  Leave",
                                 "Travel",
-                                "Sick leave"
+                                "Sick",
+                                "Accident",
+                                "Wedding",
+                                "Death"
+                                
+
 
 
 
@@ -229,37 +234,36 @@
                             <div class="card-block">
 
                                 @(
-                                    Html.DevExtreme().DataGrid<IntranetPortal.Models.SupportsTicket>
-                                    ()
-                                    .DataSource(ds => ds.Mvc()
-                                    .Controller("SupportTicketAPI")
-                                    .InsertAction("AddNewTicket")
-                                    .LoadAction("GetDepartmentTickets")
-                                    @*.UpdateAction("UpdateRole")
-                                .DeleteAction("RemoveRole")*@
-                                    .Key("TicketId")
+                                        Html.DevExtreme().DataGrid<IntranetPortal.Models.StaffNotification>
+                                        ()
+                                        .DataSource(ds => ds.Mvc()
+                                        .Controller("StaffNotificationAPI")
+                                        .InsertAction("AddNewNotification")
+                                        .LoadAction("GetClosedNotification")
+                                        .UpdateAction("UpdateNotification")
+                                        .DeleteAction("RemoveRole")
+                                        .Key("NotificationId")
 
 
-                                    )
-                                    .RemoteOperations(true)
-                                    .Columns(columns =>
-                                    {
+                                        )
+                                        .RemoteOperations(true)
+                                        .Columns(columns =>
+                                        {
 
 
 
-                                        columns.AddFor(m => m.DepartmentCode).Visible(false);
-                                        columns.AddFor(m => m.TicketTypes);
-                                        columns.AddFor(m => m.LodgedBy);
-                                        columns.AddFor(m => m.Status);
-                                        columns.AddFor(m => m.Description).Visible(false);
-
-                                        columns.AddFor(m => m.TicketTypes).Lookup(r => r
+                                            columns.AddFor(m => m.Category).Lookup(r => r
                                         .DataSource(new string[] {
-                                "Email",
-                                "MBILL",
-                                "Safari Portal",
-                                "Active Directory",
-                                "Others",
+                                "Annaul Leave",
+                                "Martenity Leave",
+                                "Paternity  Leave",
+                                "Travel",
+                                "Sick",
+                                "Msiba",
+                                "Ajali",
+                                "Harusi"
+
+
 
 
                                         }
@@ -267,12 +271,48 @@
                                         )
                                         .ValidationRules(r => r
                                         .AddRequired()
-                                        .Message("Type is required")
-                                        ).Visible(false);
+                                        .Message("Priority is required")
+                                        );
+                                            columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                            columns.AddFor(m => m.UpdatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                            columns.AddFor(m => m.Details).Visible(false);
+
+                                            columns.AddFor(m => m.Subject);
+
+                                            columns.AddFor(m => m.Status).DataField("Status").Caption("Status").CellTemplate(
+                                        @<text>
+                                            <% if(data.Status=="Closed")
+                                    {%>
+                                            <a href="#"><div class="feather icon-bell text-danger">Closed</div></a>
+                                            <% }
+                                    if(data.Status=="Activated")
+                                    {%>
+                                            <a href="#"><div class="feather icon-bell text-success"> Active</div></a>
+                                            <% }
+
+
+                                    %>
+                                        </text>
+                                    ).Lookup(r => r
+                                    .DataSource(new string[] {
+                                "Created",
+                                "Activated",
+                                "Closed"
+
+
+                                    }
+                                    )
+                                    )
+                                    .ValidationRules(r => r
+                                    .AddRequired()
+                                    .Message("Priority is required")
+                                    );
+
+                                            columns.AddFor(m => m.Category).Visible(false);
 
 
 
-                                    })
+                                        })
 
                                     .SearchPanel(f => f.Visible(true))
 
@@ -285,9 +325,10 @@
                                     .Selection(s => s.Mode(SelectionMode.Multiple))
                                     .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
                                     .Editing(e => e
-                                    .AllowAdding(true)
+                                    .AllowAdding(false)
+                                    .AllowUpdating(false)
                                     .Popup(p => p
-                                    .Title("Add New Role")
+                                    .Title("Add Notification")
                                     .ShowTitle(true)
                                     .Width(1000)
                                     .Height(400)
@@ -296,8 +337,8 @@
 
                                     )
 
-                                    .AllowUpdating(true)
-                                    .AllowDeleting(true)
+
+                                    .AllowDeleting(false)
                                     .Mode(GridEditMode.Popup)
                                     .UseIcons(true)
                                     .Form(f => f
@@ -310,18 +351,17 @@
                                         .Items(groupItems =>
                                         {
 
-                                            groupItems.AddSimpleFor(m => m.DepartmentCode);
-                                            groupItems.AddSimpleFor(m => m.TicketTypes);
 
-
-
+                                            groupItems.AddSimpleFor(m => m.Subject);
+                                            groupItems.AddSimpleFor(m => m.Category);
+                                            groupItems.AddSimpleFor(m => m.Status);
 
                                         });
                                         items.AddGroup()
                                         .ColCount(1)
                                         .Items(groupItems =>
                                         {
-                                            groupItems.AddSimpleFor(m => m.Description).Editor(e => e
+                                            groupItems.AddSimpleFor(m => m.Details).Editor(e => e
                                         .HtmlEditor()
                                         .Height(190)
                                         .Toolbar(toolbar => toolbar.Items(

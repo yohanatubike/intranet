@@ -68,8 +68,8 @@
 
                                                         columns.AddFor(m => m.StaffDesignation);
                                                         columns.AddFor(m => m.DesignationCode);
-                                                    
-                                                        columns.AddFor(m => m.SectionCode).Lookup(r => r
+                                                        
+                                             columns.AddFor(m => m.SectionCode).Lookup(r => r
                                             .DataSource("getSections")
                                            .ValueExpr("SectionCode")
                                            .DisplayExpr("SectionName"))

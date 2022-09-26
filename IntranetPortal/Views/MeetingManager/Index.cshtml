@@ -4,9 +4,9 @@
 }
 <script type="text/javascript">
     //<![CDATA[
-    function onInitNewRow(e, ActivityId) {
+    function onInitNewRow(e, MeetingId) {
 
-        e.data.Activity.ActivityId = ActivityId;
+        e.data.MeetingId = MeetingId;
 
     }
             //]]>
@@ -42,7 +42,7 @@
                     <div class="col-xl-12 col-md-6">
                         <div class="card table-card">
                             <div class="card-header">
-                                <h5>Invited Meeting</h5>
+                                <h5>Created Meeting</h5>
                                 <div class="card-header-right">
                                     <ul class="list-unstyled card-option">
                                         <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
@@ -57,15 +57,15 @@
                             <div class="card-block">
 
                                 @(
-                                        Html.DevExtreme().DataGrid<IntranetPortal.Models.AssignedOfficersDetail>
+                                        Html.DevExtreme().DataGrid<IntranetPortal.Models.Meeting>
                                         ()
                                         .DataSource(ds => ds.Mvc()
-                                        .Controller("ActivitiesAPI")
-                                        .InsertAction("AddNewActivity")
-                                        .LoadAction("GetOfficersAssignedActivities")
-                                        .UpdateAction("UpdateRole")
+                                    .Controller("MeetingManagementAPI")
+                                        .InsertAction("AddNewMeeting")
+                                        .LoadAction("GetMeetings")
+                                        .UpdateAction("UpdateMeeting")
                                         .DeleteAction("RemoveRole")
-                                        .Key("ActivityId")
+                                        .Key("MeetingId")
 
 
                                         )
@@ -75,16 +75,18 @@
 
 
 
-                                            columns.AddFor(m => m.Activity.ActivityCode).Visible(false);
-                                            columns.AddFor(m => m.Activity.ActivityName);
+                                            columns.AddFor(m => m.Title);
+                                            columns.AddFor(m => m.Location);
 
-                                            columns.AddFor(m => m.Activity.StartDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
-                                            columns.AddFor(m => m.Activity.EndDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
-                                            columns.AddFor(m => m.Activity.Priority).Lookup(r => r
+                                            columns.AddFor(m => m.StartDate).DataType(GridColumnDataType.DateTime);
+                                            columns.AddFor(m => m.EndDate).DataType(GridColumnDataType.DateTime);
+                                            columns.AddFor(m => m.Status).Lookup(r => r
                                         .DataSource(new string[] {
-                                "Normal",
-                                "High",
-                                "Low"
+                                "Created",
+                                "Started",
+                                "Posponde",
+                                "Re-scheduled",
+                                "Closed"
 
 
                                         }
@@ -93,45 +95,34 @@
                                         .ValidationRules(r => r
                                         .AddRequired()
                                         .Message("Priority is required")
-                                        ); columns.AddFor(m => m.Activity.Description).Caption("Description").CellTemplate(
+                                        );   
+                                        columns.AddFor(m => m.Description).Caption("Description").CellTemplate(
                                         @<text>
 
 
-                                            <a href="ActivitiesManagement/ActivitisAttachments?ActivityCode=<%= data.Activity.ActivityCode%>"><div class="feather icon-paperclip  text-primary">Attachment</div></a>
+                                            <a href="/MeetingManager/MeetingAttachments?MeetingCode=<%= data.MeetingCode%>"><div class="feather icon-paperclip  text-primary">Attachment</div></a>
 
 
 
 
                                         </text>);
 
-                                            columns.AddFor(m => m.Activity.ImpelementationStatus).Lookup(r => r
-                                                            .DataSource(new string[] {
-                                "Started",
-                                "Completed",
-                                "Pending"
+
+                                            columns.AddFor(m => m.UpdatedBy).DataField("UpdatedBy").Caption("Comments").CellTemplate(@<text>
+
+                                               
+                                                <a href="/MeetingManager/MeetingAttachments?MeetingCode=<%= data.MeetingCode%>"><div class="feather icon-message-square  text-success"> Comments</div></a>
 
 
-                                        }
-                                                            )
-                                                            )
-                                                            .ValidationRules(r => r
-                                                            .AddRequired()
-                                                            .Message("Position is required")
-                                                            );
-
-                                            columns.AddFor(m => m.Activity.ImpelementationStatus).DataField("ImpelementationStatus").Caption("Comments").CellTemplate(@<text>
-                                                <% if(data.ImpelementationStatus=="Started")
-                                    {%>
-                                                <a href="#"><div class="feather icon-copy text-danger"> Started</div></a>
-                                                <% }
-                                    if(data.ImpelementationStatus=="Pending")
-                                    {%>
-                                                <a href="/OfficersEvaluation/OfficersEvaluationLevelAmend?CompanyTIN=<%= data.CompanyTIN%>&&AmendmentID=<%= data.AmendmentID%>&&ProjectID=<%= data.ProjectID%>"><div class="fa fa-trending-up text-success"></div></a>
-                                                <% }
 
 
-                                    %>
+                                              
                                             </text>);
+
+
+
+                                        
+                                   
 
 
 
@@ -146,11 +137,11 @@
                                     .Grouping(g => g.AutoExpandAll(true))
                                     .RemoteOperations(true)
                                     .Selection(s => s.Mode(SelectionMode.Multiple))
-                                    .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
+                                    .Export(e => e.Enabled(true).FileName("ListofActivities").AllowExportSelectedData(true))
                                     .Editing(e => e
-                                    .AllowAdding(false)
+                                    .AllowAdding(true)
                                     .Popup(p => p
-                                    .Title("Add New Role")
+                                    .Title("Add New Meeting")
                                     .ShowTitle(true)
                                     .Width(1000)
                                     .Height(400)
@@ -164,7 +155,7 @@
                                     .Mode(GridEditMode.Popup)
                                     .UseIcons(true)
                                     .Form(f => f
-                                    .ID("UserCreation")
+                                    .ID("UserCreationD")
                                     .ColCount(1)
                                     .Items(items =>
                                     {
@@ -173,154 +164,12 @@
                                         .Items(groupItems =>
                                         {
 
-                                            groupItems.AddSimpleFor(m => m.Activity.ActivityCode);
-                                            groupItems.AddSimpleFor(m => m.Activity.ActivityName);
-                                            groupItems.AddSimpleFor(m => m.Activity.StartDate).Editor(e => e.DateBox());
-                                            groupItems.AddSimpleFor(m => m.Activity.EndDate).Editor(e => e.DateBox()); ;
-                                            groupItems.AddSimpleFor(m => m.Activity.Priority);
-                                            groupItems.AddSimpleFor(m => m.Activity.ImpelementationStatus);
-
-
-
-                                        });
-                                        items.AddGroup()
-                                        .ColCount(1)
-                                        .Items(groupItems =>
-                                        {
-                                            groupItems.AddSimpleFor(m => m.Activity.Description).Editor(e => e
-                                        .HtmlEditor()
-                                        .Height(190)
-                                        .Toolbar(toolbar => toolbar.Items(
-                                        items =>
-                                        {
-                                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
-                                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
-                                            items.Add().FormatName(HtmlEditorToolbarItem.Underline);
-                                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
-                                            items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
-                                            items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
-                                        })
-                                        ));
-
-
-
-
-
-
-                                        });
-                                    })
-
-                                    )
-                                    )
-                                    )
-
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-12 col-md-12">
-                        <div class="card latest-update-card">
-                            <div class="card-header">
-                                <h5>Attended Meeting</h5>
-                                <div class="card-header-right">
-                                    <ul class="list-unstyled card-option">
-                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
-                                        <li><i class="feather icon-maximize full-card"></i></li>
-                                        <li><i class="feather icon-minus minimize-card"></i></li>
-                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
-                                        <li><i class="feather icon-trash close-card"></i></li>
-                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-block">
-
-                                @(
-                                    Html.DevExtreme().DataGrid<IntranetPortal.Models.SupportsTicket>
-                                    ()
-                                    .DataSource(ds => ds.Mvc()
-                                    .Controller("SupportTicketAPI")
-                                    .InsertAction("AddNewTicket")
-                                    .LoadAction("GetDepartmentTickets")
-                                    @*.UpdateAction("UpdateRole")
-                                .DeleteAction("RemoveRole")*@
-                                    .Key("TicketId")
-
-
-                                    )
-                                    .RemoteOperations(true)
-                                    .Columns(columns =>
-                                    {
-
-
-
-                                        columns.AddFor(m => m.DepartmentCode).Visible(false);
-                                        columns.AddFor(m => m.TicketTypes);
-                                        columns.AddFor(m => m.LodgedBy);
-                                        columns.AddFor(m => m.Status);
-                                        columns.AddFor(m => m.Description).Visible(false);
-
-                                        columns.AddFor(m => m.TicketTypes).Lookup(r => r
-                                        .DataSource(new string[] {
-                                "Email",
-                                "MBILL",
-                                "Safari Portal",
-                                "Active Directory",
-                                "Others",
-
-
-                                        }
-                                        )
-                                        )
-                                        .ValidationRules(r => r
-                                        .AddRequired()
-                                        .Message("Type is required")
-                                        ).Visible(false);
-
-
-
-                                    })
-
-                                    .SearchPanel(f => f.Visible(true))
-
-                                    .Paging(p => p.PageSize(10))
-                                    .HeaderFilter(f => f.Visible(true))
-
-                                    .Grouping(g => g.ContextMenuEnabled(true))
-                                    .Grouping(g => g.AutoExpandAll(true))
-                                    .RemoteOperations(true)
-                                    .Selection(s => s.Mode(SelectionMode.Multiple))
-                                    .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
-                                    .Editing(e => e
-                                    .AllowAdding(true)
-                                    .Popup(p => p
-                                    .Title("Add New Role")
-                                    .ShowTitle(true)
-                                    .Width(1000)
-                                    .Height(400)
-
-
-
-                                    )
-
-                                    .AllowUpdating(true)
-                                    .AllowDeleting(true)
-                                    .Mode(GridEditMode.Popup)
-                                    .UseIcons(true)
-                                    .Form(f => f
-                                    .ID("UserCreation")
-                                    .ColCount(1)
-                                    .Items(items =>
-                                    {
-                                        items.AddGroup()
-                                        .ColCount(3)
-                                        .Items(groupItems =>
-                                        {
-
-                                            groupItems.AddSimpleFor(m => m.DepartmentCode);
-                                            groupItems.AddSimpleFor(m => m.TicketTypes);
-
+                                            groupItems.AddSimpleFor(m => m.Title);
+                                            groupItems.AddSimpleFor(m => m.Location);
+                                            groupItems.AddSimpleFor(m => m.StartDate).Editor(e => e.DateBox());
+                                            groupItems.AddSimpleFor(m => m.EndDate).Editor(e => e.DateBox()); ;
+                                            groupItems.AddSimpleFor(m => m.Status);
+                                           
 
 
 
@@ -354,7 +203,196 @@
 
                                     )
                                     )
+                                    .MasterDetail(m =>
+                                    {
+                                        m.Enabled(true);
+
+                                        m.Template(@<text>
+                                            @Html.Partial("_MeetingInvitee")
+                                        </text>);
+
+
+
+                                    })
                                     )
+
+                                
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-md-12">
+                        <div class="card latest-update-card">
+                            <div class="card-header">
+                                <h5>Invitde Meeting</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
+
+                                @(
+                                        Html.DevExtreme().DataGrid<IntranetPortal.Models.MeetingInvitation>
+                                        ()
+                                        .DataSource(ds => ds.Mvc()
+                                        .Controller("MeetingManagementAPI")
+                                        .InsertAction("AddNewMeeting")
+                                        .LoadAction("GetOfficersInvitedMeetings")
+                                        .UpdateAction("UpdateMeeting")
+                                        .DeleteAction("RemoveRole")
+                                        .Key("MeetingId")
+
+
+                                        )
+                                        .RemoteOperations(true)
+                                        .Columns(columns =>
+                                        {
+
+
+
+                                            columns.AddFor(m => m.Meetings.Title);
+                                            columns.AddFor(m => m.Meetings.Location);
+
+                                            columns.AddFor(m => m.Meetings.StartDate).DataType(GridColumnDataType.DateTime);
+                                            columns.AddFor(m => m.Meetings.EndDate).DataType(GridColumnDataType.DateTime);
+                                            columns.AddFor(m => m.Meetings.Status).Lookup(r => r
+                                        .DataSource(new string[] {
+                                "Created",
+                                "Started",
+                                "Posponde",
+                                "Re-scheduled",
+                                "Closed"
+
+
+                                        }
+                                        )
+                                        )
+                                        .ValidationRules(r => r
+                                        .AddRequired()
+                                        .Message("Priority is required")
+                                        );
+                                            columns.AddFor(m => m.Meetings.Description).Caption("Description").CellTemplate(
+                                        @<text>
+
+
+                                            <a href="/MeetingManager/MeetingAttachments?MeetingCode=<%= data.MeetingCode%>"><div class="feather icon-paperclip  text-primary">Attachment</div></a>
+
+
+
+
+                                        </text>);
+
+
+                                            columns.AddFor(m => m.Meetings.UpdatedBy).DataField("UpdatedBy").Caption("Comments").CellTemplate(@<text>
+                                                <a href="/MeetingManager/MeetingAttachments?MeetingCode=<%= data.MeetingCode%>"><div class="feather icon-message-square  text-success"> Comments</div></a>
+                                            </text>);
+
+
+
+
+
+
+
+
+                                        })
+
+                                    .SearchPanel(f => f.Visible(true))
+
+                                    .Paging(p => p.PageSize(10))
+                                    .HeaderFilter(f => f.Visible(true))
+
+                                    .Grouping(g => g.ContextMenuEnabled(true))
+                                    .Grouping(g => g.AutoExpandAll(true))
+                                    .RemoteOperations(true)
+                                    .Selection(s => s.Mode(SelectionMode.Multiple))
+                                    .Export(e => e.Enabled(true).FileName("ListofActivities").AllowExportSelectedData(true))
+                                    .Editing(e => e
+                                    .AllowAdding(true)
+                                    .Popup(p => p
+                                    .Title("Add New Meeting")
+                                    .ShowTitle(true)
+                                    .Width(1000)
+                                    .Height(400)
+
+
+
+                                    )
+
+                                    .AllowUpdating(true)
+                                    .AllowDeleting(false)
+                                    .Mode(GridEditMode.Popup)
+                                    .UseIcons(true)
+                                    .Form(f => f
+                                    .ID("UserCreationD")
+                                    .ColCount(1)
+                                    .Items(items =>
+                                    {
+                                        items.AddGroup()
+                                        .ColCount(3)
+                                        .Items(groupItems =>
+                                        {
+
+                                            groupItems.AddSimpleFor(m => m.Meetings.Title);
+                                            groupItems.AddSimpleFor(m => m.Meetings.Location);
+                                            groupItems.AddSimpleFor(m => m.Meetings.StartDate).Editor(e => e.DateBox());
+                                            groupItems.AddSimpleFor(m => m.Meetings.EndDate).Editor(e => e.DateBox()); ;
+                                            groupItems.AddSimpleFor(m => m.Meetings.Status);
+
+
+
+
+                                        });
+                                        items.AddGroup()
+                                        .ColCount(1)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.Meetings.Description).Editor(e => e
+                                        .HtmlEditor()
+                                        .Height(190)
+                                        .Toolbar(toolbar => toolbar.Items(
+                                        items =>
+                                        {
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                        })
+                                        ));
+
+
+
+
+
+
+                                        });
+                                    })
+
+                                    )
+                                    )
+                                    .MasterDetail(m =>
+                                    {
+                                        m.Enabled(true);
+
+                                        m.Template(@<text>
+                                            @Html.Partial("_MeetingInvitee")
+                                        </text>);
+
+
+
+                                    })
+                                    )
+
 
 
 

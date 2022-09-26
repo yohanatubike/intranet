@@ -7,7 +7,7 @@ namespace IntranetPortal.Models
     public partial class Meeting
     {
         public long MeetingId { get; set; }
-        public BitArray MeetingCode { get; set; } = null!;
+        public string MeetingCode { get; set; } = null!;
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
         public string DepartmentCode { get; set; } = null!;
