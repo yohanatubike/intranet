@@ -8,6 +8,8 @@ using System.Collections;
 using DevExtreme.AspNet.Mvc;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Newtonsoft.Json.Linq;
 
 namespace IntranetPortal.Controllers
 {
@@ -15,8 +17,27 @@ namespace IntranetPortal.Controllers
     public class SetupAPIController : Controller
     {
 
+        private readonly HttpContext hcontext;
         private IntranetDBContext myContext = new IntranetDBContext();
         string ValidationErrorMessage = null;
+        string DepartmentCode = null;
+        string SectionCode = null;
+        string UserEmail = null;
+        string DesignationCode = null;
+        string PFNumber = null;
+        public SetupAPIController(IHttpContextAccessor haccess)
+        {
+            hcontext = haccess.HttpContext;
+            UserEmail = hcontext.User.FindFirst(ClaimTypes.Email).Value;
+            SectionCode = hcontext.User.FindFirst(c => c.Type == "SectionCode").Value;
+            DepartmentCode = hcontext.User.FindFirst(c => c.Type == "DepartmentCode").Value;
+            DesignationCode = hcontext.User.FindFirst(c => c.Type == "DesignationCode").Value;
+            PFNumber = hcontext.User.FindFirst(ClaimTypes.SerialNumber).Value;
+
+
+        }
+
+       
 
         #region for roles  
 
@@ -39,17 +60,29 @@ namespace IntranetPortal.Controllers
             var resultJson = JsonConvert.SerializeObject(result, settings);
             return Content(resultJson, "application/json");
         }
+        [HttpGet]
+        public async Task<IActionResult> GetPermissionsNames(DataSourceLoadOptions loadOptions)
+        {
+            var result = DataSourceLoader.Load(myContext.PermissionCategories, loadOptions);
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
         [HttpPost]
         public async Task<IActionResult> AddNewPermisson(string values)
         {
             var newPermission = new Permission();
 
             JsonConvert.PopulateObject(values, newPermission);
-            //if (!TryValidateModel(newPermission))
-
-            //    return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
-            newPermission.CreatedBy = "mustafa.juma@tasac.go.tz";
+            JObject data = JObject.Parse(values);
+            var  CheckCategory = data["PermissionName"]?.ToString();
+            var getAddress = myContext.PermissionCategories.Where(t => t.PermissionName == CheckCategory).SingleOrDefault();
+            newPermission.Address = getAddress.Address;
+            newPermission.CreatedBy = UserEmail;
             newPermission.CreatedDate = DateTime.Now;
+
+
             myContext.Permissions.Add(newPermission);
             await myContext.SaveChangesAsync();
             return Ok(newPermission);
@@ -63,7 +96,7 @@ namespace IntranetPortal.Controllers
             if (!TryValidateModel(newRole))
 
             return  BadRequest(ValidationErrorMessage ="Failed to save details due to validation error");
-            newRole.CreatedBy = "mustafa.juma@tasac.go.tz";
+            newRole.CreatedBy = UserEmail;
             newRole.CretaedDate = DateTime.Now;
             newRole.RoleName.ToUpper();
 
@@ -115,7 +148,7 @@ namespace IntranetPortal.Controllers
             if (!TryValidateModel(newDepartment))
             
             return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
-            newDepartment.CreatedBy = "mustafa.juma@tasac.go.tz";
+            newDepartment.CreatedBy = UserEmail;
             newDepartment.CreatedDate = DateTime.UtcNow;
             newDepartment.DepartmentCode.ToUpper();
             newDepartment.DepartmentName.ToUpper();
@@ -163,7 +196,7 @@ namespace IntranetPortal.Controllers
             return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
             
             }
-            newSection.CreatedBy = "mustafa.juma@tasac.go.tz";
+            newSection.CreatedBy = UserEmail;
             newSection.CreatedDate = DateTime.Now;
             newSection.DepartmentCode.ToUpper();
             newSection.SectionCode.ToUpper();
@@ -232,7 +265,7 @@ namespace IntranetPortal.Controllers
                 return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
 
             }
-            newDesignation.CreatedBy = "mustafa.juma@tasac.go.tz";
+            newDesignation.CreatedBy = UserEmail;
             newDesignation.CreatedDate = DateTime.Now;
             newDesignation.DepartmentCode.ToUpper();
             newDesignation.SectionCode.ToUpper();
@@ -275,7 +308,7 @@ namespace IntranetPortal.Controllers
             var newUser = new  User();
             JsonConvert.PopulateObject(values, newUser);
            
-            newUser.CreatedBy = "mustafa.juma@tasac.go.tz";
+            newUser.CreatedBy = UserEmail;
             newUser.CreatedDate = DateTime.Now;
             myContext.Users.Add(newUser);
             await myContext.SaveChangesAsync();
@@ -309,7 +342,7 @@ namespace IntranetPortal.Controllers
             var newUserRole = new UserRole();
             JsonConvert.PopulateObject(values, newUserRole);
 
-            newUserRole.CreatedBy = "mustafa.juma@tasac.go.tz";
+            newUserRole.CreatedBy = UserEmail;
             newUserRole.CreatedDate = DateTime.Now;
             myContext.UserRoles.Add(newUserRole);
             await myContext.SaveChangesAsync();

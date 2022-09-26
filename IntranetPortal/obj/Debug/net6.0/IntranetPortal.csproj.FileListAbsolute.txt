@@ -799,3 +799,4 @@ C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Debug\net6.0
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Debug\net6.0\IntranetPortal.pdb
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Debug\net6.0\IntranetPortal.genruntimeconfig.cache
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Debug\net6.0\ref\IntranetPortal.dll
+C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\bin\Debug\net6.0\.filenesting.json

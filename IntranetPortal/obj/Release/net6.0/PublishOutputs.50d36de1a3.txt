@@ -1,4 +1,5 @@
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\IntranetPortal.exe
+C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\.filenesting.json
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\appsettings.json
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\bundleconfig.json
