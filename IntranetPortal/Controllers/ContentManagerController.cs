@@ -23,8 +23,20 @@ namespace IntranetPortal.Controllers
                 case "systems":
                     return RedirectToAction("Index", "Systems");
                     break;
-                case "":
-                    RedirectToAction("Index", "Documentation");
+                case "library":
+                    RedirectToAction("Index", "Library");
+                    break;
+                case "quiz":
+                    return View("ManageQuiz");
+                    break;
+                case "articles":
+                    return View("ManageArticles");
+                    break;
+                case "newsevents":
+                    return View("ManageNewsEvents");
+                    break;
+                case "tips":
+                    return View("ManageTips");
                     break;
 
 
@@ -37,5 +49,22 @@ namespace IntranetPortal.Controllers
         {
             return View();
         }
+        public IActionResult ManageTips()
+        {
+            return View();
+        }
+        public IActionResult ManageArticles()
+        {
+            return View();
+        }
+        public IActionResult ManageNewsEvents()
+        {
+            return View();
+        }
+        public IActionResult ManageFrontSlider()
+        {
+            return View();
+        }
+       
     }
 }

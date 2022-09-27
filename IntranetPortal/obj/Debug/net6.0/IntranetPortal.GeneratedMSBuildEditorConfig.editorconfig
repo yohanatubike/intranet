@@ -75,6 +75,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGVudE1hbmFnZXJcTWFuYWdlQWN0aXZpdGllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mustafa.juma/source/repos/tasacintranet/IntranetPortal/Views/ContentManager/ManageArticles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGVudE1hbmFnZXJcTWFuYWdlQXJ0aWNsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mustafa.juma/source/repos/tasacintranet/IntranetPortal/Views/ContentManager/ManageFrontSlider.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGVudE1hbmFnZXJcTWFuYWdlRnJvbnRTbGlkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mustafa.juma/source/repos/tasacintranet/IntranetPortal/Views/ContentManager/ManageNewsEvents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGVudE1hbmFnZXJcTWFuYWdlTmV3c0V2ZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mustafa.juma/source/repos/tasacintranet/IntranetPortal/Views/ContentManager/ManageTips.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGVudE1hbmFnZXJcTWFuYWdlVGlwcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mustafa.juma/source/repos/tasacintranet/IntranetPortal/Views/Documentation/Guidelines.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRhdGlvblxHdWlkZWxpbmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
