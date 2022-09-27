@@ -116,6 +116,23 @@ namespace IntranetPortal.Controllers
             await myContext.SaveChangesAsync();
             return Ok();
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdatePermission(int key, string values)
+        {
+            JObject data = JObject.Parse(values);
+            var PermissionDetails = await myContext.Permissions.FirstOrDefaultAsync(item => item.PermissionId == key);
+            var CheckCategory = data["PermissionName"]?.ToString();
+            var getAddress = myContext.PermissionCategories.Where(t => t.PermissionName == CheckCategory).SingleOrDefault();
+            PermissionDetails.Address = getAddress.Address;
+            JsonConvert.PopulateObject(values, PermissionDetails);
+
+            if (!TryValidateModel(PermissionDetails))
+                return BadRequest(ValidationErrorMessage);
+
+            await myContext.SaveChangesAsync();
+            return Ok();
+        }
         [HttpDelete]
         public async Task RemoveRole(int key)
         {
