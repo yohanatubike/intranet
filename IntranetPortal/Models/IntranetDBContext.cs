@@ -42,6 +42,7 @@ namespace IntranetPortal.Models
         public virtual DbSet<TasacSystem> TasacSystems { get; set; } = null!;
         public virtual DbSet<TasacLibrary> TasacLibraries { get; set; } = null!;
         public virtual DbSet<PermissionCategorie> PermissionCategories { get; set; } = null!;
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
