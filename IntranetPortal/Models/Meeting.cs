@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections;
 
 namespace IntranetPortal.Models
 {
     public partial class Meeting
     {
         public long MeetingId { get; set; }
-        public string MeetingCode { get; set; } = null!;
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
         public string DepartmentCode { get; set; } = null!;
@@ -18,5 +16,6 @@ namespace IntranetPortal.Models
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public string Location { get; set; } = null!;
+        public string MeetingCode { get; set; } = null!;
     }
 }
