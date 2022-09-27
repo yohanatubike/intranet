@@ -1,15 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using IntranetPortal.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace IntranetPortal.Controllers
 {
     public class ContentManagerController : Controller
     {
+        private IntranetDBContext myContext = new IntranetDBContext();
+
         public IActionResult Index( string parameter)
         {
             switch (parameter)
             {
                 case "documentation":
-                 return   RedirectToAction("Index", "Documentation");
+                    return RedirectToAction("Index", "Documentation");
                     break;
                 case "activity":
                     return View("ManageActivities");
@@ -38,10 +42,6 @@ namespace IntranetPortal.Controllers
                 case "tips":
                     return View("ManageTips");
                     break;
-
-
-
-
             }
             return RedirectToAction("Index", "StaffPage");
         }
@@ -65,6 +65,72 @@ namespace IntranetPortal.Controllers
         {
             return View();
         }
-       
+
+        public IActionResult UploadArticle()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult UploadArticle(IFormFile myFile, [FromQuery(Name = "ArticleId")] long id)
+        {
+            ViewBag.Id = id;
+
+            if (myFile != null)
+            {
+                ViewBag.File = GenerateFileName();
+                SaveFile(myFile, ViewBag.File.ToString());
+                UpdateForm(id, fileName: ViewBag.File + ".pdf");
+            }
+            return View("SubmissionResult");
+        }
+
+        private async void UpdateForm(long articleId, dynamic fileName)
+        {
+            var result = await myContext.Articles.FirstOrDefaultAsync(item => item.ArticleId == articleId);
+            if (result != null)
+            {
+                result.Url = fileName.ToString();
+                await myContext.SaveChangesAsync();
+            }
+        }
+
+        private string GenerateFileName()
+        {
+            Random res = new Random();
+            String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            int size = 18;
+            String ran = "";
+
+            for (int i = 0; i < size; i++)
+            {
+                int x = res.Next(62);
+                ran = ran + str[x];
+            }
+            return ran;
+        }
+
+        private void SaveFile(IFormFile file, string fileName)
+        {
+            try
+            {
+                fileName = fileName + ".pdf";
+                var path = Path.Combine("Attachments", "Articles");
+                // save the file
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                using (var fileStream = System.IO.File.Create(Path.Combine(path, fileName)))
+                {
+                    file.CopyTo(fileStream);
+                }
+            }
+            catch
+            {
+                Response.StatusCode = 400;
+            }
+        }
+
     }
 }

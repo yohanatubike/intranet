@@ -10,6 +10,6 @@ namespace IntranetPortal.Models
         public string? Url { get; set; }
         public string CreatedBy { get; set; } = null!;
         public DateTime? CreatedDate { get; set; }
-        public bool Status { get; set; }
+        public string? Status { get; set; }
     }
 }

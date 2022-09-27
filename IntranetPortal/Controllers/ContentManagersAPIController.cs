@@ -38,9 +38,10 @@ namespace IntranetPortal.Controllers
             return Content(resultJson, "application/json");
         }
 
+        [HttpGet]
         public async Task<IActionResult> GetArticles(DataSourceLoadOptions loadOptions)
         {
-            var result = DataSourceLoader.Load(myContext.Articles.Where(f => f.DepartmentCode.Equals("FAU")), loadOptions);
+            var result = DataSourceLoader.Load(myContext.Articles, loadOptions);
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
             var resultJson = JsonConvert.SerializeObject(result, settings);
@@ -48,51 +49,60 @@ namespace IntranetPortal.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddForm(string values)
+        public async Task<IActionResult> AddArticle(string values)
         {
-            var Form = new TasacForm();
-            JsonConvert.PopulateObject(values, Form);
+            var Article = new Article();
+            JsonConvert.PopulateObject(values, Article);
+            Article.CreatedBy = "yohana.tubike@tasac.go.tz";
+            Article.CreatedDate = DateTime.UtcNow;
 
-            if (!TryValidateModel(Form))
+            if (!TryValidateModel(Article))
                 return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
-            Form.CreatedBy = "yohana.tubike@tasac.go.tz";
-            Form.CreatedDate = DateTime.UtcNow;
+            
             try
             {
-                myContext.TasacForms.Add(Form);
+                myContext.Articles.Add(Article);
                 await myContext.SaveChangesAsync();
             }
             catch (Exception e)
             {
                 return Ok(e.Message);
             }
-            return Ok(Form);
+            return Ok(Article);
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateForm(int key, string values)
+        public async Task<IActionResult> UpdateArticle(int key, string values)
         {
-            var Form = await myContext.TasacForms.FirstOrDefaultAsync(item => item.FormId == key);
-            if (Form == null)
+            var Article = await myContext.Articles.FirstOrDefaultAsync(item => item.ArticleId == key);
+            if (Article == null)
                 throw new ArgumentNullException();
-            JsonConvert.PopulateObject(values, Form);
-            if (!TryValidateModel(Form))
+            JsonConvert.PopulateObject(values, Article);
+            if (!TryValidateModel(Article))
                 return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
-            myContext.TasacForms.Update(Form);
+            myContext.Articles.Update(Article);
             await myContext.SaveChangesAsync();
             return Ok();
         }
 
         [HttpDelete]
-        public async Task RemoveForm(int key)
+        public async Task RemoveArticle(int key)
         {
-            var Form = await myContext.TasacForms.FirstOrDefaultAsync(item => item.FormId == key);
-            if (Form == null)
+            var Article = await myContext.Articles.FirstOrDefaultAsync(item => item.ArticleId == key);
+            if (Article == null)
                 throw new ArgumentNullException();
-            myContext.TasacForms.Remove(Form);
+            myContext.Articles.Remove(Article);
             await myContext.SaveChangesAsync();
         }
 
-
+        [HttpGet]
+        public ActionResult GetArticlePdf([FromQuery(Name = "Filename")] string filename)
+        {
+            var path = Path.Combine("Attachments", "Articles");
+            string filePath = Path.Combine(path, filename);
+            Response.Headers.Add("Content-Disposition", "inline; filename=test.pdf");
+            var stream = new FileStream(filePath, FileMode.Open);
+            return new FileStreamResult(stream, "application/pdf");
+        }
     }
 }

@@ -91,6 +91,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGVudE1hbmFnZXJcTWFuYWdlVGlwcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/ContentManager/SubmissionResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGVudE1hbmFnZXJcU3VibWlzc2lvblJlc3VsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/ContentManager/UploadArticle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGVudE1hbmFnZXJcVXBsb2FkQXJ0aWNsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/Documentation/Guidelines.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRhdGlvblxHdWlkZWxpbmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
