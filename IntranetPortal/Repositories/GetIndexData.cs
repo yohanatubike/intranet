@@ -1,5 +1,4 @@
-﻿using Arch.EntityFrameworkCore;
-using IntranetPortal.Models;
+﻿using IntranetPortal.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 

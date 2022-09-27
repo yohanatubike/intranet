@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DevExtreme.AspNet.Data;
 using Newtonsoft.Json;
-using System.Net;
-using System.Collections;
 using DevExtreme.AspNet.Mvc;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
@@ -13,7 +11,7 @@ using Newtonsoft.Json.Linq;
 
 namespace IntranetPortal.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class SetupAPIController : Controller
     {
 

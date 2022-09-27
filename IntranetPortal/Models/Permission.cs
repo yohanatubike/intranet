@@ -7,7 +7,7 @@ namespace IntranetPortal.Models
     {
         public long PermissionId { get; set; }
         public string Pfnumber { get; set; } = null!;
-        public string Address { get; set; }
+        public string? Address { get; set; }
         public bool Status { get; set; } = true;
         public string PermissionName { get; set; } = null!;
         public DateTime? CreatedDate { get; set; }
