@@ -78,8 +78,8 @@
 
 
 
-                                                        
-                                                    columns.AddFor(m => m.ActivityCode).Visible(false); 
+                                            columns.AddFor(m => m.ActivityId).Visible(false);
+                                            columns.AddFor(m => m.ActivityCode).Visible(false); 
                                                     columns.AddFor(m => m.ActivityName);        
                                                     columns.AddFor(m => m.StartDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy"); 
                                                     columns.AddFor(m => m.EndDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy"); 
@@ -124,15 +124,14 @@ columns.AddFor(m => m.Description).Caption("Description").DataField("Description
                                                                                                                    .Message("Position is required")
                                                                                                                    );
 
-                                                        columns.AddFor(m => m.ImpelementationStatus).DataField("ImpelementationStatus").Caption("Comments").CellTemplate(@<text>
+                                            columns.AddFor(m => m.CreatedDate).DataField("CreatedDate").Caption("Comments").CellTemplate(@<text>
                                                                         
-                        {%>
-                                                <a href="ActivitiesManagement/ActivitisAttachments?ActivityCode=<%= data.ActivityCode%>"><div class="feather icon-message-square  text-success"> Comments</div></a>
+                                       <a href="ActivitiesManagement/ActivitisAttachments?ActivityCode=<%= data.ActivityCode%>"><div class="feather icon-message-square  text-success"> Comments</div></a>
                                                
                      
 
 
-                        %>
+                   
                                                         </text>);
 
 
@@ -152,7 +151,7 @@ columns.AddFor(m => m.Description).Caption("Description").DataField("Description
                                                                  .Editing(e => e
                                                                  .AllowAdding(true)
                                                             .Popup(p => p
-                                                            .Title("Add New Role")
+                                                            .Title("Add Officer's Role'")
                                                             .ShowTitle(true)
                                                                .Width(1000)
                                                             .Height(400)
