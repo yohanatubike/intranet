@@ -1,11 +1,7 @@
-﻿using DevExtreme.AspNet.Data;
-using DevExtreme.AspNet.Mvc;
-using IntranetPortal.Models;
+﻿using IntranetPortal.Models;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Security.Claims;
 
@@ -27,29 +23,13 @@ namespace IntranetPortal.Controllers
         
         public IActionResult Index()
         {
-            return View(GetActiveSliders());
+            return View();
         }
 
         public   async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Home");
-        }
-
-        //[HttpGet]
-        public List<FrontEndSlider> GetActiveSliders()
-        {
-            List<FrontEndSlider> sliders = myContext.FrontEndSliders.Where(f => f.PublishStatus.Equals("Active")).ToList();
-            var path = Path.Combine("wwwroot", "Sliders");
-
-            foreach (var slider in sliders)
-            {
-                if(slider.ImageFile != null)
-                {
-                    slider.ImageFile = Path.Combine("Sliders", slider.ImageFile);
-                }
-            }
-            return sliders;
         }
 
         public static string getHashedMD5Password(string input)

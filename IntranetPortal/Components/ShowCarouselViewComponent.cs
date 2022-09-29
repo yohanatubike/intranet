@@ -1,24 +1,20 @@
 ﻿using IntranetPortal.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace IntranetPortal.Components
 {
-    public class ShowArticlesViewComponent : ViewComponent
+    public class ShowCarouselViewComponent : ViewComponent
     {
         private readonly GetIndexData _repo;
 
-        public ShowArticlesViewComponent(GetIndexData getIndexData, IHttpContextAccessor haccess)
+        public ShowCarouselViewComponent(GetIndexData getIndexData, IHttpContextAccessor haccess)
         {
             _repo = getIndexData;
         }
-
         public async Task<IViewComponentResult> InvokeAsync()
         {
-
-            var activeArticles = _repo.GetTopArticles();
-            return View(activeArticles);
-
+            var activeSlider = _repo.GetActiveSliders();
+            return View(activeSlider);
         }
     }
 }
