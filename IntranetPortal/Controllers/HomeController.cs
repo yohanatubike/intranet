@@ -39,7 +39,17 @@ namespace IntranetPortal.Controllers
         //[HttpGet]
         public List<FrontEndSlider> GetActiveSliders()
         {
-             return myContext.FrontEndSliders.Where(f => f.PublishStatus.Equals("Active")).ToList();
+            List<FrontEndSlider> sliders = myContext.FrontEndSliders.Where(f => f.PublishStatus.Equals("Active")).ToList();
+            var path = Path.Combine("wwwroot", "Sliders");
+
+            foreach (var slider in sliders)
+            {
+                if(slider.ImageFile != null)
+                {
+                    slider.ImageFile = Path.Combine("Sliders", slider.ImageFile);
+                }
+            }
+            return sliders;
         }
 
         public static string getHashedMD5Password(string input)

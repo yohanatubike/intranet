@@ -1497,6 +1497,8 @@
     <None Include="wwwroot\node_modules\wrappy\LICENSE" />
     <None Include="wwwroot\node_modules\wrappy\README.md" />
     <None Include="wwwroot\node_modules\wrappy\wrappy.js" />
+    <None Include="wwwroot\Sliders\pBAkFFve5as0YfNmCt.jpg" />
+    <None Include="wwwroot\Sliders\z8sOIbi8y7wyRJCmNi.jpg" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DevExtreme.AspNet.Data" Version="2.8.6" />
