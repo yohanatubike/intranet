@@ -1,8 +1,11 @@
-﻿using IntranetPortal.Models;
+﻿using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Mvc;
+using IntranetPortal.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Security.Claims;
 
@@ -24,12 +27,19 @@ namespace IntranetPortal.Controllers
         
         public IActionResult Index()
         {
-            return View();
+            return View(GetActiveSliders());
         }
+
         public   async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        //[HttpGet]
+        public List<FrontEndSlider> GetActiveSliders()
+        {
+             return myContext.FrontEndSliders.Where(f => f.PublishStatus.Equals("Active")).ToList();
         }
 
         public static string getHashedMD5Password(string input)
@@ -66,9 +76,6 @@ namespace IntranetPortal.Controllers
 
             if (getUser != null)
                 {
-
-
-
                     if (Url.IsLocalUrl(ReturnUrl))
                     {
                         return Redirect(ReturnUrl);
@@ -82,7 +89,7 @@ namespace IntranetPortal.Controllers
                     new Claim(ClaimTypes.Name  , getUser.FirstName+" "+ getUser.LastName ),
                     new Claim(ClaimTypes.SerialNumber  , getUser.PFNumber),
                     new Claim(ClaimTypes.Email, getUser.Email),
-                    new Claim(ClaimTypes.DateOfBirth, getUser.DateOfBirth.ToString()),
+                    new Claim(ClaimTypes.DateOfBirth, getUser.DateOfBirth?.ToString()),
                     new Claim("SectionCode", getUser.Designations.SectionCode),
                     new Claim("DesignationCode", getUser.DesignationCode),
                     new Claim("DepartmentCode", getUser.Designations.DepartmentCode),
@@ -101,19 +108,16 @@ namespace IntranetPortal.Controllers
             return View("Login");
         }
 
-
-
-
-        
-
         public IActionResult Privacy()
         {
             return View();
         }
+
         public IActionResult Login()
         {
             return View();
         }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

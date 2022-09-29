@@ -14,34 +14,25 @@ namespace IntranetPortal.Controllers
             {
                 case "documentation":
                     return RedirectToAction("Index", "Documentation");
-                    break;
                 case "activity":
                     return View("ManageActivities");
-                    break;
                 case "frontslider":
                     return View("ManageFrontSlider");
-                    break;
                 case "forms":
                     return RedirectToAction("Index", "Forms");
-                    break;
                 case "systems":
                     return RedirectToAction("Index", "Systems");
-                    break;
                 case "library":
                     RedirectToAction("Index", "Library");
                     break;
                 case "quiz":
                     return View("ManageQuiz");
-                    break;
                 case "articles":
                     return View("ManageArticles");
-                    break;
                 case "newsevents":
                     return View("ManageNewsEvents");
-                    break;
                 case "tips":
                     return View("ManageTips");
-                    break;
             }
             return RedirectToAction("Index", "StaffPage");
         }
@@ -65,13 +56,43 @@ namespace IntranetPortal.Controllers
         {
             return View();
         }
-
         public IActionResult UploadArticle()
         {
             return View();
         }
+        public IActionResult UploadCarousel()
+        {
+            return View();
+        }
 
+        #region Carousel
+        [HttpPost]
+        public ActionResult UploadCarousel(IFormFile myFile, [FromQuery(Name = "SliderId")] long id)
+        {
+            ViewBag.Id = id;
 
+            if (myFile != null)
+            {
+                ViewBag.File = GenerateFileName();
+                SaveFile(myFile, ViewBag.File.ToString(), "Sliders");
+                string ext = Path.GetExtension(myFile.FileName);
+                UpdateSlider(id, fileName: ViewBag.File + ext);
+            }
+            return View("SubmissionResult");
+        }
+
+        private async void UpdateSlider(long SliderId, dynamic fileName)
+        {
+            var result = await myContext.FrontEndSliders.FirstOrDefaultAsync(item => item.SliderId == SliderId);
+            if (result != null)
+            {
+                result.ImageFile = fileName.ToString();
+                await myContext.SaveChangesAsync();
+            }
+        }
+        #endregion
+
+        #region Article
         [HttpPost]
         public ActionResult UploadArticle(IFormFile myFile, [FromQuery(Name = "ArticleId")] long id)
         {
@@ -80,7 +101,7 @@ namespace IntranetPortal.Controllers
             if (myFile != null)
             {
                 ViewBag.File = GenerateFileName();
-                SaveFile(myFile, ViewBag.File.ToString());
+                SaveFile(myFile, ViewBag.File.ToString(), "Articles");
                 UpdateForm(id, fileName: ViewBag.File + ".pdf");
             }
             return View("SubmissionResult");
@@ -95,7 +116,9 @@ namespace IntranetPortal.Controllers
                 await myContext.SaveChangesAsync();
             }
         }
+        #endregion
 
+        #region Utils
         private string GenerateFileName()
         {
             Random res = new Random();
@@ -111,12 +134,12 @@ namespace IntranetPortal.Controllers
             return ran;
         }
 
-        private void SaveFile(IFormFile file, string fileName)
+        private void SaveFile(IFormFile file, string fileName, string locPath)
         {
             try
             {
                 fileName = fileName + ".pdf";
-                var path = Path.Combine("Attachments", "Articles");
+                var path = Path.Combine("Attachments", locPath);
                 // save the file
                 if (!Directory.Exists(path))
                     Directory.CreateDirectory(path);
@@ -141,6 +164,7 @@ namespace IntranetPortal.Controllers
             var stream = new FileStream(filePath, FileMode.Open);
             return new FileStreamResult(stream, "application/pdf");
         }
+        #endregion
 
     }
 }

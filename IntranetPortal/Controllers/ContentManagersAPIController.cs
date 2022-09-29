@@ -1,10 +1,11 @@
-﻿using DevExtreme.AspNet.Data;
+﻿    using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Data.ResponseModel;
 using DevExtreme.AspNet.Mvc;
 using IntranetPortal.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System.Data;
 using System.Security.Claims;
 
 namespace IntranetPortal.Controllers
@@ -38,6 +39,68 @@ namespace IntranetPortal.Controllers
             var resultJson = JsonConvert.SerializeObject(result, settings);
             return Content(resultJson, "application/json");
         }
+
+        #region Sliders
+
+        [HttpGet]
+        public ActionResult GetAllSliders(DataSourceLoadOptions loadOptions)
+        {
+            var result = DataSourceLoader.Load(myContext.FrontEndSliders.Where(f => f.PublishStatus.Equals("Active")), loadOptions);
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddFrontSlider(string values)
+        {
+            var Slider = new FrontEndSlider();
+            JsonConvert.PopulateObject(values, Slider);
+            Slider.CreatedBy = "yohana.tubike@tasac.go.tz";
+            Slider.CreatedDate = DateTime.UtcNow;
+
+            if (!TryValidateModel(Slider))
+                return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
+
+            try
+            {
+                myContext.FrontEndSliders.Add(Slider);
+                await myContext.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                return Ok(e.Message);
+            }
+            return Ok(Slider);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateSlider(int key, string values)
+        {
+            var Slider = await myContext.FrontEndSliders.FirstOrDefaultAsync(item => item.SliderId == key);
+            if (Slider == null)
+                throw new ArgumentNullException();
+            JsonConvert.PopulateObject(values, Slider);
+            if (!TryValidateModel(Slider))
+                return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
+            myContext.FrontEndSliders.Update(Slider);
+            await myContext.SaveChangesAsync();
+            return Ok();
+        }
+
+        [HttpDelete]
+        public async Task RemoveSlider(int key)
+        {
+            var Slider = await myContext.FrontEndSliders.FirstOrDefaultAsync(item => item.SliderId == key);
+            if (Slider == null)
+                throw new ArgumentNullException();
+            myContext.FrontEndSliders.Remove(Slider);
+            await myContext.SaveChangesAsync();
+        }
+        #endregion
+
+        #region Articles
 
         [HttpGet]
         public async Task<IActionResult> GetArticles(string? Category, DataSourceLoadOptions loadOptions)
@@ -103,5 +166,6 @@ namespace IntranetPortal.Controllers
             myContext.Articles.Remove(Article);
             await myContext.SaveChangesAsync();
         }
+        #endregion
     }
 }
