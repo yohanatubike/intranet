@@ -74,8 +74,8 @@ namespace IntranetPortal.Controllers
             if (myFile != null)
             {
                 ViewBag.File = GenerateFileName();
-                SaveFile(myFile, ViewBag.File.ToString(), "wwwroot", "Sliders");
                 string ext = Path.GetExtension(myFile.FileName);
+                SaveFile(myFile, ViewBag.File.ToString(), ext, "wwwroot", "Sliders");
                 UpdateSlider(id, fileName: ViewBag.File + ext);
             }
             return View("SubmissionResult");
@@ -101,7 +101,8 @@ namespace IntranetPortal.Controllers
             if (myFile != null)
             {
                 ViewBag.File = GenerateFileName();
-                SaveFile(myFile, ViewBag.File.ToString(), "Attachments", "Articles");
+                string ext = Path.GetExtension(myFile.FileName);
+                SaveFile(myFile, ViewBag.File.ToString(), ext, "Attachments", "Articles");
                 UpdateForm(id, fileName: ViewBag.File + ".pdf");
             }
             return View("SubmissionResult");
@@ -134,11 +135,11 @@ namespace IntranetPortal.Controllers
             return ran;
         }
 
-        private void SaveFile(IFormFile file, string fileName, string mainFolder, string locPath)
+        private void SaveFile(IFormFile file, string fileName, string ext, string mainFolder, string locPath)
         {
             try
             {
-                fileName = fileName + ".pdf";
+                fileName = fileName + ext;
                 var path = Path.Combine(mainFolder, locPath);
                 // save the file
                 if (!Directory.Exists(path))
