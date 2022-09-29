@@ -132,5 +132,15 @@ namespace IntranetPortal.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult GetArticlePdf([FromQuery(Name = "Filename")] string filename)
+        {
+            var path = Path.Combine("Attachments", "Articles");
+            string filePath = Path.Combine(path, filename);
+            Response.Headers.Add("Content-Disposition", "inline; filename=test.pdf");
+            var stream = new FileStream(filePath, FileMode.Open);
+            return new FileStreamResult(stream, "application/pdf");
+        }
+
     }
 }

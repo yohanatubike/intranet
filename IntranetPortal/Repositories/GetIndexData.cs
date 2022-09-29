@@ -34,5 +34,15 @@ namespace IntranetPortal.Repositories
 
                 }).ToList();
         }
+
+        public List<Article> GetTopArticles()
+        {
+            return myContext.Articles.OrderByDescending(a => a.ArticleId).
+                Select(article => new Article() 
+                {
+                    Title = article.Title,
+                    Url = article.Url
+                }).Take(3).ToList();
+        }
     }
 }

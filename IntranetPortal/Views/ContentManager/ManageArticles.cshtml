@@ -58,7 +58,6 @@
                                             .UpdateAction("UpdateArticle")
                                             .DeleteAction("RemoveArticle")
                                             .Key("ArticleId")
-
                                             )
                                             .RemoteOperations(true)
                                             .ID("ArticlesDG")
@@ -66,6 +65,7 @@
                                             {
                                                 columns.AddFor(m => m.Title);
                                                 columns.AddFor(m => m.Status).Caption("Status");
+                                                columns.AddFor(m => m.Category).Caption("Category");
                                                 columns.AddFor(m => m.CreatedBy).Caption("Created By");
                                                 columns.AddFor(m => m.Url).Caption("View Article").CellTemplate(
                                             @<text>
@@ -84,12 +84,9 @@
                                             </text>);
 
                                             })
-
                                         .SearchPanel(f => f.Visible(true))
-
                                         .Paging(p => p.PageSize(10))
                                         .HeaderFilter(f => f.Visible(true))
-
                                         .Grouping(g => g.ContextMenuEnabled(true))
                                         .Grouping(g => g.AutoExpandAll(true))
                                         .RemoteOperations(true)
@@ -103,7 +100,6 @@
                                         .Width(1000)
                                         .Height(300)
                                         )
-
                                         .AllowUpdating(true)
                                         .AllowDeleting(true)
                                         .Mode(GridEditMode.Popup)
@@ -120,6 +116,14 @@
                                             {
                                             "Active",
                                             "Inactive",
+                                            }));
+                                            items.AddSimpleFor(m => m.Category).Editor(e => e
+                                            .SelectBox()
+                                            .DataSource(new[]
+                                            {
+                                            "Health",
+                                            "Business",
+                                            "Social"
                                             }));
                                         }).FormData(Model)
                                         )
