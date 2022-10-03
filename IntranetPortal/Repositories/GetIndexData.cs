@@ -45,7 +45,34 @@ namespace IntranetPortal.Repositories
 
                 }).ToList();
         }
+        public List<NewsEvent> GetActiveTopNews()
+        {
+            return myContext.NewsEvents.OrderByDescending(q => q.CreatedDate)
+                .Where(t => t.Status == "Published" && t.IsTopNews == true).Select(newsDetails => new NewsEvent()
+                {
+                    Title = newsDetails.Title,
+                    CreatedBy = newsDetails.CreatedBy,
 
+                    IsTopNews = newsDetails.IsTopNews,
+                    Description = newsDetails.Description.Substring(0, Math.Min(newsDetails.Description.Length, 235)),
+
+
+                }).Take(1).ToList();
+        }
+        public List<NewsEvent> GetActivePreviousNews()
+        {
+            return myContext.NewsEvents.OrderByDescending(q => q.CreatedDate)
+                .Where(t => t.Status == "Published").Select(newsDetails => new NewsEvent()
+                {
+                    Title = newsDetails.Title,
+                    CreatedBy = newsDetails.CreatedBy,
+
+                    IsTopNews = newsDetails.IsTopNews,
+
+
+
+                }).Take(6).ToList();
+        }
         public List<Article> GetTopArticles()
         {
             return myContext.Articles.OrderByDescending(a => a.ArticleId).
