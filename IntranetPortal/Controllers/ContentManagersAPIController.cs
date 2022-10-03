@@ -1,9 +1,11 @@
-﻿using DevExtreme.AspNet.Data;
+﻿    using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Data.ResponseModel;
 using DevExtreme.AspNet.Mvc;
 using IntranetPortal.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System.Data;
 using System.Security.Claims;
 
 namespace IntranetPortal.Controllers
@@ -21,11 +23,11 @@ namespace IntranetPortal.Controllers
         public ContentManagersAPIController(IHttpContextAccessor haccess)
         {
             hcontext = haccess.HttpContext;
-            UserEmail = hcontext.User.FindFirst(ClaimTypes.Email).Value;
-            SectionCode = hcontext.User.FindFirst(c => c.Type == "SectionCode").Value;
-            DepartmentCode = hcontext.User.FindFirst(c => c.Type == "DepartmentCode").Value;
-            DesignationCode = hcontext.User.FindFirst(c => c.Type == "DesignationCode").Value;
-            PFNumber = hcontext.User.FindFirst(ClaimTypes.SerialNumber).Value;
+            UserEmail = hcontext?.User?.FindFirst(ClaimTypes.Email)?.Value;
+            SectionCode = hcontext?.User?.FindFirst(c => c.Type == "SectionCode")?.Value;
+            DepartmentCode = hcontext?.User?.FindFirst(c => c.Type == "DepartmentCode")?.Value;
+            DesignationCode = hcontext?.User?.FindFirst(c => c.Type == "DesignationCode")?.Value;
+            PFNumber = hcontext?.User?.FindFirst(ClaimTypes.SerialNumber)?.Value;
         }
 
         [HttpGet]
@@ -37,40 +39,133 @@ namespace IntranetPortal.Controllers
             var resultJson = JsonConvert.SerializeObject(result, settings);
             return Content(resultJson, "application/json");
         }
-        [HttpPost]
-        public async Task<IActionResult> AddNews(string values)
+
+        #region Sliders
+
+        [HttpGet]
+        public ActionResult GetAllSliders(DataSourceLoadOptions loadOptions)
         {
-            var newNews = new  NewsEvent();
-            JsonConvert.PopulateObject(values, newNews);
-            newNews.CreatedBy = UserEmail;
-            newNews.CreatedDate = DateTime.Now;
-            newNews.UpdatedDate = DateTime.Now;
-            newNews.UpdatedBy = UserEmail;
-         
-            
-            if (!TryValidateModel(newNews))
-
-                return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
-            myContext.NewsEvents.Add(newNews);
-            await myContext.SaveChangesAsync();
-
-            return Ok(newNews);
+            var result = DataSourceLoader.Load(myContext.FrontEndSliders.Where(f => f.PublishStatus.Equals("Active")), loadOptions);
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
         }
-        [HttpPut]
-        public async Task<IActionResult> UpdateNewsEvent(int key, string values)
+
+        [HttpPost]
+        public async Task<IActionResult> AddFrontSlider(string values)
         {
-            var newsData = await myContext.NewsEvents.FirstOrDefaultAsync(item => item.NewsEventsId == key);
-            JsonConvert.PopulateObject(values, newsData);
-             
-            newsData.UpdatedDate= DateTime.Now;
-            newsData.UpdatedBy = UserEmail;
+            var Slider = new FrontEndSlider();
+            JsonConvert.PopulateObject(values, Slider);
+            Slider.CreatedBy = "yohana.tubike@tasac.go.tz";
+            Slider.CreatedDate = DateTime.UtcNow;
 
+            if (!TryValidateModel(Slider))
+                return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
 
-            if (!TryValidateModel(newsData))
-                return BadRequest(ValidationErrorMessage);
+            try
+            {
+                myContext.FrontEndSliders.Add(Slider);
+                await myContext.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                return Ok(e.Message);
+            }
+            return Ok(Slider);
+        }
 
+        [HttpPut]
+        public async Task<IActionResult> UpdateSlider(int key, string values)
+        {
+            var Slider = await myContext.FrontEndSliders.FirstOrDefaultAsync(item => item.SliderId == key);
+            if (Slider == null)
+                throw new ArgumentNullException();
+            JsonConvert.PopulateObject(values, Slider);
+            if (!TryValidateModel(Slider))
+                return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
+            myContext.FrontEndSliders.Update(Slider);
             await myContext.SaveChangesAsync();
             return Ok();
         }
+
+        [HttpDelete]
+        public async Task RemoveSlider(int key)
+        {
+            var Slider = await myContext.FrontEndSliders.FirstOrDefaultAsync(item => item.SliderId == key);
+            if (Slider == null)
+                throw new ArgumentNullException();
+            myContext.FrontEndSliders.Remove(Slider);
+            await myContext.SaveChangesAsync();
+        }
+        #endregion
+
+        #region Articles
+
+        [HttpGet]
+        public async Task<IActionResult> GetArticles(string? Category, DataSourceLoadOptions loadOptions)
+        {
+            LoadResult? result = null;
+
+            if (Category != null)
+            {
+                result = DataSourceLoader.Load(myContext.Articles.Where(a => a.Category.Equals(Category)).Take(3), loadOptions);
+            } else
+            {
+                result = DataSourceLoader.Load(myContext.Articles, loadOptions);
+            }
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddArticle(string values)
+        {
+            var Article = new Article();
+            JsonConvert.PopulateObject(values, Article);
+            Article.CreatedBy = "yohana.tubike@tasac.go.tz";
+            Article.CreatedDate = DateTime.UtcNow;
+
+            if (!TryValidateModel(Article))
+                return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
+            
+            try
+            {
+                myContext.Articles.Add(Article);
+                await myContext.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                return Ok(e.Message);
+            }
+            return Ok(Article);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateArticle(int key, string values)
+        {
+            var Article = await myContext.Articles.FirstOrDefaultAsync(item => item.ArticleId == key);
+            if (Article == null)
+                throw new ArgumentNullException();
+            JsonConvert.PopulateObject(values, Article);
+            if (!TryValidateModel(Article))
+                return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
+            myContext.Articles.Update(Article);
+            await myContext.SaveChangesAsync();
+            return Ok();
+        }
+
+        [HttpDelete]
+        public async Task RemoveArticle(int key)
+        {
+            var Article = await myContext.Articles.FirstOrDefaultAsync(item => item.ArticleId == key);
+            if (Article == null)
+                throw new ArgumentNullException();
+            myContext.Articles.Remove(Article);
+            await myContext.SaveChangesAsync();
+        }
+        #endregion
     }
 }
