@@ -47,7 +47,7 @@
                                     </ol>
 
                                     @await Component.InvokeAsync("ShowCarousel")
-                                    
+
                                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="sr-only">Previous</span>
@@ -234,8 +234,8 @@
                                 </div>
                             </div>
 
-</div>
-</div>
+                        </div>
+                    </div>
                     <div class="col-xl-4 col-md-12">
                         <div class="card latest-update-card">
                             <div class="card-header">
@@ -254,90 +254,36 @@
                             @await Component.InvokeAsync("ShowPreviousNews")
                         </div>
                     </div>
-<div class="col-xl-4 col-md-12">
-<div class="card latest-update-card">
-<div class="card-header">
-<h5>Staff's Notifications</h5>
-</div>
-     @await Component.InvokeAsync("ShowStaffNotifications")
-</div>
-</div>
-<div class="col-lg-8">
-<div class="card">
-<div class="card-header">
-<h5 class="card-header-text">Important Articles</h5>
-</div>
-<div class="card-block accordion-block">
-<div id="accordion" role="tablist" aria-multiselectable="true">
-<div class="accordion-panel">
-<div class="accordion-heading" role="tab" id="headingOne">
-<h3 class="card-title accordion-title">
-<a class="accordion-msg waves-effect waves-dark" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-Health Articles
-</a>
-</h3>
-</div>
-<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-<div class="accordion-content accordion-desc">
-<p>
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-</p>
-</div>
-</div>
-</div>
-<div class="accordion-panel">
-<div class="accordion-heading" role="tab" id="headingTwo">
-<h3 class="card-title accordion-title">
-<a class="accordion-msg waves-effect waves-dark" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-Social Articles
-</a>
-</h3>
- </div>
-<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-<div class="accordion-content accordion-desc">
-<p>
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-</p>
-</div>
-</div>
-</div>
-<div class="accordion-panel">
-<div class=" accordion-heading" role="tab" id="headingThree">
-<h3 class="card-title accordion-title">
-<a class="accordion-msg waves-effect waves-dark" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-Business Articles
-</a>
-</h3>
-</div>
-<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-<div class="accordion-content accordion-desc">
-<p>
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-</p>
-
-</div>
-</div>
-
-</div>
-</div>
+                    <div class="col-xl-4 col-md-12">
+                        <div class="card latest-update-card">
+                            <div class="card-header">
+                                <h5>Staff's Notifications</h5>
+                            </div>
+                            @await Component.InvokeAsync("ShowStaffNotifications")
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-header-text">Important Articles</h5>
+                            </div>
+                            @await Component.InvokeAsync("ShowArticles")
+                        </div>
+                    </div>
 
                     <div class="col-xl-4 col-md-6">
                         <div class="card proj-t-card">
                             <div class="card-body">
                                 <div class="row align-items-center m-b-30">
                                     <div class="col-auto">
-                                        <i class="fas fa-arrow-circle-right text-c-yellow f-30"></i>
+                                        <i class="fas fa-lightbulb text-c-yellow f-30"></i>
                                     </div>
                                     <div class="col p-l-0">
-                                        <h6 class="m-b-5">Quiz</h6>
+                                        <h6 class="m-b-5">Tip of the Day</h6>
                                         <hr />
-                                        <h6 class="m-b-0 text-c-black" style="animation: blinker 1s linear infinite;"><p>Pick a task you really want to complete today at all costs. Write out why that task is so important and then do it right away to set</p>  </h6>
+                                        <h6 class="m-b-0 text-c-black" style="animation: blinker 1s linear infinite;">
+                                            <p>Pick a task you really want to complete today at all costs. Write out why that task is so important and then do it right away to set the tone for the morning .</p>
+                                        </h6>
                                     </div>
                                 </div>
                                 <div class="row align-items-center text-center">
@@ -360,6 +306,3 @@ sheets containing Lorem Ipsum passages, and more recently with desktop publishin
 
                 </div>
             </div>
-        </div>
-    </div>
-</div>
