@@ -10,12 +10,14 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <NoWin32Manifest>true</NoWin32Manifest>
+    <UserSecretsId>f62c4e14-e6b9-44d5-8dbc-f517ddbb1ead</UserSecretsId>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Attachments\ActivitiesDocuments\**" />
+    <Compile Remove="Attachments\Meetings\**" />
     <Compile Remove="Documentation\**" />
     <Compile Remove="Forms\**" />
     <Compile Remove="Library\**" />
@@ -23,6 +25,7 @@
     <Compile Remove="Systems\**" />
     <Compile Remove="Views\NewFolder\**" />
     <Content Remove="Attachments\ActivitiesDocuments\**" />
+    <Content Remove="Attachments\Meetings\**" />
     <Content Remove="Documentation\**" />
     <Content Remove="Forms\**" />
     <Content Remove="Library\**" />
@@ -30,6 +33,7 @@
     <Content Remove="Systems\**" />
     <Content Remove="Views\NewFolder\**" />
     <EmbeddedResource Remove="Attachments\ActivitiesDocuments\**" />
+    <EmbeddedResource Remove="Attachments\Meetings\**" />
     <EmbeddedResource Remove="Documentation\**" />
     <EmbeddedResource Remove="Forms\**" />
     <EmbeddedResource Remove="Library\**" />
@@ -37,6 +41,7 @@
     <EmbeddedResource Remove="Systems\**" />
     <EmbeddedResource Remove="Views\NewFolder\**" />
     <None Remove="Attachments\ActivitiesDocuments\**" />
+    <None Remove="Attachments\Meetings\**" />
     <None Remove="Documentation\**" />
     <None Remove="Forms\**" />
     <None Remove="Library\**" />
@@ -1492,6 +1497,8 @@
     <None Include="wwwroot\node_modules\wrappy\LICENSE" />
     <None Include="wwwroot\node_modules\wrappy\README.md" />
     <None Include="wwwroot\node_modules\wrappy\wrappy.js" />
+    <None Include="wwwroot\Sliders\pBAkFFve5as0YfNmCt.jpg" />
+    <None Include="wwwroot\Sliders\z8sOIbi8y7wyRJCmNi.jpg" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DevExtreme.AspNet.Data" Version="2.8.6" />
@@ -1515,7 +1522,6 @@
     <TypeScriptCompile Include="wwwroot\node_modules\dom-serializer\node_modules\entities\lib\src\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Attachments\Meetings\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\lib\bootstrap\" />
     <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
