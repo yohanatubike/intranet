@@ -1,6 +1,5 @@
 ﻿using IntranetPortal.Models;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -26,6 +25,7 @@ namespace IntranetPortal.Controllers
         {
             return View();
         }
+
         public   async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
@@ -36,7 +36,7 @@ namespace IntranetPortal.Controllers
         {
             using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
             {
-                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+                byte[] inputBytes = Encoding.ASCII.GetBytes(input);
                 byte[] hashBytes = md5.ComputeHash(inputBytes);
                 StringBuilder sb = new StringBuilder();
                 for (int i = 0; i < hashBytes.Length; i++)
@@ -66,9 +66,6 @@ namespace IntranetPortal.Controllers
 
             if (getUser != null)
                 {
-
-
-
                     if (Url.IsLocalUrl(ReturnUrl))
                     {
                         return Redirect(ReturnUrl);
@@ -82,7 +79,7 @@ namespace IntranetPortal.Controllers
                     new Claim(ClaimTypes.Name  , getUser.FirstName+" "+ getUser.LastName ),
                     new Claim(ClaimTypes.SerialNumber  , getUser.PFNumber),
                     new Claim(ClaimTypes.Email, getUser.Email),
-                    new Claim(ClaimTypes.DateOfBirth, getUser.DateOfBirth.ToString()),
+                    new Claim(ClaimTypes.DateOfBirth, getUser.DateOfBirth?.ToString()),
                     new Claim("SectionCode", getUser.Designations.SectionCode),
                     new Claim("DesignationCode", getUser.DesignationCode),
                     new Claim("DepartmentCode", getUser.Designations.DepartmentCode),
@@ -101,19 +98,16 @@ namespace IntranetPortal.Controllers
             return View("Login");
         }
 
-
-
-
-        
-
         public IActionResult Privacy()
         {
             return View();
         }
+
         public IActionResult Login()
         {
             return View();
         }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

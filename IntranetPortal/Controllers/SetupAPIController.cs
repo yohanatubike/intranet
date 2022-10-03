@@ -26,11 +26,11 @@ namespace IntranetPortal.Controllers
         public SetupAPIController(IHttpContextAccessor haccess)
         {
             hcontext = haccess.HttpContext;
-            UserEmail = hcontext.User.FindFirst(ClaimTypes.Email).Value;
-            SectionCode = hcontext.User.FindFirst(c => c.Type == "SectionCode").Value;
-            DepartmentCode = hcontext.User.FindFirst(c => c.Type == "DepartmentCode").Value;
-            DesignationCode = hcontext.User.FindFirst(c => c.Type == "DesignationCode").Value;
-            PFNumber = hcontext.User.FindFirst(ClaimTypes.SerialNumber).Value;
+            UserEmail = hcontext.User?.FindFirst(ClaimTypes.Email)?.Value;
+            SectionCode = hcontext.User?.FindFirst(c => c.Type == "SectionCode")?.Value;
+            DepartmentCode = hcontext.User?.FindFirst(c => c.Type == "DepartmentCode")?.Value;
+            DesignationCode = hcontext.User?.FindFirst(c => c.Type == "DesignationCode")?.Value;
+            PFNumber = hcontext.User?.FindFirst(ClaimTypes.SerialNumber)?.Value;
 
 
         }

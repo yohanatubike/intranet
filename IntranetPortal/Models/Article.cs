@@ -8,8 +8,9 @@ namespace IntranetPortal.Models
         public long ArticleId { get; set; }
         public string Title { get; set; } = null!;
         public string? Url { get; set; }
+        public string Category { get; set; } = null!;
         public string CreatedBy { get; set; } = null!;
         public DateTime? CreatedDate { get; set; }
-        public bool Status { get; set; }
+        public string? Status { get; set; }
     }
 }
