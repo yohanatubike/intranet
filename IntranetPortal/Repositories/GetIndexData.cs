@@ -45,33 +45,30 @@ namespace IntranetPortal.Repositories
 
                 }).ToList();
         }
-        public List<NewsEvent> GetActiveTopNews()
+
+        public List<Article> GetTopArticles()
         {
-            return myContext.NewsEvents.OrderByDescending(q => q.CreatedDate)
-                .Where(t => t.Status == "Published" && t.IsTopNews == true).Select(newsDetails => new  NewsEvent()
+            return myContext.Articles.OrderByDescending(a => a.ArticleId).
+                Select(article => new Article() 
                 {
-                    Title =  newsDetails.Title,
-                    CreatedBy = newsDetails.CreatedBy,
-
-                    IsTopNews = newsDetails.IsTopNews,
-                    Description = newsDetails.Description.Substring(0, Math.Min(newsDetails.Description.Length, 235)),
-                   
-
-                }).Take(1).ToList();
+                    Title = article.Title,
+                    Url = article.Url
+                }).Take(3).ToList();
         }
-        public List<NewsEvent> GetActivePreviousNews()
+
+        public List<FrontEndSlider> GetActiveSliders()
         {
-            return myContext.NewsEvents.OrderByDescending(q => q.CreatedDate)
-                .Where(t => t.Status == "Published").Select(newsDetails => new NewsEvent()
+            List<FrontEndSlider> sliders = myContext.FrontEndSliders.Where(f => f.PublishStatus.Equals("Active")).ToList();
+            var path = Path.Combine("wwwroot", "Sliders");
+
+            foreach (var slider in sliders)
+            {
+                if (slider.ImageFile != null)
                 {
-                    Title = newsDetails.Title,
-                    CreatedBy = newsDetails.CreatedBy,
-
-                    IsTopNews = newsDetails.IsTopNews,
-                
-
-
-                }).Take(6).ToList();
+                    slider.ImageFile = Path.Combine("Sliders", slider.ImageFile);
+                }
+            }
+            return sliders;
         }
     }
 }

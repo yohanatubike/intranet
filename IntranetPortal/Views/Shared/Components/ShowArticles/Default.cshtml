@@ -1,0 +1,146 @@
+﻿@*@model IEnumerable<Article>*@
+<div class="card-block accordion-block">
+    <div id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="accordion-panel">
+            <div class="accordion-heading" role="tab" id="headingOne">
+                <h3 class="card-title accordion-title">
+                    <a class="accordion-msg waves-effect waves-dark" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Health Articles
+                    </a>
+                </h3>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="accordion-content accordion-desc">
+                    @(
+                    Html.DevExtreme().DataGrid<IntranetPortal.Models.Article>
+                                ()
+                                .DataSource(ds => ds.Mvc()
+                                .Controller("ContentManagersAPI")
+                                .LoadAction("GetArticles")
+                                .LoadParams(new { Category = "Health" })
+                                .Key("ArticleId")
+                                )
+                                .RemoteOperations(false)
+                                .Columns(columns =>
+                                {
+                                    columns.AddFor(m => m.Title);
+                                    columns.AddFor(m => m.Url).Caption("Preview").CellTemplate(
+                                @<text>
+                                    <% if(data.Url == null) {%>
+
+                                    <a href="javascript:void(0)">
+                                        <div class="feather icon-alert-circle text-danger"> No Attachment</div>
+                                    </a>
+
+                                    <% } if(data.Url != null) { %>
+
+                                    <a href="ContentManager/GetArticlePdf?Filename=<%= data.Url%>" target="_blank">
+                                        <div class="feather icon-paperclip  text-primary"> Preview Attachment</div>
+                                    </a>
+                                    <%}%>
+                                </text>);
+
+                                })
+
+                            .Paging(p => p.PageSize(3))
+                            )
+                </div>
+            </div>
+        </div>
+        <div class="accordion-panel">
+            <div class="accordion-heading" role="tab" id="headingTwo">
+                <h3 class="card-title accordion-title">
+                    <a class="accordion-msg waves-effect waves-dark" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Social Articles
+                    </a>
+                </h3>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="accordion-content accordion-desc">
+                    @(
+                            Html.DevExtreme().DataGrid<IntranetPortal.Models.Article>
+                            ()
+                            .DataSource(ds => ds.Mvc()
+                            .Controller("ContentManagersAPI")
+                            .LoadAction("GetArticles")
+                            .LoadParams(new { Category = "Social" })
+                            .Key("ArticleId")
+                            )
+                            .RemoteOperations(false)
+                            .Columns(columns =>
+                            {
+                                columns.AddFor(m => m.Title);
+                                columns.AddFor(m => m.Url).Caption("Preview").CellTemplate(
+                            @<text>
+                                <% if(data.Url == null) {%>
+
+                                <a href="javascript:void(0)">
+                                    <div class="feather icon-alert-circle text-danger"> No Attachment</div>
+                                </a>
+
+                                <% } if(data.Url != null) { %>
+
+                                <a href="ContentManager/GetArticlePdf?Filename=<%= data.Url%>" target="_blank">
+                                    <div class="feather icon-paperclip  text-primary"> Preview Attachment</div>
+                                </a>
+                                <%}%>
+                            </text>);
+
+                            })
+
+                        .Paging(p => p.PageSize(3))
+                        )
+                </div>
+            </div>
+        </div>
+        <div class="accordion-panel">
+            <div class=" accordion-heading" role="tab" id="headingThree">
+                <h3 class="card-title accordion-title">
+                    <a class="accordion-msg waves-effect waves-dark" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Business Articles
+                    </a>
+                </h3>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="accordion-content accordion-desc">
+                    @(
+                            Html.DevExtreme().DataGrid<IntranetPortal.Models.Article>
+                            ()
+                            .DataSource(ds => ds.Mvc()
+                            .Controller("ContentManagersAPI")
+                            .LoadAction("GetArticles")
+                            .LoadParams(new { Category = "Business" })
+                            .Key("ArticleId")
+                            )
+                            .RemoteOperations(false)
+                            .Columns(columns =>
+                            {
+                                columns.AddFor(m => m.Title);
+                                columns.AddFor(m => m.Url).Caption("Preview").CellTemplate(
+                            @<text>
+                                <% if(data.Url == null) {%>
+
+                                <a href="javascript:void(0)">
+                                    <div class="feather icon-alert-circle text-danger"> No Attachment</div>
+                                </a>
+
+                                <% } if(data.Url != null) { %>
+
+                                <a href="ContentManager/GetArticlePdf?Filename=<%= data.Url%>" target="_blank">
+                                    <div class="feather icon-paperclip  text-primary"> Preview Attachment</div>
+                                </a>
+                                <%}%>
+                            </text>);
+
+                            })
+
+                        .Paging(p => p.PageSize(3))
+                        )
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

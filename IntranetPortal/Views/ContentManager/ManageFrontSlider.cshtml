@@ -1,5 +1,129 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using DevExtreme.AspNet.Mvc
 @{
+    ViewData["Title"] = "Add New Front Slider";
+    Layout = "~/Views/Shared/_StaffMaster.cshtml";
 }
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-file bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Add New Articles</h5>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class=" breadcrumb breadcrumb-title">
+                    <li class="breadcrumb-item">
+                        <a href="index.html"><i class="feather icon-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#!">Dashboard</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>Add New Front Slider</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
+                                <div id="form">
+                                    @(Html.DevExtreme().DataGrid<IntranetPortal.Models.FrontEndSlider>
+                                            ()
+                                            .DataSource(ds => ds.Mvc()
+                                            .Controller("ContentManagersAPI")
+                                            .InsertAction("AddFrontSlider")
+                                            .LoadAction("GetAllSliders")
+                                            .DeleteAction("RemoveSlider")
+                                            .Key("SliderId")
+                                            )
+                                            .RemoteOperations(true)
+                                            .ID("SlidersDG")
+                                            .Columns(columns =>
+                                            {
+                                                columns.AddFor(m => m.Description);
+                                                columns.AddFor(m => m.PublishStatus);
+                                                columns.AddFor(m => m.ImageFile).Caption("View Image").CellTemplate(
+                                            @<text>
+                                                <% if(data.ImageFile == null) {%>
+
+                                                <a href="UploadCarousel?SliderId=<%= data.SliderId%>">
+                                                    <div class="feather icon-paperclip  text-primary"> Add Image</div>
+                                                </a>
+
+                                                <% } if(data.ImageFile != null) { %>
+
+                                                <a href="GetImage?Filename=<%= data.ImageFile%>" target="_blank">
+                                                    <div class="feather icon-paperclip  text-primary"> Preview Image</div>
+                                                </a>
+                                                <%}%>
+                                            </text>);
+
+                                            })
+                                        .SearchPanel(f => f.Visible(true))
+                                        .Paging(p => p.PageSize(10))
+                                        .HeaderFilter(f => f.Visible(true))
+                                        .Grouping(g => g.ContextMenuEnabled(true))
+                                        .Grouping(g => g.AutoExpandAll(true))
+                                        .RemoteOperations(true)
+                                        .Selection(s => s.Mode(SelectionMode.Multiple))
+                                        .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
+                                        .Editing(e => e
+                                        .AllowAdding(true)
+                                        .Popup(p => p
+                                        .Title("Add New Form")
+                                        .ShowTitle(true)
+                                        .Width(1000)
+                                        .Height(300)
+                                        )
+                                        .AllowUpdating(true)
+                                        .AllowDeleting(true)
+                                        .Mode(GridEditMode.Popup)
+                                        .UseIcons(true)
+                                        .Form(f => f
+                                        .ID("FormCreation")
+                                        .ColCount(2)
+                                        .Items(items =>
+                                        {
+                                            items.AddSimpleFor(m => m.Description);
+                                            items.AddSimpleFor(m => m.PublishStatus).Editor(e => e
+                                            .SelectBox()
+                                            .DataSource(new[]
+                                            {
+                                            "Active",
+                                            "Inactive",
+                                            }));
+                                        }).FormData(Model)
+                                        )
+                                        )
+                                        )
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
