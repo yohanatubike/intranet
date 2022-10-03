@@ -104,6 +104,14 @@ namespace IntranetPortal.Models
                 entity.Property(e => e.UpdateDate).HasColumnType("timestamp without time zone");
 
                 entity.Property(e => e.UpdatedBy).HasColumnType("character varying");
+                entity.Property(e => e.Title).HasColumnType("character varying");
+                entity.Property(e => e.PublishStatus).HasColumnType("character varying");
+                entity.Property(e => e.PublishedDate).HasColumnType("timestamp without time zone");
+                entity.Property(e => e.PublishdBy).HasColumnType("character varying");
+                entity.Property(e => e.ExternalDetails).HasColumnType("character varying");
+
+
+
             });
 
             modelBuilder.Entity<Article>(entity =>
@@ -314,10 +322,11 @@ namespace IntranetPortal.Models
                 entity.Property(e => e.CreatedBy).HasColumnType("character varying");
 
                 entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
-
-                entity.Property(e => e.Status).HasDefaultValueSql("false");
-
+                entity.Property(e => e.UpdatedDate).HasColumnType("timestamp without time zone");
+                entity.Property(e => e.Status).HasColumnType("character varying");
+                entity.Property(e => e.UpdatedBy).HasColumnType("character varying");
                 entity.Property(e => e.Title).HasColumnType("character varying");
+                entity.Property(e => e.IsTopNews).HasDefaultValueSql("false");
             });
 
             modelBuilder.Entity<NotificationComment>(entity =>

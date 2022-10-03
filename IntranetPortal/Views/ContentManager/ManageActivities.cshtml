@@ -1,1 +1,297 @@
-﻿
+﻿@{
+    Layout = "~/Views/Shared/_StaffMaster.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+<script type="text/javascript">
+    //<![CDATA[
+    function onInitNewRow(e, ActivityId) {
+
+        e.data.Activity.ActivityId = ActivityId;
+
+    }
+    //]]>
+</script>
+<div class="page-header card">
+<div class="row align-items-end">
+<div class="col-lg-8">
+<div class="page-header-title">
+<i class="feather icon-home bg-c-blue"></i>
+<div class="d-inline">
+<h5>Welcome  @User.Identity.Name</h5>
+<span>Intranet Portal</span>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="pcoded-inner-content">
+<div class="main-body">
+<div class="page-wrapper">
+<div class="page-body">
+
+<div class="row">
+
+
+
+
+
+
+
+<div class="col-xl-12 col-md-6">
+<div class="card table-card">
+<div class="card-header">
+<h5>Manage Ongoing  Activities</h5>
+<div class="card-header-right">
+<ul class="list-unstyled card-option">
+<li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+<li><i class="feather icon-maximize full-card"></i></li>
+<li><i class="feather icon-minus minimize-card"></i></li>
+<li><i class="feather icon-refresh-cw reload-card"></i></li>
+<li><i class="feather icon-trash close-card"></i></li>
+<li><i class="feather icon-chevron-left open-card-option"></i></li>
+</ul>
+</div>
+</div>
+
+<div class="card-block">
+
+                                @(
+                                                                                                    Html.DevExtreme().DataGrid<IntranetPortal.Models.AssignedOfficersDetail>
+                                                                                                                    ()
+                                                                                                                    .DataSource(ds => ds.Mvc()
+                                                                                                                    .Controller("ActivitiesAPI")
+                                                                                                                        .InsertAction("AddNewActivity")
+                                                                                                                        .LoadAction("GetOfficersAssignedActivities")
+                                            .UpdateAction("UpdateActivity")
+                                                                                                                    .DeleteAction("RemoveRole")
+                                                                                                                    .Key("ActivityId")
+
+
+                                                                                                                    )
+                                                                                                                    .RemoteOperations(true)
+                                                                                                                    .Columns(columns =>
+                                                                                                                    {
+
+
+
+                                                                                                                        columns.AddFor(m => m.Activity.ActivityCode).Caption("Code").Visible(false);
+                                                                                                                        columns.AddFor(m => m.Activity.ActivityName).Caption("Name");
+                                                                                                                        columns.AddFor(m => m.Activity.PublishStatus).Caption("PublishStatus").Visible(false);
+                                                                                                                        columns.AddFor(m => m.Activity.PublishedDate).Caption("PublishStatus").Visible(false);
+                                            columns.AddFor(m => m.Activity.PublishdBy).Caption("PublishedBy").Lookup(r => r
+                                        .DataSource(new string[] {
+                                "Waiting",
+                                "Published",
+                                "Closed"
+
+
+                                        }
+                                        )
+                                        )
+                                        .ValidationRules(r => r
+                                        .AddRequired()
+                                        .Message("Priority is required"));
+                                                                                                                        columns.AddFor(m => m.Activity.Title).Caption("Title").Visible(false).AllowEditing(false);
+                                            columns.AddFor(m => m.Activity.StartDate).Caption("Start Date").AllowEditing(false).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                            columns.AddFor(m => m.Activity.EndDate).AllowEditing(false).Caption("End Date").DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                            columns.AddFor(m => m.Activity.Priority).AllowEditing(false).Lookup(r => r
+                                                                                                                                   .DataSource(new string[] {
+"Normal",
+"High",
+    "Low"
+
+
+                                                                                                                                   }
+                                                                                                                                   )
+                                                                                                                                   )
+                                                                                                                                   .ValidationRules(r => r
+                                                                                                                                   .AddRequired()
+                                                                                                                                   .Message("Priority is required")
+                                        ); columns.AddFor(m => m.Activity.Description).AllowEditing(false).Caption("Description").CellTemplate(
+@<text>
+
+
+                                            <a href="ActivitiesManagement/ActivitisAttachments?ActivityCode=<%= data.Activity.ActivityCode%>"><div class="feather icon-paperclip  text-primary">Attachment</div></a>
+
+
+
+
+                                                        </text>);
+
+                                                                                                                        columns.AddFor(m => m.Activity.ImpelementationStatus).Caption("Status").Lookup(r => r.DataSource(new string[] {
+
+                                "Planned",
+"Implementation",
+"Completed",
+ "Archive",
+                                "Cancelled",
+
+
+
+                                                                                                                           }
+                                                                                                                                                                                                   )
+                                                                                                                                                                                                   )
+                                                                                                                                                                                                   .ValidationRules(r => r
+                                                                                                                                                                                                   .AddRequired()
+                                                                                                                                                                                                   .Message("Position is required")
+                                                                                                                                                                                                   );
+
+                                                                                                                        columns.AddFor(m => m.Activity.ImpelementationStatus).DataField("ImpelementationStatus").Caption("Comments").CellTemplate(@<text>
+
+
+                                                                                                                                        <a href="ActivitiesManagement/ActivitiesComment?ActivityCode=<%= data.Activity.ActivityCode%>"><div class="feather icon-message-square  text-success"> Comments</div></a>
+
+
+
+
+
+
+                                                                                                                        </text>);
+
+
+
+
+                                                                                                                    })
+
+                                                                    .SearchPanel(f => f.Visible(true))
+
+                                                                    .Paging(p => p.PageSize(10))
+                                                                    .HeaderFilter(f => f.Visible(true))
+
+                                                                    .Grouping(g => g.ContextMenuEnabled(true))
+                                                                    .Grouping(g => g.AutoExpandAll(true))
+                                                                    .AllowColumnResizing(true)
+                                                                    .RemoteOperations(true)
+                                                                    .Selection(s => s.Mode(SelectionMode.Multiple))
+                                                                    .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
+                                                                         .Editing(e => e
+                                                                         .AllowAdding(false)
+
+                                                                    .Popup(p => p
+                                                                    .Title("Add New Role")
+                                                                    .ShowTitle(true)
+                                                                       .Width(1000)
+                                                                    .Height(400)
+
+
+
+                                                                    )
+
+                                                                    .AllowUpdating(true)
+                                                                    .AllowDeleting(false)
+                                                                    .Mode(GridEditMode.Popup)
+                                                                    .UseIcons(true)
+                                                                    .Form(f => f
+                                                                    .ID("UserCreation")
+                                                                    .ColCount(1)
+                                                                    .Items(items =>
+                                                                    {
+                                                                        items.AddGroup()
+                                                                                           .ColCount(2)
+                                                                                     .Items(groupItems =>
+                                                                                         {
+
+                                                                                             groupItems.AddSimpleFor(m => m.Activity.ActivityCode).Visible(false);
+                                                                                             groupItems.AddSimpleFor(m => m.Activity.ActivityName);
+                                                                                             groupItems.AddSimpleFor(m => m.Activity.Title);
+                                            groupItems.AddSimpleFor(m => m.Activity.StartDate).Editor(e => e.DateBox()).Visible(false) ;
+                                            groupItems.AddSimpleFor(m => m.Activity.EndDate).Editor(e => e.DateBox()).Visible(false); 
+                                            groupItems.AddSimpleFor(m => m.Activity.Priority).Visible(false).Visible(false);;
+                                            groupItems.AddSimpleFor(m => m.Activity.ImpelementationStatus).Visible(false); ;
+
+
+
+                                                                                         });
+                                                                        items.AddGroup()
+                                                                          .ColCount(1)
+                                                                    .Items(groupItems =>
+                                                                        {
+                                                                            groupItems.AddSimpleFor(m => m.Activity.Description).Editor(e => e
+                                                                            .HtmlEditor()
+                                                                            .Height(190)
+                                                                            .Toolbar(toolbar => toolbar.Items(
+                                                                                items =>
+                                                                                {
+                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                                                                })
+                                                                            ));
+
+
+
+
+
+
+                                                                        }).Visible(false);
+                                        items.AddGroup()
+                                        .ColCount(1)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.Activity.ExternalDetails).Editor(e => e
+                                        .HtmlEditor()
+                                        .Height(190)
+                                        .Toolbar(toolbar => toolbar.Items(
+                                        items =>
+                                        {
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                        })
+                                        ));
+
+
+
+
+
+
+                                        });
+                                                                    })
+
+                                                                    
+                                                                        
+                    )))
+
+
+
+</div>
+</div>
+</div>
+                </div>
+</div>
+        </div>
+
+</div>
+</div>
+
+<script>
+
+    function getSubServices(options) {
+        return {
+            store: DevExpress.data.AspNet.createStore({
+                key: "ServiceSubCategoryName",
+                loadUrl: '@Url.Action("GetSubServices", "SupportTicketAPI", new { httproute = true })'
+            }),
+            filter: options.data ? ["ServiceCategoryCode", "=", options.data.ServiceCategoryCode] : null
+        };
+    }
+    function setServiceID(rowData, value) {
+
+        rowData.ServiceCategoryCode = value;
+        rowData.ServiceSubCategoryName = null;
+    }
+
+
+
+</script>
+

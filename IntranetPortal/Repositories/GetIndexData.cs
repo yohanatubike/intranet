@@ -23,6 +23,17 @@ namespace IntranetPortal.Repositories
 
                 }).Take(6).ToList();
         }
+        public List<ActivitiesDetail> GetActiveOngoingActivities()
+        {
+            return myContext.ActivitiesDetails.OrderByDescending(q => q.PublishedDate)
+                .Where(t => t.PublishStatus == "Published").Select(activity => new ActivitiesDetail()
+                {
+                    Title = activity.Title,
+                    DepartmentCode = activity.DepartmentCode,
+                
+
+                }).Take(6).ToList();
+        }
         public List<Permission> GetActivePermissions(string PFNumber)
         {
             return myContext.Permissions
@@ -33,6 +44,34 @@ namespace IntranetPortal.Repositories
 
 
                 }).ToList();
+        }
+        public List<NewsEvent> GetActiveTopNews()
+        {
+            return myContext.NewsEvents.OrderByDescending(q => q.CreatedDate)
+                .Where(t => t.Status == "Published" && t.IsTopNews == true).Select(newsDetails => new  NewsEvent()
+                {
+                    Title =  newsDetails.Title,
+                    CreatedBy = newsDetails.CreatedBy,
+
+                    IsTopNews = newsDetails.IsTopNews,
+                    Description = newsDetails.Description.Substring(0, Math.Min(newsDetails.Description.Length, 235)),
+                   
+
+                }).Take(1).ToList();
+        }
+        public List<NewsEvent> GetActivePreviousNews()
+        {
+            return myContext.NewsEvents.OrderByDescending(q => q.CreatedDate)
+                .Where(t => t.Status == "Published").Select(newsDetails => new NewsEvent()
+                {
+                    Title = newsDetails.Title,
+                    CreatedBy = newsDetails.CreatedBy,
+
+                    IsTopNews = newsDetails.IsTopNews,
+                
+
+
+                }).Take(6).ToList();
         }
     }
 }

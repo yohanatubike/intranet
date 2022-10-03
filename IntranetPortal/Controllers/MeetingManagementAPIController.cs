@@ -83,9 +83,9 @@ namespace IntranetPortal.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetListofAssignedOfficersMeeting(DataSourceLoadOptions loadOptions, long MeetingInvitationId)
+        public async Task<IActionResult> GetListofAssignedOfficersMeeting(DataSourceLoadOptions loadOptions, long MeetingId)
         {
-            var result = DataSourceLoader.Load(myContext.MeetingInvitations.Where(t => MeetingInvitationId == MeetingInvitationId), loadOptions);
+            var result = DataSourceLoader.Load(myContext.MeetingInvitations.Where(t => t.MeetingId == MeetingId), loadOptions);
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
             var resultJson = JsonConvert.SerializeObject(result, settings);

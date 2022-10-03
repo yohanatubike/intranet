@@ -6,10 +6,6 @@ C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\IntranetPortal.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\IntranetPortal.runtimeconfig.json
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\IntranetPortal.pdb
-C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Arch.EntityFrameworkCore.dll
-C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Arch.EntityFrameworkCore.Abstractions.dll
-C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Arch.EntityFrameworkCore.Design.dll
-C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Arch.EntityFrameworkCore.Relational.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\DevExtreme.AspNet.Core.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\DevExtreme.AspNet.Data.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Humanizer.dll
@@ -42,7 +38,6 @@ C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.DependencyModel.dll
-C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Debugger.Contracts.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -65,10 +60,6 @@ C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\NuGet.ProjectModel.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\NuGet.Protocol.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\NuGet.Versioning.dll
-C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Remotion.Linq.dll
-C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\System.Composition.AttributedModel.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\System.Composition.Convention.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\System.Composition.Hosting.dll
@@ -76,7 +67,6 @@ C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\System.Composition.TypedParts.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\System.Configuration.ConfigurationManager.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\System.Drawing.Common.dll
-C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\System.Interactive.Async.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\System.Security.Permissions.dll
 C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\obj\Release\net6.0\PubTmp\Out\System.Windows.Extensions.dll

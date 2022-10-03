@@ -1,0 +1,31 @@
+﻿@model IEnumerable<NewsEvent>
+<div class="card-block">
+    <div class="scroll-widget">
+        <div class="latest-update-box">
+            <br />
+            @foreach (var notif in Model)
+            {
+                
+                    <div class="row p-t-5 p-b-20">
+                        <div class="col-auto text-right update-meta p-r-0">
+                        <i class="feather icon-refresh-cw bg-c-blue update-icon"></i>
+                        </div>
+
+                        <div class="col p-l-2">
+                            <a href="#!"><h8>@notif.Title</h8></a>
+                            <p class="text-muted m-b-0">@notif.CreatedBy</p>
+                        </div>
+                    </div>
+                
+                
+
+            }
+
+        </div>
+
+    </div>
+    <div class="text-center">
+        <hr />
+        <a href="#!" class="b-b-primary text-primary">View all notification</a>
+    </div>
+</div>

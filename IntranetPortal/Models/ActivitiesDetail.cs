@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NuGet.Packaging.Signing;
+using System;
 using System.Collections.Generic;
 
 namespace IntranetPortal.Models
@@ -19,5 +20,11 @@ namespace IntranetPortal.Models
         public string? UpdatedBy { get; set; }
         public DateTime? UpdateDate { get; set; }
         public DateTime? CreatedDate { get; set; }
+
+        public string? Title { get; set; }
+        public string? PublishStatus { get; set; }
+        public DateTime? PublishedDate { get; set; }
+        public string? PublishdBy { get; set; }
+        public string? ExternalDetails { get; set; }
     }
 }
