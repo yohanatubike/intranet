@@ -6,7 +6,7 @@ networks:
 
 services:
   intranetportal:
-    image: intranetportal:latest
+    image: ${DOCKER_REGISTRY-}intranetportal
     depends_on:
       - "postgres" 
     build:
@@ -42,4 +42,4 @@ services:
       - "5050:80"
     networks:
       - dockerapi-dev 
-    restart: always  
+    restart: always
