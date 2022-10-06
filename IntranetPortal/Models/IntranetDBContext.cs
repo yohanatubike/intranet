@@ -51,7 +51,7 @@ namespace IntranetPortal.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql("Host=localhost;Database=IntranetDB;Username=postgres;Password=53401/T2005");
+                optionsBuilder.UseNpgsql("Host=localhost;Database=IntranetDB;Username=postgres;Password=TasacIntranetDB@2022");
             }
         }
 
