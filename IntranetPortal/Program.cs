@@ -12,13 +12,14 @@ using System.Security.Claims;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<IntranetDBContext>(option => option.UseNpgsql(builder.Configuration.GetConnectionString("IntranetDBConnection")));
+builder.Services.AddDbContext<IntranetDBContext>(option => option.UseNpgsql(builder.Configuration.GetConnectionString("IntranetDBConnection")), ServiceLifetime.Transient);
 builder.Services.AddAuthentication("CookieAuthentication").AddCookie("CookieAuthentication",
     options =>
 {
     options.Cookie.Name = "UserProfile";
     options.LoginPath = "/Home/Login";
     options.SlidingExpiration = true;
+   
     options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
 });
 builder.Services.AddAuthorization(config =>
@@ -49,6 +50,7 @@ builder.Services.AddScoped<IAuthorizationHandler, PoliciesAuthorizationHandler>(
 builder.Services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();
 builder.Services.AddScoped<GetIndexData>();
 builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(60);//You can set Time   
