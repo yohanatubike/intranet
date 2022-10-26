@@ -11,7 +11,7 @@
     <WebStackScaffolding_IsLayoutPageSelected>False</WebStackScaffolding_IsLayoutPageSelected>
     <WebStackScaffolding_IsPartialViewSelected>True</WebStackScaffolding_IsPartialViewSelected>
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>False</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
-    <ActiveDebugProfile>IntranetPortal</ActiveDebugProfile>
+    <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
     <WebStackScaffolding_DbContextTypeFullName>IntranetPortal.Models.IntranetDBContext</WebStackScaffolding_DbContextTypeFullName>
     <DismissedDevExtremeVersion>22.1.5</DismissedDevExtremeVersion>
   </PropertyGroup>

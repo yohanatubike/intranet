@@ -13,8 +13,6 @@ namespace IntranetPortal.Models
         public string LastName { get; set; } = null!;
         public string DesignationCode { get; set; } = null!;
         public DateTime CreatedDate { get; set; }
-        public int BirthMonth { get; set; }
-        public int BirthDay { get; set; }
         public string? CreatedBy { get; set; }
         public string? Email { get; set; }
         public string MobileNumber { get; set; } = null!;

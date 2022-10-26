@@ -63,6 +63,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdGllc01hbmFnZW1lbnRcX0Fzc2lnbmVkT2ZmaWNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/AuditingManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRpbmdNYW5hZ2VtZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/BusinessCard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVzaW5lc3NDYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -231,8 +235,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZOb3RpZmljYXRpb25cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/StaffPage/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZQYWdlXERhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/StaffPage/DepartmentsList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZQYWdlXERlcGFydG1lbnRzTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/StaffPage/GenerateSupportReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZQYWdlXEdlbmVyYXRlU3VwcG9ydFJlcG9ydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/StaffPage/Groups.cshtml]
@@ -273,6 +285,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/SupportTickets/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcG9ydFRpY2tldHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/SupportTickets/SupportInchargeManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcG9ydFRpY2tldHNcU3VwcG9ydEluY2hhcmdlTWFuYWdlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/Systems/Core.cshtml]

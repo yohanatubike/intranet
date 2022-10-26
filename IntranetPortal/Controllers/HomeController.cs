@@ -22,14 +22,14 @@ namespace IntranetPortal.Controllers
             _logger = logger;
         }
 
-        
+
         public IActionResult Index()
         {
             //userInitializationService.OnApplicationStarted();
             return View();
         }
 
-        public   async Task<IActionResult> Logout()
+        public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Home");
@@ -52,29 +52,29 @@ namespace IntranetPortal.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public  async Task< IActionResult> Processlogin(LoginViewModel model, string ReturnUrl)
+        public async Task<IActionResult> Processlogin(LoginViewModel model, string ReturnUrl)
         {
             //if (ModelState.IsValid)
             //{
-                string Password = "tasac@123";
-                string ContentManagers = "0";
-                var encryptedPass = getHashedMD5Password(Password);
-                var getUser = myContext.Users.Include("Designations").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Password == encryptedPass );
-                var getRoles = myContext.UserRoles.SingleOrDefault(t => t.PFNumber == model.PFNumber && t.RoleId==13 );
-                    if(getRoles != null)
-                        {
-                              ContentManagers = getRoles.RoleId.ToString();
-                        }
-          
+            string Password = "tasac@123";
+            string ContentManagers = "0";
+            var encryptedPass = getHashedMD5Password(Password);
+            var getUser = myContext.Users.Include("Designations").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Password == encryptedPass);
+            var getRoles = myContext.UserRoles.SingleOrDefault(t => t.PFNumber == model.PFNumber && t.RoleId == 13);
+            if (getRoles != null)
+            {
+                ContentManagers = getRoles.RoleId.ToString();
+            }
+
 
             if (getUser != null)
+            {
+                if (Url.IsLocalUrl(ReturnUrl))
                 {
-                    if (Url.IsLocalUrl(ReturnUrl))
-                    {
-                        return Redirect(ReturnUrl);
-                    }
-                    else
-                    {
+                    return Redirect(ReturnUrl);
+                }
+                else
+                {
 
                     var userClaims = new List<Claim>()
                 {
@@ -94,9 +94,9 @@ namespace IntranetPortal.Controllers
 
                     var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });
                     await HttpContext.SignInAsync(userPrincipal);
-                        return   RedirectToAction("Dashboard", "StaffPage");
-                    }
+                    return RedirectToAction("Dashboard", "StaffPage");
                 }
+            }
             ViewBag.Error = "Invalid login attempt. or Account is locked";
             return View("Login");
         }
