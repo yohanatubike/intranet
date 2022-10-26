@@ -94,7 +94,7 @@ namespace IntranetPortal.Controllers
 
                     var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });
                     await HttpContext.SignInAsync(userPrincipal);
-                        return   RedirectToAction("Index", "StaffPage");
+                        return   RedirectToAction("Dashboard", "StaffPage");
                     }
                 }
             ViewBag.Error = "Invalid login attempt. or Account is locked";

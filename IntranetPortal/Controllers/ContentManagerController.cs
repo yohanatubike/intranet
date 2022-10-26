@@ -1,9 +1,11 @@
 ﻿using IntranetPortal.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace IntranetPortal.Controllers
 {
+    [Authorize]
     public class ContentManagerController : Controller
     {
         private IntranetDBContext myContext = new IntranetDBContext();

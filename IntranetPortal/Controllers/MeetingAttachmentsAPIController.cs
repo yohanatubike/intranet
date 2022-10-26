@@ -39,7 +39,7 @@ namespace IntranetPortal.Controllers
                 AllowRename = true,
                 AllowUpload = true,
                 AllowDownload = true,
-                AllowedFileExtensions = new[] { ".pdf", ".json", ".css" }
+                AllowedFileExtensions = new[] { ".pdf", ".docx", ".doc", ".xls", ".xlsx" }
             };
             var processor = new FileSystemCommandProcessor(config);
             var result = processor.Execute(command, arguments);

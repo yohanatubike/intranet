@@ -23,6 +23,8 @@ namespace IntranetPortal.Controllers
         string UserEmail = null;
         string DesignationCode = null;
         string PFNumber = null;
+
+        
         public ActivitiesAPIController(IHttpContextAccessor haccess)
         {
             hcontext = haccess.HttpContext;
@@ -31,8 +33,6 @@ namespace IntranetPortal.Controllers
             DepartmentCode = hcontext.User.FindFirst(c => c.Type == "DepartmentCode").Value;
             DesignationCode = hcontext.User.FindFirst(c => c.Type == "DesignationCode").Value;
             PFNumber =       hcontext.User.FindFirst(ClaimTypes.SerialNumber).Value;
-
-
         }
         
         #region for Department/Section Activities 
@@ -57,6 +57,15 @@ namespace IntranetPortal.Controllers
             return Content(resultJson, "application/json");
         }
         [HttpGet]
+        public async Task<IActionResult> GetOfficersAssignedActivitiesExternal(DataSourceLoadOptions loadOptions)
+        {
+            var result = DataSourceLoader.Load(myContext.ActivitiesDetails.Where(m => m.ImpelementationStatus == "Started"), loadOptions);
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
+        [HttpGet]
         public async Task<IActionResult> GetListofOfficers(DataSourceLoadOptions loadOptions)
         {
             var result = DataSourceLoader.Load(myContext.Users.Where(t => t.ReportingTo == DesignationCode), loadOptions);
@@ -65,7 +74,15 @@ namespace IntranetPortal.Controllers
             var resultJson = JsonConvert.SerializeObject(result, settings);
             return Content(resultJson, "application/json");
         }
-
+        [HttpGet]
+        public async Task<IActionResult> GetICTOfficers(DataSourceLoadOptions loadOptions)
+        {
+            var result = DataSourceLoader.Load(myContext.Users.Where(t => t.Designations.SectionCode== "ICT"), loadOptions);
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetListofAssignedOfficersActivity(DataSourceLoadOptions loadOptions, long ActivityId)
@@ -85,8 +102,6 @@ namespace IntranetPortal.Controllers
             var resultJson = JsonConvert.SerializeObject(result, settings);
             return Content(resultJson, "application/json");
         }
-
-
         public string GenerateActivityCode()
         {
             Random Ino = new Random();

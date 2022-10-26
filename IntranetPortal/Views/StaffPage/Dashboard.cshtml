@@ -1,0 +1,504 @@
+﻿@{
+    Layout = "~/Views/Shared/_StaffMaster.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+<script type="text/javascript">
+    //<![CDATA[
+    function onInitNewRow(e, ActivityId) {
+
+        e.data.Activity.ActivityId = ActivityId;
+
+    }
+    //]]>
+</script>
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-home bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Welcome  @User.Identity.Name</h5>
+                    <span>Intranet Portal</span>
+                   
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+
+                <div class="row">
+
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card prod-p-card ">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30 text-blue">
+                                    <div class="col">
+                                        <h6 class="m-b-5">Assigned Activities</h6>
+                                    
+                                    </div>
+                                   
+                                        <i class="feather icon-home bg-c-blue"></i>
+                                    
+                                </div>
+                                <p class="m-b-0 "><span class="label label-danger m-r-10">@ViewData["NumberofActivities"]</span>Assigned Activities</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card prod-p-card ">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col">
+                                        <h6 class="m-b-5 ">Invited  Meetings</h6>
+                                   
+                                    </div>
+                                    <div class="col-auto text-c-blue">
+                                        <i class="fas fa-users text-c-white f-18"></i>
+                                    </div>
+                                </div>
+                                <p class="m-b-0 "><span class="label label-primary m-r-10">@ViewData["NumberofMeetings"]</span>Invited Meetings</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card prod-p-card ">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col">
+                                        <h6 class="m-b-5 ">Auditings</h6>
+                                      
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fa fa-camera-retro fa-lg text-c-green f-18"></i>
+                                    </div>
+                                </div>
+                                <p class="m-b-0 "><span class="label label-success m-r-10">120</span>Pending Auditing</p>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+                    @if ((await AuthorizationService.AuthorizeAsync(User, "Administrators")).Succeeded)
+                    {
+                        <div class="col-xl-12 col-md-12">
+                            <div class="card latest-update-card">
+                                <div class="card-header">
+                                    <h5>ICT Lodged Support Tickets</h5>
+                                   
+                                    <div class="card-header-right">
+                                        
+                                        <ul class="list-unstyled card-option" style="width:400px;">
+                                           
+                                            <li><i class="feather icon-edit full-card"></i> <a href="/SupportTickets/SupportInchargeManager">Change Incharge</a></li>
+                                            <li><i class="feather icon-file minimize-card"></i><a href="/StaffPage/GenerateSupportReport">Generate Report</a></li>
+                                          
+                                           
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                       
+                                <div class="card-block">
+                                    <div class="text-danger" style="font-size:10px;">      Support  Incharge @ViewData["InchargeName"].ToString() |  Mobile @ViewData["InchargeMobile"].ToString()</div>
+
+                                    @(
+                                            Html.DevExtreme().DataGrid<IntranetPortal.Models.SupportsTicket>
+                                            ()
+                                            .DataSource(ds => ds.Mvc()
+                                            .Controller("SupportTicketAPI")
+                                            .InsertAction("AddNewTicket")
+                                            .LoadAction("GetDepartmentTickets")
+                                            .UpdateAction("UpdateSupportTicket")
+
+                                            .Key("TicketId")
+
+
+                                            )
+                                            .RemoteOperations(true)
+                                            .Columns(columns =>
+                                            {
+
+
+
+                                                columns.AddFor(m => m.ServiceCategoryCode).SetCellValue("setServiceID").Lookup(r => r
+                                            .DataSource(ds => ds.Mvc().Controller("SupportTicketAPI").LoadAction("GetServices").Key("ServiceCategoryCode"))
+                                            .ValueExpr("ServiceCategoryCode")
+                                            .DisplayExpr("ServiceName"))
+                                            .ValidationRules(r => r
+                                            .AddRequired()
+                                            .Message("Service Name"));
+
+
+                                                columns.AddFor(m => m.TicketTypes).Lookup(r => r
+                                            .DataSource("getSubServices")
+                                            .ValueExpr("ServiceSubCategoryName")
+                                            .DisplayExpr("ServiceSubCategoryName"))
+                                            .ValidationRules(r => r
+                                            .AddRequired()
+                                            .Message("Ticket  Type"));
+                                                columns.AddFor(m => m.LodgedBy);
+                                                columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                                columns.AddFor(m => m.AssignedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                                columns.AddFor(m => m.AssignedTo)
+                                            .CellTemplate(@<text>
+                                                <% if(data.AssignedTo !=null )
+                                    {%>
+                                                <div class="feather icon-corner-up-right  text-warning"> <%= data.AssignedTo %></div>
+                                                <% }
+                                    if(data.AssignedTo== null )
+                                    {%>
+                                                <div class="feather icon-corner-down-right  text-danger">Waiting </div>
+                                                <% }
+                                    %>
+                                            </text>
+                                        ).Lookup(r => r
+                                        .DataSource(ds => ds.Mvc().Controller("SupportTicketAPI").LoadAction("GetListofOfficers").Key("PFNumber"))
+                                        .ValueExpr("Email")
+                                        .DisplayExpr("Email"))
+                                        .ValidationRules(r => r
+                                        .AddRequired()
+                                        .Message("Assign Officer"));
+
+
+                                                columns.AddFor(m => m.Status).Caption("Status").Lookup(r => r.DataSource(new string[] {
+
+                                "Assigned",
+                                "Closed",
+                                "In-Progress",
+                                "Onhold",
+                                "Resolved",
+
+
+
+
+
+
+                                        }
+                                                            )
+                                                            )
+                                                            .ValidationRules(r => r
+                                                            .AddRequired()
+                                                            .Message("Position is required")
+                                                            );
+                                                columns.AddFor(m => m.Description).Visible(false).AllowEditing(false); 
+                                                columns.AddFor(m => m.ITComment).Visible(false);
+                                                columns.AddFor(m => m.AttendedBy).Visible(false);
+
+                                            })
+
+                                        .SearchPanel(f => f.Visible(true))
+
+                                        .Paging(p => p.PageSize(10))
+                                        .HeaderFilter(f => f.Visible(true))
+
+                                        .Grouping(g => g.ContextMenuEnabled(true))
+                                        .Grouping(g => g.AutoExpandAll(true))
+                                        .RemoteOperations(true)
+                                        .Selection(s => s.Mode(SelectionMode.Multiple))
+                                        .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
+                                        .Editing(e => e
+                                        .AllowAdding(true)
+                                        .Popup(p => p
+                                        .Title("Add Ticket")
+                                        .ShowTitle(true)
+                                        .Width(1200)
+                                        .Height(400)
+
+
+
+                                        )
+
+                                        .AllowUpdating(true)
+                                        .AllowDeleting(false)
+                                        .Mode(GridEditMode.Popup)
+                                        .UseIcons(true)
+                                        .Form(f => f
+                                        .ID("TicketID")
+                                        .ColCount(1)
+                                        .Items(items =>
+                                        {
+                                            items.AddGroup()
+                                            .ColCount(2)
+                                            .Items(groupItems =>
+                                            {
+
+                                                groupItems.AddSimpleFor(m => m.ServiceCategoryCode);
+                                                groupItems.AddSimpleFor(m => m.TicketTypes);
+                                                groupItems.AddSimpleFor(m => m.AssignedTo);
+                                                groupItems.AddSimpleFor(m => m.Status);
+
+
+
+
+                                            });
+                                            items.AddGroup()
+                                            .ColCount(2)
+                                            .Items(groupItems =>
+                                            {
+                                             groupItems.AddSimpleFor(m => m.Description).Editor(e => e
+                                            .HtmlEditor()
+                                            .Height(190)
+                                            .Toolbar(toolbar => toolbar.Items(
+                                            items =>
+                                            {
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                            })
+
+                                            ));
+                                                groupItems.AddSimpleFor(m => m.ITComment).Editor(e => e
+                                            .HtmlEditor()
+                                            .Height(190)
+                                            .Toolbar(toolbar => toolbar.Items(
+                                            items =>
+                                            {
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                            })
+
+                                            ));
+
+
+
+
+
+
+                                            });
+                                        })
+
+                                        )
+                                        )
+                                        )
+
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-xl-12 col-md-12">
+                            <div class="card latest-update-card">
+                                <div class="card-header">
+                                    <h5>Your Support Tickets</h5>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+                                            <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                            <li><i class="feather icon-maximize full-card"></i></li>
+                                            <li><i class="feather icon-minus minimize-card"></i></li>
+                                            <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                            <li><i class="feather icon-trash close-card"></i></li>
+                                            <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="card-block">
+                                    <div class="text-danger" style="font-size:10px;">      Support  Incharge @ViewData["InchargeName"].ToString() |  Mobile @ViewData["InchargeMobile"].ToString()</div>
+                                    @(
+                                            Html.DevExtreme().DataGrid<IntranetPortal.Models.SupportsTicket>
+                                            ()
+                                            .DataSource(ds => ds.Mvc()
+                                            .Controller("SupportTicketAPI")
+                                            .InsertAction("AddNewTicket")
+                                            .LoadAction("GetDepartmentTickets")
+
+                                            .Key("TicketId")
+
+
+                                            )
+                                            .RemoteOperations(true)
+                                            .Columns(columns =>
+                                            {
+
+
+
+
+                                                columns.AddFor(m => m.LodgedBy).Visible(false);
+
+                                                columns.AddFor(m => m.Description).Visible(false);
+                                                columns.AddFor(m => m.ServiceCategoryCode).SetCellValue("setServiceID").Lookup(r => r
+                                            .DataSource(ds => ds.Mvc().Controller("SupportTicketAPI").LoadAction("GetServices").Key("ServiceCategoryCode"))
+                                            .ValueExpr("ServiceCategoryCode")
+                                            .DisplayExpr("ServiceName"))
+                                            .ValidationRules(r => r
+                                            .AddRequired()
+                                            .Message("Service Name"));
+
+
+                                                columns.AddFor(m => m.TicketTypes).Lookup(r => r
+                                            .DataSource("getSubServices")
+                                            .ValueExpr("ServiceSubCategoryName")
+                                            .DisplayExpr("ServiceSubCategoryName"))
+                                            .ValidationRules(r => r
+                                            .AddRequired()
+                                            .Message("Ticket  Type"));
+                                                columns.AddFor(m => m.CreatedDate);
+                                                columns.AddFor(m => m.AssignedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                                columns.AddFor(m => m.AssignedTo)
+                                            .CellTemplate(
+                                            @<text>
+                                                <% if(data.AssignedTo !=null )
+                                    {%>
+                                                <div class="feather icon-corner-up-right  text-warning"> <%= data.AssignedTo %></div>
+                                                <% }
+                                    if(data.AssignedTo== null )
+                                    {%>
+                                                <div class="feather icon-corner-down-right  text-danger">Waiting </div>
+                                                <% }
+                                    %>
+                                            </text>
+                                        );
+                                                columns.AddFor(m => m.Status);
+                                                columns.AddFor(m => m.Description).Visible(false).AllowEditing(false);
+                                                columns.AddFor(m => m.ITComment).Visible(false);
+                                                columns.AddFor(m => m.AttendedBy).Visible(false);
+
+                                            })
+
+                                        .SearchPanel(f => f.Visible(true))
+
+                                        .Paging(p => p.PageSize(10))
+                                        .HeaderFilter(f => f.Visible(true))
+
+                                        .Grouping(g => g.ContextMenuEnabled(true))
+                                        .Grouping(g => g.AutoExpandAll(true))
+                                        .RemoteOperations(true)
+                                        .Selection(s => s.Mode(SelectionMode.Multiple))
+                                        .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
+                                        .Editing(e => e
+                                        .AllowAdding(true)
+                                        .Popup(p => p
+                                        .Title("Add New Role")
+                                        .ShowTitle(true)
+                                        .Width(1200)
+                                        .Height(600)
+
+
+
+                                        )
+
+                                        .AllowUpdating(true)
+                                        .AllowDeleting(true)
+                                        .Mode(GridEditMode.Popup)
+                                        .UseIcons(true)
+                                        .Form(f => f
+                                        .ID("UserCreation")
+                                        .ColCount(1)
+                                        .Items(items =>
+                                        {
+                                            items.AddGroup()
+                                            .ColCount(3)
+                                            .Items(groupItems =>
+                                            {
+
+                                                groupItems.AddSimpleFor(m => m.ServiceCategoryCode);
+                                                groupItems.AddSimpleFor(m => m.TicketTypes);
+
+
+
+
+                                            });
+                                            items.AddGroup()
+                                            .ColCount(2)
+                                            .Items(groupItems =>
+                                            {
+                                             groupItems.AddSimpleFor(m => m.Description).Editor(e => e
+                                            .HtmlEditor()
+                                            .Height(190)
+                                            .Toolbar(toolbar => toolbar.Items(
+                                            items =>
+                                            {
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                            })
+
+                                            ));
+                                                groupItems.AddSimpleFor(m => m.ITComment).Editor(e => e
+                                            .HtmlEditor()
+                                            .Height(190)
+                                            .Toolbar(toolbar => toolbar.Items(
+                                            items =>
+                                            {
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                            })
+
+                                            ));
+
+
+
+
+
+
+
+                                            });
+                                        })
+
+                                        )
+                                        )
+                                        )
+
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+    function getSubServices(options) {
+        return {
+            store: DevExpress.data.AspNet.createStore({
+                key: "ServiceSubCategoryName",
+                loadUrl: '@Url.Action("GetSubServices", "SupportTicketAPI", new { httproute = true })'
+            }),
+            filter: options.data ? ["ServiceCategoryCode", "=", options.data.ServiceCategoryCode] : null
+        };
+    }
+    function setServiceID(rowData, value) {
+
+        rowData.ServiceCategoryCode = value;
+        rowData.ServiceSubCategoryName = null;
+    }
+
+
+
+</script>
+

@@ -8,7 +8,7 @@
                                                                                                       {
 
 
-                                                                                                          columns.AddFor(m => m.Pfnumber).SortOrder(SortOrder.Desc).Caption("Staff Name").Lookup(r => r
+                                         columns.AddFor(m => m.Pfnumber).SortOrder(SortOrder.Desc).Caption("Staff Name").Lookup(r => r
                                         .DataSource(ds => ds.Mvc().Controller("ActivitiesAPI").LoadAction("GetListofOfficers").Key("PFNumber"))
                                         .ValueExpr("PFNumber")
                                         .DisplayExpr("Email"))

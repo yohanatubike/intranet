@@ -1522,6 +1522,7 @@
     <TypeScriptCompile Include="wwwroot\node_modules\dom-serializer\node_modules\entities\lib\src\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Attachments\Auditing\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\lib\bootstrap\" />
     <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
