@@ -94,7 +94,17 @@ namespace IntranetPortal.Controllers
         [HttpGet]
         public async Task<IActionResult> GetOfficersInvitedMeetings(DataSourceLoadOptions loadOptions)
         {
-            var result = DataSourceLoader.Load(myContext.MeetingInvitations.Include("Meetings").Where(m => m.Pfnumber == PFNumber), loadOptions);
+            var result = DataSourceLoader.Load(myContext.MeetingInvitations.Include("Meetings").Where(m => m.Pfnumber == PFNumber  ), loadOptions);
+
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetInvitedMeetings(DataSourceLoadOptions loadOptions)
+        {
+            var result = DataSourceLoader.Load(myContext.MeetingInvitations.Include("Meetings").Where(m => m.Pfnumber == PFNumber && m.AcceptanceStatus=="Accepted" ), loadOptions);
 
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;

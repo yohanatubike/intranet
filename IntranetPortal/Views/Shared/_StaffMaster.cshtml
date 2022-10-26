@@ -30,8 +30,8 @@
 <link rel="stylesheet" type="text/css" href="~/css/style.css">
 <link rel="stylesheet" type="text/css" href="~/css/widget.css">
 <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true" />
-     <script src="https://unpkg.com/devextreme-quill@20_2/dist/dx-quill.min.js"></script> 
-      <script src="~/js/devextreme/jszip.js"></script> 
+    <script src="/js/devextreme/dx-quill.min.js"></script>
+    <script src="~/js/devextreme/jszip.js"></script> 
 <script src="~/js/vendor.js" asp-append-version="true"></script>
 </head>
 <body>
@@ -123,8 +123,8 @@
 <li class="user-profile header-notification">
 <div class="dropdown-primary dropdown">
 <div class="dropdown-toggle" data-toggle="dropdown">
-<img src="~/jpg/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-<span>@DateTime.Now</span>
+
+                                        <span>@DateTime.Now.ToString("dddd, dd MMMM yyyy")</span>
 <i class="feather icon-chevron-down"></i>
 </div>
 <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
@@ -291,49 +291,82 @@
 
 <ul class="pcoded-item pcoded-left-item">
 <li class="pcoded-hasmenu active pcoded-trigger">
-<a href="javascript:void(0)" class="waves-effect waves-dark">
+<a href="/StaffPage/Dashboard" class="waves-effect waves-dark">
 <span class="pcoded-micon"><i class="feather icon-home"></i></span>
 <span class="pcoded-mtext" >Home</span>
 </a>
 
 </li>
-<li class="pcoded-hasmenu" >
-<a href="/StaffPage/Index" class="waves-effect waves-dark">
-<span class="pcoded-micon"><i class="feather icon-map"></i></span>
-<span class="pcoded-mtext"  >My Activities</span>
-<span class="pcoded-badge label label-warning" hidden="hidden">NEW</span>
-</a>
 
-</li>
-
-<li class="pcoded-hasmenu">
-<a href="/StaffNotification/Index" class="waves-effect waves-dark">
-<span class="pcoded-micon">
-<i class="feather icon-bell"></i>
-</span>
-<span class="pcoded-mtext">My Notification</span>
-<span class="pcoded-badge label label-danger" hidden="hidden">100+</span>
-</a>
-
-</li>
-<li class="pcoded-hasmenu" >
-                                        <a href="/MeetingManager/Index" class="waves-effect waves-dark">
-<span class="pcoded-micon"><i class="feather icon-users"></i></span>
-<span class="pcoded-mtext"  >My Meetings</span>
-<span class="pcoded-badge label label-warning" hidden="hidden">NEW</span>
-</a>
-
-</li>
 </ul>
 
 
 </li>
+<ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="feather icon-map"></i></span>
+                                        <span class="pcoded-mtext">My Desk</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="/StaffPage/Index" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">My Activities</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="/StaffNotification/Index" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">My Notification</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="/MeetingManager/Index" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">My Meetings</span>
+                                            </a>
+                                        </li>
+                                         <li class=" ">
+                                            <a href="/MeetingManager/Index" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">Planning</span>
+                                            </a>
+                                        </li>
+                                         <li class=" ">
+                                            <a href="/MeetingManager/Index" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">Auditing</span>
+                                            </a>
+                                        </li>
 
 
+                                    </ul>
+                                </li>
 
 </ul>
 
 <ul class="pcoded-item pcoded-left-item">
+                                    @if ((await AuthorizationService.AuthorizeAsync(User, "ContentManagers")).Succeeded)
+                                    {
+                                        <li class="pcoded-hasmenu">
+                                            <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                                <span class="pcoded-micon">
+                                                    <i class="feather icon-pie-chart"></i>
+                                                </span>
+                                                <span class="pcoded-mtext">Contents</span>
+                                            </a>
+                                            @await Component.InvokeAsync("ShowPermissions")
+                                        </li>
+                                    }
+                                    @if ((await AuthorizationService.AuthorizeAsync(User, "Supervisor")).Succeeded)
+                                    {
+                                        <li class="pcoded-hasmenu">
+                                            <a href="/ActivitiesManagement" class="waves-effect waves-dark">
+                                                <span class="pcoded-micon">
+                                                    <i class="feather icon-activity"></i>
+                                                </span>
+                                                <span class="pcoded-mtext">Supervisors</span>
+                                            </a>
+
+                                        </li>
+                                    }
+
                                    
                  @if ((await AuthorizationService.AuthorizeAsync(User, "Administrators")).Succeeded)
                                     {
@@ -385,18 +418,79 @@
 
                                             </ul>
                                         </li>}
-                                    
+                                   
+                                      <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon">
+                                                <i class="feather icon-check-square"></i>
+                                            </span>
+                                            <span class="pcoded-mtext">Planning</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class=" ">
+                                                <a href="form-elements-component.html" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Budget Officers</span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="form-elements-add-on.html" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Planning & Monitoring</span>
+                                                </a>
+                                            </li>
+                                           
+                                           
+
+
+                                        </ul>
+                                    </li>
+                                    <li class="pcoded-hasmenu">
+                                        <a href="/AuditingManagement/" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon">
+                                                <i class="feather icon-refresh-cw"></i>
+                                            </span>
+                                            <span class="pcoded-mtext">Auditing </span>
+                                        </a>
+                                     
+                                    </li>
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                            <span class="pcoded-micon">
+                                                <i class="feather icon-anchor"></i>
+                                            </span>
+                                            <span class="pcoded-mtext">Archive</span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="pcoded-submenu">
+                                                <a href="form-elements-component.html" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Activities</span>
+                                                </a>
+                                            </li>
+                                            <li class="pcoded-submenu">
+                                                <a href="form-elements-add-on.html" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Meetings</span>
+                                                </a>
+                                            </li>
+
+
+
+                                        </ul>
+                                    </li>
                                     <li class="pcoded-hasmenu">
 <a href="javascript:void(0)" class="waves-effect waves-dark">
 <span class="pcoded-micon">
-<i class="feather icon-refresh-cw"></i>
+<i class="feather icon-file"></i>
 </span>
 <span class="pcoded-mtext" >Reports</span>
 </a>
 <ul class="pcoded-submenu">
 <li class=" ">
 <a href="form-elements-component.html" class="waves-effect waves-dark">
-<span class="pcoded-mtext">ICT Support Report</span>
+<span class="pcoded-mtext">ICT Reports</span>
+</a>
+</li>
+<li class=" ">
+<a href="form-elements-add-on.html" class="waves-effect waves-dark">
+<span class="pcoded-mtext">Departmental Reports</span>
 </a>
 </li>
 <li class=" ">
@@ -404,52 +498,8 @@
 <span class="pcoded-mtext">Management Reports</span>
 </a>
 </li>
-                                            <li class=" ">
-                                                <a href="form-elements-component.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Planning Reports</span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="form-elements-component.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">QMS Reports</span>
-                                                </a>
-                                            </li>
-
-
-</ul>
-</li>
-                                    @if ((await AuthorizationService.AuthorizeAsync(User, "ContentManagers")).Succeeded)
-                                    {
-                                        <li class="pcoded-hasmenu">
-                                            <a href="javascript:void(0)" class="waves-effect waves-dark">
-<span class="pcoded-micon">
-<i class="feather icon-refresh-cw"></i>
-</span>
-<span class="pcoded-mtext" >Manage Contents</span>
-</a>
-                                            @await Component.InvokeAsync("ShowPermissions")
-</li>}
- @if ((await AuthorizationService.AuthorizeAsync(User, "Supervisor")).Succeeded)
-                                    {
-                                        <li class="pcoded-hasmenu">
-<a href="/ActivitiesManagement" class="waves-effect waves-dark">
-<span class="pcoded-micon">
-<i class="feather icon-activity"></i>
-</span>
-<span class="pcoded-mtext" >Supervisors</span>
-</a>
-
-</li>}
-<li class=" ">
-<a href="form-picker.html" class="waves-effect waves-dark">
-<span class="pcoded-micon">
-<i class="feather  icon-clipboard"></i>
-</span>
-
-<span class="pcoded-mtext">My Archive</span>
-<span class="pcoded-badge label label-warning"  hidden="hidden">NEW</span>
-</a>
-</li>
+                                            
+                                    
 
 </ul>
 
@@ -528,18 +578,13 @@
 
 
 
-<script src="~/js/serial.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-<script src="~/js/light.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-<script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="~/js/jquery.slimscroll.js"></script>
-
-<script src="~/js/pcoded.min.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-<script src="~/js/vertical-layout.min.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-
-<script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="~/js/script.min.js"></script>
-
-
-
-<script src="~/js/rocket-loader.min.js" data-cf-settings="d2d1d6e2f87cbebdf4013b26-|49" defer=""></script>
+    <script src="~/js/serial.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+    <script src="~/js/light.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+    <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="~/js/jquery.slimscroll.js"></script>
+    <script src="~/js/pcoded.min.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+    <script src="~/js/vertical-layout.min.js" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+    <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="~/js/script.min.js"></script>
+    <script src="~/js/rocket-loader.min.js" data-cf-settings="d2d1d6e2f87cbebdf4013b26-|49" defer=""></script>
 </body>
 
 

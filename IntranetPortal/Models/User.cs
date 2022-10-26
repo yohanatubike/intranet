@@ -18,6 +18,8 @@ namespace IntranetPortal.Models
         public string MobileNumber { get; set; } = null!;
         public string ReportingTo { get; set; } = null!;
         public string DutyStation { get; set; } = null!;
+        public int? BirthMonth { get; set; }
+        public int? BirthDay { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string? Password { get; set; }
         [ForeignKey("DesignationCode")]
