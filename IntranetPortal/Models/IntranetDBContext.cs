@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using IntranetPortal.Models.Planning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -48,6 +49,8 @@ namespace IntranetPortal.Models
         public virtual DbSet<Tip> Tips { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<UserRole> UserRoles { get; set; } = null!;
+        public virtual DbSet<Objective> Objectives { get; set; } = null!;
+        public virtual DbSet<ServiceOutput> ServiceOutputs { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -693,6 +696,44 @@ namespace IntranetPortal.Models
                     .HasColumnName("PFNumber");
 
                 entity.Property(e => e.RoleId).HasColumnName("RoleID");
+            });
+
+            modelBuilder.Entity<Objective>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("Id")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp with time zone");
+
+                entity.Property(e => e.Code)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Code");
+                entity.Property(e => e.Description)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Description");
+
+            });
+
+            modelBuilder.Entity<ServiceOutput>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("Id")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
+
+                entity.Property(e => e.Code)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Code");
+                entity.Property(e => e.Description)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Description");
+
             });
 
             OnModelCreatingPartial(modelBuilder);
