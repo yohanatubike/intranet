@@ -107,6 +107,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGVudE1hbmFnZXJcVXBsb2FkQ2Fyb3VzZWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mustafa.juma/source/repos/tasacintranet/IntranetPortal/Views/DisplayDetails/DisplayNotification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcGxheURldGFpbHNcRGlzcGxheU5vdGlmaWNhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mustafa.juma/source/repos/tasacintranet/IntranetPortal/Views/DisplayDetails/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcGxheURldGFpbHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mustafa.juma/source/repos/tasacintranet/IntranetPortal/Views/DisplayDetails/NewsEventsComment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcGxheURldGFpbHNcTmV3c0V2ZW50c0NvbW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mustafa.juma/source/repos/tasacintranet/IntranetPortal/Views/DisplayDetails/NotificationComment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcGxheURldGFpbHNcTm90aWZpY2F0aW9uQ29tbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mustafa.juma/source/repos/tasacintranet/IntranetPortal/Views/DisplayDetails/NotificationDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcGxheURldGFpbHNcTm90aWZpY2F0aW9uRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mustafa.juma/source/repos/tasacintranet/IntranetPortal/Views/Documentation/Guidelines.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRhdGlvblxHdWlkZWxpbmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

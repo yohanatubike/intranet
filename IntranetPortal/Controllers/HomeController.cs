@@ -19,8 +19,14 @@ namespace IntranetPortal.Controllers
         {
             _logger = logger;
         }
+        public IActionResult NotificationDetails(string NotificationID)
+        {
+            var getNotificationDetails = myContext.StaffNotifications.Where(t => t.NotificationId.ToString() == NotificationID).SingleOrDefault();
+            HttpContext.Session.SetString("NotificationID", NotificationID.ToString());
+            ViewBag["NotificationDetails"] = getNotificationDetails.Details;
+            return View();
+        }
 
-        
         public IActionResult Index()
         {
             return View();

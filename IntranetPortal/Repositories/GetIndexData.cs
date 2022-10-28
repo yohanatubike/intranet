@@ -20,6 +20,7 @@ namespace IntranetPortal.Repositories
                     Subject = notification.Subject,
                     CreatedBy = notification.CreatedBy,
                     Category = notification.Category,
+                    NotificationId = notification.NotificationId,
 
                 }).Take(6).ToList();
         }
@@ -29,6 +30,7 @@ namespace IntranetPortal.Repositories
                 .Where(t => t.PublishStatus == "Published").Select(activity => new ActivitiesDetail()
                 {
                     Title = activity.Title,
+                    ActivityCode = activity.ActivityCode,
                     DepartmentCode = activity.DepartmentCode,
                 
 
