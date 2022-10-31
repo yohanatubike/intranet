@@ -38,7 +38,7 @@ namespace IntranetPortal.Controllers
         [HttpGet]
         public async Task<IActionResult> GetDepartmentalAuditings(DataSourceLoadOptions loadOptions)
         {
-            var result = DataSourceLoader.Load(myContext.ActivitiesDetails.Where(t => t.SectionCode == SectionCode), loadOptions);
+            var result = DataSourceLoader.Load(myContext.AuditingDetail.Where(t => t.SectionCode == SectionCode), loadOptions);
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
             var resultJson = JsonConvert.SerializeObject(result, settings);

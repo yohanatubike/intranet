@@ -329,7 +329,7 @@
                                                 </a>
                                             </li>
                                             <li class=" ">
-                                                <a href="/MeetingManager/Index" class="waves-effect waves-dark">
+                                                <a href="/AuditingManagement/DepartmentalAuditing" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">Auditing</span>
                                                 </a>
                                             </li>
@@ -418,9 +418,10 @@
                                             </ul>
                                         </li>
                                     }
-
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                     @if ((await AuthorizationService.AuthorizeAsync(User, "Auditing")).Succeeded)
+                                    {
+                                        <li class="pcoded-hasmenu">
+                                            <a href="javascript:void(0)" class="waves-effect waves-dark">
                                             <span class="pcoded-micon">
                                                 <i class="feather icon-check-square"></i>
                                             </span>
@@ -453,7 +454,7 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </li>
+                                    </li>}
                                     @if ((await AuthorizationService.AuthorizeAsync(User, "Auditing")).Succeeded)
                                     {
                                         <li class="pcoded-hasmenu">
