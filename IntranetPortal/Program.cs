@@ -38,7 +38,7 @@ builder.Services.AddAuthorization(config =>
     });
     config.AddPolicy("Administrators", policyBuilder =>
     {
-        policyBuilder.RequireClaim("IsAdmin", "ICT");
+        policyBuilder.RequireClaim("IsAdmin", "ICTS");
 
     });
     config.AddPolicy("ContentManagers", policyBuilder =>

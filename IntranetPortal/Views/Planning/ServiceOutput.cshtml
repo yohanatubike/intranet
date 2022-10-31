@@ -57,6 +57,13 @@
                                             columns.AddFor(m => m.Code).Caption("Code");
                                             columns.AddFor(m => m.Description).Caption("Description");
                                             columns.AddFor(m => m.Status);
+                                            columns.AddFor(m => m.Objective).Caption("Objective Code").Lookup(r => r
+                                            .DataSource(ds => ds.Mvc().Controller("Objective").LoadAction("GetObjectives").Key("ObjectiveId"))
+                                            .ValueExpr("DepartmentCode")
+                                            .DisplayExpr("DepartmentCode"))
+                                            .ValidationRules(r => r
+                                            .AddRequired()
+                                            .Message("Department Code"));
                                             columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
                                         })
                                         .SearchPanel(f => f.Visible(true))
@@ -88,6 +95,7 @@
                                             items.AddGroup().ColCount(2).Items(groupItem =>
                                             {
                                                 groupItem.AddSimpleFor(m => m.Code);
+                                                groupItem.AddSimpleFor(m => m.Objective);
                                                 groupItem.AddSimpleFor(m => m.Status).Editor(e => e
                                             .SelectBox()
                                             .DataSource(new[]

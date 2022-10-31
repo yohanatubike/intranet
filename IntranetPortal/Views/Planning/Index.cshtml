@@ -55,7 +55,7 @@
                                         .Columns(columns =>
                                         {
                                             columns.AddFor(m => m.Code).Caption("Code");
-                                            columns.AddFor(m => m.Description).Caption("Description");
+                                            columns.AddFor(m => m.Description).Caption("Description").EncodeHtml(false);
                                             columns.AddFor(m => m.Status);
                                             columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
                                         })
