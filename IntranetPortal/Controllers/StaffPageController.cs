@@ -33,8 +33,8 @@ namespace IntranetPortal.Controllers
         }
         public IActionResult Dashboard()
         {
-            var GetCurrentIncharge = myContext.SupportIncharge.Where(t => t.Status == true).FirstOrDefault();
-            var getStaffDetails = myContext.Users.Where(t => t.Email == GetCurrentIncharge.InchargeName).FirstOrDefault();
+            var GetCurrentIncharge = myContext.SupportIncharge.Where(t => t.Status == true).SingleOrDefault();
+            var getStaffDetails = myContext.Users.Where(t => t.Email == GetCurrentIncharge.InchargeName).SingleOrDefault();
             var getActivityDetails = myContext.AssignedOfficersDetails.Where(t => t.Pfnumber == getStaffDetails.PFNumber && t.Activity.PublishStatus!="Closed").Count();
             var getMeetingDetails = myContext.MeetingInvitations.Where(t => t.Pfnumber == getStaffDetails.PFNumber && t.AcceptanceStatus =="Invited").Count();
             ViewData["InchargeName"] = getStaffDetails.FirstName+"  " + getStaffDetails.LastName;

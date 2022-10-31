@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xHTYXayRB6VGRmWvMKTWLxzf7d+2Vlk8iNk4CseOzzY=",
+  "Hash": "vyhZYQYoISt4EaRc5Z3Be9Cv8eR383c7dGkVpT2nbrc=",
   "Source": "IntranetPortal",
   "BasePath": "_content/IntranetPortal",
   "Mode": "Default",
@@ -5132,6 +5132,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\devextreme\\dx-gantt.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\wwwroot\\js\\devextreme\\dx-quill.min.js",
+      "SourceId": "IntranetPortal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\wwwroot\\",
+      "BasePath": "_content/IntranetPortal",
+      "RelativePath": "js/devextreme/dx-quill.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\devextreme\\dx-quill.min.js"
     },
     {
       "Identity": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\wwwroot\\js\\devextreme\\globalize.js",
@@ -11949,6 +11966,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\png\\switch.png"
+    },
+    {
+      "Identity": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\wwwroot\\Sliders\\B4t9BH0jYsH0oGnHFF.JPG",
+      "SourceId": "IntranetPortal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\wwwroot\\",
+      "BasePath": "_content/IntranetPortal",
+      "RelativePath": "Sliders/B4t9BH0jYsH0oGnHFF.JPG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Sliders\\B4t9BH0jYsH0oGnHFF.JPG"
+    },
+    {
+      "Identity": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\wwwroot\\Sliders\\d97UI3oxH6ngB1tSAx.jpg",
+      "SourceId": "IntranetPortal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\wwwroot\\",
+      "BasePath": "_content/IntranetPortal",
+      "RelativePath": "Sliders/d97UI3oxH6ngB1tSAx.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Sliders\\d97UI3oxH6ngB1tSAx.jpg"
     },
     {
       "Identity": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\wwwroot\\Sliders\\f9DxWUWOTHbUKE8YBd.jpg",

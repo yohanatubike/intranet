@@ -24,6 +24,21 @@ namespace IntranetPortal.Repositories
 
                 }).Take(6).ToList();
         }
+        public List<User> GetWeeklyBirthDay()
+        {
+            var TheCurrentMonth = DateTime.Now.Month;
+            var TheCurrentDay = DateTime.Now.Day;
+            var NextWeek = TheCurrentDay + 7;
+            return myContext.Users.OrderBy(q => q.BirthDay)
+                .Where(t => t.BirthMonth == TheCurrentMonth && t.BirthDay >= TheCurrentDay && t.BirthDay <= NextWeek).Select(staff => new User()
+                {
+                    FirstName = staff.FirstName,
+                    LastName = staff.LastName,
+                    BirthDay = staff.BirthDay,
+                    BirthMonth = staff.BirthMonth,
+
+                }).Take(6).ToList();
+        }
         public List<ActivitiesDetail> GetActiveOngoingActivities()
         {
             return myContext.ActivitiesDetails.OrderByDescending(q => q.PublishedDate)

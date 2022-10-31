@@ -23,9 +23,9 @@ namespace IntranetPortal.Controllers
         [Route("api/file-manager-file-system-auditing", Name = "AuditingManagementFileSystemApi")]
         public object FileSystem(FileSystemCommand command, string arguments)
         {
-            var DepartmentCode = HttpContext.Session.GetString("DepartmentCode ").ToString();
+            var DepartmentCode = HttpContext.Session.GetString("DepartmentCode").ToString();
 
-            string attachmentPath = "Attachments/Auditing/" + DepartmentCode.Trim('"');
+            string attachmentPath = "Attachments/Auditing/"+ DepartmentCode.Trim('"');
             if (!Directory.Exists(attachmentPath))
             {
                 DirectoryInfo directory = new DirectoryInfo(attachmentPath);

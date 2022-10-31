@@ -59,18 +59,18 @@ namespace IntranetPortal.Controllers
         {
             //if (ModelState.IsValid)
             //{
-                string Password = "tasac@123";
+                
                 string ContentManagers = "0";
-                var encryptedPass = getHashedMD5Password(Password);
+                var encryptedPass = getHashedMD5Password(model.Password);
                 var getUser = myContext.Users.Include("Designations").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Password == encryptedPass );
-                var getRoles = myContext.UserRoles.SingleOrDefault(t => t.PFNumber == model.PFNumber && t.RoleId==13 );
+                var getRoles = myContext.UserRoles.SingleOrDefault(t => t.PFNumber == model.PFNumber && t.RoleId==14 );
                     if(getRoles != null)
                         {
                               ContentManagers = getRoles.RoleId.ToString();
                         }
-          
 
-            if (getUser != null)
+
+                if (getUser != null)
                 {
                     if (Url.IsLocalUrl(ReturnUrl))
                     {
@@ -79,7 +79,7 @@ namespace IntranetPortal.Controllers
                     else
                     {
 
-                    var userClaims = new List<Claim>()
+                        var userClaims = new List<Claim>()
                 {
 
                     new Claim(ClaimTypes.Name  , getUser.FirstName+" "+ getUser.LastName ),
@@ -92,15 +92,17 @@ namespace IntranetPortal.Controllers
                     new Claim("IsSupervisor", getUser.Designations.SupervisoryPostion.ToString()),
                     new Claim("IsAdmin", getUser.Designations.SectionCode.ToString()),
                     new Claim("IsAContentManager", ContentManagers),
+                       new Claim("IsAuditor", "Auditing"),
                  };
-                    var userIdentity = new ClaimsIdentity(userClaims, "User Identity");
+                        var userIdentity = new ClaimsIdentity(userClaims, "User Identity");
 
-                    var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });
-                    await HttpContext.SignInAsync(userPrincipal);
-                        return   RedirectToAction("Dashboard", "StaffPage");
+                        var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });
+                        await HttpContext.SignInAsync(userPrincipal);
+                        return RedirectToAction("Dashboard", "StaffPage");
                     }
+               // }
                 }
-            ViewBag.Error = "Invalid login attempt. or Account is locked";
+            ViewBag.Error = "Failed to login ! Invalid login credentials";
             return View("Login");
         }
 
