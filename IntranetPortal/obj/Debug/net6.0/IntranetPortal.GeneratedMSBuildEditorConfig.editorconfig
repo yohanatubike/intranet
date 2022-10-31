@@ -67,6 +67,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRpbmdNYW5hZ2VtZW50XEF1ZGl0aW5nQXR0YWNobWVudHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/AuditingManagement/DepartmentalAuditing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRpbmdNYW5hZ2VtZW50XERlcGFydG1lbnRhbEF1ZGl0aW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/AuditingManagement/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRpbmdNYW5hZ2VtZW50XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
