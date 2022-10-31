@@ -57,13 +57,13 @@
                                             columns.AddFor(m => m.Code).Caption("Code");
                                             columns.AddFor(m => m.Description).Caption("Description").EncodeHtml(false);
                                             columns.AddFor(m => m.Status);
-                                            columns.AddFor(m => m.ObjectiveId).Caption("Objective Code").Lookup(r => r
+                                            columns.AddFor(m => m.ObjectiveId).Caption("Objective").Lookup(r => r
                                             .DataSource(ds => ds.Mvc().Controller("Objective").LoadAction("GetObjectives").Key("Id"))
                                             .ValueExpr("Id")
                                             .DisplayExpr("Code"))
                                             .ValidationRules(r => r
                                             .AddRequired()
-                                            .Message("Objective Code"));
+                                            .Message("Objective Code is required"));
                                             columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
                                         })
                                         .SearchPanel(f => f.Visible(true))

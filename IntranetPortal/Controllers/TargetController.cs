@@ -19,7 +19,14 @@ namespace IntranetPortal.Controllers
             var result = DataSourceLoader.Load(_dbContext.Targets, loadOptions);
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
-            var resultJson = JsonConvert.SerializeObject(result, settings);
+            var resultJson = "";
+            try
+            {
+                resultJson = JsonConvert.SerializeObject(result, settings);
+            } catch(Exception e)
+            {
+                return Ok(e.Message);
+            }
             return Content(resultJson, "application/json");
         }
 

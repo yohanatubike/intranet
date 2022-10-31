@@ -58,12 +58,19 @@
                                             columns.AddFor(m => m.Description).Caption("Description").EncodeHtml(false);
                                             columns.AddFor(m => m.Status);
                                             columns.AddFor(m => m.ServiceOutputId).Caption("Service Output").Lookup(r => r
-                                            .DataSource(ds => ds.Mvc().Controller("Target").LoadAction("GetTargets").Key("Id"))
+                                            .DataSource(ds => ds.Mvc().Controller("ServiceOutput").LoadAction("GetServiceOutputs").Key("Id"))
                                             .ValueExpr("Id")
                                             .DisplayExpr("Code"))
                                             .ValidationRules(r => r
                                             .AddRequired()
                                             .Message("Service Output"));
+                                            columns.AddFor(m => m.IndicatorId).Caption("Indicator").EncodeHtml(false).Lookup(r => r
+                                            .DataSource(ds => ds.Mvc().Controller("Indicator").LoadAction("GetIndicators").Key("Id"))
+                                            .ValueExpr("Id")
+                                            .DisplayExpr("Description"))
+                                            .ValidationRules(r => r
+                                            .AddRequired()
+                                            .Message("Indicator"));
                                             columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
                                         })
                                         .SearchPanel(f => f.Visible(true))
@@ -96,12 +103,14 @@
                                             {
                                                 groupItem.AddSimpleFor(m => m.Code);
                                                 groupItem.AddSimpleFor(m => m.ServiceOutputId);
+                                                groupItem.AddSimpleFor(m => m.IndicatorId);
                                                 groupItem.AddSimpleFor(m => m.Status).Editor(e => e
                                             .SelectBox()
                                             .DataSource(new[]
                                             {
-                                                "Active",
-                                                "Inactive"
+                                                "On Track",
+                                                "At Risk",
+                                                "Off Track"
                                             }));
                                                 items.AddSimpleFor(m => m.Description).Editor(e => e
                                             .HtmlEditor()

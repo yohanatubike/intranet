@@ -758,6 +758,27 @@ namespace IntranetPortal.Models
 
             });
 
+            modelBuilder.Entity<Target>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("Id")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+                entity.Property(e => e.IndicatorId).HasColumnType("integer");
+
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp with time zone");
+
+                entity.Property(e => e.Code)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Code");
+                entity.Property(e => e.Description)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Description");
+
+            });
+
             OnModelCreatingPartial(modelBuilder);
         }
 

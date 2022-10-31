@@ -5,11 +5,10 @@ namespace IntranetPortal.Models.Planning
 {
     public class ServiceOutput
     {
-        [Key]
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string? Code { get; set; }
         public string? Description { get; set; }
-        public int ObjectiveId { get; set; }
+        public long ObjectiveId { get; set; }
         public string? Status { get; set; }
         public DateTime? CreatedDate { get; set; }
         public string? CreatedBy { get; set; }
