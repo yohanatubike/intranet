@@ -124,41 +124,41 @@
                                     <div class="dropdown-toggle" data-toggle="dropdown">
 
                                         <span>@DateTime.Now.ToString("dddd, dd MMMM yyyy")</span>
-                                        <i class="feather icon-chevron-down"></i>
-                                    </div>
-                                    <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                        <li>
-                                            <a href="#!">
-                                                <i class="feather icon-settings"></i> Settings
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="feather icon-user"></i> Profile
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="email-inbox.html">
-                                                <i class="feather icon-mail"></i> My Messages
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="auth-lock-screen.html">
-                                                <i class="feather icon-lock"></i> Lock Screen
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/Home/Logout">
-                                                <i class="feather icon-log-out"></i> Logout
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+<i class="feather icon-chevron-down"></i>
+</div>
+<ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+<li>
+<a href="#!">
+<i class="feather icon-settings"></i> Settings
+</a>
+</li>
+<li>
+<a href="#">
+<i class="feather icon-user"></i> Profile
+</a>
+</li>
+<li>
+<a href="email-inbox.html">
+<i class="feather icon-mail"></i> My Messages
+</a>
+</li>
+<li>
+<a href="auth-lock-screen.html">
+<i class="feather icon-lock"></i> Lock Screen
+</a>
+</li>
+<li>
+<a href="/Home/Logout">
+<i class="feather icon-log-out"></i> Logout
+</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</nav>
 
             <div id="sidebar" class="users p-chat-user showChat">
                 <div class="had-container">
@@ -329,7 +329,7 @@
                                                 </a>
                                             </li>
                                             <li class=" ">
-                                                <a href="/MeetingManager/Index" class="waves-effect waves-dark">
+                                                <a href="/AuditingManagement/DepartmentalAuditing" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">Auditing</span>
                                                 </a>
                                             </li>
@@ -418,9 +418,10 @@
                                             </ul>
                                         </li>
                                     }
-
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                     @if ((await AuthorizationService.AuthorizeAsync(User, "Auditing")).Succeeded)
+                                    {
+                                        <li class="pcoded-hasmenu">
+                                            <a href="javascript:void(0)" class="waves-effect waves-dark">
                                             <span class="pcoded-micon">
                                                 <i class="feather icon-check-square"></i>
                                             </span>
@@ -453,7 +454,7 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </li>
+                                    </li>}
                                     @if ((await AuthorizationService.AuthorizeAsync(User, "Auditing")).Succeeded)
                                     {
                                         <li class="pcoded-hasmenu">

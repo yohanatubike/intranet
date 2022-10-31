@@ -62,25 +62,36 @@ namespace IntranetPortal.Controllers
         {
             //if (ModelState.IsValid)
             //{
-                
-                string ContentManagers = "0";
+                  var ContentManager = "0";
+                  var Auditor = "0";
+                  var Planner = "0";
+               
                 var encryptedPass = getHashedMD5Password(model.Password);
                 var getUser = myContext.Users.Include("Designations").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Password == encryptedPass );
-                var getRoles = myContext.UserRoles.SingleOrDefault(t => t.PFNumber == model.PFNumber && t.RoleId==14 );
-                    if(getRoles != null)
-                        {
-                              ContentManagers = getRoles.RoleId.ToString();
-                        }
+                var isContentManager = myContext.UserRoles.Include("Roles").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Roles.RoleName=="ContentManager");
+                var isAuditor= myContext.UserRoles.Include("Roles").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Roles.RoleName == "Auditing");
+                var isPlanningOfficer = myContext.UserRoles.Include("Roles").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Roles.RoleName == "Planning");
+                        if (isContentManager !=null)
+                                {
+                                   ContentManager = isContentManager.Roles.RoleName;
+                                }
+                                    if (isAuditor != null)
+                                    {
+                                        Auditor = isAuditor.Roles.RoleName;
+                                    }
+                            if (isPlanningOfficer != null)
+                            {
+                                Planner = isPlanningOfficer.Roles.RoleName;
+                            }
 
-
-                if (getUser != null)
-                {
-                    if (Url.IsLocalUrl(ReturnUrl))
-                    {
-                        return Redirect(ReturnUrl);
-                    }
-                    else
-                    {
+            if (getUser != null)
+                            {
+                                if (Url.IsLocalUrl(ReturnUrl))
+                                {
+                                    return Redirect(ReturnUrl);
+                                }
+                                else
+                                {
 
                         var userClaims = new List<Claim>()
                 {
@@ -94,8 +105,10 @@ namespace IntranetPortal.Controllers
                     new Claim("DepartmentCode", getUser.Designations.DepartmentCode),
                     new Claim("IsSupervisor", getUser.Designations.SupervisoryPostion.ToString()),
                     new Claim("IsAdmin", getUser.Designations.SectionCode.ToString()),
-                    new Claim("IsAContentManager", ContentManagers),
-                       new Claim("IsAuditor", "Auditing"),
+                    new Claim("IsAContentManager",ContentManager),
+                    new Claim("IsAuditor", Auditor),
+                     new Claim("IsPlanner", Planner),
+
                  };
                         var userIdentity = new ClaimsIdentity(userClaims, "User Identity");
 

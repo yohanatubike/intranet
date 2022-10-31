@@ -12,7 +12,7 @@ using System.Security.Claims;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<IntranetDBContext>(option => 
+builder.Services.AddDbContext<IntranetDBContext>(option =>
     option.UseNpgsql(builder.Configuration.GetConnectionString("IntranetDBConnection")));
 
 builder.Services.AddAuthentication("CookieAuthentication").AddCookie("CookieAuthentication",
@@ -43,12 +43,17 @@ builder.Services.AddAuthorization(config =>
     });
     config.AddPolicy("ContentManagers", policyBuilder =>
     {
-        policyBuilder.RequireClaim("IsAContentManager", "14");
+        policyBuilder.RequireClaim("IsAContentManager", "ContentManager");
 
     });
     config.AddPolicy("Auditing", policyBuilder =>
     {
         policyBuilder.RequireClaim("IsAuditor", "Auditing");
+
+    });
+    config.AddPolicy("Planning", policyBuilder =>
+    {
+        policyBuilder.RequireClaim("IsPlanner", "Planning");
 
     });
 });
