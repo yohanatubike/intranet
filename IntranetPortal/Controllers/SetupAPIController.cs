@@ -370,6 +370,14 @@ namespace IntranetPortal.Controllers
             await myContext.SaveChangesAsync();
             return Ok();
         }
+        [HttpPut]
+        public async Task<IActionResult> UpdateUserPermission(string key, string values)
+        {
+            var userRoleDetails = await myContext.UserRoles.FirstOrDefaultAsync(item => item.UserRoleId.ToString() == key);
+            JsonConvert.PopulateObject(values, userRoleDetails);
+            await myContext.SaveChangesAsync();
+            return Ok();
+        }
         #endregion
     }
 }

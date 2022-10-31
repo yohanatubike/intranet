@@ -1,0 +1,153 @@
+﻿@using DevExtreme.AspNet.Mvc
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+<script type="text/javascript">
+    //<![CDATA[
+    function onInitNewRow(e, ActivityId) {
+
+        e.data.Activity.ActivityId = ActivityId;
+
+    }
+                //]]>
+</script>
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-bell bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Staff Birth Days</h5>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+
+                <div class="row">
+
+
+
+
+
+
+
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>Staff Birth Days this week</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
+
+                                @(
+                                        Html.DevExtreme().DataGrid<IntranetPortal.Models.User>
+                                        ()
+                                        .DataSource(ds => ds.Mvc()
+                                        .Controller("DisplayDetails")
+
+                                    .LoadAction("GetActiveBirthDays")
+
+                                        .Key("PFNumber")
+
+
+                                        )
+                                        .RemoteOperations(true)
+                                        .Columns(columns =>
+                                        {
+
+
+
+                                            columns.AddFor(m => m.FirstName);
+                                            columns.AddFor(m => m.LastName);
+                                            columns.AddFor(m => m.BirthDay).Caption("Day");
+                                          
+                                            columns.AddFor(m => m.BirthMonth).Caption("Month");
+                                            columns.AddFor(m => m.MobileNumber);
+                                            columns.AddFor(m => m.Email);
+                                           
+                                            
+                                        })
+
+                                    .SearchPanel(f => f.Visible(true))
+
+                                    .Paging(p => p.PageSize(10))
+                                    .HeaderFilter(f => f.Visible(true))
+
+                                    .Grouping(g => g.ContextMenuEnabled(true))
+                                    .Grouping(g => g.AutoExpandAll(true))
+                                    .RemoteOperations(true)
+                                    .Selection(s => s.Mode(SelectionMode.Multiple))
+                                    .Export(e => e.Enabled(false).FileName("ListofGroups").AllowExportSelectedData(false))
+                                    .Editing(e => e
+                                    .AllowAdding(false)
+                                    .AllowUpdating(false)
+                                    .Popup(p => p
+                                    .Title("Add Notification")
+                                    .ShowTitle(true)
+                                    .Width(1000)
+                                    .Height(400)
+
+
+
+                                    )
+
+
+                                    .AllowDeleting(false)
+                                    .Mode(GridEditMode.Popup)
+                                    .UseIcons(true)
+                                    .Form(f => f
+                                    .ID("UserCreation")
+                                    .ColCount(1)
+                                    .Items(items =>
+                                    {
+                                        items.AddGroup()
+                                        .ColCount(3)
+                                        .Items(groupItems =>
+                                        {
+
+
+                                            groupItems.AddSimpleFor(m => m.FirstName);
+                                            groupItems.AddSimpleFor(m => m.LastName);
+                                            groupItems.AddSimpleFor(m => m.Email);
+
+                                        });
+                                        
+                                    })
+
+                                    )
+                                    )
+                                    )
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

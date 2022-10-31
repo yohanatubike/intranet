@@ -35,56 +35,98 @@
             <div class="page-body">
 
                 <div class="row">
-
-                    <div class="col-xl-4 col-md-6">
-                        <div class="card prod-p-card ">
-                            <div class="card-body">
-                                <div class="row align-items-center m-b-30 text-blue">
-                                    <div class="col">
-                                        <h6 class="m-b-5">Assigned Activities</h6>
-                                    
-                                    </div>
-                                   
-                                        <i class="feather icon-home bg-c-blue"></i>
-                                    
-                                </div>
-                                <p class="m-b-0 "><span class="label label-danger m-r-10">@ViewData["NumberofActivities"]</span>Assigned Activities</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="card prod-p-card ">
+                   @* <div class="col-xl-4 col-md-12">
+                        <div class="card analytic-card card-green">
                             <div class="card-body">
                                 <div class="row align-items-center m-b-30">
-                                    <div class="col">
-                                        <h6 class="m-b-5 ">Invited  Meetings</h6>
-                                   
-                                    </div>
-                                    <div class="col-auto text-c-blue">
-                                        <i class="fas fa-users text-c-white f-18"></i>
-                                    </div>
-                                </div>
-                                <p class="m-b-0 "><span class="label label-primary m-r-10">@ViewData["NumberofMeetings"]</span>Invited Meetings</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="card prod-p-card ">
-                            <div class="card-body">
-                                <div class="row align-items-center m-b-30">
-                                    <div class="col">
-                                        <h6 class="m-b-5 ">Auditings</h6>
-                                      
-                                    </div>
                                     <div class="col-auto">
-                                        <i class="fa fa-camera-retro fa-lg text-c-green f-18"></i>
+                                        <i class="fas fa-shopping-cart text-c-green f-18 analytic-icon"></i>
+                                    </div>
+                                    <div class="col text-right">
+                                        <h3 class="m-b-5 text-white">@ViewData["NumberofActivities"]</h3>
+                                        <h6 class="m-b-0 text-white"></h6>
                                     </div>
                                 </div>
-                                <p class="m-b-0 "><span class="label label-success m-r-10">120</span>Pending Auditing</p>
+                                <p class="m-b-0  text-white d-inline-block"></p>
+                                <h5 class=" text-white d-inline-block m-b-0 m-l-10">Assigned Activities</h5>
+                                <h6 class="m-b-0 d-inline-block  text-white float-right"><i class="fas fa-caret-up m-r-10 f-18"></i></h6>
                             </div>
                         </div>
                     </div>
-
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card analytic-card card-blue">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col-auto">
+                                        <i class="fas fa-users text-c-blue f-18 analytic-icon"></i>
+                                    </div>
+                                    <div class="col text-right">
+                                        <h3 class="m-b-5 text-white">@ViewData["NumberofMeetings"]</h3>
+                                        <h6 class="m-b-0 text-white"></h6>
+                                    </div>
+                                </div>
+                                <p class="m-b-0 text-white d-inline-block"> </p>
+                                <h5 class="text-white d-inline-block m-b-0 m-l-10">Invited Meetings</h5>
+                                <h6 class="m-b-0 d-inline-block text-white float-right"><i class="fas fa-caret-up m-r-10 f-18"></i></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card analytic-card card-red">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col-auto">
+                                        <i class="fas fa-file-code text-c-red f-18 analytic-icon"></i>
+                                    </div>
+                                    <div class="col text-right">
+                                        <h3 class="m-b-5 text-white">10</h3>
+                                        <h6 class="m-b-0 text-white"></h6>
+                                    </div>
+                                </div>
+                                <p class="m-b-0 d-inline-block text-white">Pending Auditing</p>
+                                <h5 class="text-white d-inline-block m-b-0 m-l-10"></h5>
+                                <h6 class="m-b-0 d-inline-block text-white float-right"><i class="fas fa-caret-down m-r-10 f-18"></i></h6>
+                            </div>
+                        </div>
+                    </div>*@
+                
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card ticket-card">
+                            <div class="card-body">
+                                <p class="m-b-30 bg-c-red lbl-card"><i class="fas fa-folder-open"></i> Assignd Activities</p>
+                                <div class="text-center">
+                                    <h2 class="m-b-0 d-inline-block text-c-red">@ViewData["NumberofActivities"]</h2>
+                                    <p class="m-b-0 d-inline-block">Activities</p>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card ticket-card">
+                            <div class="card-body">
+                                <p class="m-b-30 bg-c-blue lbl-card"><i class="fas fa-file-archive"></i> Invited Meetings</p>
+                                <div class="text-center">
+                                    <h2 class="m-b-0 d-inline-block text-c-blue">@ViewData["NumberofMeetings"]</h2>
+                                    <p class="m-b-0 d-inline-block">Meetings</p>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card ticket-card">
+                            <div class="card-body">
+                                <p class="m-b-30 bg-c-green lbl-card"><i class="fas fa-users"></i> Auditings</p>
+                                <div class="text-center">
+                                    <h2 class="m-b-0 d-inline-block text-c-green">30</h2>
+                                    <p class="m-b-0 d-inline-block">Audit Queries</p>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
                   
                     @if ((await AuthorizationService.AuthorizeAsync(User, "Administrators")).Succeeded)
                     {

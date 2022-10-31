@@ -36,29 +36,31 @@
                                         @using (Html.BeginForm("Processlogin", "Home", FormMethod.Post, new { @class = "sign-up-form form" }))
                                         {
                                             @Html.AntiForgeryToken()
+                                            
 
 <div class="form-group row">
+                                        
 <div class="col-sm-2" style="padding-bottom:8px;">
 <i class="far fa-user text-primary f-30"></i>
 </div>
 <div class="col-sm-10">
- @Html.TextBoxFor(m => m.PFNumber, new { @placeholder = "Enter your email", @name = "PFNumber", @class = "form-control form-control-round", @id = "Username", @type = "text", @required = "true" })
+                                                    @Html.TextBoxFor(m => m.PFNumber, new { @placeholder = "TPF0366", @name = "PFNumber", @class = "form-control form-control-round", @id = "Username",  @required = "true" })
 </div>
 
 <div class="col-sm-2">
 <i class="fa fa-lock text-primary f-30"></i>
 </div>
 <div class="col-sm-10">
-                                                        @Html.TextBoxFor(m => m.Password, new { @placeholder = "Enter your email", @name = "Password", @class = "form-control form-control-round", @id = "Username", @type = "password", @required = "true" })
+                                                        @Html.TextBoxFor(m => m.Password, new { @placeholder = "Password", @name = "Password", @class = "form-control form-control-round", @id = "Username", @type = "password", @required = "true" })
 
 </div>
 
 <div class="col-sm-12" style="padding-top:20px;margin-left:70%;">
 <button class="btn btn-primary btn-round waves-effect waves-light" type="submit">Login</button>
 </div>
-     
-</div>
-
+                                                
+                                            </div>
+                                            <div style="color:red"> @ViewBag.Error</div>
 }
 
 

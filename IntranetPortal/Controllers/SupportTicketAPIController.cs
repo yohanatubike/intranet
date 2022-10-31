@@ -36,7 +36,7 @@ namespace IntranetPortal.Controllers
               public async Task<IActionResult> GetDepartmentTickets(DataSourceLoadOptions loadOptions)
         {
             LoadResult result = null;
-            if (DepartmentCode == "HICT")
+            if (DepartmentCode == "ICTS")
             {
                 result = DataSourceLoader.Load(myContext.SupportsTickets.OrderByDescending(t => t.CreatedDate).Where(t => t.Status == "Assigned" || t.Status == "In-Progress" || t.Status == null || t.Status== "Onhold" || t.Status=="Lodged"), loadOptions); 
             }
