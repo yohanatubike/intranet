@@ -1,4 +1,5 @@
 ﻿using IntranetPortal.Models;
+using IntranetPortal.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +13,8 @@ namespace IntranetPortal.Controllers
     public class HomeController : Controller
 
     {
-        private IntranetDBContext myContext = new IntranetDBContext();
+        private static IntranetDBContext myContext = new IntranetDBContext();
+        private UserInitializationService userInitializationService = new UserInitializationService(myContext);
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -29,10 +31,11 @@ namespace IntranetPortal.Controllers
 
         public IActionResult Index()
         {
+            //userInitializationService.OnApplicationStarted();
             return View();
         }
 
-        public   async Task<IActionResult> Logout()
+        public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Home");
@@ -55,7 +58,7 @@ namespace IntranetPortal.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public  async Task< IActionResult> Processlogin(LoginViewModel model, string ReturnUrl)
+        public async Task<IActionResult> Processlogin(LoginViewModel model, string ReturnUrl)
         {
             //if (ModelState.IsValid)
             //{

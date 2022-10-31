@@ -22,11 +22,10 @@ namespace IntranetPortal.Controllers
                     return View("ManageFrontSlider");
                 case "forms":
                     return RedirectToAction("Index", "Forms");
-                case "systems":
+                case "system":
                     return RedirectToAction("Index", "Systems");
                 case "library":
-                    RedirectToAction("Index", "Library");
-                    break;
+                    return RedirectToAction("Index", "Library");
                 case "quiz":
                     return View("ManageQuiz");
                 case "articles":

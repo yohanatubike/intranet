@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace IntranetPortal.Models
 {
-    public partial class ActivitiesDetail
+    public class ActivitiesDetail
     {
         public long ActivityId { get; set; }
         public string ActivityCode { get; set; } = null!;
@@ -20,11 +20,17 @@ namespace IntranetPortal.Models
         public string? UpdatedBy { get; set; }
         public DateTime? UpdateDate { get; set; }
         public DateTime? CreatedDate { get; set; }
-
         public string? Title { get; set; }
         public string? PublishStatus { get; set; }
         public DateTime? PublishedDate { get; set; }
         public string? PublishdBy { get; set; }
         public string? ExternalDetails { get; set; }
+
+        //For Planning and Monitoring
+        public string? Output { get; set; }
+        public string? Outcome { get; set; }
+        public string? Finding { get; set; }
+        public string? Lesson { get; set; }
+        public double? Expenditure { get; set; }
     }
 }

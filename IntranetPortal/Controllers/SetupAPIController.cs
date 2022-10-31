@@ -33,9 +33,7 @@ namespace IntranetPortal.Controllers
             PFNumber = hcontext.User?.FindFirst(ClaimTypes.SerialNumber)?.Value;
 
 
-        }
-
-       
+        }      
 
         #region for roles  
 

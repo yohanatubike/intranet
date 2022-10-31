@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\IntranetPortal.csproj": {}
+    "D:\\Projects\\intranet-app\\tasacintranet\\IntranetPortal\\IntranetPortal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\IntranetPortal.csproj": {
+    "D:\\Projects\\intranet-app\\tasacintranet\\IntranetPortal\\IntranetPortal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\IntranetPortal.csproj",
+        "projectUniqueName": "D:\\Projects\\intranet-app\\tasacintranet\\IntranetPortal\\IntranetPortal.csproj",
         "projectName": "IntranetPortal",
-        "projectPath": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\IntranetPortal.csproj",
-        "packagesPath": "C:\\Users\\mustafa.juma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\obj\\",
+        "projectPath": "D:\\Projects\\intranet-app\\tasacintranet\\IntranetPortal\\IntranetPortal.csproj",
+        "packagesPath": "C:\\Users\\yohan\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\intranet-app\\tasacintranet\\IntranetPortal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\NuGet.Config",
-          "C:\\Users\\mustafa.juma\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
+          "D:\\Projects\\intranet-app\\tasacintranet\\NuGet.Config",
+          "C:\\Users\\yohan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -29,12 +28,12 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\DevExpress 20.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\DevExpress 20.2\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.nuget.org/api/v2": {}
         },
         "frameworks": {
           "net6.0": {
@@ -59,6 +58,10 @@
             "DevExtreme.AspNet.Data": {
               "target": "Package",
               "version": "[2.8.6, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -94,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

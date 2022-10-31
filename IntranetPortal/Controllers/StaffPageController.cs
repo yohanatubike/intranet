@@ -17,32 +17,33 @@ namespace IntranetPortal.Controllers
         {
             hcontext = haccess.HttpContext;
     
-
         }
         
-
         public IActionResult Index()
         {
 
             ViewBag.UserEmail = hcontext.User.FindFirst(ClaimTypes.Email).Value;
             return View();
         }
+
         public IActionResult Groups()
         {
             return View();
         }
+
         public IActionResult Dashboard()
         {
             var GetCurrentIncharge = myContext.SupportIncharge.Where(t => t.Status == true).SingleOrDefault();
             var getStaffDetails = myContext.Users.Where(t => t.Email == GetCurrentIncharge.InchargeName).SingleOrDefault();
-            var getActivityDetails = myContext.AssignedOfficersDetails.Where(t => t.Pfnumber == getStaffDetails.PFNumber && t.Activity.PublishStatus!="Closed").Count();
-            var getMeetingDetails = myContext.MeetingInvitations.Where(t => t.Pfnumber == getStaffDetails.PFNumber && t.AcceptanceStatus =="Invited").Count();
-            ViewData["InchargeName"] = getStaffDetails.FirstName+"  " + getStaffDetails.LastName;
+            var getActivityDetails = myContext.AssignedOfficersDetails.Where(t => t.Pfnumber == getStaffDetails.PFNumber && t.Activity.PublishStatus != "Closed").Count();
+            var getMeetingDetails = myContext.MeetingInvitations.Where(t => t.Pfnumber == getStaffDetails.PFNumber && t.AcceptanceStatus == "Invited").Count();
+            ViewData["InchargeName"] = getStaffDetails.FirstName + "  " + getStaffDetails.LastName;
             ViewData["InchargeMobile"] = getStaffDetails.MobileNumber;
             ViewData["NumberofActivities"] = getActivityDetails;
-            ViewData["NumberofMeetings"] =  getMeetingDetails;
+            ViewData["NumberofMeetings"] = getMeetingDetails;
             return View();
         }
+
         public IActionResult UserRoles()
         {
             return View();
@@ -52,10 +53,12 @@ namespace IntranetPortal.Controllers
         {
             return View();
         }
+
         public IActionResult  UsersList()
         {
             return View();
         }
+
         public IActionResult PositionList()
         {
             return View();
@@ -65,10 +68,12 @@ namespace IntranetPortal.Controllers
         {
             return View();
         }
+
         public IActionResult SectionList()
         {
             return View();
         }
+
         public IActionResult UserPermission()
         {
             return View();
