@@ -10,6 +10,12 @@ namespace IntranetPortal.Controllers
             return View();
             
         }
+        public IActionResult DepartmentalAuditing()
+        {
+
+            return View();
+
+        }
         public IActionResult AuditingAttachments(string DepartmentCode)
         {
 

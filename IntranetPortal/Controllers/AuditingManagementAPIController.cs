@@ -53,6 +53,16 @@ namespace IntranetPortal.Controllers
             var resultJson = JsonConvert.SerializeObject(result, settings);
             return Content(resultJson, "application/json");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetDepartmentalAuditing(DataSourceLoadOptions loadOptions)
+        {
+            var result = DataSourceLoader.Load(myContext.AuditingDetail.Where(t=>t.SectionCode==SectionCode), loadOptions);
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
         [HttpPost]
         public async Task<IActionResult> AddAuditDetails(string values)
         {
