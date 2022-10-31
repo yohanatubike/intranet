@@ -63,6 +63,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdGllc01hbmFnZW1lbnRcX0Fzc2lnbmVkT2ZmaWNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/AuditingManagement/AuditingAttachments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRpbmdNYW5hZ2VtZW50XEF1ZGl0aW5nQXR0YWNobWVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/AuditingManagement/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRpbmdNYW5hZ2VtZW50XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -105,6 +109,30 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/ContentManager/UploadCarousel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGVudE1hbmFnZXJcVXBsb2FkQ2Fyb3VzZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/DisplayDetails/DisplayBirthdays.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcGxheURldGFpbHNcRGlzcGxheUJpcnRoZGF5cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/DisplayDetails/DisplayNotification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcGxheURldGFpbHNcRGlzcGxheU5vdGlmaWNhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/DisplayDetails/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcGxheURldGFpbHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/DisplayDetails/NewsEventsComment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcGxheURldGFpbHNcTmV3c0V2ZW50c0NvbW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/DisplayDetails/NotificationComment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcGxheURldGFpbHNcTm90aWZpY2F0aW9uQ29tbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/DisplayDetails/NotificationDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzcGxheURldGFpbHNcTm90aWZpY2F0aW9uRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/Documentation/Guidelines.cshtml]
@@ -203,6 +231,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbm5pbmdcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/Planning/Indicator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbm5pbmdcSW5kaWNhdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/Planning/ServiceOutput.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhbm5pbmdcU2VydmljZU91dHB1dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -237,6 +269,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/Shared/Components/ShowTopNews/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2hvd1RvcE5ld3NcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/Shared/Components/ShowUpcomingBirthDays/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2hvd1VwY29taW5nQmlydGhEYXlzXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/intranet-app/tasacintranet/IntranetPortal/Views/Shared/Error.cshtml]

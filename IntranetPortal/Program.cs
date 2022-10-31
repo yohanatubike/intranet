@@ -70,12 +70,19 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<IntranetDBContext>();
-    dbContext.Database.EnsureCreated();
+    try
+    {
+        dbContext.Database.EnsureCreated();
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine(e.Message);
+    }
 }
 
 if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
+{    
+        app.UseExceptionHandler("/Home/Error");
 }
 
 app.UseStaticFiles();
