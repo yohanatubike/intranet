@@ -23,6 +23,16 @@ namespace IntranetPortal.Controllers
             return Content(resultJson, "application/json");
         }
 
+        [HttpGet]
+        public object GetTargetActivities(int id, DataSourceLoadOptions loadOptions)
+        {
+            var result = DataSourceLoader.Load(_dbContext.Activities.Where(s => s.TargetId == id), loadOptions);
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddActivity(string values)
         {

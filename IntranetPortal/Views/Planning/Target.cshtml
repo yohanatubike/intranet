@@ -73,6 +73,32 @@
                                             .Message("Indicator"));
                                             columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
                                         })
+
+                                        .MasterDetail(md =>
+                                        {
+                                            md.Enabled(true);
+                                            md.Template(@<text>
+                                                <div class="master-detail-caption"><%- data.Code %>'s Activities:</div>
+                                                @(Html.DevExtreme().DataGrid<Activity>()
+                                                .ColumnAutoWidth(true)
+                                                .ShowBorders(true)
+                                                .Columns(columns =>
+                                                {
+                                                    columns.AddFor(m => m.Description).EncodeHtml(false);
+                                                    columns.AddFor(m => m.Code);
+                                                    columns.AddFor(m => m.AnnualBudget);
+                                                    columns.AddFor(m => m.CreatedDate);
+                                                    columns.AddFor(m => m.CreatedBy);
+                                                })
+                                                .DataSource(d => d.Mvc()
+                                                .Controller("ActivityTemplate")
+                                                .LoadAction("GetTargetActivities")
+                                                .LoadParams(new { id = new JS("data.Id") })
+                                                )
+                                                )
+                                                </text>);
+                                        })
+
                                         .SearchPanel(f => f.Visible(true))
                                         .Paging(p => p.PageSize(10))
                                         .HeaderFilter(f => f.Visible(true))
