@@ -49,7 +49,7 @@
                                         .LoadAction("GetActivities")
                                         .UpdateAction("UpdateActivity")
                                         .DeleteAction("RemoveActivity")
-                                        .Key("Id")
+                                        .Key("ActivityTemplateId")
                                         )
                                         .RemoteOperations(true)
                                         .ID("ActivitiesDG")
@@ -103,8 +103,8 @@
                                             .SelectBox()
                                             .DataSource(new[]
                                             {
-                                    "Active",
-                                    "Inactive"
+                                                "Active",
+                                                "Inactive"
                                             }));
                                                 items.AddSimpleFor(m => m.Description).Editor(e => e
                                             .HtmlEditor()

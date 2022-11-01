@@ -83,6 +83,7 @@ namespace IntranetPortal.Models
 
             modelBuilder.Entity<ActivitiesDetail>(entity =>
             {
+
                 entity.HasKey(e => e.ActivityId)
                     .HasName("ActivitiesDetail_pkey");
 

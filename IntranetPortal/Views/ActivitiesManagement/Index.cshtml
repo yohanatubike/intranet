@@ -15,229 +15,271 @@
 </script>
 
 <div class="page-header card">
-<div class="row align-items-end">
-<div class="col-lg-8">
-<div class="page-header-title">
-<i class="feather icon-activity bg-c-blue"></i>
-<div class="d-inline">
-<h5>Activity  Management</h5>
-<p> For Head of Sections /  Managers to manage Activities</p>
-</div>
-</div>
-</div>
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-activity bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Activity  Management</h5>
+                    <p> For Head of Sections /  Managers to manage Activities</p>
+                </div>
+            </div>
+        </div>
 
-</div>
+    </div>
 </div>
 
 <div class="pcoded-inner-content">
-<div class="main-body">
-<div class="page-wrapper">
-<div class="page-body">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
 
-<div class="row">
+                <div class="row">
 
-
-
-
-
-
-
-<div class="col-xl-12 col-md-6">
-<div class="card table-card">
-<div class="card-header">
-<h5>List of Ongoing Activites </h5>
-<div class="card-header-right">
-<ul class="list-unstyled card-option">
-<li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
-<li><i class="feather icon-maximize full-card"></i></li>
-<li><i class="feather icon-minus minimize-card"></i></li>
-<li><i class="feather icon-refresh-cw reload-card"></i></li>
-<li><i class="feather icon-trash close-card"></i></li>
-<li><i class="feather icon-chevron-left open-card-option"></i></li>
-</ul>
-</div>
-</div>
-<div class="card-block">
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>List of Ongoing Activites </h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
 
                                 @(
-                                    Html.DevExtreme().DataGrid<IntranetPortal.Models.ActivitiesDetail>
-                                                    ()
-                                                    .DataSource(ds => ds.Mvc()
-                                                    .Controller("ActivitiesAPI")
-                                                    .InsertAction("AddNewActivity")
-                                                    .LoadAction("GetDepartmentActivities")
-                                                    .UpdateAction("UpdateActivity")
-                                                    .DeleteAction("RemoveRole")
-                                                    .Key("ActivityId")
-
-
-                                                    )
-                                                    .RemoteOperations(true)
-                                                    .Columns(columns =>
-                                                    {
-
-
-
+                                        Html.DevExtreme().DataGrid<IntranetPortal.Models.ActivitiesDetail>
+                                        ()
+                                        .DataSource(ds => ds.Mvc()
+                                        .Controller("ActivitiesAPI")
+                                        .InsertAction("AddNewActivity")
+                                        .LoadAction("GetDepartmentActivities")
+                                        .UpdateAction("UpdateActivity")
+                                        .DeleteAction("RemoveRole")
+                                        .Key("ActivityId")
+                                        )
+                                        .RemoteOperations(true)
+                                        .Columns(columns =>
+                                        {
                                             columns.AddFor(m => m.ActivityId).Visible(false);
-                                            columns.AddFor(m => m.ActivityCode).Visible(false); 
-                                                    columns.AddFor(m => m.ActivityName);        
-                                                    columns.AddFor(m => m.StartDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy"); 
-                                                    columns.AddFor(m => m.EndDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy"); 
-                                                    columns.AddFor(m => m.Priority).Lookup(r => r
-                                                   .DataSource(new string[] {
-"Normal",
-"High",
-"Low"
-
-
-                                                                                                                       }
-                                                                                                                       )
-                                                                                                                       )
-                                                                                                                       .ValidationRules(r => r
-                                                                                                                       .AddRequired()
-                                                                                                                       .Message("Priority is required")
-                                                                                                                       );
-columns.AddFor(m => m.Description).Caption("Description").DataField("Description").CellTemplate(
-@<text>
-
-
+                                            columns.AddFor(m => m.ActivityCode).Visible(false);
+                                            columns.AddFor(m => m.ActivityName);
+                                            columns.AddFor(m => m.ActivityTemplateId).Caption("Activity Template").Lookup(r => r
+                                        .DataSource(ds => ds.Mvc().Controller("ActivityTemplate").LoadAction("GetActivities").Key("ActivityTemplateId"))
+                                        .ValueExpr("ActivityTemplateId")
+                                                .DisplayExpr("Code"))
+                                                .ValidationRules(r => r
+                                                .AddRequired()
+                                                .Message("Activity is required"));
+                                            columns.AddFor(m => m.StartDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                            columns.AddFor(m => m.EndDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                            columns.AddFor(m => m.Priority).Lookup(r => r
+                                        .DataSource(new string[] {
+                                            "Normal",
+                                            "High",
+                                            "Low" }))
+                                        .ValidationRules(r => r
+                                        .AddRequired()
+                                        .Message("Priority is required")
+                                        );
+                                            columns.AddFor(m => m.Description).Caption("Description").DataField("Description").CellTemplate(
+                                        @<text>
                                             <a href="ActivitiesManagement/ActivitisAttachments?ActivityCode=<%= data.ActivityCode%>"><div class="feather icon-paperclip  text-primary">Attachment</div></a>
-
-
-
-
-                                                        </text>);
-                                                        columns.AddFor(m => m.ImpelementationStatus).Lookup(r => r
-                                                        .DataSource(new string[] {
-
-                                "Planned",
-                                "Implementation",
-                                "Completed",
-                                "Archive",
-                                "Cancelled",
-
-                                                                                                                   }
-                                                                                                                   )
-                                                                                                                   )
-                                                                                                                   .ValidationRules(r => r
-                                                                                                                   .AddRequired()
-                                                                                                                   .Message("Position is required")
-                                                                                                                   );
-
+                                        </text>);
+                                            columns.AddFor(m => m.ImpelementationStatus).Lookup(r => r
+                                        .DataSource(new string[] {
+                                            "Planned",
+                                            "Implementation",
+                                            "Completed",
+                                            "Archive",
+                                            "Cancelled",}))
+                                        .ValidationRules(r => r
+                                        .AddRequired()
+                                        .Message("Position is required")
+                                        );
                                             columns.AddFor(m => m.CreatedDate).DataField("CreatedDate").Caption("Comments").CellTemplate(@<text>
-                                                                        
-                                       <a href="ActivitiesManagement/ActivitisAttachments?ActivityCode=<%= data.ActivityCode%>"><div class="feather icon-message-square  text-success"> Comments</div></a>
-                                               
-                     
+                                                <a href="ActivitiesManagement/ActivitisAttachments?ActivityCode=<%= data.ActivityCode%>"><div class="feather icon-message-square  text-success"> Comments</div></a>
+                                            </text>);
+                                        })
 
+                                    .SearchPanel(f => f.Visible(true))
 
-                   
-                                                        </text>);
+                                    .Paging(p => p.PageSize(10))
+                                    .HeaderFilter(f => f.Visible(true))
 
+                                    .Grouping(g => g.ContextMenuEnabled(true))
+                                    .Grouping(g => g.AutoExpandAll(true))
+                                    .RemoteOperations(true)
+                                    .Selection(s => s.Mode(SelectionMode.Multiple))
+                                    .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
+                                    .Editing(e => e
+                                    .AllowAdding(true)
+                                    .Popup(p => p
+                                    .Title("Add Activity Implementation")
+                                    .ShowTitle(true)
+                                    .Width(1200)
+                                    .Height(550)
+                                    )
 
+                                    .AllowUpdating(true)
+                                    .AllowDeleting(true)
+                                    .Mode(GridEditMode.Popup)
+                                    .UseIcons(true)
+                                    .Form(f => f
+                                    .ID("UserCreation")
+                                    .ColCount(1)
+                                    .Items(items =>
+                                    {
 
-                                                    })
+                                        items.AddGroup()
+                                        .ColCount(3)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.IsBudgeted).Editor(e => e.CheckBox());
+                                        });
 
-                                                            .SearchPanel(f => f.Visible(true))
+                                        items.AddGroup()
+                                        .ColCount(3)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.ActivityTemplateId);
+                                            groupItems.AddSimpleFor(m => m.ActivityName);
+                                            groupItems.AddSimpleFor(m => m.StartDate).Editor(e => e.DateBox());
+                                            groupItems.AddSimpleFor(m => m.EndDate).Editor(e => e.DateBox()); ;
+                                            groupItems.AddSimpleFor(m => m.Priority);
+                                            groupItems.AddSimpleFor(m => m.Expenditure);
+                                            groupItems.AddSimpleFor(m => m.ActualProgress);
+                                            groupItems.AddSimpleFor(m => m.Remarks);
+                                            groupItems.AddSimpleFor(m => m.ImpelementationStatus);
+                                        });
+                                        
+                                        items.AddGroup()
+                                        .ColCount(1)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.Description).Editor(e => e
+                                        .HtmlEditor()
+                                        .Height(190)
+                                        .Toolbar(toolbar => toolbar.Items(items =>
+                                        {
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                        })
+                                        ));
+                                        });
 
-                                                            .Paging(p => p.PageSize(10))
-                                                            .HeaderFilter(f => f.Visible(true))
+                                        items.AddGroup()
+                                        .ColCount(1)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.Output).Editor(e => e
+                                        .HtmlEditor()
+                                        .Height(190)
+                                        .Toolbar(toolbar => toolbar.Items(
+                                        items =>
+                                        {
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                        })
+                                        ));
+                                        });
 
-                                                            .Grouping(g => g.ContextMenuEnabled(true))
-                                                            .Grouping(g => g.AutoExpandAll(true))
-                                                            .RemoteOperations(true)
-                                                            .Selection(s => s.Mode(SelectionMode.Multiple))
-                                                            .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
-                                                                 .Editing(e => e
-                                                                 .AllowAdding(true)
-                                                            .Popup(p => p
-                                                            .Title("Add Officer's Role'")
-                                                            .ShowTitle(true)
-                                                               .Width(1000)
-                                                            .Height(400)
+                                        items.AddGroup()
+                                        .ColCount(1)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.Outcome).Editor(e => e
+                                        .HtmlEditor()
+                                        .Height(190)
+                                        .Toolbar(toolbar => toolbar.Items(
+                                        items =>
+                                        {
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                        })
+                                        ));
+                                        });
 
+                                        items.AddGroup()
+                                        .ColCount(1)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.Finding).Editor(e => e
+                                        .HtmlEditor()
+                                        .Height(190)
+                                        .Toolbar(toolbar => toolbar.Items(
+                                        items =>
+                                        {
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                        })
+                                        ));
+                                        });
 
+                                        items.AddGroup()
+                                        .ColCount(1)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.Lesson).Editor(e => e
+                                        .HtmlEditor()
+                                        .Height(190)
+                                        .Toolbar(toolbar => toolbar.Items(
+                                        items =>
+                                        {
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                        })
+                                        ));
+                                        });
 
-                                                            )
+                                    })
+                                    )
+                                    ).MasterDetail(m =>
+                                    {
+                                        m.Enabled(true);
 
-                                                            .AllowUpdating(true)
-                                                            .AllowDeleting(true)
-                                                            .Mode(GridEditMode.Popup)
-                                                            .UseIcons(true)
-                                                            .Form(f => f
-                                                            .ID("UserCreation")
-                                                            .ColCount(1)
-                                                            .Items(items =>
-                                                            {
-                                                                    items.AddGroup()
-                                                                                 .ColCount(3)
-                                                                                 .Items(groupItems =>
-                                                                                     {
-                                                                                        
-                                                                                         
-                                                                                         groupItems.AddSimpleFor(m => m.ActivityName);
-                                                                                         groupItems.AddSimpleFor(m => m.StartDate).Editor(e => e.DateBox()); 
-                                                                                         groupItems.AddSimpleFor(m => m.EndDate).Editor(e => e.DateBox()); ;
-                                                                                         groupItems.AddSimpleFor(m => m.Priority);
-                                                                                         groupItems.AddSimpleFor(m => m.ImpelementationStatus);
-                                                                                         
+                                        m.Template(@<text>
+                                            @Html.Partial("_AssignedOfficers")
+                                        </text>);
 
-                                                                          
-                                                                                     });
-                                                                    items.AddGroup()
-                                                                      .ColCount(1)
-                                                                .Items(groupItems =>
-                                                                    {
-                                                                             groupItems.AddSimpleFor(m => m.Description).Editor(e => e
-                                                                            .HtmlEditor()
-                                                                            .Height(190)
-                                                                            .Toolbar(toolbar => toolbar.Items(
-                                                                                items =>
-                                                                                {
-                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Bold);
-                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Italic);
-                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Underline);
-                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
-                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
-                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
-                                                                                })
-                                                                            ));
-                                                               
+                                    })
+                                    )
+                            </div>
+                        </div>
+                    </div>
 
-
-
-
-
-                                                                    });
-                                                            })
-
-                                                            )
-                                                                ).MasterDetail(m =>
-                                                                                                                                                               {
-                                                                                                                                                                   m.Enabled(true);
-
-                                                                                                                                                                   m.Template(@<text>
-                                                                                                                                                                       @Html.Partial("_AssignedOfficers")
-                                                                                                                                                                   </text>);
-
-
-
-                                                                                                                                                               })
-                    )
-
-                                
-
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
 
-
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-
+<script>
+    var isBudgeted = false;
+</script>

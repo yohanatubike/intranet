@@ -6,7 +6,7 @@ namespace IntranetPortal.Models.Planning
     public class Activity
     {
         [Key]
-        public long Id { get; set; } = 0;
+        public long ActivityTemplateId { get; set; } = 0;
         public string? Code { get; set; }
         public string? Description { get; set; }
         public long TargetId { get; set; }
@@ -15,6 +15,6 @@ namespace IntranetPortal.Models.Planning
         public string? CreatedBy { get; set; }
         public double AnnualBudget { get; set; }
         //List of all implemented activities
-        public virtual IEnumerable<ActivitiesDetail>? ActivityImplementations { get; set; }
+        //public virtual ICollection<ActivitiesDetail>? ActivityImplementations { get; set; }
     }
 }

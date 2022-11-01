@@ -58,7 +58,7 @@ namespace IntranetPortal.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateActivity(int key, string values)
         {
-            var activity = await _dbContext.Activities.FirstOrDefaultAsync(item => item.Id == key);
+            var activity = await _dbContext.Activities.FirstOrDefaultAsync(item => item.ActivityTemplateId == key);
             if (activity == null)
                 throw new ArgumentNullException();
             JsonConvert.PopulateObject(values, activity);
@@ -72,7 +72,7 @@ namespace IntranetPortal.Controllers
         [HttpDelete]
         public async Task RemoveActivity(int key)
         {
-            var activity = await _dbContext.Activities.FirstOrDefaultAsync(item => item.Id == key);
+            var activity = await _dbContext.Activities.FirstOrDefaultAsync(item => item.ActivityTemplateId == key);
             if (activity == null)
                 throw new ArgumentNullException();
             _dbContext.Activities.Remove(activity);
