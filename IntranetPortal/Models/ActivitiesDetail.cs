@@ -1,4 +1,5 @@
-﻿using NuGet.Packaging.Signing;
+﻿using IntranetPortal.Models.Planning;
+using NuGet.Packaging.Signing;
 using System;
 using System.Collections.Generic;
 
@@ -7,6 +8,7 @@ namespace IntranetPortal.Models
     public class ActivitiesDetail
     {
         public long ActivityId { get; set; }
+        public Activity? Activity { get; set; }
         public string ActivityCode { get; set; } = null!;
         public string ActivityName { get; set; } = null!;
         public string Description { get; set; } = null!;
