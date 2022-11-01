@@ -26,7 +26,7 @@ namespace IntranetPortal.Controllers
         [HttpGet]
         public object GetObjectiveServiceOutputs(int id, DataSourceLoadOptions loadOptions)
         {
-            var result = DataSourceLoader.Load(_dbContext.ServiceOutputs.Where(s => s.Id == id), loadOptions);
+            var result = DataSourceLoader.Load(_dbContext.ServiceOutputs.Where(s => s.ObjectiveId == id), loadOptions);
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
             var resultJson = JsonConvert.SerializeObject(result, settings);
