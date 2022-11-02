@@ -79,7 +79,12 @@
 
 
                                             columns.AddFor(m => m.ActivityId).Visible(false);
-                                            columns.AddFor(m => m.ActivityCode).Visible(false); 
+                                            columns.AddFor(m => m.ActivityCode).Visible(false);
+                                            columns.AddFor(m => m.Outcome).Visible(false);
+                                            columns.AddFor(m => m.Output).Visible(false);
+                                            columns.AddFor(m => m.Finding).Visible(false);
+                                            columns.AddFor(m => m.Lesson).Visible(false);
+                                            columns.AddFor(m => m.Expenditure).Visible(false);
                                                     columns.AddFor(m => m.ActivityName);        
                                                     columns.AddFor(m => m.StartDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy"); 
                                                     columns.AddFor(m => m.EndDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy"); 

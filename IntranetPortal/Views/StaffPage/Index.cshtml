@@ -78,6 +78,12 @@
                                             columns.AddFor(m => m.Activity.ActivityName).Caption("Name");
                                             columns.AddFor(m => m.Activity.PublishStatus).Caption("PublishStatus").Visible(false);
                                             columns.AddFor(m => m.Activity.PublishedDate).Caption("PublishStatus").Visible(false);
+
+                                            columns.AddFor(m => m.Activity.Outcome).Visible(false);
+                                            columns.AddFor(m => m.Activity.Output).Visible(false);
+                                            columns.AddFor(m => m.Activity.Finding).Visible(false);
+                                            columns.AddFor(m => m.Activity.Lesson).Visible(false);
+                                            columns.AddFor(m => m.Activity.Expenditure).Visible(false);
                                             columns.AddFor(m => m.Activity.PublishdBy).Caption("PublishedBy");
                                             columns.AddFor(m => m.Activity.Title).Caption("Title").Visible(false);
                                             columns.AddFor(m => m.Activity.StartDate).Caption("Start Date").DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");

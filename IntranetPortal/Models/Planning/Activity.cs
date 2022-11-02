@@ -11,6 +11,6 @@ namespace IntranetPortal.Models.Planning
         public string Description { get; set; }
         public double AnnualBudget { get; set; }
         public Section Section { get; set; }
-        public IEnumerable<ActivitiesDetail> ActivityImplementations { get; set; }
+       
     }
 }

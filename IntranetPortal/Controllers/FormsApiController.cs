@@ -61,7 +61,7 @@ namespace IntranetPortal.Controllers
             if (!TryValidateModel(Form))
                 return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
             Form.CreatedBy = "yohana.tubike@tasac.go.tz";
-            Form.CreatedDate = DateTime.UtcNow;
+            Form.CreatedDate = DateTime.Now;
             try
             {
                 _dbContext.TasacForms.Add(Form);
