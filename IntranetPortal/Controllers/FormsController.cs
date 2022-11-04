@@ -51,7 +51,8 @@ namespace IntranetPortal.Controllers
                 SaveFile(myFile, ViewBag.File.ToString());
                 UpdateForm(id, fileName: ViewBag.File + ".pdf");
             }
-            return View("SubmissionResult");
+            ViewData["FileUpload"] = "File successfully  uplaoded";
+            return View();
         }
 
         private async void UpdateForm(long formId, dynamic fileName)

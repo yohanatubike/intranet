@@ -43,7 +43,7 @@ builder.Services.AddAuthorization(config =>
     });
     config.AddPolicy("ContentManagers", policyBuilder =>
     {
-        policyBuilder.RequireClaim("IsAContentManager", "ContentManager");
+        policyBuilder.RequireClaim("IsAContentManager", "ContentManagers");
 
     });
     config.AddPolicy("Auditing", policyBuilder =>

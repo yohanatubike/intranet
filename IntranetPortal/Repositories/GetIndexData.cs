@@ -30,7 +30,7 @@ namespace IntranetPortal.Repositories
             var TheCurrentDay = DateTime.Now.Day;
             var NextWeek = TheCurrentDay + 7;
             return myContext.Users.OrderBy(q => q.BirthDay)
-                .Where(t => t.BirthMonth == TheCurrentMonth && t.BirthDay >= TheCurrentDay && t.BirthDay <= NextWeek).Select(staff => new User()
+                .Where(t => t.BirthMonth == TheCurrentMonth && (t.BirthDay >= TheCurrentDay && t.BirthDay <= NextWeek)).Select(staff => new User()
                 {
                     FirstName = staff.FirstName,
                     LastName = staff.LastName,

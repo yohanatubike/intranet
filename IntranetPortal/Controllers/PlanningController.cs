@@ -24,5 +24,10 @@ namespace IntranetPortal.Controllers
         {
             return View();
         }
+
+        public IActionResult DepartmentalPlanning()
+        {
+            return View();
+        }
     }
 }

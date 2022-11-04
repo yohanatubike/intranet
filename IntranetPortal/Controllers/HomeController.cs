@@ -62,27 +62,27 @@ namespace IntranetPortal.Controllers
         {
             //if (ModelState.IsValid)
             //{
-            var ContentManager = "0";
-            var Auditor = "0";
-            var Planner = "0";
-
-            var encryptedPass = getHashedMD5Password(model.Password);
-            var getUser = myContext.Users.Include("Designations").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Password == encryptedPass);
-            var isContentManager = myContext.UserRoles.Include("Roles").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Roles.RoleName == "ContentManager");
-            var isAuditor = myContext.UserRoles.Include("Roles").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Roles.RoleName == "Auditing");
-            var isPlanningOfficer = myContext.UserRoles.Include("Roles").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Roles.RoleName == "Planning");
-            if (isContentManager != null)
-            {
-                ContentManager = isContentManager.Roles.RoleName;
-            }
-            if (isAuditor != null)
-            {
-                Auditor = isAuditor.Roles.RoleName;
-            }
-            if (isPlanningOfficer != null)
-            {
-                Planner = isPlanningOfficer.Roles.RoleName;
-            }
+                  var ContentManager = "0";
+                  var Auditor = "0";
+                  var Planner = "0";
+               
+                var encryptedPass = getHashedMD5Password(model.Password);
+                var getUser = myContext.Users.Include("Designations").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Password == encryptedPass );
+                var isContentManager = myContext.UserRoles.Include("Roles").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Roles.RoleName=="ContentManagers");
+                var isAuditor= myContext.UserRoles.Include("Roles").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Roles.RoleName == "Auditing");
+                var isPlanningOfficer = myContext.UserRoles.Include("Roles").SingleOrDefault(t => t.PFNumber == model.PFNumber && t.Roles.RoleName == "Planning");
+                        if (isContentManager !=null)
+                                {
+                                   ContentManager = isContentManager.Roles.RoleName;
+                                }
+                                    if (isAuditor != null)
+                                    {
+                                        Auditor = isAuditor.Roles.RoleName;
+                                    }
+                            if (isPlanningOfficer != null)
+                            {
+                                Planner = isPlanningOfficer.Roles.RoleName;
+                            }
 
             if (getUser != null)
             {

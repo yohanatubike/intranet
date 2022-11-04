@@ -14,7 +14,7 @@ namespace IntranetPortal.Models.Planning
         public DateTime? CreatedDate { get; set; }
         public string? CreatedBy { get; set; }
         public double AnnualBudget { get; set; }
-        //List of all implemented activities
-        //public virtual ICollection<ActivitiesDetail>? ActivityImplementations { get; set; }
+        public Section Section { get; set; }
+        public IEnumerable<ActivitiesDetail> ActivityImplementations { get; set; }
     }
 }
