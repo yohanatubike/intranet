@@ -51,12 +51,15 @@ namespace IntranetPortal.Models
         public virtual DbSet<UserRole> UserRoles { get; set; } = null!;
         public virtual DbSet<Objective> Objectives { get; set; } = null!;
         public virtual DbSet<ServiceOutput> ServiceOutputs { get; set; } = null!;
+        public virtual DbSet<Target> Targets { get; set; } = null!;
+        public virtual DbSet<Activity> Activities { get; set; } = null!;
+        public virtual DbSet<Indicator> Indicators { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql("Host=localhost;Database=IntranetDB;Username=postgres;Password=53401/T2005");
+                optionsBuilder.UseNpgsql("Host=localhost;Database=IntranetDB3;Username=postgres;Password=kujiamini");
             }
         }
 
@@ -80,6 +83,7 @@ namespace IntranetPortal.Models
 
             modelBuilder.Entity<ActivitiesDetail>(entity =>
             {
+
                 entity.HasKey(e => e.ActivityId)
                     .HasName("ActivitiesDetail_pkey");
 
@@ -725,7 +729,47 @@ namespace IntranetPortal.Models
 
                 entity.Property(e => e.CreatedBy).HasColumnType("character varying");
 
-                entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp with time zone");
+
+                entity.Property(e => e.Code)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Code");
+                entity.Property(e => e.Description)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Description");
+
+            });
+
+            modelBuilder.Entity<Indicator>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("Id")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp with time zone");
+
+                entity.Property(e => e.Value)
+                    .HasColumnType("double precision")
+                    .HasColumnName("Value");
+                entity.Property(e => e.Description)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Description");
+
+            });
+
+            modelBuilder.Entity<Target>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("Id")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+                entity.Property(e => e.IndicatorId).HasColumnType("integer");
+
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp with time zone");
 
                 entity.Property(e => e.Code)
                     .HasColumnType("character varying")

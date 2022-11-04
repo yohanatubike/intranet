@@ -1,4 +1,5 @@
-﻿using NuGet.Packaging.Signing;
+﻿using IntranetPortal.Models.Planning;
+using NuGet.Packaging.Signing;
 using System;
 using System.Collections.Generic;
 
@@ -7,9 +8,10 @@ namespace IntranetPortal.Models
     public class ActivitiesDetail
     {
         public long ActivityId { get; set; }
+        public long ActivityTemplateId { get; set; }
         public string ActivityCode { get; set; } = null!;
         public string ActivityName { get; set; } = null!;
-        public string Description { get; set; } = null!;
+        public string? Description { get; set; } = null!;
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public string DepartmentCode { get; set; } = null!;
@@ -25,6 +27,7 @@ namespace IntranetPortal.Models
         public DateTime? PublishedDate { get; set; }
         public string? PublishdBy { get; set; }
         public string? ExternalDetails { get; set; }
+        public bool IsBudgeted { get; set; }
 
         //For Planning and Monitoring
         public string? Output { get; set; }
@@ -32,5 +35,7 @@ namespace IntranetPortal.Models
         public string? Finding { get; set; }
         public string? Lesson { get; set; }
         public double? Expenditure { get; set; }
+        public double? ActualProgress { get; set; }
+        public string? Remarks { get; set; }
     }
 }

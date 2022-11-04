@@ -85,15 +85,15 @@ namespace IntranetPortal.Controllers
                             }
 
             if (getUser != null)
-                            {
-                                if (Url.IsLocalUrl(ReturnUrl))
-                                {
-                                    return Redirect(ReturnUrl);
-                                }
-                                else
-                                {
+            {
+                if (Url.IsLocalUrl(ReturnUrl))
+                {
+                    return Redirect(ReturnUrl);
+                }
+                else
+                {
 
-                        var userClaims = new List<Claim>()
+                    var userClaims = new List<Claim>()
                 {
 
                     new Claim(ClaimTypes.Name  , getUser.FirstName+" "+ getUser.LastName ),
@@ -110,14 +110,14 @@ namespace IntranetPortal.Controllers
                      new Claim("IsPlanner", Planner),
 
                  };
-                        var userIdentity = new ClaimsIdentity(userClaims, "User Identity");
+                    var userIdentity = new ClaimsIdentity(userClaims, "User Identity");
 
-                        var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });
-                        await HttpContext.SignInAsync(userPrincipal);
-                        return RedirectToAction("Dashboard", "StaffPage");
-                    }
-               // }
+                    var userPrincipal = new ClaimsPrincipal(new[] { userIdentity });
+                    await HttpContext.SignInAsync(userPrincipal);
+                    return RedirectToAction("Dashboard", "StaffPage");
                 }
+                // }
+            }
             ViewBag.Error = "Failed to login ! Invalid login credentials";
             return View("Login");
         }

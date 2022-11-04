@@ -418,7 +418,7 @@
                                             </ul>
                                         </li>
                                     }
-                                     @if ((await AuthorizationService.AuthorizeAsync(User, "Auditing")).Succeeded)
+                                     @if ((await AuthorizationService.AuthorizeAsync(User, "Planning")).Succeeded)
                                     {
                                         <li class="pcoded-hasmenu">
                                             <a href="javascript:void(0)" class="waves-effect waves-dark">
@@ -449,8 +449,8 @@
                                                 </a>
                                             </li>
                                             <li class=" ">
-                                                <a href="/Planning/ActivityImplementation" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Activities Implementation</span>
+                                                <a href="/Planning/Indicator" class="waves-effect waves-dark">
+                                                    <span class="pcoded-mtext">Indicators</span>
                                                 </a>
                                             </li>
                                         </ul>

@@ -8,25 +8,31 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IntranetPortal.Controllers
 {
-    public class ServiceOutputController : Controller
+    public class TargetController : Controller
     {
         private IntranetDBContext _dbContext = new IntranetDBContext();
         private string? ValidationErrorMessage;
 
         [HttpGet]
-        public async Task<IActionResult> GetServiceOutputs(DataSourceLoadOptions loadOptions)
+        public async Task<IActionResult> GetTargets(DataSourceLoadOptions loadOptions)
         {
-            var result = DataSourceLoader.Load(_dbContext.ServiceOutputs, loadOptions);
+            var result = DataSourceLoader.Load(_dbContext.Targets, loadOptions);
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
-            var resultJson = JsonConvert.SerializeObject(result, settings);
+            var resultJson = "";
+            try
+            {
+                resultJson = JsonConvert.SerializeObject(result, settings);
+            } catch(Exception e)
+            {
+                return Ok(e.Message);
+            }
             return Content(resultJson, "application/json");
         }
 
-        [HttpGet]
-        public object GetObjectiveServiceOutputs(int id, DataSourceLoadOptions loadOptions)
+        public object GetServiceOutputTargets(int id, DataSourceLoadOptions loadOptions)
         {
-            var result = DataSourceLoader.Load(_dbContext.ServiceOutputs.Where(s => s.ObjectiveId == id), loadOptions);
+            var result = DataSourceLoader.Load(_dbContext.Targets.Where(s => s.ServiceOutputId == id), loadOptions);
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
             var resultJson = JsonConvert.SerializeObject(result, settings);
@@ -34,48 +40,48 @@ namespace IntranetPortal.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddServiceOutput(string values)
+        public async Task<IActionResult> AddTarget(string values)
         {
-            var serviceOutput = new ServiceOutput();
-            JsonConvert.PopulateObject(values, serviceOutput);
+            var target = new Target();
+            JsonConvert.PopulateObject(values, target);
+            target.CreatedBy = "yohana.tubike@tasac.go.tz";
+            target.CreatedDate = DateTime.UtcNow;
 
-            if (!TryValidateModel(serviceOutput))
+            if (!TryValidateModel(target))
                 return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
-            serviceOutput.CreatedBy = "yohana.tubike@tasac.go.tz";
-            serviceOutput.CreatedDate = DateTime.UtcNow;
             try
             {
-                _dbContext.ServiceOutputs.Add(serviceOutput);
+                _dbContext.Targets.Add(target);
                 await _dbContext.SaveChangesAsync();
             }
             catch (Exception e)
             {
                 return Ok(e.Message);
             }
-            return Ok(serviceOutput);
+            return Ok(target);
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateServiceOutput(int key, string values)
+        public async Task<IActionResult> UpdateTarget(int key, string values)
         {
-            var serviceOutput = await _dbContext.ServiceOutputs.FirstOrDefaultAsync(item => item.Id == key);
-            if (serviceOutput == null)
+            var target = await _dbContext.Targets.FirstOrDefaultAsync(item => item.Id == key);
+            if (target == null)
                 throw new ArgumentNullException();
-            JsonConvert.PopulateObject(values, serviceOutput);
-            if (!TryValidateModel(serviceOutput))
+            JsonConvert.PopulateObject(values, target);
+            if (!TryValidateModel(target))
                 return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
-            _dbContext.ServiceOutputs.Update(serviceOutput);
+            _dbContext.Targets.Update(target);
             await _dbContext.SaveChangesAsync();
             return Ok();
         }
 
         [HttpDelete]
-        public async Task RemoveServiceOutput(int key)
+        public async Task RemoveTarget(int key)
         {
-            var serviceOutput = await _dbContext.ServiceOutputs.FirstOrDefaultAsync(item => item.Id == key);
-            if (serviceOutput == null)
+            var target = await _dbContext.Targets.FirstOrDefaultAsync(item => item.Id == key);
+            if (target == null)
                 throw new ArgumentNullException();
-            _dbContext.ServiceOutputs.Remove(serviceOutput);
+            _dbContext.Targets.Remove(target);
             await _dbContext.SaveChangesAsync();
         }
     }

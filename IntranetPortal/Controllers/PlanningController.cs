@@ -20,7 +20,7 @@ namespace IntranetPortal.Controllers
         {
             return View();
         }
-        public IActionResult ActivityImplementation()
+        public IActionResult Indicator()
         {
             return View();
         }

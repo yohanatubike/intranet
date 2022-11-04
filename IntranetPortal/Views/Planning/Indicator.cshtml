@@ -1,7 +1,7 @@
 ﻿@using IntranetPortal.Models.Planning
 @{
     Layout = "~/Views/Shared/_StaffMaster.cshtml";
-    ViewData["Title"] = "Objectives Page";
+    ViewData["Title"] = "Indicators Page";
 }
 
 <div class="page-header card">
@@ -10,7 +10,7 @@
             <div class="page-header-title">
                 <i class="feather icon-home bg-c-blue"></i>
                 <div class="d-inline">
-                    <h5>Planning Objectives Setup</h5>
+                    <h5>Planning Indicators Setup</h5>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                     <div class="col-xl-12 col-md-6">
                         <div class="card table-card">
                             <div class="card-header">
-                                <h5>Manage Planning Objectives</h5>
+                                <h5>Manage Planning Indicators</h5>
                                 <div class="card-header-right">
                                     <ul class="list-unstyled card-option">
                                         <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
@@ -40,50 +40,25 @@
                             <div class="card-block">
                                 <div id="form">
                                     @(
-                                        Html.DevExtreme().DataGrid<Objective>()
+                                        Html.DevExtreme().DataGrid<Indicator>()
                                         .ShowBorders(false)
                                         .DataSource(ds => ds.Mvc()
-                                        .Controller("Objective")
-                                        .InsertAction("AddObjective")
-                                        .LoadAction("GetObjectives")
-                                        .UpdateAction("UpdateObjective")
-                                        .DeleteAction("RemoveObjective")
+                                        .Controller("Indicator")
+                                        .InsertAction("AddIndicator")
+                                        .LoadAction("GetIndicators")
+                                        .UpdateAction("UpdateIndicator")
+                                        .DeleteAction("RemoveIndicator")
                                         .Key("Id")
                                         )
                                         .RemoteOperations(true)
-                                        .ID("ObjectivesDG")
+                                        .ID("IndicatorsDG")
                                         .Columns(columns =>
                                         {
-                                            columns.AddFor(m => m.Code).Caption("Code");
+                                            columns.AddFor(m => m.LessIsGood).Caption("Less Is Good");
                                             columns.AddFor(m => m.Description).Caption("Description").EncodeHtml(false);
-                                            columns.AddFor(m => m.Status);
+                                            columns.AddFor(m => m.Value);
                                             columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
                                         })
-
-                                        .MasterDetail(md =>
-                                        {
-                                            md.Enabled(true);
-                                            md.Template(@<text>
-                                                <div class="master-detail-caption"><%- data.Code %>'s Service Outputs:</div>
-                                                @(Html.DevExtreme().DataGrid<ServiceOutput>()
-                                                .ColumnAutoWidth(true)
-                                                .ShowBorders(true)
-                                                .Columns(columns =>
-                                                {
-                                                    columns.AddFor(m => m.Description).EncodeHtml(false);
-                                                    columns.AddFor(m => m.Code);
-                                                    columns.AddFor(m => m.CreatedDate);
-                                                    columns.AddFor(m => m.CreatedBy);
-                                                })
-                                                .DataSource(d => d.Mvc()
-                                                .Controller("ServiceOutput")
-                                                .LoadAction("GetObjectiveServiceOutputs")
-                                                .LoadParams(new { id = new JS("data.Id") })
-                                                )
-                                                )
-                                                </text>);
-                                        })
-
                                         .SearchPanel(f => f.Visible(true))
                                         .Paging(p => p.PageSize(10))
                                         .HeaderFilter(f => f.Visible(true))
@@ -94,7 +69,7 @@
                                         .Editing(e => e
                                         .AllowAdding(true)
                                         .Popup(p => p
-                                        .Title("Add New Objective")
+                                        .Title("Add New Indicator")
                                         .ShowTitle(true)
                                         .Width(1000)
                                         .Height(400)
@@ -106,20 +81,14 @@
                                         .UseIcons(true)
 
                                         .Form(f => f
-                                        .ID("objectives-form")
+                                        .ID("indicators-form")
                                         .ColCount(1)
                                         .Items(items =>
                                         {
                                             items.AddGroup().ColCount(2).Items(groupItem =>
                                             {
-                                                groupItem.AddSimpleFor(m => m.Code);
-                                                groupItem.AddSimpleFor(m => m.Status).Editor(e => e
-                                            .SelectBox()
-                                            .DataSource(new[]
-                                            {
-                                    "Active",
-                                    "Inactive"
-                                            }));
+                                                groupItem.AddSimpleFor(m => m.Value);
+                                                groupItem.AddSimpleFor(m => m.LessIsGood).Editor(e => e.CheckBox());
                                                 items.AddSimpleFor(m => m.Description).Editor(e => e
                                             .HtmlEditor()
                                             .Height(170)

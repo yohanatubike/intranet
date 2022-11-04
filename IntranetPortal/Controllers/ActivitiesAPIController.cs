@@ -46,6 +46,17 @@ namespace IntranetPortal.Controllers
             var resultJson = JsonConvert.SerializeObject(result, settings);
             return Content(resultJson, "application/json");
         }
+
+        [HttpGet]
+        public object GetImplementationPerTemplate(int id, DataSourceLoadOptions loadOptions)
+        {
+            var result = DataSourceLoader.Load(myContext.ActivitiesDetails.Where(s => s.ActivityTemplateId == id), loadOptions);
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetOfficersAssignedActivities(DataSourceLoadOptions loadOptions)
         {
