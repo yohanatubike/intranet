@@ -1,19 +1,16 @@
 
-using IntranetPortal.Components;
 using IntranetPortal.CustomHandler;
 using IntranetPortal.Models;
 using IntranetPortal.Repositories;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<IntranetDBContext>(option =>
-    option.UseNpgsql(builder.Configuration.GetConnectionString("IntranetDBConnection")));
+    option.UseNpgsql(builder.Configuration.GetConnectionString("DBConnection")));
 
 builder.Services.AddAuthentication("CookieAuthentication").AddCookie("CookieAuthentication",
     options =>
