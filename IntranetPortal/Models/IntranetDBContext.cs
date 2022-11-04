@@ -659,7 +659,7 @@ namespace IntranetPortal.Models
                 entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
                
                 entity.Property(e => e.DesignationCode).HasMaxLength(100);
-
+                entity.Property(e => e.PictureUrl).HasColumnType("character varying");
                 entity.Property(e => e.DutyStation).HasMaxLength(100);
 
                 entity.Property(e => e.Email).HasMaxLength(100);

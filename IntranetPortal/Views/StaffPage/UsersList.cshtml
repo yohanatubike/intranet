@@ -81,7 +81,17 @@
                                                                     .AddRequired()
                                                                     .Message("Reporting  to is required"));
 
+                                        columns.AddFor(m => m.PictureUrl).DataField("PictureUrl").Caption("Staff Picture").CellTemplate(@<text>
 
+
+                                            <a href="UploadPicture?Pfnumber=<%= data.PFNumber%>"><div class="feather icon-image  text-primary"> Upload Picture</div></a>
+
+
+
+
+
+
+                                        </text>);
                                                                     })
 
                                                                         .SearchPanel(f => f.Visible(true))

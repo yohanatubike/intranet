@@ -68,7 +68,10 @@ namespace IntranetPortal.Controllers
         {
             return View();
         }
-
+        public IActionResult UploadPicture(string Pfnumber)
+        {
+            return View();
+        }
         public IActionResult SectionList()
         {
             return View();
