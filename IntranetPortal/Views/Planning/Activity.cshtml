@@ -72,7 +72,8 @@
                                         .MasterDetail(md =>
                                         {
                                             md.Enabled(true);
-                                            md.Template(@<text>
+                                            md.Template(
+                                                @<text>
                                                 <div class="master-detail-caption"><%- data.Code %>'s Activities:</div>
                                                 @(Html.DevExtreme().DataGrid<IntranetPortal.Models.ActivitiesDetail>()
                                                 .ColumnAutoWidth(true)

@@ -141,21 +141,21 @@
                                         .ColCount(3)
                                         .Items(groupItems =>
                                         {
-                                            groupItems.AddSimpleFor(m => m.IsBudgeted).Editor(e => e.CheckBox());
+                                            groupItems.AddSimpleFor(m => m.IsBudgeted).Editor(e => e.CheckBox().OnValueChanged("checkBox_valueChanged"));
                                         });
 
                                         items.AddGroup()
                                         .ColCount(3)
                                         .Items(groupItems =>
                                         {
-                                            groupItems.AddSimpleFor(m => m.ActivityTemplateId);
+                                            groupItems.AddSimpleFor(m => m.ActivityTemplateId).Visible(false);
                                             groupItems.AddSimpleFor(m => m.ActivityName);
                                             groupItems.AddSimpleFor(m => m.StartDate).Editor(e => e.DateBox());
                                             groupItems.AddSimpleFor(m => m.EndDate).Editor(e => e.DateBox()); ;
                                             groupItems.AddSimpleFor(m => m.Priority);
                                             groupItems.AddSimpleFor(m => m.Expenditure);
-                                            groupItems.AddSimpleFor(m => m.ActualProgress);
-                                            groupItems.AddSimpleFor(m => m.Remarks);
+                                            groupItems.AddSimpleFor(m => m.ActualProgress).Visible(false);
+                                            groupItems.AddSimpleFor(m => m.Remarks).Visible(false);
                                             groupItems.AddSimpleFor(m => m.ImpelementationStatus);
                                         });
                                         
@@ -196,7 +196,7 @@
                                             items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
                                         })
                                         ));
-                                        });
+                                        }).Visible(false);
 
                                         items.AddGroup()
                                         .ColCount(1)
@@ -216,7 +216,7 @@
                                             items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
                                         })
                                         ));
-                                        });
+                                        }).Visible(false);
 
                                         items.AddGroup()
                                         .ColCount(1)
@@ -236,7 +236,7 @@
                                             items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
                                         })
                                         ));
-                                        });
+                                        }).Visible(false);
 
                                         items.AddGroup()
                                         .ColCount(1)
@@ -256,7 +256,7 @@
                                             items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
                                         })
                                         ));
-                                        });
+                                        }).Visible(false);
 
                                     })
                                     )
@@ -281,5 +281,9 @@
 </div>
 
 <script>
-    var isBudgeted = false;
+    let isBudgeted = false;
+
+    function checkBox_valueChanged(data) {
+        $("#activityTemplate").dxCheckBox("instance").option("value", data.value);
+    }
 </script>

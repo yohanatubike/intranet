@@ -34,9 +34,6 @@
             <div class="page-body">
 
                 <div class="row">
-
-
-
                     <div class="col-xl-12 col-md-6">
                         <div class="card table-card">
                             <div class="card-header">
@@ -54,7 +51,6 @@
                             </div>
 
                             <div class="card-block">
-
                                 @(
                                         Html.DevExtreme().DataGrid<IntranetPortal.Models.AssignedOfficersDetail>
                                         ()
@@ -65,15 +61,10 @@
                                         .UpdateAction("UpdateActivity")
                                         .DeleteAction("RemoveRole")
                                         .Key("ActivityId")
-
-
                                         )
                                         .RemoteOperations(true)
                                         .Columns(columns =>
                                         {
-
-
-
                                             columns.AddFor(m => m.Activity.ActivityCode).Caption("Code").Visible(false);
                                             columns.AddFor(m => m.Activity.ActivityName).Caption("Name");
                                             columns.AddFor(m => m.Activity.PublishStatus).Caption("PublishStatus").Visible(false);
@@ -87,8 +78,6 @@
                                 "Normal",
                                 "High",
                                 "Low"
-
-
                                         }
                                         )
                                         )
@@ -97,15 +86,8 @@
                                         .Message("Priority is required")
                                         ); columns.AddFor(m => m.Activity.Description).Caption("Description").CellTemplate(
                                         @<text>
-
-
                                             <a href="ActivitiesManagement/ActivitisAttachments?ActivityCode=<%= data.Activity.ActivityCode%>"><div class="feather icon-paperclip  text-primary">Attachment</div></a>
-
-
-
-
                                         </text>);
-
                                             columns.AddFor(m => m.Activity.ImpelementationStatus).Caption("Status").Lookup(r => r.DataSource(new string[] {
 
                                 "Planned",
@@ -113,34 +95,17 @@
                                 "Completed",
                                 "Archive",
                                 "Cancelled",
-
-
-
                                     }
-                                                            )
-                                                            )
-                                                            .ValidationRules(r => r
-                                                            .AddRequired()
-                                                            .Message("Position is required")
-                                                            );
-
+                                    )
+                                    )
+                                    .ValidationRules(r => r
+                                    .AddRequired()
+                                    .Message("Position is required")
+                                    );
                                             columns.AddFor(m => m.Activity.ImpelementationStatus).DataField("ImpelementationStatus").Caption("Comments").CellTemplate(@<text>
-
-
                                                 <a href="ActivitiesManagement/ActivitiesComment?ActivityCode=<%= data.Activity.ActivityCode%>"><div class="feather icon-message-square  text-success"> Comments</div></a>
-
-
-
-
-
-
                                             </text>);
-
-
-
-
                                         })
-
                                     .SearchPanel(f => f.Visible(true))
 
                                     .Paging(p => p.PageSize(10))
@@ -158,11 +123,8 @@
                                     .Popup(p => p
                                     .Title("Add New Role")
                                     .ShowTitle(true)
-                                    .Width(1000)
-                                    .Height(400)
-
-
-
+                                    .Width(1200)
+                                    .Height(600)
                                     )
 
                                     .AllowUpdating(true)
@@ -178,17 +140,16 @@
                                         .ColCount(3)
                                         .Items(groupItems =>
                                         {
-
                                             groupItems.AddSimpleFor(m => m.Activity.ActivityCode);
                                             groupItems.AddSimpleFor(m => m.Activity.ActivityName);
                                             groupItems.AddSimpleFor(m => m.Activity.StartDate).Editor(e => e.DateBox());
                                             groupItems.AddSimpleFor(m => m.Activity.EndDate).Editor(e => e.DateBox()); ;
                                             groupItems.AddSimpleFor(m => m.Activity.Priority);
+                                            groupItems.AddSimpleFor(m => m.Activity.ActualProgress).Visible(true);
+                                            groupItems.AddSimpleFor(m => m.Activity.Remarks).Visible(true);
                                             groupItems.AddSimpleFor(m => m.Activity.ImpelementationStatus);
-
-
-
                                         });
+
                                         items.AddGroup()
                                         .ColCount(1)
                                         .Items(groupItems =>
@@ -207,13 +168,87 @@
                                             items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
                                         })
                                         ));
-
-
-
-
-
-
                                         });
+
+                                        items.AddGroup()
+                                        .ColCount(1)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.Activity.Output).Editor(e => e
+                                        .HtmlEditor()
+                                        .Height(190)
+                                        .Toolbar(toolbar => toolbar.Items(
+                                        items =>
+                                        {
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                        })
+                                        ));
+                                        }).Visible(true);
+
+                                        items.AddGroup()
+                                        .ColCount(1)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.Activity.Outcome).Editor(e => e
+                                        .HtmlEditor()
+                                        .Height(190)
+                                        .Toolbar(toolbar => toolbar.Items(
+                                        items =>
+                                        {
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                        })
+                                        ));
+                                        }).Visible(true);
+
+                                        items.AddGroup()
+                                        .ColCount(1)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.Activity.Finding).Editor(e => e
+                                        .HtmlEditor()
+                                        .Height(190)
+                                        .Toolbar(toolbar => toolbar.Items(
+                                        items =>
+                                        {
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                        })
+                                        ));
+                                        }).Visible(true);
+
+                                        items.AddGroup()
+                                        .ColCount(1)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.Activity.Lesson).Editor(e => e
+                                        .HtmlEditor()
+                                        .Height(190)
+                                        .Toolbar(toolbar => toolbar.Items(
+                                        items =>
+                                        {
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                        })
+                                        ));
+                                        }).Visible(true);
                                     })
 
                                     )
@@ -224,14 +259,8 @@
                                         m.Template(@<text>
                                             @Html.Partial("_AssignedOfficers")
                                         </text>);
-
-
-
                                     })
                                     )
-
-
-
                             </div>
                         </div>
                     </div>
@@ -243,7 +272,6 @@
     </div>
 
     <script>
-
         function getSubServices(options) {
             return {
                 store: DevExpress.data.AspNet.createStore({
@@ -258,8 +286,5 @@
             rowData.ServiceCategoryCode = value;
             rowData.ServiceSubCategoryName = null;
         }
-
-
-
     </script>
 
