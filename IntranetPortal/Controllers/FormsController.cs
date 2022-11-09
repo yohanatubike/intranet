@@ -29,7 +29,10 @@ namespace IntranetPortal.Controllers
         {
             return View();
         }
-
+        public IActionResult UploadLibrary()
+        {
+            return View();
+        }
         [HttpGet]
         public ActionResult GetPdf([FromQuery(Name = "Filename")] string filename)
         {
@@ -54,6 +57,20 @@ namespace IntranetPortal.Controllers
             ViewData["FileUpload"] = "File successfully  uplaoded";
             return View();
         }
+        [HttpPost]
+        public ActionResult UploadLibrary(IFormFile myFile, [FromQuery(Name = "FormId")] long id)
+        {
+            ViewBag.Id = id;
+
+            if (myFile != null)
+            {
+                ViewBag.File = GenerateFileName();
+                SaveFile(myFile, ViewBag.File.ToString());
+                UpdateLibrary(id, fileName: ViewBag.File + ".pdf");
+            }
+            ViewData["FileUpload"] = "File successfully  uplaoded";
+            return View();
+        }
 
         private async void UpdateForm(long formId, dynamic fileName)
         {
@@ -65,6 +82,15 @@ namespace IntranetPortal.Controllers
             }
         }
 
+        private async void UpdateLibrary(long formId, dynamic fileName)
+        {
+            var result = await _dbContext.TasacLibraries.FirstOrDefaultAsync(item => item.LibraryId == formId);
+            if (result != null)
+            {
+                result.FileUrl = fileName.ToString();
+                await _dbContext.SaveChangesAsync();
+            }
+        }
         [HttpPost]
         public ActionResult Upload(int DocumentationId)
         {

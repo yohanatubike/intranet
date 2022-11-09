@@ -199,7 +199,7 @@ namespace IntranetPortal.Controllers
         [HttpGet]
         public async Task<IActionResult> GetOfficersAssignedActivitiesExternal(DataSourceLoadOptions loadOptions)
         {
-            var result = DataSourceLoader.Load(myContext.ActivitiesDetails.Where(m => m.ImpelementationStatus == "Started"), loadOptions);
+            var result = DataSourceLoader.Load(myContext.ActivitiesDetails.Where(m => m.ImpelementationStatus != "Closed" || m.ImpelementationStatus!="Completed"), loadOptions);
 
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
