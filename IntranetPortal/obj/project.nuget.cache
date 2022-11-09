@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "oaUl+wE9cCcV761xUfnRAQiDM0ED3AJNXc2vF0FSImaNfsy43QFpxUnqzIv54ip6um9hnOk3Gn1yZszFG7E/zA==",
+  "dgSpecHash": "arEGTei+8XacAbeR44YvICk6uqHONLJvcsgNEgZMBOxC2tLCG5hQkMuCPiTPkDSsQzZbDBc+ld9Jz1ATVmEgog==",
   "success": true,
   "projectFilePath": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\IntranetPortal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mustafa.juma\\.nuget\\packages\\devextreme.aspnet.core\\20.2.11\\devextreme.aspnet.core.20.2.11.nupkg.sha512",
     "C:\\Users\\mustafa.juma\\.nuget\\packages\\devextreme.aspnet.data\\2.8.6\\devextreme.aspnet.data.2.8.6.nupkg.sha512",
+    "C:\\Users\\mustafa.juma\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512",
     "C:\\Users\\mustafa.juma\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\mustafa.juma\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\mustafa.juma\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
