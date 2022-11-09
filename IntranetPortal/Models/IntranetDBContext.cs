@@ -56,7 +56,7 @@ namespace IntranetPortal.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql("Host=localhost;Database=IntranetDB3;Username=postgres;Password=kujiamini");
+                optionsBuilder.UseNpgsql("Host=localhost;Database=IntranetDB;Username=postgres;Password=53401/T2005");
             }
         }
 
@@ -660,7 +660,7 @@ namespace IntranetPortal.Models
                 entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
                
                 entity.Property(e => e.DesignationCode).HasMaxLength(100);
-
+                entity.Property(e => e.PictureUrl).HasColumnType("character varying");
                 entity.Property(e => e.DutyStation).HasMaxLength(100);
 
                 entity.Property(e => e.Email).HasMaxLength(100);

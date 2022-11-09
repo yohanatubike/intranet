@@ -92,7 +92,13 @@
                                         .Message("Priority is required")
                                         ); columns.AddFor(m => m.Activity.Description).Caption("Description").CellTemplate(
                                         @<text>
+
+
                                             <a href="ActivitiesManagement/ActivitisAttachments?ActivityCode=<%= data.Activity.ActivityCode%>"><div class="feather icon-paperclip  text-primary">Attachment</div></a>
+
+
+
+
                                         </text>);
                                             columns.AddFor(m => m.Activity.ImpelementationStatus).Caption("Status").Lookup(r => r.DataSource(new string[] {
 
