@@ -1,7 +1,7 @@
 ﻿@using DevExtreme.AspNet.Mvc
 @{
     ViewData["Title"] = "Add New Library";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_StaffMaster.cshtml";
 }
 <div class="page-header card">
     <div class="row align-items-end">
@@ -79,13 +79,13 @@
                                             @<text>
                                                 <% if(data.FileUrl == null) {%>
 
-                                                <a href="Forms/UploadForm?FormId=<%= data.FormId%>">
+                                                <a href="Forms/UploadLibrary?FormId=<%= data.LibraryId %>">
                                                     <div class="feather icon-paperclip  text-primary"> Add Attachment</div>
                                                 </a>
 
                                                 <% } if(data.FileUrl != null) { %>
 
-                                                <a href="Forms/GetPdf?Filename=<%= data.FileUrl%>" target="_blank">
+                                                <a href="Forms/GetPdf?Filename=<%= data.FileUrl %>" target="_blank">
                                                     <div class="feather icon-paperclip  text-primary"> Preview Attachment</div>
                                                 </a>
                                                 <%}%>

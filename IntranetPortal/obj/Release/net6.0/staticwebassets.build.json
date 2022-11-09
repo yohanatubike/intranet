@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vyhZYQYoISt4EaRc5Z3Be9Cv8eR383c7dGkVpT2nbrc=",
+  "Hash": "Pr7QfqpwrRrXMNxW+uABjZifdVaxeeSf4WDG22/tbeE=",
   "Source": "IntranetPortal",
   "BasePath": "_content/IntranetPortal",
   "Mode": "Default",
@@ -12068,6 +12068,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Sliders\\z8sOIbi8y7wyRJCmNi.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\wwwroot\\StaffImage\\5iD6bLlGIYyyTU7hv4.PNG",
+      "SourceId": "IntranetPortal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\wwwroot\\",
+      "BasePath": "_content/IntranetPortal",
+      "RelativePath": "StaffImage/5iD6bLlGIYyyTU7hv4.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\StaffImage\\5iD6bLlGIYyyTU7hv4.PNG"
+    },
+    {
+      "Identity": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\wwwroot\\StaffImage\\8tSL3Z9W6AHXQIkZv8.PNG",
+      "SourceId": "IntranetPortal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\wwwroot\\",
+      "BasePath": "_content/IntranetPortal",
+      "RelativePath": "StaffImage/8tSL3Z9W6AHXQIkZv8.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\StaffImage\\8tSL3Z9W6AHXQIkZv8.PNG"
     },
     {
       "Identity": "C:\\Users\\mustafa.juma\\source\\repos\\tasacintranet\\IntranetPortal\\wwwroot\\svg\\ad.svg",

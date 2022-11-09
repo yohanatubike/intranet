@@ -70,10 +70,10 @@
 
 
                                                                                                                         columns.AddFor(m => m.ActivityCode).Caption("Code").Visible(false);
-                                                                                                                        columns.AddFor(m => m.ActivityName).Caption("Name");
-                                                                                                                        columns.AddFor(m => m.PublishStatus).Caption("PublishStatus").Visible(false);
-                                                                                                                        columns.AddFor(m => m.PublishedDate).Caption("PublishStatus").Visible(false);
-                                            columns.AddFor(m => m.PublishdBy).Caption("PublishedBy").Lookup(r => r
+                                            columns.AddFor(m => m.ActivityName).Caption("Name").AllowEditing(false);
+
+                                            columns.AddFor(m => m.PublishedDate).AllowEditing(false);
+                                            columns.AddFor(m => m.PublishStatus).Caption("PublishStatus").Lookup(r => r
                                         .DataSource(new string[] {
                                 "Waiting",
                                 "Published",
@@ -86,7 +86,7 @@
                                         .ValidationRules(r => r
                                         .AddRequired()
                                         .Message("Priority is required"));
-                                                                                                                        columns.AddFor(m => m.Title).Caption("Title").Visible(false).AllowEditing(false);
+                                                                                                                        columns.AddFor(m => m.Title).Caption("Title").Visible(false);
                                             columns.AddFor(m => m.StartDate).Caption("Start Date").AllowEditing(false).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
                                             columns.AddFor(m => m.EndDate).AllowEditing(false).Caption("End Date").DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
                                             columns.AddFor(m => m.Priority).AllowEditing(false).Lookup(r => r
@@ -192,8 +192,9 @@
                                                                                              groupItems.AddSimpleFor(m => m.Title);
                                             groupItems.AddSimpleFor(m => m.StartDate).Editor(e => e.DateBox()).Visible(false) ;
                                             groupItems.AddSimpleFor(m => m.EndDate).Editor(e => e.DateBox()).Visible(false); 
-                                            groupItems.AddSimpleFor(m => m.Priority).Visible(false).Visible(false);;
-                                            groupItems.AddSimpleFor(m => m.ImpelementationStatus).Visible(false); ;
+                                            groupItems.AddSimpleFor(m => m.Priority).Visible(false).Visible(false);
+                                            groupItems.AddSimpleFor(m => m.PublishStatus);
+                                            groupItems.AddSimpleFor(m => m.ImpelementationStatus).Visible(false); 
 
 
 

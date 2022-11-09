@@ -8,7 +8,7 @@ namespace IntranetPortal.Models
     public class ActivitiesDetail
     {
         public long ActivityId { get; set; }
-        public long ActivityTemplateId { get; set; }
+        public long? ActivityTemplateId { get; set; }
         public string ActivityCode { get; set; } = null!;
         public string ActivityName { get; set; } = null!;
         public string? Description { get; set; } = null!;

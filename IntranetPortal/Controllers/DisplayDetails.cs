@@ -1,4 +1,5 @@
 ﻿using DevExtreme.AspNet.Data;
+using DevExtreme.AspNet.Data.ResponseModel;
 using DevExtreme.AspNet.Mvc;
 using IntranetPortal.Models;
 using Microsoft.AspNetCore.Http;
@@ -12,7 +13,12 @@ namespace IntranetPortal.Controllers
         private IntranetDBContext myContext = new IntranetDBContext();
         public IActionResult Index(string ActivityCode)
         {
+            var getActivityDetails = myContext.ActivitiesDetails.Where(t => t.ActivityCode == ActivityCode).FirstOrDefault();
+          
+            ViewData["TitleDetails"] =   getActivityDetails.Title;
+            ViewData["Details"] = getActivityDetails.ExternalDetails;
             return View();
+            
         }
         public IActionResult NotificationComment(long NotificationID)
         {
@@ -42,6 +48,25 @@ namespace IntranetPortal.Controllers
         public IActionResult DisplayBirthdays()
         {
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetArticles(string? Category, DataSourceLoadOptions loadOptions)
+        {
+            LoadResult? result = null;
+
+            if (Category != null)
+            {
+                result = DataSourceLoader.Load(myContext.Articles.Where(a => a.Category.Equals(Category)).Take(3), loadOptions);
+            }
+            else
+            {
+                result = DataSourceLoader.Load(myContext.Articles, loadOptions);
+            }
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
         }
         [HttpGet]
         public async Task<IActionResult> GetActiveNotification(DataSourceLoadOptions loadOptions)
