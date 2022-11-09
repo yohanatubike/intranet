@@ -148,7 +148,7 @@ columns.AddFor(m => m.Description).Caption("Description").DataField("Description
                                         .ColCount(3)
                                         .Items(groupItems =>
                                         {
-                                            groupItems.AddSimpleFor(m => m.ActivityTemplateId).Visible(false);
+                                            groupItems.AddSimpleFor(m => m.ActivityTemplateId).Visible(true);
                                             groupItems.AddSimpleFor(m => m.ActivityName);
                                             groupItems.AddSimpleFor(m => m.StartDate).Editor(e => e.DateBox());
                                             groupItems.AddSimpleFor(m => m.EndDate).Editor(e => e.DateBox()); ;
@@ -281,9 +281,9 @@ columns.AddFor(m => m.Description).Caption("Description").DataField("Description
 </div>
 
 <script>
-    let isBudgeted = false;
+    let _isBudgeted = true;
 
     function checkBox_valueChanged(data) {
-        $("#activityTemplate").dxCheckBox("instance").option("value", data.value);
+        _isBudgeted = !_isBudgeted;
     }
 </script>
