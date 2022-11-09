@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntranetPortal.Models.Planning
 {
-    public class ServiceOutput
+    public class Strategy
     {
         public long Id { get; set; }
         public string? Code { get; set; }

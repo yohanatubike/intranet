@@ -10,7 +10,7 @@
             <div class="page-header-title">
                 <i class="feather icon-home bg-c-blue"></i>
                 <div class="d-inline">
-                    <h5>Service Output Setup</h5>
+                    <h5>Strategies Setup</h5>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                     <div class="col-xl-12 col-md-6">
                         <div class="card table-card">
                             <div class="card-header">
-                                <h5>Manage Service Output</h5>
+                                <h5>Manage Strategies</h5>
                                 <div class="card-header-right">
                                     <ul class="list-unstyled card-option">
                                         <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
@@ -40,18 +40,18 @@
                             <div class="card-block">
                                 <div id="form">
                                     @(
-                                        Html.DevExtreme().DataGrid<ServiceOutput>()
+                                        Html.DevExtreme().DataGrid<Strategy>()
                                         .ShowBorders(false)
                                         .DataSource(ds => ds.Mvc()
-                                        .Controller("ServiceOutput")
-                                        .InsertAction("AddServiceOutput")
-                                        .LoadAction("GetServiceOutputs")
-                                        .UpdateAction("UpdateServiceOutput")
-                                        .DeleteAction("RemoveServiceOutput")
+                                        .Controller("Strategy")
+                                        .InsertAction("AddStrategy")
+                                        .LoadAction("GetStrategies")
+                                        .UpdateAction("UpdateStrategy")
+                                        .DeleteAction("RemoveStrategy")
                                         .Key("Id")
                                         )
                                         .RemoteOperations(true)
-                                        .ID("ServiceOutputsDG")
+                                        .ID("StrategiesDG")
                                         .Columns(columns =>
                                         {
                                             columns.AddFor(m => m.Code).Caption("Code");
@@ -84,7 +84,7 @@
                                                 })
                                                 .DataSource(d => d.Mvc()
                                                 .Controller("Target")
-                                                .LoadAction("GetServiceOutputTargets")
+                                                .LoadAction("GetStrategyTargets")
                                                 .LoadParams(new { id = new JS("data.Id") })
                                                 )
                                                 )
@@ -101,7 +101,7 @@
                                         .Editing(e => e
                                         .AllowAdding(true)
                                         .Popup(p => p
-                                        .Title("Add New ServiceOutput")
+                                        .Title("Add New Strategy")
                                         .ShowTitle(true)
                                         .Width(1000)
                                         .Height(500)

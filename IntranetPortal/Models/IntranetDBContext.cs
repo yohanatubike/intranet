@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using IntranetPortal.Models.Planning;
+﻿using IntranetPortal.Models.Planning;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace IntranetPortal.Models
 {
@@ -50,7 +47,7 @@ namespace IntranetPortal.Models
         public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<UserRole> UserRoles { get; set; } = null!;
         public virtual DbSet<Objective> Objectives { get; set; } = null!;
-        public virtual DbSet<ServiceOutput> ServiceOutputs { get; set; } = null!;
+        public virtual DbSet<Strategy> Strategies { get; set; } = null!;
         public virtual DbSet<Target> Targets { get; set; } = null!;
         public virtual DbSet<Activity> Activities { get; set; } = null!;
         public virtual DbSet<Indicator> Indicators { get; set; } = null!;
@@ -721,7 +718,7 @@ namespace IntranetPortal.Models
 
             });
 
-            modelBuilder.Entity<ServiceOutput>(entity =>
+            modelBuilder.Entity<Strategy>(entity =>
             {
                 entity.Property(e => e.Id)
                     .HasColumnName("Id")

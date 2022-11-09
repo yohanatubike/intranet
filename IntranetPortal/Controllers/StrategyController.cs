@@ -8,15 +8,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IntranetPortal.Controllers
 {
-    public class ServiceOutputController : Controller
+    public class StrategyController : Controller
     {
         private IntranetDBContext _dbContext = new IntranetDBContext();
         private string? ValidationErrorMessage;
 
         [HttpGet]
-        public async Task<IActionResult> GetServiceOutputs(DataSourceLoadOptions loadOptions)
+        public async Task<IActionResult> GetStrategies(DataSourceLoadOptions loadOptions)
         {
-            var result = DataSourceLoader.Load(_dbContext.ServiceOutputs, loadOptions);
+            var result = DataSourceLoader.Load(_dbContext.Strategies, loadOptions);
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
             var resultJson = JsonConvert.SerializeObject(result, settings);
@@ -24,9 +24,9 @@ namespace IntranetPortal.Controllers
         }
 
         [HttpGet]
-        public object GetObjectiveServiceOutputs(int id, DataSourceLoadOptions loadOptions)
+        public object GetObjectiveStrategies(int id, DataSourceLoadOptions loadOptions)
         {
-            var result = DataSourceLoader.Load(_dbContext.ServiceOutputs.Where(s => s.ObjectiveId == id), loadOptions);
+            var result = DataSourceLoader.Load(_dbContext.Strategies.Where(s => s.ObjectiveId == id), loadOptions);
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
             var resultJson = JsonConvert.SerializeObject(result, settings);
@@ -34,48 +34,48 @@ namespace IntranetPortal.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddServiceOutput(string values)
+        public async Task<IActionResult> AddStrategy(string values)
         {
-            var serviceOutput = new ServiceOutput();
-            JsonConvert.PopulateObject(values, serviceOutput);
+            var strategy = new Strategy();
+            JsonConvert.PopulateObject(values, strategy);
 
-            if (!TryValidateModel(serviceOutput))
+            if (!TryValidateModel(strategy))
                 return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
-            serviceOutput.CreatedBy = "yohana.tubike@tasac.go.tz";
-            serviceOutput.CreatedDate = DateTime.UtcNow;
+            strategy.CreatedBy = "yohana.tubike@tasac.go.tz";
+            strategy.CreatedDate = DateTime.UtcNow;
             try
             {
-                _dbContext.ServiceOutputs.Add(serviceOutput);
+                _dbContext.Strategies.Add(strategy);
                 await _dbContext.SaveChangesAsync();
             }
             catch (Exception e)
             {
                 return Ok(e.Message);
             }
-            return Ok(serviceOutput);
+            return Ok(strategy);
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateServiceOutput(int key, string values)
+        public async Task<IActionResult> UpdateStrategy(int key, string values)
         {
-            var serviceOutput = await _dbContext.ServiceOutputs.FirstOrDefaultAsync(item => item.Id == key);
-            if (serviceOutput == null)
+            var strategy = await _dbContext.Strategies.FirstOrDefaultAsync(item => item.Id == key);
+            if (strategy == null)
                 throw new ArgumentNullException();
-            JsonConvert.PopulateObject(values, serviceOutput);
-            if (!TryValidateModel(serviceOutput))
+            JsonConvert.PopulateObject(values, strategy);
+            if (!TryValidateModel(strategy))
                 return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
-            _dbContext.ServiceOutputs.Update(serviceOutput);
+            _dbContext.Strategies.Update(strategy);
             await _dbContext.SaveChangesAsync();
             return Ok();
         }
 
         [HttpDelete]
-        public async Task RemoveServiceOutput(int key)
+        public async Task RemoveStrategy(int key)
         {
-            var serviceOutput = await _dbContext.ServiceOutputs.FirstOrDefaultAsync(item => item.Id == key);
-            if (serviceOutput == null)
+            var strategy = await _dbContext.Strategies.FirstOrDefaultAsync(item => item.Id == key);
+            if (strategy == null)
                 throw new ArgumentNullException();
-            _dbContext.ServiceOutputs.Remove(serviceOutput);
+            _dbContext.Strategies.Remove(strategy);
             await _dbContext.SaveChangesAsync();
         }
     }

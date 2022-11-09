@@ -32,7 +32,7 @@ namespace IntranetPortal.Controllers
 
         public object GetServiceOutputTargets(int id, DataSourceLoadOptions loadOptions)
         {
-            var result = DataSourceLoader.Load(_dbContext.Targets.Where(s => s.ServiceOutputId == id), loadOptions);
+            var result = DataSourceLoader.Load(_dbContext.Targets.Where(s => s.StrategyId == id), loadOptions);
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
             var resultJson = JsonConvert.SerializeObject(result, settings);

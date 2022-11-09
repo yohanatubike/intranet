@@ -65,7 +65,7 @@
                                             md.Enabled(true);
                                             md.Template(@<text>
                                                 <div class="master-detail-caption"><%- data.Code %>'s Service Outputs:</div>
-                                                @(Html.DevExtreme().DataGrid<ServiceOutput>()
+                                                @(Html.DevExtreme().DataGrid<Strategy>()
                                                 .ColumnAutoWidth(true)
                                                 .ShowBorders(true)
                                                 .Columns(columns =>
