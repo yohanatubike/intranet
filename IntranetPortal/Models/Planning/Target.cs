@@ -9,7 +9,7 @@ namespace IntranetPortal.Models.Planning
         public long Id { get; set; } = 0;
         public string? Code { get; set; }
         public string? Description { get; set; }
-        public long ServiceOutputId { get; set; }
+        public long StrategyId { get; set; }
         public long IndicatorId { get; set; }
         public DateTime? CreatedDate { get; set; }
         public string? CreatedBy { get; set; }

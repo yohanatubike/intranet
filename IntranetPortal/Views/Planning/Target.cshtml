@@ -57,13 +57,13 @@
                                             columns.AddFor(m => m.Code).Caption("Code");
                                             columns.AddFor(m => m.Description).Caption("Description").EncodeHtml(false);
                                             columns.AddFor(m => m.Status);
-                                            columns.AddFor(m => m.ServiceOutputId).Caption("Service Output").Lookup(r => r
-                                            .DataSource(ds => ds.Mvc().Controller("ServiceOutput").LoadAction("GetServiceOutputs").Key("Id"))
+                                            columns.AddFor(m => m.StrategyId).Caption("Strategy").Lookup(r => r
+                                            .DataSource(ds => ds.Mvc().Controller("Strategy").LoadAction("GetStrategies").Key("Id"))
                                             .ValueExpr("Id")
                                             .DisplayExpr("Code"))
                                             .ValidationRules(r => r
                                             .AddRequired()
-                                            .Message("Service Output"));
+                                            .Message("Strategy"));
                                             columns.AddFor(m => m.IndicatorId).Caption("Indicator").EncodeHtml(false).Lookup(r => r
                                             .DataSource(ds => ds.Mvc().Controller("Indicator").LoadAction("GetIndicators").Key("Id"))
                                             .ValueExpr("Id")
@@ -128,7 +128,7 @@
                                             items.AddGroup().ColCount(2).Items(groupItem =>
                                             {
                                                 groupItem.AddSimpleFor(m => m.Code);
-                                                groupItem.AddSimpleFor(m => m.ServiceOutputId);
+                                                groupItem.AddSimpleFor(m => m.StrategyId);
                                                 groupItem.AddSimpleFor(m => m.IndicatorId);
                                                 groupItem.AddSimpleFor(m => m.Status).Editor(e => e
                                             .SelectBox()

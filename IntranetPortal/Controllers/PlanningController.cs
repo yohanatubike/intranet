@@ -8,7 +8,7 @@ namespace IntranetPortal.Controllers
         {
             return View();
         }
-        public IActionResult ServiceOutput()
+        public IActionResult Strategy()
         {
             return View();
         }
