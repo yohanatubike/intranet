@@ -36,14 +36,26 @@ namespace IntranetPortal.Controllers
               public async Task<IActionResult> GetDepartmentTickets(DataSourceLoadOptions loadOptions)
         {
             LoadResult result = null;
-            if (DepartmentCode == "HICT")
+            if (DepartmentCode == "ICTS")
             {
-                result = DataSourceLoader.Load(myContext.SupportsTickets.OrderByDescending(t => t.CreatedDate).Where(t=> t.Status!="Closed" || t.Status!="Resolved" ), loadOptions);
+                result = DataSourceLoader.Load(myContext.SupportsTickets.OrderByDescending(t => t.CreatedDate).Where(t => t.Status == "Assigned" || t.Status == "In-Progress" || t.Status == null || t.Status== "Onhold" || t.Status=="Lodged"), loadOptions); 
             }
             else
             {
-                result = DataSourceLoader.Load(myContext.SupportsTickets.OrderByDescending(t=>t.CreatedDate).Where(t => t.LodgedBy == UserEmail && ( t.Status!="Closed" || t.Status != "Resolved")), loadOptions);
+                result = DataSourceLoader.Load(myContext.SupportsTickets.OrderByDescending(t=>t.CreatedDate).Where(t => t.LodgedBy == UserEmail && ( t.Status == "Assigned" || t.Status == "In-Progress" || t.Status == null || t.Status == "Onhold" || t.Status == "Lodged")), loadOptions);
             }
+
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
+        public async Task<IActionResult> GetSupportReports(DataSourceLoadOptions loadOptions)
+        {
+            LoadResult result = null;
+           
+            result = DataSourceLoader.Load(myContext.SupportsTickets.OrderByDescending(t => t.CreatedDate), loadOptions);
+            
 
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
@@ -54,6 +66,15 @@ namespace IntranetPortal.Controllers
         public async Task<IActionResult> GetListofOfficers(DataSourceLoadOptions loadOptions)
         {
             var result = DataSourceLoader.Load(myContext.Users.Where(t => t.Designations.DepartmentCode ==DepartmentCode), loadOptions);
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetListofIncharge(DataSourceLoadOptions loadOptions)
+        {
+            var result = DataSourceLoader.Load(myContext.SupportIncharge, loadOptions);
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
             var resultJson = JsonConvert.SerializeObject(result, settings);
@@ -72,15 +93,27 @@ namespace IntranetPortal.Controllers
             if (CheckStaus != null)
             {
                 getSupportDetails.AssignedDate = DateTime.Now;
+                getSupportDetails.AssignedBy = UserEmail;
+                getSupportDetails.AssignedStatus = CloseStatus;
 
             }
             if (CloseStatus == "Resolved" || CloseStatus == "Closed")
             {
+                if(getSupportDetails.AttendedDate==null)
+                {
+                    getSupportDetails.AttendedDate = DateTime.Now;
+                    getSupportDetails.AttendedBy = UserEmail;
+                }
                 getSupportDetails.ClosedDate = DateTime.Now;
                 getSupportDetails.ClosedBy = UserEmail;
 
             }
+            if (CloseStatus == "Onhold" || CloseStatus == "In-Progress")
+            {
+                getSupportDetails.AttendedDate = DateTime.Now;
+                getSupportDetails.AttendedBy = UserEmail;
 
+            }
             JsonConvert.PopulateObject(values, getSupportDetails);
 
             await myContext.SaveChangesAsync();
@@ -104,7 +137,42 @@ namespace IntranetPortal.Controllers
             var resultJson = JsonConvert.SerializeObject(result, settings);
             return Content(resultJson, "application/json");
         }
+        public async Task<IActionResult> UpdateIncharge(long key, string values)
+        {
+            var getInchargeDetails = await myContext.SupportIncharge.FirstOrDefaultAsync(item => item.SupportInchargeID == key);
+            JsonConvert.PopulateObject(values, getInchargeDetails);
+            getInchargeDetails.UpdatedDate = DateTime.Now;
+                getInchargeDetails.UpdatedBy = UserEmail;
 
+
+            await myContext.SaveChangesAsync();
+            return Ok();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddNewIncharge(string values)
+        {
+            var checkIfExists = myContext.SupportIncharge.Where(t => t.Status == true).SingleOrDefault();
+            if (checkIfExists == null)
+            {
+                var newIncharge = new SupportIncharge();
+                JsonConvert.PopulateObject(values, newIncharge);
+                newIncharge.AssignedBy = UserEmail;
+                newIncharge.AssignedDate = DateTime.Now;
+
+
+                if (!TryValidateModel(newIncharge))
+
+                    return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
+                myContext.SupportIncharge.Add(newIncharge);
+                await myContext.SaveChangesAsync();
+
+                return Ok(newIncharge);
+                
+            }
+
+            return BadRequest(ValidationErrorMessage = "Please change status of the existing Support Incharge , before adding a new one");
+
+        }
         [HttpPost]
         public async Task<IActionResult> AddNewTicket(string values)
         {

@@ -3,25 +3,20 @@
     ViewData["Title"] = "Home Page";
 }
 
-
-
-
-
 @(Html.DevExtreme().FileManager()
-        .CurrentPath("Widescreen")
-        .FileSystemProvider(provider => provider
-            .Remote()
-            .Url(Url.RouteUrl("FileManagementFileSystemMeetingsApi", null)))
-        .Permissions(permissions => permissions
-            .Create(true)
-            .Copy(true)
-            .Move(true)
-            .Delete(true)
-
-            .Rename(true)
-            .Upload(true)
-            .Download(true))
-        @*.OnSelectedFileOpened(@<text>
+    .CurrentPath("Widescreen")
+    .FileSystemProvider(provider => provider
+        .Remote()
+        .Url(Url.RouteUrl("FileManagementFileSystemMeetingsApi", null)))
+    .Permissions(permissions => permissions
+        .Create(true)
+        .Copy(true)
+        .Move(true)
+        .Delete(true)
+        .Rename(true)
+        .Upload(true)
+        .Download(true))@*
+    .OnSelectedFileOpened(@<text>
             function(e) {
                 var popup = $("#photo-popup").dxPopup("instance");
                 popup.option({
@@ -30,24 +25,17 @@
                 });
                 popup.show();
             }
-                                        </text>)
-                                        .Height(450))
+                </text>)
+                .Height(450))
 
-                                    @(Html.DevExtreme().Popup()
-                                        .ID("photo-popup")
-                                        .MaxHeight(600)
-                                        .OnContentReady(@<text>
+            @(Html.DevExtreme().Popup()
+                .ID("photo-popup")
+                .MaxHeight(600)
+                .OnContentReady(@<text>
             function(e) {
                 var $contentElement = e.component.content();
                 $contentElement.addClass("photo-popup-content");
             }
-                                        </text>)*@
-        )
-
-
-
-
-
-
-
-
+            </text>)*@
+    )
+    

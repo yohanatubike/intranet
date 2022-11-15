@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="text-center">
                                     <hr />
-                                    <a href="#!" class="b-b-primary text-primary">View all notification</a>
+                                    <a href="#" class="b-b-primary text-primary">View all notification</a>
                                 </div>
                             </div>
                         </div>
@@ -153,89 +153,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-4 col-md-6">
-                        <div class="card testimonial-card table-card">
-                            <div class="card-header">
-                                <h5>Upcomming Birthdays</h5>
-                                <div class="card-header-right">
-                                    <ul class="list-unstyled card-option">
-                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
-                                        <li><i class="feather icon-maximize full-card"></i></li>
-                                        <li><i class="feather icon-minus minimize-card"></i></li>
-                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
-                                        <li><i class="feather icon-trash close-card"></i></li>
-                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-block">
-                                <div class="review-block">
-                                    <div class="row">
-                                        <div class="col-sm-auto p-r-0">
-                                            <img src="jpg/avatar-2.jpg" alt="user image" class="img-radius profile-img cust-img m-b-15">
-                                        </div>
-                                        <div class="col">
-                                            <h6 class="m-b-15">John Deo</h6>
-                                            <div class="row align-items-center">
-                                                <div class="col">
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-c-green" style="width:85%"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <h6 class="m-b-0">3.2</h6>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-auto p-r-0">
-                                            <img src="jpg/avatar-1.jpg" alt="user image" class="img-radius profile-img cust-img m-b-15">
-                                        </div>
-                                        <div class="col">
-                                            <h6 class="m-b-15">John Deo</h6>
-                                            <div class="row align-items-center">
-                                                <div class="col">
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-c-blue" style="width:85%"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <h6 class="m-b-0">3.2</h6>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-auto p-r-0">
-                                            <img src="jpg/avatar-1.jpg" alt="user image" class="img-radius profile-img cust-img m-b-15">
-                                        </div>
-                                        <div class="col">
-                                            <h6 class="m-b-15">John Deo</h6>
-                                            <div class="row align-items-center">
-                                                <div class="col">
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-c-red" style="width:85%"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col">
-                                                    <h6 class="m-b-0">3.2</h6>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="text-center">
-                                    <a href="#!" class="b-b-primary text-primary">View all birth days</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    @await Component.InvokeAsync("ShowUpcomingBirthDays")
                     <div class="col-xl-4 col-md-12">
                         <div class="card latest-update-card">
                             <div class="card-header">
@@ -306,3 +224,4 @@
 
                 </div>
             </div>
+            </div></div></div>

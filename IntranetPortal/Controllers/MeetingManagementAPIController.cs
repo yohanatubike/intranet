@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System.Net.Mail;
+using System.Net;
 using System.Security.Claims;
 
 namespace IntranetPortal.Controllers
@@ -94,7 +96,17 @@ namespace IntranetPortal.Controllers
         [HttpGet]
         public async Task<IActionResult> GetOfficersInvitedMeetings(DataSourceLoadOptions loadOptions)
         {
-            var result = DataSourceLoader.Load(myContext.MeetingInvitations.Include("Meetings").Where(m => m.Pfnumber == PFNumber), loadOptions);
+            var result = DataSourceLoader.Load(myContext.MeetingInvitations.Include("Meetings").Where(m => m.Pfnumber == PFNumber  ), loadOptions);
+
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetInvitedMeetings(DataSourceLoadOptions loadOptions)
+        {
+            var result = DataSourceLoader.Load(myContext.MeetingInvitations.Include("Meetings").Where(m => m.Pfnumber == PFNumber && m.AcceptanceStatus=="Accepted" ), loadOptions);
 
             JsonSerializerSettings settings = new JsonSerializerSettings();
             settings.NullValueHandling = NullValueHandling.Ignore;
@@ -107,14 +119,46 @@ namespace IntranetPortal.Controllers
             var newMeetingInvitation = new MeetingInvitation();
 
             JsonConvert.PopulateObject(values, newMeetingInvitation);
-
+            var getStaffEmail = myContext.Users.Where(t => t.PFNumber == newMeetingInvitation.Pfnumber).FirstOrDefaultAsync();
             newMeetingInvitation.InvitedBy = UserEmail;
             newMeetingInvitation.InvitedDate = DateTime.Now;
             newMeetingInvitation.UpdateDate = DateTime.Now;
+            var fromAddress = new MailAddress("noreply@tasac.go.tz", "Tasac Intranet Portal");
 
+            var toAddress = new MailAddress(newMeetingInvitation.Pfnumber, newMeetingInvitation.Pfnumber);
+            const string fromPassword = "Tasac1234.";
+            const string subject = "Meeting Invitation";
+            string body = "Dear  " + newMeetingInvitation.Pfnumber + "   You are invited to attend a meeting , please login to the Intranet Portal for more details";
+            try
+            {
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp2.eganet.go.tz",
+                    Port = 25,
+                    EnableSsl = false,
+                  
+                
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body
+
+                })
+                {
+                    smtp.Send(message);
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ValidationErrorMessage = ex.Message);
+            }
             myContext.MeetingInvitations.Add(newMeetingInvitation);
             await myContext.SaveChangesAsync();
-
             return Ok(newMeetingInvitation);
         }
         [HttpGet]

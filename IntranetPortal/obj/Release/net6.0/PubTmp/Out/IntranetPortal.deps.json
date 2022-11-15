@@ -10,6 +10,7 @@
         "dependencies": {
           "DevExtreme.AspNet.Core": "20.2.11",
           "DevExtreme.AspNet.Data": "2.8.6",
+          "Microsoft.EntityFrameworkCore": "6.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.8",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.17.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.8",

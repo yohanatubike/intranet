@@ -33,9 +33,7 @@ namespace IntranetPortal.Controllers
             PFNumber = hcontext.User?.FindFirst(ClaimTypes.SerialNumber)?.Value;
 
 
-        }
-
-       
+        }      
 
         #region for roles  
 
@@ -369,6 +367,14 @@ namespace IntranetPortal.Controllers
         {
             var userDetails = await myContext.Users.FirstOrDefaultAsync(item => item.PFNumber == key);
             JsonConvert.PopulateObject(values, userDetails);
+            await myContext.SaveChangesAsync();
+            return Ok();
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateUserPermission(string key, string values)
+        {
+            var userRoleDetails = await myContext.UserRoles.FirstOrDefaultAsync(item => item.UserRoleId.ToString() == key);
+            JsonConvert.PopulateObject(values, userRoleDetails);
             await myContext.SaveChangesAsync();
             return Ok();
         }

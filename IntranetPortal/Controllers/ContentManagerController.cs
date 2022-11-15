@@ -1,9 +1,11 @@
 ﻿using IntranetPortal.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace IntranetPortal.Controllers
 {
+    [Authorize]
     public class ContentManagerController : Controller
     {
         private IntranetDBContext myContext = new IntranetDBContext();
@@ -20,11 +22,10 @@ namespace IntranetPortal.Controllers
                     return View("ManageFrontSlider");
                 case "forms":
                     return RedirectToAction("Index", "Forms");
-                case "systems":
+                case "system":
                     return RedirectToAction("Index", "Systems");
                 case "library":
-                    RedirectToAction("Index", "Library");
-                    break;
+                    return RedirectToAction("Index", "Library");
                 case "quiz":
                     return View("ManageQuiz");
                 case "articles":

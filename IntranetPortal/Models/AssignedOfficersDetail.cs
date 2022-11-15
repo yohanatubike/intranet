@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntranetPortal.Models
 {
@@ -15,6 +16,7 @@ namespace IntranetPortal.Models
         public string CreatedBy { get; set; } = null!;
         public string? UpdateBy { get; set; }
         public long ActivityId { get; set; }
+        [ForeignKey("ActivityId")]
         public virtual ActivitiesDetail Activity { get; set; } = null!;
     }
 }

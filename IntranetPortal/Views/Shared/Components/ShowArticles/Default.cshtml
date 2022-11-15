@@ -15,7 +15,7 @@
                     Html.DevExtreme().DataGrid<IntranetPortal.Models.Article>
                                 ()
                                 .DataSource(ds => ds.Mvc()
-                                .Controller("ContentManagersAPI")
+                                .Controller("DisplayDetails")
                                 .LoadAction("GetArticles")
                                 .LoadParams(new { Category = "Health" })
                                 .Key("ArticleId")
@@ -61,7 +61,7 @@
                             Html.DevExtreme().DataGrid<IntranetPortal.Models.Article>
                             ()
                             .DataSource(ds => ds.Mvc()
-                            .Controller("ContentManagersAPI")
+                            .Controller("DisplayDetails")
                             .LoadAction("GetArticles")
                             .LoadParams(new { Category = "Social" })
                             .Key("ArticleId")
@@ -107,7 +107,7 @@
                             Html.DevExtreme().DataGrid<IntranetPortal.Models.Article>
                             ()
                             .DataSource(ds => ds.Mvc()
-                            .Controller("ContentManagersAPI")
+                            .Controller("DisplayDetails")
                             .LoadAction("GetArticles")
                             .LoadParams(new { Category = "Business" })
                             .Key("ArticleId")

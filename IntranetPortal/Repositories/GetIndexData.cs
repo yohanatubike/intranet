@@ -20,6 +20,22 @@ namespace IntranetPortal.Repositories
                     Subject = notification.Subject,
                     CreatedBy = notification.CreatedBy,
                     Category = notification.Category,
+                    NotificationId = notification.NotificationId,
+
+                }).Take(6).ToList();
+        }
+        public List<User> GetWeeklyBirthDay()
+        {
+            var TheCurrentMonth = DateTime.Now.Month;
+            var TheCurrentDay = DateTime.Now.Day;
+            var NextWeek = TheCurrentDay + 7;
+            return myContext.Users.OrderBy(q => q.BirthDay)
+                .Where(t => t.BirthMonth == TheCurrentMonth && (t.BirthDay >= TheCurrentDay && t.BirthDay <= NextWeek)).Select(staff => new User()
+                {
+                    FirstName = staff.FirstName,
+                    LastName = staff.LastName,
+                    BirthDay = staff.BirthDay,
+                    BirthMonth = staff.BirthMonth,
 
                 }).Take(6).ToList();
         }
@@ -29,6 +45,7 @@ namespace IntranetPortal.Repositories
                 .Where(t => t.PublishStatus == "Published").Select(activity => new ActivitiesDetail()
                 {
                     Title = activity.Title,
+                    ActivityCode = activity.ActivityCode,
                     DepartmentCode = activity.DepartmentCode,
                 
 

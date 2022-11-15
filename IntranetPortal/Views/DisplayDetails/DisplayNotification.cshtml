@@ -1,0 +1,227 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+<script type="text/javascript">
+    //<![CDATA[
+    function onInitNewRow(e, ActivityId) {
+
+        e.data.Activity.ActivityId = ActivityId;
+
+    }
+            //]]>
+</script>
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-bell bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Notification from  @User.Identity.Name</h5>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+
+                <div class="row">
+
+
+
+
+
+
+
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>Active Notification</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
+
+                                @(
+                                        Html.DevExtreme().DataGrid<IntranetPortal.Models.StaffNotification>
+                                        ()
+                                        .DataSource(ds => ds.Mvc()
+                                        .Controller("DisplayDetails")
+
+                                        .LoadAction("GetActiveNotification")
+                                       
+                                        .Key("NotificationId")
+
+
+                                        )
+                                        .RemoteOperations(true)
+                                        .Columns(columns =>
+                                        {
+
+
+
+                                            columns.AddFor(m => m.Category).AllowEditing(false).Lookup(r => r
+                                        .DataSource(new string[] {
+                                "Annaul Leave",
+                                "Martenity Leave",
+                                "Paternity  Leave",
+                                "Travel",
+                                "Sick",
+                                "Accident",
+                                "Wedding",
+                                "Msiba"
+
+
+
+
+
+                                        }
+                                        )
+                                        )
+                                        .ValidationRules(r => r
+                                        .AddRequired()
+                                        .Message("Priority is required")
+                                        );
+                                            columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy").AllowEditing(false); 
+                                            columns.AddFor(m => m.Details).EncodeHtml(false).Visible(false).AllowEditing(false);
+
+                                            columns.AddFor(m => m.Subject).AllowEditing(false);
+                                            columns.AddFor(m => m.CreatedBy).AllowEditing(false).Caption("Staff Email");
+                                            columns.AddFor(m => m.Status).DataField("Status").Caption("Status").CellTemplate(
+                                        @<text>
+                                            <% if(data.Status=="Created")
+                                    {%>
+                                            <a href="#"><div class="feather icon-bell text-danger"> Waiting</div></a>
+                                            <% }
+                                    if(data.Status=="Activated")
+                                    {%>
+                                            <a href="#"><div class="feather icon-bell text-success"> Active</div></a>
+                                            <% }
+
+
+                                    %>
+                                        </text>
+                                    ).Lookup(r => r
+                                    .DataSource(new string[] {
+                                "Created",
+                                "Activated",
+                                "Closed"
+
+
+                                    }
+                                    )
+                                    )
+                                    .ValidationRules(r => r
+                                    .AddRequired()
+                                    .Message("Priority is required")
+                                    );
+
+                                            columns.AddFor(m => m.CreatedDate).EncodeHtml(false).Visible(false);
+
+
+
+                                        })
+
+                                    .SearchPanel(f => f.Visible(true))
+
+                                    .Paging(p => p.PageSize(10))
+                                    .HeaderFilter(f => f.Visible(true))
+
+                                    .Grouping(g => g.ContextMenuEnabled(true))
+                                    .Grouping(g => g.AutoExpandAll(true))
+                                    .RemoteOperations(true)
+                                    .Selection(s => s.Mode(SelectionMode.Multiple))
+                                    .Export(e => e.Enabled(false).FileName("ListofGroups").AllowExportSelectedData(false))
+                                    .Editing(e => e
+                                    .AllowAdding(false)
+                                    .AllowUpdating(true)
+                                    .Popup(p => p
+                                    .Title("Add Notification")
+                                    .ShowTitle(true)
+                                    .Width(1000)
+                                    .Height(400)
+
+
+
+                                    )
+
+
+                                    .AllowDeleting(false)
+                                    .Mode(GridEditMode.Popup)
+                                    .UseIcons(true)
+                                    .Form(f => f
+                                    .ID("UserCreation")
+                                    .ColCount(1)
+                                    .Items(items =>
+                                    {
+                                        items.AddGroup()
+                                        .ColCount(3)
+                                        .Items(groupItems =>
+                                        {
+
+
+                                            groupItems.AddSimpleFor(m => m.Subject);
+                                            groupItems.AddSimpleFor(m => m.Category);
+                                            groupItems.AddSimpleFor(m => m.Status);
+
+                                        });
+                                        items.AddGroup()
+                                        .ColCount(1)
+                                        .Items(groupItems =>
+                                        {
+                                            groupItems.AddSimpleFor(m => m.Details).Editor(e => e
+                                        .HtmlEditor()
+                                        .Height(190)
+                                        .Toolbar(toolbar => toolbar.Items(
+                                        items =>
+                                        {
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                            items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                        })
+                                        ));
+
+
+
+
+
+
+                                        });
+                                    })
+
+                                    )
+                                    )
+                                    )
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                   
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

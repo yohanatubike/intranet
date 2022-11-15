@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using IntranetPortal.Models.Planning;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace IntranetPortal.Models
 {
@@ -11,8 +9,7 @@ namespace IntranetPortal.Models
         {
         }
 
-        public IntranetDBContext(DbContextOptions<IntranetDBContext> options)
-            : base(options)
+        public IntranetDBContext(DbContextOptions<IntranetDBContext> options) : base(options)
         {
         }
 
@@ -30,8 +27,10 @@ namespace IntranetPortal.Models
         public virtual DbSet<MeetingInvitation> MeetingInvitations { get; set; } = null!;
         public virtual DbSet<NewsEvent> NewsEvents { get; set; } = null!;
         public virtual DbSet<NotificationComment> NotificationComments { get; set; } = null!;
+        public virtual DbSet<SupportIncharge> SupportIncharge { get; set; } = null!;
         public virtual DbSet<Permission> Permissions { get; set; } = null!;
         public virtual DbSet<PermissionCategory> PermissionCategories { get; set; } = null!;
+        public virtual DbSet<AuditingDetail> AuditingDetail { get; set; } = null!;
         public virtual DbSet<QuizeManager> QuizeManagers { get; set; } = null!;
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<Section> Sections { get; set; } = null!;
@@ -46,6 +45,11 @@ namespace IntranetPortal.Models
         public virtual DbSet<Tip> Tips { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<UserRole> UserRoles { get; set; } = null!;
+        public virtual DbSet<Objective> Objectives { get; set; } = null!;
+        public virtual DbSet<Strategy> Strategies { get; set; } = null!;
+        public virtual DbSet<Target> Targets { get; set; } = null!;
+        public virtual DbSet<Activity> Activities { get; set; } = null!;
+        public virtual DbSet<Indicator> Indicators { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -75,6 +79,7 @@ namespace IntranetPortal.Models
 
             modelBuilder.Entity<ActivitiesDetail>(entity =>
             {
+
                 entity.HasKey(e => e.ActivityId)
                     .HasName("ActivitiesDetail_pkey");
 
@@ -108,6 +113,30 @@ namespace IntranetPortal.Models
                 entity.Property(e => e.PublishedDate).HasColumnType("timestamp without time zone");
                 entity.Property(e => e.PublishdBy).HasColumnType("character varying");
                 entity.Property(e => e.ExternalDetails).HasColumnType("character varying");
+
+
+
+            });
+            modelBuilder.Entity<AuditingDetail>(entity =>
+            {
+                entity.HasKey(e => e.AuditingDetailID)
+                    .HasName("AuditingDetailID_pkey");
+
+         
+
+
+                entity.Property(e => e.DepartmentCode).HasColumnType("character varying");
+
+                entity.Property(e => e.SectionCode).HasColumnType("character varying");
+
+                entity.Property(e => e.RecordedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
+
+
+                entity.Property(e => e.UpdatedDate).HasColumnType("timestamp without time zone");
+
+                entity.Property(e => e.UpdatedBy).HasColumnType("character varying");
 
 
 
@@ -242,6 +271,26 @@ namespace IntranetPortal.Models
                 entity.Property(e => e.UpdatedBy).HasMaxLength(100);
             });
 
+            modelBuilder.Entity<SupportIncharge>(entity =>
+            {
+                entity.HasKey(e => e.SupportInchargeID)
+                    .HasName("SupportIncharge_pkey");
+
+                entity.Property(e => e.SupportInchargeID)
+                    .HasColumnName("SupportInchargeID")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.AssignedBy).HasColumnType("character varying");
+                entity.Property(e => e.AssignedDate).HasColumnType("timestamp without time zone");
+                entity.Property(e => e.UpdatedDate).HasColumnType("timestamp without time zone");
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(200);
+                entity.Property(e => e.InchargeName).HasMaxLength(200);
+
+                entity.Property(e => e.Status).HasDefaultValueSql("false");
+
+                entity.Property(e => e.UpdatedBy).HasMaxLength(100);
+            });
             modelBuilder.Entity<Meeting>(entity =>
             {
                 entity.Property(e => e.MeetingId)
@@ -295,7 +344,9 @@ namespace IntranetPortal.Models
                     .UseIdentityAlwaysColumn();
 
                 entity.Property(e => e.AcceptanceStatus).HasColumnType("character varying");
-
+                entity.Property(e => e.InvitedDate).HasColumnType("timestamp without time zone");
+                entity.Property(e => e.UpdateDate).HasColumnType("timestamp without time zone");
+               
                 entity.Property(e => e.InvitedBy).HasColumnType("character varying");
 
                 entity.Property(e => e.IsFocalPerson).HasDefaultValueSql("false");
@@ -500,9 +551,9 @@ namespace IntranetPortal.Models
                     .UseIdentityAlwaysColumn();
 
                 entity.Property(e => e.AssignedBy).HasColumnType("character varying");
-
+                entity.Property(e => e.AttendedBy).HasColumnType("character varying");
                 entity.Property(e => e.AssignedDate).HasColumnType("timestamp without time zone");
-
+                entity.Property(e => e.AttendedDate).HasColumnType("timestamp without time zone");
                 entity.Property(e => e.AssignedStatus).HasColumnType("character varying");
 
                 entity.Property(e => e.AssignedTo).HasMaxLength(100);
@@ -596,13 +647,19 @@ namespace IntranetPortal.Models
                 entity.Property(e => e.PFNumber)
                     .HasMaxLength(100)
                     .HasColumnName("PFNumber");
+                entity.Property(e => e.BirthMonth)
+                    .HasColumnName("BirthMonth")
+                    .HasColumnType("int");
 
+                entity.Property(e => e.BirthDay)
+                  .HasColumnName("BirthDay")
+                  .HasColumnType("int");
                 entity.Property(e => e.CreatedBy).HasMaxLength(100);
 
                 entity.Property(e => e.CreatedDate).HasColumnType("timestamp without time zone");
-
+               
                 entity.Property(e => e.DesignationCode).HasMaxLength(100);
-
+                entity.Property(e => e.PictureUrl).HasColumnType("character varying");
                 entity.Property(e => e.DutyStation).HasMaxLength(100);
 
                 entity.Property(e => e.Email).HasMaxLength(100);
@@ -639,6 +696,84 @@ namespace IntranetPortal.Models
                     .HasColumnName("PFNumber");
 
                 entity.Property(e => e.RoleId).HasColumnName("RoleID");
+            });
+
+            modelBuilder.Entity<Objective>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("Id")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp with time zone");
+
+                entity.Property(e => e.Code)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Code");
+                entity.Property(e => e.Description)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Description");
+
+            });
+
+            modelBuilder.Entity<Strategy>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("Id")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp with time zone");
+
+                entity.Property(e => e.Code)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Code");
+                entity.Property(e => e.Description)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Description");
+
+            });
+
+            modelBuilder.Entity<Indicator>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("Id")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp with time zone");
+
+                entity.Property(e => e.Value)
+                    .HasColumnType("double precision")
+                    .HasColumnName("Value");
+                entity.Property(e => e.Description)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Description");
+
+            });
+
+            modelBuilder.Entity<Target>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("Id")
+                    .UseIdentityAlwaysColumn();
+
+                entity.Property(e => e.CreatedBy).HasColumnType("character varying");
+                entity.Property(e => e.IndicatorId).HasColumnType("integer");
+
+
+                entity.Property(e => e.CreatedDate).HasColumnType("timestamp with time zone");
+
+                entity.Property(e => e.Code)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Code");
+                entity.Property(e => e.Description)
+                    .HasColumnType("character varying")
+                    .HasColumnName("Description");
+
             });
 
             OnModelCreatingPartial(modelBuilder);

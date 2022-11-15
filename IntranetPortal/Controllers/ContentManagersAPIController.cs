@@ -1,15 +1,20 @@
-﻿    using DevExtreme.AspNet.Data;
+﻿using DevExtreme.AspNet.Data;
 using DevExtreme.AspNet.Data.ResponseModel;
 using DevExtreme.AspNet.Mvc;
 using IntranetPortal.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Data;
+using System.Net.Mail;
+using System.Net;
 using System.Security.Claims;
+using HtmlAgilityPack;
 
 namespace IntranetPortal.Controllers
 {
+    [Authorize]
     public class ContentManagersAPIController : Controller
     {
         private readonly HttpContext hcontext;
@@ -51,7 +56,56 @@ namespace IntranetPortal.Controllers
             var resultJson = JsonConvert.SerializeObject(result, settings);
             return Content(resultJson, "application/json");
         }
+        [HttpPost]
+        public async Task<IActionResult> AddNews(string values)
+        {
+            var newNews = new  NewsEvent();
+            JsonConvert.PopulateObject(values, newNews);
+            newNews.CreatedBy = UserEmail;
+            newNews.CreatedDate = DateTime.UtcNow;
+            var fromAddress = new MailAddress("noreply@tasac.go.tz", "News & Announcement");
 
+            var toAddress = new MailAddress(UserEmail, UserEmail);
+            const string fromPassword = "Tasac1234.";
+            const string subject = "Meeting Invitation";
+            string body = newNews.Description;
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(newNews.Description);
+            string s = doc.DocumentNode.SelectSingleNode(body).InnerText;
+            try
+            {
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp2.eganet.go.tz",
+                    Port = 25,
+                    EnableSsl = false,
+
+
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = s
+
+                })
+                {
+                    smtp.Send(message);
+                    myContext.NewsEvents.Add(newNews);
+                    await myContext.SaveChangesAsync();
+                    return Ok(newNews);
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ValidationErrorMessage = ex.Message);
+            }
+
+
+            return Ok(newNews);
+        }
         [HttpPost]
         public async Task<IActionResult> AddFrontSlider(string values)
         {
@@ -156,6 +210,51 @@ namespace IntranetPortal.Controllers
             await myContext.SaveChangesAsync();
             return Ok();
         }
+        [HttpPost]
+        public async Task<IActionResult> AddOfficersActivity(string values)
+        {
+            var newActivityAssignment = new AssignedOfficersDetail();
+            JsonConvert.PopulateObject(values, newActivityAssignment);
+            newActivityAssignment.CreatedBy = UserEmail;
+            newActivityAssignment.CreatedDate = DateTime.Now;
+            newActivityAssignment.UpdatedDate = DateTime.Now;
+            //if (!TryValidateModel(newActivityAssignment))
+
+            //    return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
+            myContext.AssignedOfficersDetails.Add(newActivityAssignment);
+            await myContext.SaveChangesAsync();
+
+            return Ok(newActivityAssignment);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetOfficersAssignedActivitiesExternal(DataSourceLoadOptions loadOptions)
+        {
+            var result = DataSourceLoader.Load(myContext.ActivitiesDetails.Where(m => m.ImpelementationStatus != "Closed" || m.ImpelementationStatus!="Completed"), loadOptions);
+
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.NullValueHandling = NullValueHandling.Ignore;
+            var resultJson = JsonConvert.SerializeObject(result, settings);
+            return Content(resultJson, "application/json");
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateActivity(int key, string values)
+        {
+            var ActivityData = await myContext.ActivitiesDetails.FirstOrDefaultAsync(item => item.ActivityId == key);
+            JsonConvert.PopulateObject(values, ActivityData);
+            ActivityData.UpdatedBy = UserEmail;
+            ActivityData.UpdateDate = DateTime.Now;
+            ActivityData.DepartmentCode = DepartmentCode;
+            ActivityData.SectionCode = SectionCode;
+
+            if (!TryValidateModel(ActivityData))
+                return BadRequest(ValidationErrorMessage);
+
+            await myContext.SaveChangesAsync();
+            return Ok();
+        }
+
+
 
         [HttpDelete]
         public async Task RemoveArticle(int key)
