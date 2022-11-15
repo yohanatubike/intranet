@@ -1,0 +1,49 @@
+networks:
+  dockerapi-dev:
+    driver: bridge
+services:
+  intranetportal:
+    build:
+      context: D:\Projects\intranet-app\tasacintranet
+      dockerfile: IntranetPortal/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      DB_CONNECTION_STRING: host=postgres_image;port=5432;database=IntranetDB;username=postgres;password=TasacIntranetDB@2022
+    image: intranetportal
+    networks:
+      dockerapi-dev: {}
+    ports:
+    - published: 8000
+      target: 80
+    - target: 80
+    volumes:
+    - C:\Users\yohan\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+  pgadmin:
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: '"ictsupport@tasac.go.tz"'
+      PGADMIN_DEFAULT_PASSWORD: '"TasacIntranetDB@2018"'
+    image: dpage/pgadmin4:latest
+    networks:
+      dockerapi-dev: {}
+    ports:
+    - published: 5050
+      target: 80
+    restart: always
+  postgres:
+    container_name: postgres
+    environment:
+      POSTGRES_DB: IntranetDB
+      POSTGRES_PASSWORD: TasacIntranetDB@2022
+      POSTGRES_USER: postgres
+    image: postgres:latest
+    networks:
+      dockerapi-dev: {}
+    ports:
+    - published: 5432
+      target: 5432
+    restart: always
+version: '3.4'
