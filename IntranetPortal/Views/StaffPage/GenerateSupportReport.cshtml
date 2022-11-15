@@ -1,0 +1,246 @@
+﻿@{
+    Layout = "~/Views/Shared/_StaffMaster.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+<script type="text/javascript">
+    //<![CDATA[
+    function onInitNewRow(e, ActivityId) {
+
+        e.data.Activity.ActivityId = ActivityId;
+
+    }
+    //]]>
+</script>
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-home bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Welcome  @User.Identity.Name</h5>
+                    <span>Intranet Portal</span>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+
+                <div class="row">
+
+               
+
+
+                    @if ((await AuthorizationService.AuthorizeAsync(User, "Administrators")).Succeeded)
+                    {
+                        <div class="col-xl-12 col-md-12">
+                            <div class="card latest-update-card">
+                                <div class="card-header">
+                                    <h5> Support Report</h5>
+
+                                    <div class="card-header-right">
+
+                                        <ul class="list-unstyled card-option" style="width:200px;">
+
+                                            <li><i class="feather icon-edit full-card"></i> <a href="/StaffPage/Dashboard">Go back</a></li>
+                                        
+
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                                <div class="card-block">
+                             
+
+                                    @(
+                                    Html.DevExtreme().DataGrid<IntranetPortal.Models.SupportsTicket>
+                                                ()
+                                                .DataSource(ds => ds.Mvc()
+                                                .Controller("SupportTicketAPI")
+                                                .InsertAction("AddNewTicket")
+                                        .LoadAction("GetSupportReports")
+                                                .UpdateAction("UpdateSupportTicket")
+
+                                                .Key("TicketId")
+
+
+                                                )
+                                                .RemoteOperations(true)
+                                                .Columns(columns =>
+                                                {
+
+
+
+                                                    columns.AddFor(m => m.ServiceCategoryCode).SetCellValue("setServiceID").Lookup(r => r
+                                                .DataSource(ds => ds.Mvc().Controller("SupportTicketAPI").LoadAction("GetServices").Key("ServiceCategoryCode"))
+                                                .ValueExpr("ServiceCategoryCode")
+                                                .DisplayExpr("ServiceName"))
+                                                .ValidationRules(r => r
+                                                .AddRequired()
+                                                .Message("Service Name"));
+
+
+                                                    columns.AddFor(m => m.TicketTypes).Lookup(r => r
+                                                .DataSource("getSubServices")
+                                                .ValueExpr("ServiceSubCategoryName")
+                                                .DisplayExpr("ServiceSubCategoryName"))
+                                                .ValidationRules(r => r
+                                                .AddRequired()
+                                                .Message("Ticket  Type"));
+                                                    columns.AddFor(m => m.LodgedBy).Visible(false);
+                                            columns.AddFor(m => m.DepartmentCode);
+                                                    columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                                    columns.AddFor(m => m.AssignedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                                    columns.AddFor(m => m.AttendedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                                    columns.AddFor(m => m.ClosedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                                    columns.AddFor(m => m.AssignedTo);
+
+
+
+                                                columns.AddFor(m => m.Status);
+                                                columns.AddFor(m => m.Description).Visible(false).AllowEditing(false);
+                                                columns.AddFor(m => m.ITComment).Visible(false);
+                                                columns.AddFor(m => m.AttendedBy).Visible(false);
+
+                                            })
+
+                                        .SearchPanel(f => f.Visible(true))
+
+                                        .Paging(p => p.PageSize(10))
+                                        .HeaderFilter(f => f.Visible(true))
+
+                                        .Grouping(g => g.ContextMenuEnabled(true))
+                                        .FilterRow(g=>g.Visible(true))
+                                        .Grouping(g => g.AutoExpandAll(true))
+                                        .RemoteOperations(true)
+                                        .Selection(s => s.Mode(SelectionMode.Multiple))
+                                        .Export(e => e.Enabled(true).FileName("ListTickets").AllowExportSelectedData(true))
+                                        .Editing(e => e
+                                        .AllowAdding(false)
+                                        .Popup(p => p
+                                        .Title("Ticket Reports")
+                                        .ShowTitle(true)
+                                        .Width(1200)
+                                        .Height(400)
+
+
+
+                                        )
+
+                                        .AllowUpdating(false)
+                                        .AllowDeleting(false)
+                                        .Mode(GridEditMode.Popup)
+                                        .UseIcons(true)
+                                        .Form(f => f
+                                        .ID("TicketID")
+                                        .ColCount(1)
+                                        .Items(items =>
+                                        {
+                                            items.AddGroup()
+                                            .ColCount(2)
+                                            .Items(groupItems =>
+                                            {
+
+                                                groupItems.AddSimpleFor(m => m.ServiceCategoryCode);
+                                                groupItems.AddSimpleFor(m => m.TicketTypes);
+                                                groupItems.AddSimpleFor(m => m.AssignedTo);
+                                                groupItems.AddSimpleFor(m => m.Status);
+
+
+
+
+                                            });
+                                            items.AddGroup()
+                                            .ColCount(2)
+                                            .Items(groupItems =>
+                                            {
+                                                groupItems.AddSimpleFor(m => m.Description).Editor(e => e
+                                            .HtmlEditor()
+                                            .Height(190)
+                                            .Toolbar(toolbar => toolbar.Items(
+                                            items =>
+                                            {
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                            })
+
+                                            ));
+                                                groupItems.AddSimpleFor(m => m.ITComment).Editor(e => e
+                                            .HtmlEditor()
+                                            .Height(190)
+                                            .Toolbar(toolbar => toolbar.Items(
+                                            items =>
+                                            {
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                            })
+
+                                            ));
+
+
+
+
+
+
+                                            });
+                                        })
+
+                                        )
+                                        )
+                                        )
+
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    }
+                 
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+    function getSubServices(options) {
+        return {
+            store: DevExpress.data.AspNet.createStore({
+                key: "ServiceSubCategoryName",
+                loadUrl: '@Url.Action("GetSubServices", "SupportTicketAPI", new { httproute = true })'
+            }),
+            filter: options.data ? ["ServiceCategoryCode", "=", options.data.ServiceCategoryCode] : null
+        };
+    }
+    function setServiceID(rowData, value) {
+
+        rowData.ServiceCategoryCode = value;
+        rowData.ServiceSubCategoryName = null;
+    }
+
+
+
+</script>
+

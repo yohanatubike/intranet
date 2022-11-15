@@ -8,6 +8,7 @@ namespace IntranetPortal.Models
     {
         public long UserId { get; set; }
         public string PFNumber { get; set; } = null!;
+        public string? PictureUrl { get; set; } 
         public string FirstName { get; set; } = null!;
         public string? MiddleName { get; set; }
         public string LastName { get; set; } = null!;
@@ -18,6 +19,8 @@ namespace IntranetPortal.Models
         public string MobileNumber { get; set; } = null!;
         public string ReportingTo { get; set; } = null!;
         public string DutyStation { get; set; } = null!;
+        public int? BirthMonth { get; set; }
+        public int? BirthDay { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string? Password { get; set; }
         [ForeignKey("DesignationCode")]

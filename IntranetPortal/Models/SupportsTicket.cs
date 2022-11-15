@@ -8,6 +8,8 @@ namespace IntranetPortal.Models
         public long TicketId { get; set; }
         public string DepartmentCode { get; set; } = null!;
         public string TicketTypes { get; set; } = null!;
+        public string? AttendedBy{ get; set; } 
+        public string? ITComment { get; set; } 
         public DateTime CreatedDate { get; set; }
         public string LodgedBy { get; set; } = null!;
         public string Description { get; set; } = null!;

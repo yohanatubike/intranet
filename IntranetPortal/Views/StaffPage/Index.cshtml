@@ -14,18 +14,18 @@
     //]]>
 </script>
 <div class="page-header card">
-<div class="row align-items-end">
-<div class="col-lg-8">
-<div class="page-header-title">
-<i class="feather icon-home bg-c-blue"></i>
-<div class="d-inline">
-<h5>Welcome  @User.Identity.Name</h5>
-<span>Intranet Portal</span>
-</div>
-</div>
-</div>
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-home bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Welcome @User.Identity.Name</h5>
+                    <span>Intranet Portal</span>
+                </div>
+            </div>
+        </div>
 
-</div>
+    </div>
 </div>
 
 <div class="pcoded-inner-content">
@@ -34,579 +34,280 @@
 <div class="page-body">
 
 <div class="row">
-
-
-
-
-
-
-
 <div class="col-xl-12 col-md-6">
 <div class="card table-card">
 <div class="card-header">
-<h5>Assigned Activities</h5>
-<div class="card-header-right">
-<ul class="list-unstyled card-option">
-<li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
-<li><i class="feather icon-maximize full-card"></i></li>
-<li><i class="feather icon-minus minimize-card"></i></li>
-<li><i class="feather icon-refresh-cw reload-card"></i></li>
-<li><i class="feather icon-trash close-card"></i></li>
-<li><i class="feather icon-chevron-left open-card-option"></i></li>
-</ul>
-</div>
+    <h5>Assigned Activities</h5>
+    <div class="card-header-right">
+        <ul class="list-unstyled card-option">
+            <li class="first-opt">
+                <i class="feather icon-chevron-left open-card-option"></i>
+            </li>
+            <li>
+                <i class="feather icon-maximize full-card"></i>
+            </li>
+            <li>
+                <i class="feather icon-minus minimize-card"></i>
+            </li>
+            <li>
+                <i class="feather icon-refresh-cw reload-card"></i>
+            </li>
+            <li>
+                <i class="feather icon-trash close-card"></i>
+            </li>
+            <li>
+                <i class="feather icon-chevron-left open-card-option"></i>
+            </li>
+        </ul>
+    </div>
 </div>
 
 <div class="card-block">
+@(
+    Html.DevExtreme().DataGrid<IntranetPortal.Models.AssignedOfficersDetail>
+        ()
+        .DataSource(ds => ds.Mvc()
+            .Controller("ActivitiesAPI")
+            .InsertAction("AddNewActivity")
+            .LoadAction("GetOfficersAssignedActivities")
+            .UpdateAction("UpdateActivity")
+            .DeleteAction("RemoveRole")
+            .Key("ActivityId")
+        )
+        .RemoteOperations(true)
+        .Columns(columns =>
+        {
+            columns.AddFor(m => m.Activity.ActivityCode).Caption("Code").Visible(false);
+            columns.AddFor(m => m.Activity.ActivityName).Caption("Name");
+            columns.AddFor(m => m.Activity.PublishStatus).Caption("PublishStatus").Visible(false);
+            columns.AddFor(m => m.Activity.PublishedDate).Caption("PublishStatus").Visible(false);
 
-                                @(
-                                                                                                Html.DevExtreme().DataGrid<IntranetPortal.Models.AssignedOfficersDetail>
-                                                                                                                ()
-                                                                                                                .DataSource(ds => ds.Mvc()
-                                                                                                                .Controller("ActivitiesAPI")
-                                                                                                                    .InsertAction("AddNewActivity")
-                                                                                                                    .LoadAction("GetOfficersAssignedActivities")
-                                        .UpdateAction("UpdateActivity")
-                                                                                                                .DeleteAction("RemoveRole")
-                                                                                                                .Key("ActivityId")
-
-
-                                                                                                                )
-                                                                                                                .RemoteOperations(true)
-                                                                                                                .Columns(columns =>
-                                                                                                                {
-
-
-
-                                            columns.AddFor(m => m.Activity.ActivityCode).Caption("Code").Visible(false);
-                                            columns.AddFor(m => m.Activity.ActivityName).Caption("Name");
-
-                                                                                                                    columns.AddFor(m => m.Activity.StartDate).Caption("Start Date").DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
-                                            columns.AddFor(m => m.Activity.EndDate).Caption("End Date").DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
-                                                                                                                    columns.AddFor(m => m.Activity.Priority).Lookup(r => r
-                                                                                                                               .DataSource(new string[] {
-"Normal",
-"High",
-    "Low"
-
-
-                                                                                                                               }
-                                                                                                                               )
-                                                                                                                               )
-                                                                                                                               .ValidationRules(r => r
-                                                                                                                               .AddRequired()
-                                                                                                                               .Message("Priority is required")
-                                                                                                                                           ); columns.AddFor(m => m.Activity.Description).Caption("Description").CellTemplate(
-@<text>
-
-
-                                            <a href="ActivitiesManagement/ActivitisAttachments?ActivityCode=<%= data.Activity.ActivityCode%>"><div class="feather icon-paperclip  text-primary">Attachment</div></a>
-
-
+            columns.AddFor(m => m.Activity.Outcome).Visible(false);
+            columns.AddFor(m => m.Activity.Output).Visible(false);
+            columns.AddFor(m => m.Activity.Finding).Visible(false);
+            columns.AddFor(m => m.Activity.Lesson).Visible(false);
+            columns.AddFor(m => m.Activity.Expenditure).Visible(false);
+            columns.AddFor(m => m.Activity.PublishdBy).Caption("PublishedBy");
+            columns.AddFor(m => m.Activity.Title).Caption("Title").Visible(false);
+            columns.AddFor(m => m.Activity.StartDate).Caption("Start Date").DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+            columns.AddFor(m => m.Activity.EndDate).Caption("End Date").DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+            columns.AddFor(m => m.Activity.Priority).Lookup(r => r
+                .DataSource(new string[]
+                {
+                    "Normal",
+                    "High",
+                    "Low"
+                }
+                )
+                )
+                .ValidationRules(r => r
+                    .AddRequired()
+                    .Message("Priority is required")
+                );
+            columns.AddFor(m => m.Activity.Description).Caption("Description").CellTemplate(
+                @<text>
 
 
-                                                        </text>);
-                                                        
-                                                                                                                    columns.AddFor(m => m.Activity.ImpelementationStatus).Caption("Status").Lookup(r => r.DataSource(new string[] {
-
-                                "Planned",
-"Implementation",
-"Completed",
- "Archive",
-                                "Cancelled",
+                    <a href="ActivitiesManagement/ActivitisAttachments?ActivityCode=<%= data.Activity.ActivityCode%>">
+                        <div class="feather icon-paperclip  text-primary">Attachment</div>
+                    </a>
 
 
+                 </text>);
+            columns.AddFor(m => m.Activity.ImpelementationStatus).Caption("Status").Lookup(r => r.DataSource(new string[]
+            {
+                "Planned",
+                "Implementation",
+                "Completed",
+                "Archive",
+                "Cancelled",
+            }
+                )
+                )
+                .ValidationRules(r => r
+                    .AddRequired()
+                    .Message("Position is required")
+                );
+            columns.AddFor(m => m.Activity.ImpelementationStatus).DataField("ImpelementationStatus").Caption("Comments").CellTemplate(@<text>
+                                                                                                                                          <a href="ActivitiesManagement/ActivitiesComment?ActivityCode=<%= data.Activity.ActivityCode%>">
+                                                                                                                                              <div class="feather icon-message-square  text-success"> Comments</div>
+                                                                                                                                          </a>
+                                                                                                                                       </text>);
+        })
+        .SearchPanel(f => f.Visible(true))
+        .Paging(p => p.PageSize(10))
+        .HeaderFilter(f => f.Visible(true))
+        .Grouping(g => g.ContextMenuEnabled(true))
+        .Grouping(g => g.AutoExpandAll(true))
+        .AllowColumnResizing(true)
+        .RemoteOperations(true)
+        .Selection(s => s.Mode(SelectionMode.Multiple))
+        .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
+        .Editing(e => e
+            .AllowAdding(false)
+            .Popup(p => p
+                .Title("Add New Role")
+                .ShowTitle(true)
+                .Width(1200)
+                .Height(600)
+            )
+            .AllowUpdating(true)
+            .AllowDeleting(false)
+            .Mode(GridEditMode.Popup)
+            .UseIcons(true)
+            .Form(f => f
+                .ID("UserCreation")
+                .ColCount(1)
+                .Items(items =>
+                {
+                    items.AddGroup()
+                        .ColCount(3)
+                        .Items(groupItems =>
+                        {
+                            groupItems.AddSimpleFor(m => m.Activity.ActivityCode);
+                            groupItems.AddSimpleFor(m => m.Activity.ActivityName);
+                            groupItems.AddSimpleFor(m => m.Activity.StartDate).Editor(e => e.DateBox());
+                            groupItems.AddSimpleFor(m => m.Activity.EndDate).Editor(e => e.DateBox());
+                            ;
+                            groupItems.AddSimpleFor(m => m.Activity.Priority);
+                            groupItems.AddSimpleFor(m => m.Activity.ActualProgress).Visible(true);
+                            groupItems.AddSimpleFor(m => m.Activity.Remarks).Visible(true);
+                            groupItems.AddSimpleFor(m => m.Activity.ImpelementationStatus);
+                        });
 
-                                                                                                                       }
-                                                                                                                                                                                               )
-                                                                                                                                                                                               )
-                                                                                                                                                                                               .ValidationRules(r => r
-                                                                                                                                                                                               .AddRequired()
-                                                                                                                                                                                               .Message("Position is required")
-                                                                                                                                                                                               );
+                    items.AddGroup()
+                        .ColCount(1)
+                        .Items(groupItems =>
+                        {
+                            groupItems.AddSimpleFor(m => m.Activity.Description).Editor(e => e
+                                .HtmlEditor()
+                                .Height(190)
+                                .Toolbar(toolbar => toolbar.Items(
+                                    items =>
+                                    {
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                    })
+                                ));
+                        });
 
-                                            columns.AddFor(m => m.Activity.ImpelementationStatus).DataField("ImpelementationStatus").Caption("Comments").CellTemplate(@<text>
+                    items.AddGroup()
+                        .ColCount(1)
+                        .Items(groupItems =>
+                        {
+                            groupItems.AddSimpleFor(m => m.Activity.Output).Editor(e => e
+                                .HtmlEditor()
+                                .Height(190)
+                                .Toolbar(toolbar => toolbar.Items(
+                                    items =>
+                                    {
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                    })
+                                ));
+                        }).Visible(true);
 
+                    items.AddGroup()
+                        .ColCount(1)
+                        .Items(groupItems =>
+                        {
+                            groupItems.AddSimpleFor(m => m.Activity.Outcome).Editor(e => e
+                                .HtmlEditor()
+                                .Height(190)
+                                .Toolbar(toolbar => toolbar.Items(
+                                    items =>
+                                    {
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                    })
+                                ));
+                        }).Visible(true);
 
-                                                <a href="ActivitiesManagement/ActivitiesComment?ActivityCode=<%= data.Activity.ActivityCode%>"><div class="feather icon-message-square  text-success"> Comments</div></a>
+                    items.AddGroup()
+                        .ColCount(1)
+                        .Items(groupItems =>
+                        {
+                            groupItems.AddSimpleFor(m => m.Activity.Finding).Editor(e => e
+                                .HtmlEditor()
+                                .Height(190)
+                                .Toolbar(toolbar => toolbar.Items(
+                                    items =>
+                                    {
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                    })
+                                ));
+                        }).Visible(true);
 
+                    items.AddGroup()
+                        .ColCount(1)
+                        .Items(groupItems =>
+                        {
+                            groupItems.AddSimpleFor(m => m.Activity.Lesson).Editor(e => e
+                                .HtmlEditor()
+                                .Height(190)
+                                .Toolbar(toolbar => toolbar.Items(
+                                    items =>
+                                    {
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                        items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                    })
+                                ));
+                        }).Visible(true);
+                })
+            )
+        ).MasterDetail(m =>
+        {
+            m.Enabled(true);
 
-
-
-
-
-                                            </text>);
-
-
-
-
-                                                                                                                })
-
-                                                                .SearchPanel(f => f.Visible(true))
-
-                                                                .Paging(p => p.PageSize(10))
-                                                                .HeaderFilter(f => f.Visible(true))
-
-                                                                .Grouping(g => g.ContextMenuEnabled(true))
-                                                                .Grouping(g => g.AutoExpandAll(true))
-                                                                .AllowColumnResizing(true)
-                                                                .RemoteOperations(true)
-                                                                .Selection(s => s.Mode(SelectionMode.Multiple))
-                                                                .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
-                                                                     .Editing(e => e
-                                                                     .AllowAdding(false)
-                                                                     
-                                                                .Popup(p => p
-                                                                .Title("Add New Role")
-                                                                .ShowTitle(true)
-                                                                   .Width(1000)
-                                                                .Height(400)
-
-
-
-                                                                )
-
-                                                                .AllowUpdating(true)
-                                                                .AllowDeleting(false)
-                                                                .Mode(GridEditMode.Popup)
-                                                                .UseIcons(true)
-                                                                .Form(f => f
-                                                                .ID("UserCreation")
-                                                                .ColCount(1)
-                                                                .Items(items =>
-                                                                {
-                                                                    items.AddGroup()
-                                                                                       .ColCount(3)
-                                                                                 .Items(groupItems =>
-                                                                                     {
-
-                                                                                         groupItems.AddSimpleFor(m => m.Activity.ActivityCode);
-                                                                                         groupItems.AddSimpleFor(m => m.Activity.ActivityName);
-                                                                                         groupItems.AddSimpleFor(m => m.Activity.StartDate).Editor(e => e.DateBox());
-                                                                                         groupItems.AddSimpleFor(m => m.Activity.EndDate).Editor(e => e.DateBox()); ;
-                                                                                         groupItems.AddSimpleFor(m => m.Activity.Priority);
-                                                                                         groupItems.AddSimpleFor(m => m.Activity.ImpelementationStatus);
-
-
-
-                                                                                     });
-                                                                    items.AddGroup()
-                                                                      .ColCount(1)
-                                                                .Items(groupItems =>
-                                                                    {
-                                                                            groupItems.AddSimpleFor(m => m.Activity.Description).Editor(e => e
-                                                                            .HtmlEditor()
-                                                                            .Height(190)
-                                                                            .Toolbar(toolbar => toolbar.Items(
-                                                                                items =>
-                                                                                {
-                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Bold);
-                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Italic);
-                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Underline);
-                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
-                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
-                                                                                    items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
-                                                                                })
-                                                                            ));
-
-
-
-
-
-
-                                                                    });
-                                                                })
-
-                                                                )
-                                                                    ).MasterDetail(m =>
-                                                                                                                                                                   {
-                                                                                                                                                                       m.Enabled(true);
-
-                                                                                                                                                                       m.Template(@<text>
-                                                                                                                                                                           @Html.Partial("_AssignedOfficers")
-                                                                                                                                                                       </text>);
-
-
-
-                                                                                                                                                                   })
-                    )
-
-
+            m.Template(@<text>
+                           @Html.Partial("_AssignedOfficers")
+                        </text>);
+        })
+    )
+</div>
+</div>
+</div>
 
 </div>
 </div>
 </div>
-@if ((await AuthorizationService.AuthorizeAsync(User, "Administrators")).Succeeded)
-                    {
-                        <div class="col-xl-12 col-md-12" >
-                            <div class="card latest-update-card">
-                                <div class="card-header">
-                                    <h5>ICT Lodged Support Tickets</h5>
-                                    <div class="card-header-right">
-                                        <ul class="list-unstyled card-option">
-                                            <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
-                                            <li><i class="feather icon-maximize full-card"></i></li>
-                                            <li><i class="feather icon-minus minimize-card"></i></li>
-                                            <li><i class="feather icon-refresh-cw reload-card"></i></li>
-                                            <li><i class="feather icon-trash close-card"></i></li>
-                                            <li><i class="feather icon-chevron-left open-card-option"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="card-block">
-
-                                    @(
-                                    Html.DevExtreme().DataGrid<IntranetPortal.Models.SupportsTicket>
-                                                                                                ()
-                                                                                                .DataSource(ds => ds.Mvc()
-                                                                                                            .Controller("SupportTicketAPI")
-                                                                                                        .InsertAction("AddNewTicket")
-                                                                                                                .LoadAction("GetDepartmentTickets")
-                                        .UpdateAction("UpdateSupportTicket")
-                                   
-                                    .Key("TicketId")
-
-
-                                                                                                )
-                                                                                                .RemoteOperations(true)
-                                                                                                .Columns(columns =>
-                                                                                                {
-
-
-
-                                            columns.AddFor(m => m.ServiceCategoryCode).SetCellValue("setServiceID").Lookup(r => r
-                                            .DataSource(ds => ds.Mvc().Controller("SupportTicketAPI").LoadAction("GetServices").Key("ServiceCategoryCode"))
-                                            .ValueExpr("ServiceCategoryCode")
-                                            .DisplayExpr("ServiceName"))
-                                            .ValidationRules(r => r
-                                            .AddRequired()
-                                            .Message("Service Name"));
-
-
-                                            columns.AddFor(m => m.TicketTypes).Lookup(r => r
-                                            .DataSource("getSubServices")
-                                            .ValueExpr("ServiceSubCategoryName")
-                                            .DisplayExpr("ServiceSubCategoryName"))
-                                            .ValidationRules(r => r
-                                            .AddRequired()
-                                            .Message("Ticket  Type"));
-                                            columns.AddFor(m => m.LodgedBy);
-                                            columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy"); 
-                                            columns.AddFor(m => m.AssignedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy"); 
-                                            columns.AddFor(m => m.AssignedTo)
-   .CellTemplate(@<text>
-                    <% if(data.AssignedTo !=null )
-                    {%>
-                                                <div class="feather icon-corner-up-right  text-warning"> <%= data.AssignedTo %></div>
-                    <% }
-                    if(data.AssignedTo== null )
-                    {%>
-                                                <div class="feather icon-corner-down-right  text-danger">Waiting </div>
-                    <% }
-                    %>
-                                                                               </text>
-                                                                                                            ).Lookup(r => r
-                                                                                                                        .DataSource(ds => ds.Mvc().Controller("SupportTicketAPI").LoadAction("GetListofOfficers").Key("PFNumber"))
-                                                                                                                        .ValueExpr("Email")
-                                                                                                                        .DisplayExpr("Email"))
-                                                                                                                        .ValidationRules(r => r
-                                                                                                                        .AddRequired()
-                                                                                                                        .Message("Assign Officer"));
-
-
-                                                                                                        columns.AddFor(m => m.Status).Caption("Status").Lookup(r => r.DataSource(new string[] {
-
-                                "Assigned",
-                                "Closed",
-                                "In-Progress",
-                                "Onhold",
-                                "Resolved",
-                                
-
-
-
-
-
-                                            }
-                                                                                                                                    )
-                                                                                                                                    )
-                                                                                                                                    .ValidationRules(r => r
-                                                                                                                                    .AddRequired()
-                                                                                                                                    .Message("Position is required")
-                                                                                                                                    );
-                                                                                                        columns.AddFor(m => m.Description).Visible(false);
-
-                                                                                                    })
-
-                                                    .SearchPanel(f => f.Visible(true))
-
-                                                    .Paging(p => p.PageSize(10))
-                                                    .HeaderFilter(f => f.Visible(true))
-
-                                                    .Grouping(g => g.ContextMenuEnabled(true))
-                                                    .Grouping(g => g.AutoExpandAll(true))
-                                                    .RemoteOperations(true)
-                                                    .Selection(s => s.Mode(SelectionMode.Multiple))
-                                                    .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
-                                                     .Editing(e => e
-                                                     .AllowAdding(true)
-                                                    .Popup(p => p
-                                                    .Title("Add Ticket")
-                                                    .ShowTitle(true)
-                                                       .Width(1000)
-                                                    .Height(400)
-
-
-
-                                                    )
-
-                                                    .AllowUpdating(true)
-                                                    .AllowDeleting(true)
-                                                    .Mode(GridEditMode.Popup)
-                                                    .UseIcons(true)
-                                                    .Form(f => f
-                                                    .ID("TicketID")
-                                                    .ColCount(1)
-                                                    .Items(items =>
-                                                    {
-                                                        items.AddGroup()
-                                                                     .ColCount(3)
-                                                                     .Items(groupItems =>
-                                                                         {
-                                                                             
-                                                                             groupItems.AddSimpleFor(m => m.ServiceCategoryCode);
-                                                                         groupItems.AddSimpleFor(m => m.TicketTypes);
-                                                groupItems.AddSimpleFor(m => m.AssignedTo);
-                                                groupItems.AddSimpleFor(m => m.Status);
-
-
-
-
-                                                                     });
-                                                    items.AddGroup()
-                                                      .ColCount(1)
-                                                .Items(groupItems =>
-                                                    {
-                                                        groupItems.AddSimpleFor(m => m.Description).Editor(e => e
-                                                            .HtmlEditor()
-                                                            .Height(190)
-                                                            .Toolbar(toolbar => toolbar.Items(
-                                                                items =>
-                                                                {
-                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Bold);
-                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Italic);
-                                                                    items.Add().FormatName(HtmlEditorToolbarItem.Underline);
-                                                                    items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
-                                                                    items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
-                                                                    items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
-                                                                })
-                                                            ));
-
-
-
-
-
-
-                                                    });
-                                                })
-
-                                                )
-                                                    )
-)
-
-
-
-                                </div>
-                                
-
-                            </div>
-                        </div>
-                    }else
-                    {
-                        <div class="col-xl-12 col-md-12">
-                            <div class="card latest-update-card">
-                                <div class="card-header">
-                                    <h5>Your Support Tickets</h5>
-                                    <div class="card-header-right">
-                                        <ul class="list-unstyled card-option">
-                                            <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
-                                            <li><i class="feather icon-maximize full-card"></i></li>
-                                            <li><i class="feather icon-minus minimize-card"></i></li>
-                                            <li><i class="feather icon-refresh-cw reload-card"></i></li>
-                                            <li><i class="feather icon-trash close-card"></i></li>
-                                            <li><i class="feather icon-chevron-left open-card-option"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="card-block">
-
-                                    @(
-                                    Html.DevExtreme().DataGrid<IntranetPortal.Models.SupportsTicket>
-                                            ()
-                                            .DataSource(ds => ds.Mvc()
-                                            .Controller("SupportTicketAPI")
-                                            .InsertAction("AddNewTicket")
-                                            .LoadAction("GetDepartmentTickets")
-
-                                            .Key("TicketId")
-
-
-                                            )
-                                            .RemoteOperations(true)
-                                            .Columns(columns =>
-                                            {
-
-
-
-
-                                                columns.AddFor(m => m.LodgedBy).Visible(false);
-                                              
-                                                columns.AddFor(m => m.Description).Visible(false);
-                                                columns.AddFor(m => m.ServiceCategoryCode).SetCellValue("setServiceID").Lookup(r => r
-                                                .DataSource(ds => ds.Mvc().Controller("SupportTicketAPI").LoadAction("GetServices").Key("ServiceCategoryCode"))
-                                                .ValueExpr("ServiceCategoryCode")
-                                                .DisplayExpr("ServiceName"))
-                                                .ValidationRules(r => r
-                                                .AddRequired()
-                                                .Message("Service Name"));
-
-
-                                                columns.AddFor(m => m.TicketTypes).Lookup(r => r
-                                                .DataSource("getSubServices")
-                                                .ValueExpr("ServiceSubCategoryName")
-                                                .DisplayExpr("ServiceSubCategoryName"))
-                                                .ValidationRules(r => r
-                                                .AddRequired()
-                                                .Message("Ticket  Type"));
-                                                columns.AddFor(m => m.CreatedDate);
-                                                columns.AddFor(m => m.AssignedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
-                                                columns.AddFor(m => m.AssignedTo)
-                                            .CellTemplate(
-                                    @<text>
-                                        <% if(data.AssignedTo !=null )
-                                    {%>
-                                            <div class="feather icon-corner-up-right  text-warning"> <%= data.AssignedTo %></div>
-                                            <% }
-                                    if(data.AssignedTo== null )
-                                    {%>
-                                                <div class="feather icon-corner-down-right  text-danger">Waiting </div>
-                                                <% }
-                                    %>
-                                    </text>
-                                    );
-                                                columns.AddFor(m => m.Status);
-
-                                        })
-
-                                        .SearchPanel(f => f.Visible(true))
-
-                                        .Paging(p => p.PageSize(10))
-                                        .HeaderFilter(f => f.Visible(true))
-
-                                        .Grouping(g => g.ContextMenuEnabled(true))
-                                        .Grouping(g => g.AutoExpandAll(true))
-                                        .RemoteOperations(true)
-                                        .Selection(s => s.Mode(SelectionMode.Multiple))
-                                        .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
-                                        .Editing(e => e
-                                        .AllowAdding(true)
-                                        .Popup(p => p
-                                        .Title("Add New Role")
-                                        .ShowTitle(true)
-                                        .Width(1000)
-                                        .Height(400)
-
-
-
-                                        )
-
-                                        .AllowUpdating(true)
-                                        .AllowDeleting(true)
-                                        .Mode(GridEditMode.Popup)
-                                        .UseIcons(true)
-                                        .Form(f => f
-                                        .ID("UserCreation")
-                                        .ColCount(1)
-                                        .Items(items =>
-                                        {
-                                            items.AddGroup()
-                                            .ColCount(3)
-                                            .Items(groupItems =>
-                                            {
-
-                                                groupItems.AddSimpleFor(m => m.ServiceCategoryCode);
-                                                groupItems.AddSimpleFor(m => m.TicketTypes);
-
-
-
-
-                                            });
-                                            items.AddGroup()
-                                            .ColCount(1)
-                                            .Items(groupItems =>
-                                            {
-                                                groupItems.AddSimpleFor(m => m.Description).Editor(e => e
-                                            .HtmlEditor()
-                                            .Height(190)
-                                            .Toolbar(toolbar => toolbar.Items(
-                                            items =>
-                                            {
-                                                items.Add().FormatName(HtmlEditorToolbarItem.Bold);
-                                                items.Add().FormatName(HtmlEditorToolbarItem.Italic);
-                                                items.Add().FormatName(HtmlEditorToolbarItem.Underline);
-                                                items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
-                                                items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
-                                                items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
-                                            })
-                                            ));
-
-
-
-
-
-
-                                            });
-                                        })
-
-                                        )
-                                        )
-                                        )
-
-
-
-                                </div>
-
-
-                            </div>
-                        </div>
-                    }
-                </div>
-</div>
-        </div>
-        
 </div>
 </div>
 
 <script>
+        function getSubServices(options) {
+            return {
+                store: DevExpress.data.AspNet.createStore({
+                    key: "ServiceSubCategoryName",
+                    loadUrl: '@Url.Action("GetSubServices", "SupportTicketAPI", new { httproute = true })'
+                }),
+                filter: options.data ? ["ServiceCategoryCode", "=", options.data.ServiceCategoryCode] : null
+            };
+        }
+        function setServiceID(rowData, value) {
 
-    function getSubServices(options) {
-        return {
-            store: DevExpress.data.AspNet.createStore({
-                key: "ServiceSubCategoryName",
-                loadUrl: '@Url.Action("GetSubServices", "SupportTicketAPI", new { httproute = true })'
-            }),
-            filter: options.data ? ["ServiceCategoryCode", "=", options.data.ServiceCategoryCode] : null
-        };
-    }
-    function setServiceID(rowData, value) {
-
-        rowData.ServiceCategoryCode = value;
-        rowData.ServiceSubCategoryName = null;
-    }
-
-
-
-</script>
-
+            rowData.ServiceCategoryCode = value;
+            rowData.ServiceSubCategoryName = null;
+        }
+    </script>

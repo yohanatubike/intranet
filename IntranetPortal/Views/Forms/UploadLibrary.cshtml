@@ -1,0 +1,110 @@
+﻿@using DevExtreme.AspNet.Mvc
+@{
+    Layout = "~/Views/Shared/_StaffMaster.cshtml";
+    ViewData["Title"] = "File  Page";
+}
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-home bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Upload Document</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>Manage Documentations</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
+
+                                <form id="form" method="post" enctype="multipart/form-data">
+
+                                    <div id="fileuploader-container" style="padding-top:10px">
+                                        @(Html.DevExtreme().FileUploader()
+                                            .ID("file-uploader")
+                                            .Name("myFile")
+                                            .Multiple(false)
+                                            .Accept("pdf/*")
+                                            .SelectButtonText("Select document")
+                                            .UploadMode(FileUploadMode.UseForm)
+
+                                            )
+                                    </div>
+                                    <div style="float:right; padding: 10px">
+                                        @(Html.DevExtreme().Button()
+                                            .ID("button")
+                                            .Text("Upload document")
+                                            .Type(ButtonType.Success)
+                                            .UseSubmitBehavior(true)
+                                            )
+                                    </div>
+                                    <div class="text-success" style="font-size:12px;padding:10px">@ViewData["FileUpload"]</div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getFileUploaderInstance() {
+        return $("#file-uploader").dxFileUploader("instance");
+    }
+
+    function fileUploader_valueChanged(e) {
+        var files = e.value;
+        if (files.length > 0) {
+            $("#selected-files .selected-item").remove();
+
+            $.each(files, function (i, file) {
+                var $selectedItem = $("<div />").addClass("selected-item");
+                $selectedItem.append(
+                    $("<span />").html("Name: " + file.name + "<br/>"),
+                    $("<span />").html("Size " + file.size + " bytes" + "<br/>"),
+                    $("<span />").html("Type " + file.type + "<br/>"),
+                    $("<span />").html("Last Modified Date: " + file.lastModifiedDate)
+                );
+                $selectedItem.appendTo($("#selected-files"));
+            });
+            $("#selected-files").show();
+        }
+        else
+            $("#selected-files").hide();
+    }
+
+    function acceptOption_changed(e) {
+        getFileUploaderInstance().option("accept", e.value);
+    }
+
+    function uploadMode_changed(e) {
+        getFileUploaderInstance().option("uploadMode", e.value);
+    }
+
+    function multipleOption_changed(e) {
+        getFileUploaderInstance().option("multiple", e.value);
+    }
+</script>

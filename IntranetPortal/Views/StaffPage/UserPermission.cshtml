@@ -56,8 +56,8 @@
                                                 .Controller("SetupAPI")
                                                  .InsertAction("AddNewPermisson")
                                                 .LoadAction("GetPermissions")
-                                                .UpdateAction("UpdateRole")
-                                                .DeleteAction("RemoveRole")
+                                    .UpdateAction("UpdatePermission")
+                                                
                                                 .Key("PermissionId")
 
                                                 )
@@ -75,25 +75,12 @@
                                         .AddRequired()
                                         .Message("Select User"));
                                         columns.AddFor(m => m.PermissionName).Lookup(r => r
-                                        .DataSource(new string[] {
-                                "Front Slider",
-                                "Activities",
-                                "New & Events",
-                                "Forms",
-                                "Documentation",
-                                "Articles",
-                                "Tips",
-                                "Quiz",
-                                "Library"
-
-
-                                        }
-                                        )
-                                        )
-                                        .ValidationRules(r => r
-                                        .AddRequired()
-                                        .Message("Permission is required")
-                                        ); ;
+                                        .DataSource(ds => ds.Mvc().Controller("SetupAPI").LoadAction("GetPermissionsNames").Key("PermissionName"))
+                                        .ValueExpr("PermissionName")
+                                        .DisplayExpr("PermissionName"))
+                                .ValidationRules(r => r
+                                .AddRequired()
+                                .Message("Select Permission")); ;
                                                     columns.AddFor(m => m.CreatedDate).Visible(false);
                                         columns.AddFor(m => m.Status);
                                         columns.AddFor(m => m.CreatedBy);

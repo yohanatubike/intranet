@@ -73,7 +73,7 @@
                                                                     columns.AddFor(m => m.DutyStation).Visible(false);
                                                                     columns.AddFor(m => m.Email);
                                                                     columns.AddFor(m => m.MobileNumber).Visible(false);
-                                                                        columns.AddFor(m => m.ReportingTo).Caption("Designation").Lookup(r => r
+                                                                        columns.AddFor(m => m.ReportingTo).Caption("Reporting to").Lookup(r => r
                                                                             .DataSource(ds => ds.Mvc().Controller("SetupAPI").LoadAction("GetSupervisoryDesignation").Key("DesignationCode"))
                                                                    .ValueExpr("DesignationCode")
                                                                        .DisplayExpr("StaffDesignation"))
@@ -81,7 +81,17 @@
                                                                     .AddRequired()
                                                                     .Message("Reporting  to is required"));
 
+                                        columns.AddFor(m => m.PictureUrl).DataField("PictureUrl").Caption("Staff Picture").CellTemplate(@<text>
 
+
+                                            <a href="UploadPicture?Pfnumber=<%= data.PFNumber%>"><div class="feather icon-image  text-primary"> Upload Picture</div></a>
+
+
+
+
+
+
+                                        </text>);
                                                                     })
 
                                                                         .SearchPanel(f => f.Visible(true))
@@ -123,7 +133,7 @@
 
                                         });
                                         items.AddGroup()
-                                        .ColCount(3)
+                                        .ColCount(2)
                                         .Items(groupItems =>
                                         {
                                             groupItems.AddSimpleFor(m => m.PFNumber);

@@ -226,7 +226,7 @@
                     <div class="col-xl-12 col-md-12">
                         <div class="card latest-update-card">
                             <div class="card-header">
-                                <h5>Invitde Meeting</h5>
+                                <h5>Invited Meeting</h5>
                                 <div class="card-header-right">
                                     <ul class="list-unstyled card-option">
                                         <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
@@ -246,7 +246,7 @@
                                         .DataSource(ds => ds.Mvc()
                                         .Controller("MeetingManagementAPI")
                                         .InsertAction("AddNewMeeting")
-                                        .LoadAction("GetOfficersInvitedMeetings")
+                                        .LoadAction("GetInvitedMeetings")
                                         .UpdateAction("UpdateMeeting")
                                         .DeleteAction("RemoveRole")
                                         .Key("MeetingId")

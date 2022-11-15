@@ -4,7 +4,7 @@
 
 @{
     ViewData["Title"] = "Add New System";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_StaffMaster.cshtml";
 }
 
 <div class="page-header card">
@@ -88,9 +88,10 @@
                                                     <div class="feather icon-alert-circle text-danger"> No Url</div>
                                                 </a>
 
-                                                <% } if(data.SystemUrl != null) { %>
+                                                <%
+                                                } if(data.SystemUrl != null) { %>
 
-                                                <a href="<%data.SystemUrl%>" target="_blank">
+                                                <a href="<%= data.SystemUrl %>" target="_blank">
                                                     <div class="feather icon-paperclip  text-primary"> Go to system</div>
                                                 </a>
                                                 <%}%>

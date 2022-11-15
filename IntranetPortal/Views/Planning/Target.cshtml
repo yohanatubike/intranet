@@ -1,0 +1,168 @@
+﻿@using IntranetPortal.Models.Planning
+@{
+    Layout = "~/Views/Shared/_StaffMaster.cshtml";
+    ViewData["Title"] = "Target Page";
+}
+
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-home bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Targets Setup</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>Manage Targets</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
+                                <div id="form">
+                                    @(
+                                        Html.DevExtreme().DataGrid<Target>()
+                                        .ShowBorders(false)
+                                        .DataSource(ds => ds.Mvc()
+                                        .Controller("Target")
+                                        .InsertAction("AddTarget")
+                                        .LoadAction("GetTargets")
+                                        .UpdateAction("UpdateTarget")
+                                        .DeleteAction("RemoveTarget")
+                                        .Key("Id")
+                                        )
+                                        .RemoteOperations(true)
+                                        .ID("TargetsDG")
+                                        .Columns(columns =>
+                                        {
+                                            columns.AddFor(m => m.Code).Caption("Code");
+                                            columns.AddFor(m => m.Description).Caption("Description").EncodeHtml(false);
+                                            columns.AddFor(m => m.Status);
+                                            columns.AddFor(m => m.StrategyId).Caption("Strategy").Lookup(r => r
+                                            .DataSource(ds => ds.Mvc().Controller("Strategy").LoadAction("GetStrategies").Key("Id"))
+                                            .ValueExpr("Id")
+                                            .DisplayExpr("Code"))
+                                            .ValidationRules(r => r
+                                            .AddRequired()
+                                            .Message("Strategy"));
+                                            columns.AddFor(m => m.IndicatorId).Caption("Indicator").EncodeHtml(false).Lookup(r => r
+                                            .DataSource(ds => ds.Mvc().Controller("Indicator").LoadAction("GetIndicators").Key("Id"))
+                                            .ValueExpr("Id")
+                                            .DisplayExpr("Description"))
+                                            .ValidationRules(r => r
+                                            .AddRequired()
+                                            .Message("Indicator"));
+                                            columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                        })
+
+                                        .MasterDetail(md =>
+                                        {
+                                            md.Enabled(true);
+                                            md.Template(@<text>
+                                                <div class="master-detail-caption"><%- data.Code %>'s Activities:</div>
+                                                @(Html.DevExtreme().DataGrid<Activity>()
+                                                .ColumnAutoWidth(true)
+                                                .ShowBorders(true)
+                                                .Columns(columns =>
+                                                {
+                                                    columns.AddFor(m => m.Description).EncodeHtml(false);
+                                                    columns.AddFor(m => m.Code);
+                                                    columns.AddFor(m => m.AnnualBudget);
+                                                    columns.AddFor(m => m.CreatedDate);
+                                                    columns.AddFor(m => m.CreatedBy);
+                                                })
+                                                .DataSource(d => d.Mvc()
+                                                .Controller("ActivityTemplate")
+                                                .LoadAction("GetTargetActivities")
+                                                .LoadParams(new { id = new JS("data.Id") })
+                                                )
+                                                )
+                                                </text>);
+                                        })
+
+                                        .SearchPanel(f => f.Visible(true))
+                                        .Paging(p => p.PageSize(10))
+                                        .HeaderFilter(f => f.Visible(true))
+                                        .Grouping(g => g.ContextMenuEnabled(true))
+                                        .Grouping(g => g.AutoExpandAll(true))
+                                        .Selection(s => s.Mode(SelectionMode.Multiple))
+                                        .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
+                                        .Editing(e => e
+                                        .AllowAdding(true)
+                                        .Popup(p => p
+                                        .Title("Add New Target")
+                                        .ShowTitle(true)
+                                        .Width(1000)
+                                        .Height(500)
+                                        )
+
+                                        .AllowUpdating(true)
+                                        .AllowDeleting(true)
+                                        .Mode(GridEditMode.Popup)
+                                        .UseIcons(true)
+
+                                        .Form(f => f
+                                        .ID("target-form")
+                                        .ColCount(1)
+                                        .Items(items =>
+                                        {
+                                            items.AddGroup().ColCount(2).Items(groupItem =>
+                                            {
+                                                groupItem.AddSimpleFor(m => m.Code);
+                                                groupItem.AddSimpleFor(m => m.StrategyId);
+                                                groupItem.AddSimpleFor(m => m.IndicatorId);
+                                                groupItem.AddSimpleFor(m => m.Status).Editor(e => e
+                                            .SelectBox()
+                                            .DataSource(new[]
+                                            {
+                                                "On Track",
+                                                "At Risk",
+                                                "Off Track"
+                                            }));
+                                                items.AddSimpleFor(m => m.Description).Editor(e => e
+                                            .HtmlEditor()
+                                            .Height(170)
+                                            .Toolbar(toolbar => toolbar.Items(
+                                            items =>
+                                            {
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                            })
+                                            ));
+                                            });
+                                        }).FormData(Model)
+                                        )
+                                        )
+                                        )
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

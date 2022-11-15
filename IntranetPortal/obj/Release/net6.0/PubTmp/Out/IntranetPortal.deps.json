@@ -8,69 +8,16 @@
     ".NETCoreApp,Version=v6.0": {
       "IntranetPortal/1.0.0": {
         "dependencies": {
-          "Arch.EntityFrameworkCore.Design": "2.1.15",
           "DevExtreme.AspNet.Core": "20.2.11",
           "DevExtreme.AspNet.Data": "2.8.6",
+          "Microsoft.EntityFrameworkCore": "6.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.8",
-          "Microsoft.TypeScript.MSBuild": "4.7.4",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.17.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.8",
-          "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.5",
-          "Swashbuckle.AspNetCore": "6.3.0"
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.5"
         },
         "runtime": {
           "IntranetPortal.dll": {}
-        }
-      },
-      "Arch.EntityFrameworkCore/2.1.15": {
-        "dependencies": {
-          "Arch.EntityFrameworkCore.Abstractions": "2.1.15",
-          "Arch.EntityFrameworkCore.Analyzers": "2.1.15",
-          "Microsoft.Extensions.Caching.Memory": "6.0.1",
-          "Microsoft.Extensions.DependencyInjection": "6.0.0",
-          "Microsoft.Extensions.Logging": "6.0.0",
-          "Remotion.Linq": "2.2.0",
-          "System.Collections.Immutable": "6.0.0",
-          "System.ComponentModel.Annotations": "4.5.0",
-          "System.Diagnostics.DiagnosticSource": "6.0.0",
-          "System.Interactive.Async": "3.1.1"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Arch.EntityFrameworkCore.dll": {
-            "assemblyVersion": "2.1.15.0",
-            "fileVersion": "2.1.15.20243"
-          }
-        }
-      },
-      "Arch.EntityFrameworkCore.Abstractions/2.1.15": {
-        "runtime": {
-          "lib/netstandard2.0/Arch.EntityFrameworkCore.Abstractions.dll": {
-            "assemblyVersion": "2.1.15.0",
-            "fileVersion": "2.1.15.20243"
-          }
-        }
-      },
-      "Arch.EntityFrameworkCore.Analyzers/2.1.15": {},
-      "Arch.EntityFrameworkCore.Design/2.1.15": {
-        "dependencies": {
-          "Arch.EntityFrameworkCore.Relational": "2.1.15",
-          "Microsoft.CSharp": "4.5.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Arch.EntityFrameworkCore.Design.dll": {
-            "assemblyVersion": "2.1.15.0",
-            "fileVersion": "2.1.15.20243"
-          }
-        }
-      },
-      "Arch.EntityFrameworkCore.Relational/2.1.15": {
-        "dependencies": {
-          "Arch.EntityFrameworkCore": "2.1.15"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Arch.EntityFrameworkCore.Relational.dll": {
-            "assemblyVersion": "2.1.15.0",
-            "fileVersion": "2.1.15.20243"
-          }
         }
       },
       "DevExtreme.AspNet.Core/20.2.11": {
@@ -88,7 +35,7 @@
       },
       "DevExtreme.AspNet.Data/2.8.6": {
         "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.CSharp": "4.4.0",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
@@ -243,7 +190,7 @@
       },
       "Microsoft.AspNetCore.JsonPatch/2.0.0": {
         "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.CSharp": "4.4.0",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
@@ -311,7 +258,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Core": "2.0.0",
           "Microsoft.Extensions.Localization": "2.0.0",
-          "System.ComponentModel.Annotations": "4.5.0"
+          "System.ComponentModel.Annotations": "4.4.0"
         }
       },
       "Microsoft.AspNetCore.Mvc.Formatters.Json/2.0.0": {
@@ -631,7 +578,7 @@
       },
       "Microsoft.CodeAnalysis.CSharp.Scripting/4.0.0": {
         "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.CSharp": "4.4.0",
           "Microsoft.CodeAnalysis.CSharp": "4.0.0",
           "Microsoft.CodeAnalysis.Common": "4.0.0",
           "Microsoft.CodeAnalysis.Scripting.Common": "4.0.0"
@@ -1135,7 +1082,7 @@
           }
         }
       },
-      "Microsoft.CSharp/4.5.0": {},
+      "Microsoft.CSharp/4.4.0": {},
       "Microsoft.DiaSymReader/1.3.0": {
         "dependencies": {
           "NETStandard.Library": "1.6.1"
@@ -1238,7 +1185,6 @@
           "Microsoft.EntityFrameworkCore.Design": "6.0.8"
         }
       },
-      "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
       "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "6.0.0"
@@ -1350,15 +1296,7 @@
       },
       "Microsoft.NETCore.Platforms/2.1.2": {},
       "Microsoft.NETCore.Targets/1.1.3": {},
-      "Microsoft.OpenApi/1.2.3": {
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.OpenApi.dll": {
-            "assemblyVersion": "1.2.3.0",
-            "fileVersion": "1.2.3.0"
-          }
-        }
-      },
-      "Microsoft.TypeScript.MSBuild/4.7.4": {},
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.17.0": {},
       "Microsoft.VisualStudio.Debugger.Contracts/17.2.0": {
         "dependencies": {
           "MessagePack": "2.1.152",
@@ -1716,27 +1654,6 @@
           }
         }
       },
-      "Remotion.Linq/2.2.0": {
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Linq.Expressions": "4.3.0",
-          "System.Linq.Queryable": "4.0.1",
-          "System.ObjectModel": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0",
-          "System.Threading": "4.3.0"
-        },
-        "runtime": {
-          "lib/netstandard1.0/Remotion.Linq.dll": {
-            "assemblyVersion": "2.2.0.0",
-            "fileVersion": "2.2.0.30000"
-          }
-        }
-      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
@@ -1785,44 +1702,6 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
-      "Swashbuckle.AspNetCore/6.3.0": {
-        "dependencies": {
-          "Microsoft.Extensions.ApiDescription.Server": "3.0.0",
-          "Swashbuckle.AspNetCore.Swagger": "6.3.0",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.3.0",
-          "Swashbuckle.AspNetCore.SwaggerUI": "6.3.0"
-        }
-      },
-      "Swashbuckle.AspNetCore.Swagger/6.3.0": {
-        "dependencies": {
-          "Microsoft.OpenApi": "1.2.3"
-        },
-        "runtime": {
-          "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll": {
-            "assemblyVersion": "6.3.0.0",
-            "fileVersion": "6.3.0.0"
-          }
-        }
-      },
-      "Swashbuckle.AspNetCore.SwaggerGen/6.3.0": {
-        "dependencies": {
-          "Swashbuckle.AspNetCore.Swagger": "6.3.0"
-        },
-        "runtime": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
-            "assemblyVersion": "6.3.0.0",
-            "fileVersion": "6.3.0.0"
-          }
-        }
-      },
-      "Swashbuckle.AspNetCore.SwaggerUI/6.3.0": {
-        "runtime": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
-            "assemblyVersion": "6.3.0.0",
-            "fileVersion": "6.3.0.0"
-          }
-        }
-      },
       "System.AppContext/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -1855,7 +1734,7 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         }
       },
-      "System.ComponentModel.Annotations/4.5.0": {},
+      "System.ComponentModel.Annotations/4.4.0": {},
       "System.Composition/1.0.31": {
         "dependencies": {
           "System.Composition.AttributedModel": "1.0.31",
@@ -2081,17 +1960,6 @@
           "System.Runtime.InteropServices": "4.3.0"
         }
       },
-      "System.Interactive.Async/3.1.1": {
-        "dependencies": {
-          "NETStandard.Library": "1.6.1"
-        },
-        "runtime": {
-          "lib/netstandard1.3/System.Interactive.Async.dll": {
-            "assemblyVersion": "3.0.3000.0",
-            "fileVersion": "3.1.1.0"
-          }
-        }
-      },
       "System.IO/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.2",
@@ -2179,18 +2047,6 @@
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
           "System.Threading": "4.3.0"
-        }
-      },
-      "System.Linq.Queryable/4.0.1": {
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Linq.Expressions": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0"
         }
       },
       "System.Memory/4.5.4": {},
@@ -2617,41 +2473,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "Arch.EntityFrameworkCore/2.1.15": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Mr1T0xFiQ5eOqFnIn9DuXGoBggm/b3jC2o4emq7+tKpuxiodeQxophuFrjy5eMBvb0GwZF7QO81kOBltirz8qA==",
-      "path": "arch.entityframeworkcore/2.1.15",
-      "hashPath": "arch.entityframeworkcore.2.1.15.nupkg.sha512"
-    },
-    "Arch.EntityFrameworkCore.Abstractions/2.1.15": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-uQbT1u3IylnxP5cqs9XB18JcTNdgWd5BXYoyB1T1ZCEeagFi4bxZZsfV8A0Q52jjz7HKGxW6YBF27NEpUXVRBQ==",
-      "path": "arch.entityframeworkcore.abstractions/2.1.15",
-      "hashPath": "arch.entityframeworkcore.abstractions.2.1.15.nupkg.sha512"
-    },
-    "Arch.EntityFrameworkCore.Analyzers/2.1.15": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-u8FjGt9fgFZe0GhRIXOsBq+ksD3votb/7SFc08/ke1G9uqAD56se6MONAKRV11jdKaHoIBvYK4e18gqT5IDuNg==",
-      "path": "arch.entityframeworkcore.analyzers/2.1.15",
-      "hashPath": "arch.entityframeworkcore.analyzers.2.1.15.nupkg.sha512"
-    },
-    "Arch.EntityFrameworkCore.Design/2.1.15": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-RqM/ewdmC3WMQgFkcu5NbH97Pj4r/FLSxNkU+C2NPzvmnzKGdmp8mC/l02HdyAWmW+PbjID9a3m/bkAdRwRYXw==",
-      "path": "arch.entityframeworkcore.design/2.1.15",
-      "hashPath": "arch.entityframeworkcore.design.2.1.15.nupkg.sha512"
-    },
-    "Arch.EntityFrameworkCore.Relational/2.1.15": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-L/NGCUVoMm9mcIl7dm46nt7VBv+i7nhv+SvjWjxDVu4bPPvEuBNWk8qX7azje7uexiIzhv89k/YSv/d3vT5q9Q==",
-      "path": "arch.entityframeworkcore.relational/2.1.15",
-      "hashPath": "arch.entityframeworkcore.relational.2.1.15.nupkg.sha512"
     },
     "DevExtreme.AspNet.Core/20.2.11": {
       "type": "package",
@@ -3101,12 +2922,12 @@
       "path": "microsoft.codeanalysis.workspaces.msbuild/4.0.0",
       "hashPath": "microsoft.codeanalysis.workspaces.msbuild.4.0.0.nupkg.sha512"
     },
-    "Microsoft.CSharp/4.5.0": {
+    "Microsoft.CSharp/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
-      "path": "microsoft.csharp/4.5.0",
-      "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
+      "sha512": "sha512-vvVR/B08YVghQ4jHEloxqw2ZWzEGE1AOA5E0DioUM3ujbXz6FD3AfB/0Jl2ohJPd0nXYGwmPe1En6HTsSriq1A==",
+      "path": "microsoft.csharp/4.4.0",
+      "hashPath": "microsoft.csharp.4.4.0.nupkg.sha512"
     },
     "Microsoft.DiaSymReader/1.3.0": {
       "type": "package",
@@ -3170,13 +2991,6 @@
       "sha512": "sha512-+wjKy16Vdz/ArHFvJZ1xXG241OZMFbTY0lS8vTQL4tfo8slX/h1J9PkzbWJjG6G7SMharUwvigIo+vrMO628Xg==",
       "path": "microsoft.entityframeworkcore.tools/6.0.8",
       "hashPath": "microsoft.entityframeworkcore.tools.6.0.8.nupkg.sha512"
-    },
-    "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-LH4OE/76F6sOCslif7+Xh3fS/wUUrE5ryeXAMcoCnuwOQGT5Smw0p57IgDh/pHgHaGz/e+AmEQb7pRgb++wt0w==",
-      "path": "microsoft.extensions.apidescription.server/3.0.0",
-      "hashPath": "microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
       "type": "package",
@@ -3332,19 +3146,12 @@
       "path": "microsoft.netcore.targets/1.1.3",
       "hashPath": "microsoft.netcore.targets.1.1.3.nupkg.sha512"
     },
-    "Microsoft.OpenApi/1.2.3": {
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.17.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Nug3rO+7Kl5/SBAadzSMAVgqDlfGjJZ0GenQrLywJ84XGKO0uRqkunz5Wyl0SDwcR71bAATXvSdbdzPrYRYKGw==",
-      "path": "microsoft.openapi/1.2.3",
-      "hashPath": "microsoft.openapi.1.2.3.nupkg.sha512"
-    },
-    "Microsoft.TypeScript.MSBuild/4.7.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-upap643q2S+DnJrZ77gT2VtazuvC0ps3IIfArKNQdfaQO2CEQ/3hxS1dmOG6VrtVVyageEIsJKNwcGkQmMUwEQ==",
-      "path": "microsoft.typescript.msbuild/4.7.4",
-      "hashPath": "microsoft.typescript.msbuild.4.7.4.nupkg.sha512"
+      "sha512": "sha512-gfDtAL1WhkjbRdbZlt/ZeQYCbgRpNCZCGj+yeqHObsNFRDHjq8qZJOX9AyTxJpSRYMi9SJk7JDyAbbVYRgEhAA==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.17.0",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Debugger.Contracts/17.2.0": {
       "type": "package",
@@ -3521,13 +3328,6 @@
       "path": "nuget.versioning/6.2.1",
       "hashPath": "nuget.versioning.6.2.1.nupkg.sha512"
     },
-    "Remotion.Linq/2.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-fK/76UmpC0FXBlGDFVPLJHQlDLYnGC+XY3eoDgCgbtrhi0vzbXDQ3n/IYHhqSKqXQfGw/u04A1drWs7rFVkRjw==",
-      "path": "remotion.linq/2.2.0",
-      "hashPath": "remotion.linq.2.2.0.nupkg.sha512"
-    },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -3640,34 +3440,6 @@
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore/6.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-3TAV6JqsJF2F5e5d/tiQuW/TlzKXB/n2IcL5QR1FP8ArmLhmPkpeHiLZ3+1YnJ5840/X5ApvpRRJpM9809IjTg==",
-      "path": "swashbuckle.aspnetcore/6.3.0",
-      "hashPath": "swashbuckle.aspnetcore.6.3.0.nupkg.sha512"
-    },
-    "Swashbuckle.AspNetCore.Swagger/6.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-+taHh7kowNF+tQo9a82avwDtfqhAC82jTZTqZwypDpauPvwavyVtJ7+ERxE+yDb6U/nOcMicMmDAGbqbJ2Pc+Q==",
-      "path": "swashbuckle.aspnetcore.swagger/6.3.0",
-      "hashPath": "swashbuckle.aspnetcore.swagger.6.3.0.nupkg.sha512"
-    },
-    "Swashbuckle.AspNetCore.SwaggerGen/6.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-8PRLtqCXTIfc+W/pcyab8GqHzHuFRZ3L+9/fix/ssVknwy/pbgkOqgzq9DGWfKz+MZReIp5ajZLR7bXioDdacQ==",
-      "path": "swashbuckle.aspnetcore.swaggergen/6.3.0",
-      "hashPath": "swashbuckle.aspnetcore.swaggergen.6.3.0.nupkg.sha512"
-    },
-    "Swashbuckle.AspNetCore.SwaggerUI/6.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-OmVLGzyeNBFUAx6E/bqrZW4uxfv9q2MtegYzeHv5Dj8N34ry8104d6OcyRIV4BhwHBSFD1rMvDlPciguFMtQ5w==",
-      "path": "swashbuckle.aspnetcore.swaggerui/6.3.0",
-      "hashPath": "swashbuckle.aspnetcore.swaggerui.6.3.0.nupkg.sha512"
-    },
     "System.AppContext/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -3703,12 +3475,12 @@
       "path": "system.collections.immutable/6.0.0",
       "hashPath": "system.collections.immutable.6.0.0.nupkg.sha512"
     },
-    "System.ComponentModel.Annotations/4.5.0": {
+    "System.ComponentModel.Annotations/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
-      "path": "system.componentmodel.annotations/4.5.0",
-      "hashPath": "system.componentmodel.annotations.4.5.0.nupkg.sha512"
+      "sha512": "sha512-29K3DQ+IGU7LBaMjTo7SI7T7X/tsMtLvz1p56LJ556Iu0Dw3pKZw5g8yCYCWMRxrOF0Hr0FU0FwW0o42y2sb3A==",
+      "path": "system.componentmodel.annotations/4.4.0",
+      "hashPath": "system.componentmodel.annotations.4.4.0.nupkg.sha512"
     },
     "System.Composition/1.0.31": {
       "type": "package",
@@ -3836,13 +3608,6 @@
       "path": "system.globalization.extensions/4.3.0",
       "hashPath": "system.globalization.extensions.4.3.0.nupkg.sha512"
     },
-    "System.Interactive.Async/3.1.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-hZccYiIE5RS1/J9Tb/BNtosAGVggdlsJm4Ojdu+gDV0p4AIi+LUfUogMKkRacljQEJd2AG6vYzvcjhQFkqoZmw==",
-      "path": "system.interactive.async/3.1.1",
-      "hashPath": "system.interactive.async.3.1.1.nupkg.sha512"
-    },
     "System.IO/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -3898,13 +3663,6 @@
       "sha512": "sha512-PGKkrd2khG4CnlyJwxwwaWWiSiWFNBGlgXvJpeO0xCXrZ89ODrQ6tjEWS/kOqZ8GwEOUATtKtzp1eRgmYNfclg==",
       "path": "system.linq.expressions/4.3.0",
       "hashPath": "system.linq.expressions.4.3.0.nupkg.sha512"
-    },
-    "System.Linq.Queryable/4.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
-      "path": "system.linq.queryable/4.0.1",
-      "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
     },
     "System.Memory/4.5.4": {
       "type": "package",

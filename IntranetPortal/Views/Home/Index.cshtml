@@ -4,477 +4,224 @@
 }
 
 <div class="page-header card">
-<div class="row align-items-end">
-<div class="col-lg-8">
-<div class="page-header-title">
-<i class="feather icon-home bg-c-blue"></i>
-<div class="d-inline">
-<h5>Welcome to TASAC Intranet Portal</h5>
-<span>Loremm ipsum dolor sit amet, consectetur adipisicing elit</span>
-</div>
-</div>
-</div>
-<div class="col-lg-4">
-<div class="page-header-breadcrumb">
-<ul class=" breadcrumb breadcrumb-title">
-<li class="breadcrumb-item">
-<a href="index.html"><i class="feather icon-home"></i></a>
-</li>
-<li class="breadcrumb-item"><a href="#!">Dashboard</a> </li>
-</ul>
-</div>
-</div>
-</div>
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-home bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Welcome to TASAC Intranet Portal</h5>
+                    <span>Tanzania Shipping Agencies Corporation</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="page-header-breadcrumb">
+                <ul class=" breadcrumb breadcrumb-title">
+                    <li class="breadcrumb-item">
+                        <a href="index.html"><i class="feather icon-home"></i></a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#!">Dashboard</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="pcoded-inner-content">
-<div class="main-body">
-<div class="page-wrapper">
-<div class="page-body">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
 
-<div class="row">
+                <div class="row">
+                    <div class="col-sm-8">
 
-<div class="col-sm-8" >
+                        <div class="card">
 
-<div class="card">
+                            <div class="card-block">
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                                    </ol>
 
-<div class="card-block">
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-<ol class="carousel-indicators">
-<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-</ol>
-<div class="carousel-inner" role="listbox">
-<div class="carousel-item active">
-<img class="d-block img-fluid w-100" src="jpg/slide1.jpg" alt="First slide">
-<font style="float:none; text-align:end; font-size:10px;">
-Replacing Cluttered, crowded emails: Minimize flood of emails that are hard to keep up with, and important information that is continuously lost and hard to trace.</font>
-</div>
-<div class="carousel-item">
-<img class="d-block img-fluid w-100" src="jpg/slide2.jpg" alt="Second slide">
-<font style="text-align:center;font-size:10px;">
-Replacing Cluttered, crowded emails: Minimize flood of emails that are hard to keep up with, and important information that is continuously lost and hard to trace.</font>
-</div>
-<div class="carousel-item">
-<img class="d-block img-fluid w-100" src="jpg/slide3.jpg" alt="Third slide">
-<font style="text-align:center ;max-width:50%;font-size:10px;">
-Replacing Cluttered, crowded emails: Minimize flood of emails that are hard to keep up with, and important information that is continuously lost and hard to trace.</font>
-</div>
- <div class="carousel-item">
-     
-<img class="d-block img-fluid w-100" src="jpg/slide4.jpg" alt="Third slide">
-<font style=":center; max-width:50%;font-size:10px;">
-Replacing Cluttered, crowded emails: Minimize flood of emails that are hard to keep up with, and important information that is continuously lost and hard to trace.</font>
-</div>
-</div>
-<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-<span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-<span class="carousel-control-next-icon" aria-hidden="true"></span>
-<span class="sr-only">Next</span>
-</a>
-</div>
-</div>
-</div>
+                                    @await Component.InvokeAsync("ShowCarousel")
 
-</div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                    </div>
 
-<div class="col-xl-4 col-md-12"  >
-<div class="card latest-update-card">
-<div class="card-header">
-<h5>Ongoing Activities</h5>
-<div class="card-header-right">
-<ul class="list-unstyled card-option">
-<li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
-<li><i class="feather icon-maximize full-card"></i></li>
-<li><i class="feather icon-minus minimize-card"></i></li>
-<li><i class="feather icon-refresh-cw reload-card"></i></li>
-<li><i class="feather icon-trash close-card"></i></li>
-<li><i class="feather icon-chevron-left open-card-option"></i></li>
-</ul>
-</div>
-</div>
-<div class="card-block">
-<div class="scroll-widget">
-<div class="latest-update-box">
-<div class="row p-t-20 p-b-30">
-<div class="col-auto text-right update-meta p-r-0">
-<i class="feather icon-activity bg-c-yellow update-icon"></i>
-</div>
-<div class="col p-l-5">
-<a href="#!"><h6>Your Manager Posted.</h6></a>
-<p class="text-muted m-b-0">Jonny michel</p>
-</div>
-</div>
-<div class="row p-b-30">
-<div class="col-auto text-right update-meta p-r-0">
-<i class="feather icon-activity bg-c-blue update-icon"></i>
-</div>
-<div class="col p-l-5">
-<a href="#!"><h6>You have 3 pending Task.</h6></a>
-<p class="text-muted m-b-0">Hemilton</p>
-</div>
-</div>
+                    <div class="col-xl-4 col-md-12">
+                        <div class="card latest-update-card">
+                            <div class="card-header">
+                                <h5>Ongoing Activities</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
+                                <div class="scroll-widget">
+                                    <div class="latest-update-box">
 
-<div class="row p-b-30">
-<div class="col-auto text-right update-meta p-r-0">
-<i class="feather icon-activity bg-c-blue update-icon"></i>
-</div>
-<div class="col p-l-5">
-<a href="#!"><h6>New Order Received.</h6></a>
-<p class="text-muted m-b-0">Hemilton</p>
-</div>
-</div>
-<div class="row">
-<div class="col-auto text-right update-meta p-r-0">
-<i class="feather icon-activity bg-c-blue update-icon"></i>
-</div>
-<div class="col p-l-5">
-<a href="#!"><h6>Your Manager Posted.</h6></a>
-<p class="text-muted m-b-0">Jonny michel</p>
-</div>
-</div>
-</div>
+                                        @await Component.InvokeAsync("ShowOngoingActivities")
 
-</div>
-<div class="text-center"><hr />
-<a href="#!" class="b-b-primary text-primary">View all notification</a>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-8 col-md-12">
-<div class="card proj-t-card">
-<div class="card-body">
-<div class="row align-items-center m-b-30">
-<div class="col-auto">
-<i class="far fa-calendar-check text-c-red f-30"></i>
-</div>
-<div class="col p-l-0">
-<h6 class="m-b-5">Latest News & Announcements</h6><hr />
-<h6 class="m-b-0 text-c-red"><p>Intranet Portal Training</p></h6>
-<p>There is a great need to establish and emphasize the use of Intranet in order to leverage the use technology and improve efficiency in   performing day to day activities   performing day to day activities  performing day to day activities  </p>
-</div>
-</div>
-<div class="row align-items-center text-center">
-<div class="col">
- <h6 class="m-b-0">327</h6></div>
-<div class="col"><div class="text-center">
-<a href="#!" class="b-b-primary text-primary">View all </a>
-</div></div>
-<div class="col">
-<h6 class="m-b-0">10 Days</h6></div>
-</div>
-<h6 class="pt-badge bg-c-yellow"></h6>
-</div>
-</div>
-</div>
+                                    </div>
 
-<div class="col-xl-4 col-md-6">
-<div class="card proj-t-card">
-<div class="card-body">
-<div class="row align-items-center m-b-30">
-<div class="col-auto">
-<i class="fas fa-lightbulb text-c-yellow f-30"></i>
-</div>
-<div class="col p-l-0">
-<h6 class="m-b-5">Tip of the Day</h6>
-<hr />
-<h6 class="m-b-0 text-c-black" style="animation: blinker 1s linear infinite;">
-    <p>Pick a task you really want to complete today at all costs. Write out why that task is so important and then do it right away to set the tone for the morning .</p> </h6>
-</div>
-</div>
-<div class="row align-items-center text-center">
-<div class="col">
-<h6 class="m-b-0">22nd </h6></div>
-<div class="col"><div class="text-center">
-<a href="#!" class="b-b-primary text-primary">View all</a>
-</div></div>
-<div class="col">
-<h6 class="m-b-0">October</h6></div>
-</div>
-<h6 class="pt-badge bg-c-yellow"></h6>
-</div>
-</div>
-</div>
-<div class="col-xl-4 col-md-6">
-<div class="card testimonial-card table-card">
-<div class="card-header">
-<h5>Upcomming Birthdays</h5>
-<div class="card-header-right">
-<ul class="list-unstyled card-option">
-<li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
-<li><i class="feather icon-maximize full-card"></i></li>
-<li><i class="feather icon-minus minimize-card"></i></li>
-<li><i class="feather icon-refresh-cw reload-card"></i></li>
-<li><i class="feather icon-trash close-card"></i></li>
-<li><i class="feather icon-chevron-left open-card-option"></i></li>
-</ul>
-</div>
-</div>
-<div class="card-block">
-<div class="review-block">
-<div class="row">
-<div class="col-sm-auto p-r-0">
-<img src="jpg/avatar-2.jpg" alt="user image" class="img-radius profile-img cust-img m-b-15">
-</div>
-<div class="col">
-<h6 class="m-b-15">John Deo</h6>
-<div class="row align-items-center">
-<div class="col">
-<div class="progress">
-<div class="progress-bar bg-c-green" style="width:85%"></div>
-</div>
-</div>
-<div class="col">
-<h6 class="m-b-0">3.2</h6></div>
-</div>
+                                </div>
+                                <div class="text-center">
+                                    <hr />
+                                    <a href="#" class="b-b-primary text-primary">View all notification</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-md-12">
+                        <div class="card proj-t-card">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col-auto">
+                                        <i class="far fa-calendar-check text-c-red f-30"></i>
+                                    </div>
+                                    @await Component.InvokeAsync("ShowTopNews")
+                                </div>
+                                <div class="row align-items-center text-center">
+                                    <div class="col">
+                                        <h6 class="m-b-0">327</h6>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-center">
+                                            <a href="#!" class="b-b-primary text-primary">View all </a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="m-b-0">10 Days</h6>
+                                    </div>
+                                </div>
+                                <h6 class="pt-badge bg-c-yellow"></h6>
+                            </div>
+                        </div>
+                    </div>
 
-</div>
-</div>
-<div class="row">
-<div class="col-sm-auto p-r-0">
- <img src="jpg/avatar-1.jpg" alt="user image" class="img-radius profile-img cust-img m-b-15">
-</div>
-<div class="col">
-<h6 class="m-b-15">John Deo</h6>
-<div class="row align-items-center">
-<div class="col">
-<div class="progress">
-<div class="progress-bar bg-c-blue" style="width:85%"></div>
-</div>
-</div>
-<div class="col">
-<h6 class="m-b-0">3.2</h6></div>
-</div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card proj-t-card">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col-auto">
+                                        <i class="fas fa-lightbulb text-c-yellow f-30"></i>
+                                    </div>
+                                    <div class="col p-l-0">
+                                        <h6 class="m-b-5">Tip of the Day</h6>
+                                        <hr />
+                                        <h6 class="m-b-0 text-c-black" style="animation: blinker 1s linear infinite;">
+                                            <p>Pick a task you really want to complete today at all costs. Write out why that task is so important and then do it right away to set the tone for the morning .</p>
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center text-center">
+                                    <div class="col">
+                                        <h6 class="m-b-0">22nd </h6>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-center">
+                                            <a href="#!" class="b-b-primary text-primary">View all</a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="m-b-0">October</h6>
+                                    </div>
+                                </div>
+                                <h6 class="pt-badge bg-c-yellow"></h6>
+                            </div>
+                        </div>
+                    </div>
 
-</div>
-</div>
-<div class="row">
-<div class="col-sm-auto p-r-0">
-<img src="jpg/avatar-1.jpg" alt="user image" class="img-radius profile-img cust-img m-b-15">
-</div>
-<div class="col">
-<h6 class="m-b-15">John Deo</h6>
-<div class="row align-items-center">
-<div class="col">
-<div class="progress">
-<div class="progress-bar bg-c-red" style="width:85%"></div>
-</div>
-</div>
-<div class="col">
-<h6 class="m-b-0">3.2</h6></div>
-</div>
+                    @await Component.InvokeAsync("ShowUpcomingBirthDays")
+                    <div class="col-xl-4 col-md-12">
+                        <div class="card latest-update-card">
+                            <div class="card-header">
+                                <h5>Previous News</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            @await Component.InvokeAsync("ShowPreviousNews")
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-12">
+                        <div class="card latest-update-card">
+                            <div class="card-header">
+                                <h5>Staff's Notifications</h5>
+                            </div>
+                            @await Component.InvokeAsync("ShowStaffNotifications")
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-header-text">Important Articles</h5>
+                            </div>
+                            @await Component.InvokeAsync("ShowArticles")
+                        </div>
+                    </div>
 
-</div>
-</div>
-</div>
-<hr>
-<div class="text-center">
-<a href="#!" class="b-b-primary text-primary">View all birth days</a>
-</div>
-</div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="card proj-t-card">
+                            <div class="card-body">
+                                <div class="row align-items-center m-b-30">
+                                    <div class="col-auto">
+                                        <i class="fas fa-lightbulb text-c-yellow f-30"></i>
+                                    </div>
+                                    <div class="col p-l-0">
+                                        <h6 class="m-b-5">Tip of the Day</h6>
+                                        <hr />
+                                        <h6 class="m-b-0 text-c-black" style="animation: blinker 1s linear infinite;">
+                                            <p>Pick a task you really want to complete today at all costs. Write out why that task is so important and then do it right away to set the tone for the morning .</p>
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center text-center">
+                                    <div class="col">
+                                        <h6 class="m-b-0">22nd </h6>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-center">
+                                            <a href="#!" class="b-b-primary text-primary">View all</a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="m-b-0">October</h6>
+                                    </div>
+                                </div>
+                                <h6 class="pt-badge bg-c-yellow"></h6>
+                            </div>
+                        </div>
+                    </div>
 
-</div>
-</div>
-<div class="col-xl-4 col-md-12">
-<div class="card latest-update-card">
-<div class="card-header">
-<h5>Previous News</h5>
-<div class="card-header-right">
-<ul class="list-unstyled card-option">
-<li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
-<li><i class="feather icon-maximize full-card"></i></li>
-<li><i class="feather icon-minus minimize-card"></i></li>
-<li><i class="feather icon-refresh-cw reload-card"></i></li>
-<li><i class="feather icon-trash close-card"></i></li>
-<li><i class="feather icon-chevron-left open-card-option"></i></li>
-</ul>
-</div>
-</div>
-<div class="card-block">
-<div class="scroll-widget">
-<div class="latest-update-box">
-<div class="row p-t-20 p-b-30">
-<div class="col-auto text-right update-meta p-r-0">
-<i class="feather icon-check bg-c-red update-icon"></i>
-</div>
-<div class="col p-l-5">
-<a href="#!"><h6>Your Manager Posted.</h6></a>
-<p class="text-muted m-b-0">Jonny michel</p>
-</div>
-</div>
-<div class="row p-b-30">
-<div class="col-auto text-right update-meta p-r-0">
-<i class="feather icon-check bg-c-red update-icon"></i>
-</div>
-<div class="col p-l-5">
-<a href="#!"><h6>You have 3 pending Task.</h6></a>
-<p class="text-muted m-b-0">Hemilton</p>
-</div>
-</div>
-<div class="row p-b-30">
-<div class="col-auto text-right update-meta p-r-0">
-<i class="feather icon-check f-w-600 bg-c-green update-icon"></i>
-</div>
-<div class="col p-l-5">
-<a href="#!"><h6>New Order Received.</h6></a>
-<p class="text-muted m-b-0">Hemilton</p>
-</div>
-</div>
-<div class="row p-b-30">
-<div class="col-auto text-right update-meta p-r-0">
-<i class="feather icon-briefcase bg-c-red update-icon"></i>
-</div>
-<div class="col p-l-5">
-<a href="#!"><h6>You have 3 pending Task.</h6></a>
-<p class="text-muted m-b-0">Hemilton</p>
-</div>
-</div>
-<div class="row p-b-30">
-<div class="col-auto text-right update-meta p-r-0">
-<i class="feather icon-check f-w-600 bg-c-green update-icon"></i>
-</div>
-<div class="col p-l-5">
-<a href="#!"><h6>New Order Received.</h6></a>
-<p class="text-muted m-b-0">Hemilton</p>
-</div>
-</div>
-<div class="row">
-<div class="col-auto text-right update-meta p-r-0">
-<img src="jpg/avatar-4.jpg" alt="user image" class="img-radius img-40 align-top m-r-15 update-icon">
-</div>
-<div class="col p-l-5">
-<a href="#!"><h6>Your Manager Posted.</h6></a>
-<p class="text-muted m-b-0">Jonny michel</p>
-</div>
-</div>
-</div>
-</div>
-
-<div class="text-center"><hr />
-<a href="#!" class="b-b-primary text-primary">View all news</a>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-4 col-md-12">
-<div class="card latest-update-card">
-<div class="card-header">
-<h5>Staff's Notifications</h5>
-
-</div>
-     @await Component.InvokeAsync("ShowStaffNotifications")
-     @*<vc:show-staffnotifications></vc:show-staffnotifications>*@
-
-@*
-                            @{
-                                Html.RenderPartial("_staffNotification");
-                            }*@
-</div>
-</div>
-<div class="col-lg-8">
-<div class="card">
-<div class="card-header">
-<h5 class="card-header-text">Important Articles</h5>
-</div>
-<div class="card-block accordion-block">
-<div id="accordion" role="tablist" aria-multiselectable="true">
-<div class="accordion-panel">
-<div class="accordion-heading" role="tab" id="headingOne">
-<h3 class="card-title accordion-title">
-<a class="accordion-msg waves-effect waves-dark" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-Health Articles
-</a>
-</h3>
-</div>
-<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-<div class="accordion-content accordion-desc">
-<p>
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-</p>
-</div>
-</div>
-</div>
-<div class="accordion-panel">
-<div class="accordion-heading" role="tab" id="headingTwo">
-<h3 class="card-title accordion-title">
-<a class="accordion-msg waves-effect waves-dark" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-Social Articles
-</a>
-</h3>
- </div>
-<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-<div class="accordion-content accordion-desc">
-<p>
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-</p>
-</div>
-</div>
-</div>
-<div class="accordion-panel">
-<div class=" accordion-heading" role="tab" id="headingThree">
-<h3 class="card-title accordion-title">
-<a class="accordion-msg waves-effect waves-dark" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-Business Articles
-</a>
-</h3>
-</div>
-<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-<div class="accordion-content accordion-desc">
-<p>
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-</p>
-
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-</div>
-</div>
-<div class="col-xl-4 col-md-6">
-<div class="card proj-t-card">
-<div class="card-body">
-<div class="row align-items-center m-b-30">
-<div class="col-auto">
-<i class="fas fa-arrow-circle-right text-c-yellow f-30"></i>
-</div>
-<div class="col p-l-0">
-<h6 class="m-b-5">Quiz</h6>
-<hr />
-<h6 class="m-b-0 text-c-black" style="animation: blinker 1s linear infinite;"><p>Pick a task you really want to complete today at all costs. Write out why that task is so important and then do it right away to set</p>  </h6>
-</div>
-</div>
-<div class="row align-items-center text-center">
-<div class="col">
-<h6 class="m-b-0">22nd </h6></div>
-<div class="col"><div class="text-center">
-<a href="#!" class="b-b-primary text-primary">View all</a>
-</div></div>
-<div class="col">
-<h6 class="m-b-0">October</h6></div>
-</div>
-<h6 class="pt-badge bg-c-yellow"></h6>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div></div></div>
-
-
-
+                </div>
+            </div>
+            </div></div></div>

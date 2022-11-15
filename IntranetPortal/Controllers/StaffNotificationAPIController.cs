@@ -73,7 +73,7 @@ namespace IntranetPortal.Controllers
             newNotification.UpdatedDate = DateTime.Now;
             newNotification.Pfnumber = PFNumber;
 
-           
+
             //if (!TryValidateModel(newNotification))
 
             //return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
@@ -81,10 +81,6 @@ namespace IntranetPortal.Controllers
             await myContext.SaveChangesAsync();
 
             return Ok(newNotification);
-        }
-        public IActionResult Index()
-        {
-            return View();
         }
     }
 }

@@ -13,11 +13,11 @@
                 </div>
                 
                     <div class="col p-l-2">
-                        <a href="#!"><h6>@notif.Subject</h6></a>
-                        <p class="text-muted m-b-0">@notif.CreatedBy</p>
+                            <a href="/DisplayDetails/NotificationComment?NotificationID=@notif.NotificationId">
+                                <h8>@notif.Subject</h8>
+                                <p class="text-muted m-b-0">@notif.CreatedBy</p>
+                            </a>
                     </div>
-                
-
             </div>
                 }
                 else
@@ -28,21 +28,19 @@
                         </div>
 
                         <div class="col p-l-2">
-                            <a href="#!"><h6>@notif.Subject</h6></a>
-                            <p class="text-muted m-b-0">@notif.CreatedBy</p>
+                            <a href="/DisplayDetails/NotificationDetails?NotificationID=@notif.NotificationId">
+                                <h8>@notif.Subject</h8>
+                            <p class="text-muted m-b-0">@notif.CreatedBy</p></a>
                         </div>
-
-
                     </div>
                 }
 
                 }
 
         </div>
-
     </div>
     <div class="text-center">
         <hr />
-        <a href="#!" class="b-b-primary text-primary">View all notification</a>
+        <a href="/DisplayDetails/DisplayNotification/" class="b-b-primary text-primary">View all notification</a>
     </div>
 </div>

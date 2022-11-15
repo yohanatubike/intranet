@@ -51,10 +51,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Arch.EntityFrameworkCore.Design": {
-              "target": "Package",
-              "version": "[2.1.15, )"
-            },
             "DevExtreme.AspNet.Core": {
               "target": "Package",
               "version": "[20.2.11, )"
@@ -63,17 +59,19 @@
               "target": "Package",
               "version": "[2.8.6, )"
             },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.46, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.8, )"
-            },
-            "Microsoft.TypeScript.MSBuild": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[4.7.4, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -82,10 +80,6 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[6.0.5, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.3.0, )"
             }
           },
           "imports": [

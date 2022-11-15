@@ -1,0 +1,119 @@
+﻿@using IntranetPortal.Models.Planning
+@{
+    Layout = "~/Views/Shared/_StaffMaster.cshtml";
+    ViewData["Title"] = "Indicators Page";
+}
+
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-home bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Planning Indicators Setup</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5>Manage Planning Indicators</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
+                                <div id="form">
+                                    @(
+                                        Html.DevExtreme().DataGrid<Indicator>()
+                                        .ShowBorders(false)
+                                        .DataSource(ds => ds.Mvc()
+                                        .Controller("Indicator")
+                                        .InsertAction("AddIndicator")
+                                        .LoadAction("GetIndicators")
+                                        .UpdateAction("UpdateIndicator")
+                                        .DeleteAction("RemoveIndicator")
+                                        .Key("Id")
+                                        )
+                                        .RemoteOperations(true)
+                                        .ID("IndicatorsDG")
+                                        .Columns(columns =>
+                                        {
+                                            columns.AddFor(m => m.LessIsGood).Caption("Less Is Good");
+                                            columns.AddFor(m => m.Description).Caption("Description").EncodeHtml(false);
+                                            columns.AddFor(m => m.Value);
+                                            columns.AddFor(m => m.CreatedDate).DataType(GridColumnDataType.Date).Format("dd-MM-yyyy");
+                                        })
+                                        .SearchPanel(f => f.Visible(true))
+                                        .Paging(p => p.PageSize(10))
+                                        .HeaderFilter(f => f.Visible(true))
+                                        .Grouping(g => g.ContextMenuEnabled(true))
+                                        .Grouping(g => g.AutoExpandAll(true))
+                                        .Selection(s => s.Mode(SelectionMode.Multiple))
+                                        .Export(e => e.Enabled(true).FileName("ListofGroups").AllowExportSelectedData(true))
+                                        .Editing(e => e
+                                        .AllowAdding(true)
+                                        .Popup(p => p
+                                        .Title("Add New Indicator")
+                                        .ShowTitle(true)
+                                        .Width(1000)
+                                        .Height(400)
+                                        )
+
+                                        .AllowUpdating(true)
+                                        .AllowDeleting(true)
+                                        .Mode(GridEditMode.Popup)
+                                        .UseIcons(true)
+
+                                        .Form(f => f
+                                        .ID("indicators-form")
+                                        .ColCount(1)
+                                        .Items(items =>
+                                        {
+                                            items.AddGroup().ColCount(2).Items(groupItem =>
+                                            {
+                                                groupItem.AddSimpleFor(m => m.Value);
+                                                groupItem.AddSimpleFor(m => m.LessIsGood).Editor(e => e.CheckBox());
+                                                items.AddSimpleFor(m => m.Description).Editor(e => e
+                                            .HtmlEditor()
+                                            .Height(170)
+                                            .Toolbar(toolbar => toolbar.Items(
+                                            items =>
+                                            {
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Bold);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Italic);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.Underline);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.BulletList);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.AlignJustify);
+                                                items.Add().FormatName(HtmlEditorToolbarItem.IncreaseIndent);
+                                            })
+                                            ));
+                                            });
+                                        }).FormData(Model)
+                                        )
+                                        )
+                                        )
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
