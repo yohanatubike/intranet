@@ -10,7 +10,7 @@
 
                                                                                                               columns.AddFor(m => m.Pfnumber).SortOrder(SortOrder.Desc).Caption("Staff Name").Lookup(r => r
                                              .DataSource(ds => ds.Mvc().Controller("MeetingManagementAPI").LoadAction("GetListofOfficers").Key("PFNumber"))
-                                            .ValueExpr("PFNumber")
+                                            .ValueExpr("Email")
                                             .DisplayExpr("Email"))
                                             .ValidationRules(r => r
                                             .AddRequired()
@@ -27,9 +27,9 @@
 
                                                                                                               columns.AddFor(m => m.IsFocalPerson);
                                                                                                                                                                     
-                                                                                                                                                                        columns.AddFor(m => m.AcceptanceStatus).Lookup(r => r
+                                                                                                                                                                      columns.AddFor(m => m.AcceptanceStatus).Lookup(r => r
                                                                                                   .DataSource(new string[] {
-                                "Accepted",
+                                 "Invited", "Accepted",
                                 "Rejected",
                                 
 

@@ -3,7 +3,7 @@
 @model Documentation
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_StaffMaster.cshtml";
     ViewData["Title"] = "New Documentation";
     //var enumType = Model.DocumentType.GetType();
 }
@@ -74,7 +74,7 @@
                                             @<text>
                                                 <% if(data.Url == null) {%>
 
-                                                <a href="Documentation/UploadDocument?DocumentId=<%= data.DocumentationId%>">
+                                                <a href="Documentation/UploadDocument?DocumentId=<%= data.DocumentationId %>">
                                                     <div class="feather icon-alert-circle  text-danger"> No Attachment</div>
                                                 </a>
 

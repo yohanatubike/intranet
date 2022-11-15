@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="~/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/css/widget.css">
     <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true" />
-    <script src="https://unpkg.com/devextreme-quill@20_2/dist/dx-quill.min.js"></script>
+      <script src="/js/devextreme/dx-quill.min.js"></script>
     <script src="~/js/devextreme/jszip.js"></script>
     <script src="~/js/vendor.js" asp-append-version="true"></script>
 </head>
@@ -79,11 +79,11 @@
                             </li>
                         </ul>
                         <ul class="nav-right">
-                            <li class="header-notification">
+                          @*  <li class="header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
                                         <i class="feather icon-bell"></i>
-                                        <span class="badge bg-c-red">5</span>
+                                        <span class="badge bg-c-red"></span>
                                     </div>
                                     <ul class="show-notification notification-view dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                         <li>
@@ -92,9 +92,9 @@
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="img-radius" src="jpg/avatar-4.jpg" alt="Generic placeholder image">
+                                                
                                                 <div class="media-body">
-                                                    <h5 class="notification-user">Tuesday, 19th July 2022</h5>
+                                                    <h5 class="notification-user">@DateTime.Now.ToString("dddd, dd MMMM yyyy")</h5>
                                                     <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
                                                     <span class="notification-time">30 minutes ago</span>
                                                 </div>
@@ -112,7 +112,7 @@
                                         </li>
                                         <li>
                                             <div class="media">
-                                                <img class="img-radius" src="jpg/avatar-4.jpg" alt="Generic placeholder image">
+                                                
                                                 <div class="media-body">
                                                     <h5 class="notification-user">Sara Soudein</h5>
                                                     <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
@@ -122,20 +122,20 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </li>
-                            <li class="header-notification">
+                            </li>*@
+                            @*<li class="header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="displayChatbox dropdown-toggle" data-toggle="dropdown">
                                         <i class="feather icon-message-square"></i>
                                         <span class="badge bg-c-green">3</span>
                                     </div>
                                 </div>
-                            </li>
+                            </li>*@
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="~/jpg/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                                        <span>Tuesday, 19th July 2022</span>
+
+                                        <span>@DateTime.Now.ToString("dddd, dd MMMM yyyy")</span>
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
@@ -297,55 +297,51 @@
                 <div class="pcoded-wrapper">
                     <nav class="pcoded-navbar" style="padding-top:70px; background-color:#263544">
                         <div class="nav-list">
-                            <div class="pcoded-inner-navbar main-menu">
+                        <div class="pcoded-inner-navbar main-menu">
 
-                                <ul class="pcoded-item pcoded-left-item">
-                                    <li class="pcoded-hasmenu active">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                                            <span class="pcoded-mtext">Home</span>
-                                        </a>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon"><i class="feather icon-map"></i></span>
-                                            <span class="pcoded-mtext">About TASAC</span>
-                                            <span class="pcoded-badge label label-warning" hidden="hidden">NEW</span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class=" ">
-                                                <a href="/About/Departments" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Departments</span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="/About/Units" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Units</span>
-                                                </a>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu active">
+                                    <a href="/" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Home</span>
+                                    </a>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon"><i class="feather icon-map"></i></span>
+                                        <span class="pcoded-mtext">About TASAC</span>
+                                        <span class="pcoded-badge label label-warning" hidden="hidden">NEW</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="/About/Departments" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">Departments</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="/About/Units" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">Units</span>
+                                            </a>
 
-                                            </li>
-                                            <li class=" ">
-                                                <a href="/About/Sections" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Sections</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="/About/Sections" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">Sections</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
 
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-anchor"></i>
-                                            </span>
-                                            <span class="pcoded-mtext">IT Systems</span>
-                                            <span class="pcoded-badge label label-danger" hidden="hidden">100+</span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class="">
-                                                <a href="/Systems" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Add System</span>
-                                                </a>
-                                            </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="/Systems/Core" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon">
+                                            <i class="feather icon-anchor"></i>
+                                        </span>
+                                        <span class="pcoded-mtext">IT Systems</span>
+                                        <span class="pcoded-badge label label-danger" hidden="hidden">100+</span>
+                                    </a>
+                                    @*   <ul class="pcoded-submenu">
+                                           
                                             <li class="">
                                                 <a href="/Systems/Core" class="waves-effect waves-dark">
                                                     <span class="pcoded-mtext">Core System</span>
@@ -356,143 +352,128 @@
                                                     <span class="pcoded-mtext">Support System</span>
                                                 </a>
                                             </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                        </ul>*@
+                                </li>
+                            </ul>
 
-                                <ul class="pcoded-item pcoded-left-item">
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-book"></i>
-                                            </span>
-                                            <span class="pcoded-mtext">Documentations</span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class=" ">
-                                                <a href="/Documentation" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Add New</span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="/Documentation/Policies" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Policies</span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="/Documentation/Guidelines" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Guidelines</span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="/Documentation/Procedures" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Procedures</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-refresh-cw"></i>
-                                            </span>
-                                            <span class="pcoded-mtext">Forms</span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class=" ">
-                                                <a href="/Forms" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Add New</span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="/Forms/FAUForms" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Finance Forms</span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="/Forms/ITForms" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">IT Forms</span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="/Forms/HRForms" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">HR Forms</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-refresh-cw"></i>
-                                            </span>
-                                            <span class="pcoded-mtext">Library</span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class=" ">
-                                                <a href="/Library" class="waves-effect waves-dark">
-                                                    <span class="pcoded-micon">
-                                                        <i class="feather icon-book"></i>
-                                                    </span>
-                                                    <span class="pcoded-mtext">Add New Library</span>
-                                                    <span class="pcoded-badge label label-warning" hidden="hidden">NEW</span>
-                                                </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="/Library/LibrariesList" class="waves-effect waves-dark">
-                                                    <span class="pcoded-micon">
-                                                        <i class="feather icon-book"></i>
-                                                    </span>
-                                                    <span class="pcoded-mtext">Library</span>
-                                                    <span class="pcoded-badge label label-warning" hidden="hidden">NEW</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="/Staffs" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-user"></i>
-                                            </span>
-                                            <span class="pcoded-mtext">Staff List</span>
-                                            <span class="pcoded-badge label label-warning" hidden="hidden">NEW</span>
-                                        </a>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="/Home/Login" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-user-check"></i>
-                                            </span>
-                                            <span class="pcoded-mtext">Staff Login</span>
-                                            <span class="pcoded-badge label label-warning" hidden="hidden">NEW</span>
-                                        </a>
-                                    </li>
-                                    <li class=" " hidden="hidden">
-                                        <a href="form-select.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon">
-                                                <i class="feather icon-feather" hidden="hidden"></i>
-                                            </span>
-                                            <span class="pcoded-mtext" hidden="hidden">Form Select</span>
-                                        </a>
-                                    </li>
-                                    <li class=" " hidden="hidden">
-                                        <a href="form-masking.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon" hidden="hidden">
-                                                <i class="feather icon-shield"></i>
-                                            </span>
-                                            <span class="pcoded-mtext" hidden="hidden">Form Masking</span>
-                                        </a>
-                                    </li>
-                                    <li class=" ">
-                                        <a href="form-wizard.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-micon" hidden="hidden">
-                                                <i class="feather icon-tv"></i>
-                                            </span>
-                                            <span class="pcoded-mtext" hidden="hidden">Form Wizard</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon">
+                                            <i class="feather icon-book"></i>
+                                        </span>
+                                        <span class="pcoded-mtext">Documentations</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                          
+                                        <li class=" ">
+                                            <a href="/Documentation/Policies" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">Policies</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="/Documentation/Guidelines" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">Guidelines</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="/Documentation/Procedures" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">Procedures</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon">
+                                            <i class="feather icon-refresh-cw"></i>
+                                        </span>
+                                        <span class="pcoded-mtext">Forms</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                          
+                                        <li class=" ">
+                                            <a href="/Forms/FAUForms" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">Finance Forms</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="/Forms/ITForms" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">IT Forms</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="/Forms/HRForms" class="waves-effect waves-dark">
+                                                <span class="pcoded-mtext">HR Forms</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon">
+                                            <i class="feather icon-refresh-cw"></i>
+                                        </span>
+                                        <span class="pcoded-mtext">Library</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                           
+                                        <li class=" ">
+                                            <a href="/Library/LibrariesList" class="waves-effect waves-dark">
+                                                <span class="pcoded-micon">
+                                                    <i class="feather icon-book"></i>
+                                                </span>
+                                                <span class="pcoded-mtext">Library</span>
+                                                <span class="pcoded-badge label label-warning" hidden="hidden">NEW</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class=" ">
+                                    <a href="/Staffs" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon">
+                                            <i class="feather icon-user"></i>
+                                        </span>
+                                        <span class="pcoded-mtext">Staff List</span>
+                                        <span class="pcoded-badge label label-warning" hidden="hidden">NEW</span>
+                                    </a>
+                                </li>
+                                <li class=" ">
+                                    <a href="/Home/Login" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon">
+                                            <i class="feather icon-user-check"></i>
+                                        </span>
+                                        <span class="pcoded-mtext">Staff Login</span>
+                                        <span class="pcoded-badge label label-warning" hidden="hidden">NEW</span>
+                                    </a>
+                                </li>
+                                <li class=" " hidden="hidden">
+                                    <a href="form-select.html" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon">
+                                            <i class="feather icon-feather" hidden="hidden"></i>
+                                        </span>
+                                        <span class="pcoded-mtext" hidden="hidden">Form Select</span>
+                                    </a>
+                                </li>
+                                <li class=" " hidden="hidden">
+                                    <a href="form-masking.html" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon" hidden="hidden">
+                                            <i class="feather icon-shield"></i>
+                                        </span>
+                                        <span class="pcoded-mtext" hidden="hidden">Form Masking</span>
+                                    </a>
+                                </li>
+                                <li class=" ">
+                                    <a href="form-wizard.html" class="waves-effect waves-dark">
+                                        <span class="pcoded-micon" hidden="hidden">
+                                            <i class="feather icon-tv"></i>
+                                        </span>
+                                        <span class="pcoded-mtext" hidden="hidden">Form Wizard</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
                     </nav>
 
                     <div class="pcoded-content">
@@ -503,18 +484,11 @@
             </div>
         </div>
     </div>
-    </div>
 
     <div id="styleSelector">
     </div>
 
-    </div>
-    </div>
-    </div>
-    </div>
-
-
-    <!--[if lt IE 10]>
+<!--[if lt IE 10]>
         <div class="ie-warning">
             <h1>Warning!!</h1>
             <p>You are using an outdated version of Internet Explorer, please upgrade

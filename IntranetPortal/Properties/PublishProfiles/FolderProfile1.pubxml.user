@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\mustafa.juma\source\repos\tasacintranet\IntranetPortal\bin\Release\net6.0\publish\</_PublishTargetUrl>
-    <History>True|2022-09-19T06:34:51.2736787Z;True|2022-09-18T10:47:33.9392438+03:00;True|2022-09-13T11:52:07.6784673+03:00;</History>
+    <History>True|2022-09-28T08:11:39.0038432Z;True|2022-09-27T17:37:48.4902338+03:00;True|2022-09-26T12:31:49.8784662+03:00;True|2022-09-19T09:34:51.2736787+03:00;True|2022-09-18T10:47:33.9392438+03:00;True|2022-09-13T11:52:07.6784673+03:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

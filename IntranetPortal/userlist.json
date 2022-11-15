@@ -1,0 +1,2754 @@
+[
+  {
+    "EmployeeCode": "TPF0370",
+    "EmployeeName": "EUNICE KANZA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "SENIOR ACCOUNTS OFFICERS II",
+    "Birthdate": "20-Feb-1964",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0002",
+    "EmployeeName": "DEOGRATIAS MUKASA",
+    "Department": "MARITIME TRANSPORT REGULATION DIRECTORATE",
+    "Job": "DIRECTOR",
+    "Birthdate": "29-Dec-1963",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0004",
+    "EmployeeName": "JULIUS MITINJE",
+    "Department": "MARITIME TRANSPORT REGULATION DIRECTORATE",
+    "Job": "MANAGER",
+    "Birthdate": "09-Jan-1968",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0007",
+    "EmployeeName": "EMMANUEL MARIJANI",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "PRINCIPAL FLAG & PORT STATE CONTROL OFFICER II",
+    "Birthdate": "22-Dec-1970",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0008",
+    "EmployeeName": "SELESTINE MKENDA",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "PRINCIPAL FLAG & PORT STATE CONTROL OFFICER II",
+    "Birthdate": "15-Dec-1963",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0009",
+    "EmployeeName": "MICHAEL EDWARD",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "SENIOR FLAG & PORT STATE CONTROL OFFICER II",
+    "Birthdate": "12-Jun-1970",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0010",
+    "EmployeeName": "ALEX KATAMA",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "SENIOR FLAG & PORT STATE CONTROL OFFICER II",
+    "Birthdate": "17-Jul-1968",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0011",
+    "EmployeeName": "FATUMA MASENENE",
+    "Department": "MARITIME TRANSPORT REGULATION DIRECTORATE",
+    "Job": "MANAGER SHIPPING SERVICE",
+    "Birthdate": "24-Mar-1974",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0013",
+    "EmployeeName": "GHADAF CHAMBO",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "SENIOR FLAG & PORT STATE CONTROL OFFICER II",
+    "Birthdate": "01-Jun-1979",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0014",
+    "EmployeeName": "MAUREEN MARUMA",
+    "Department": "MARITIME TRANSPORT REGULATION DIRECTORATE",
+    "Job": "SENIOR SHIPPING SERVICE OFFICER II",
+    "Birthdate": "24-May-1983",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0015",
+    "EmployeeName": "EMMANUEL LUSUVA",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "SENIOR MARITIME WATCH OFFICER II",
+    "Birthdate": "26-Oct-1979",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0016",
+    "EmployeeName": "DAVID CHIRAGI",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "SENIOR FLAG&PORT STATE CONTROL OFFICER I",
+    "Birthdate": "25-Nov-1977",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0017",
+    "EmployeeName": "ADAM MAMILO",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "SENIOR FLAG & PORT STATE CONTROL OFFICER II",
+    "Birthdate": "12-Nov-1975",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0018",
+    "EmployeeName": "SELEMANI PAZZY",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "SENIOR MARITIME WATCH OFFICER II",
+    "Birthdate": "28-Nov-1978",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0019",
+    "EmployeeName": "MUSA MATAGILA",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "SENIOR FLAG & PORT STATE CONTROL OFFICER II",
+    "Birthdate": "11-May-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0021",
+    "EmployeeName": "PATRICK MIPAWA",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "SENIOR FLAG & PORT STATE CONTROL OFFICER II",
+    "Birthdate": "02-Jun-1982",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0022",
+    "EmployeeName": "ABEDI MWANGA",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "SENIOR FLAG & PORT STATE CONTROL OFFICER II",
+    "Birthdate": "03-Sep-1984",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0023",
+    "EmployeeName": "CHRISTOPHER MLELWA",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "FLAG & PORT STATE CONTROL OFFICER I",
+    "Birthdate": "22-Oct-1974",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0024",
+    "EmployeeName": "JAMES MBWILO",
+    "Department": "MARITIME TRANSPORT REGULATION DIRECTORATE",
+    "Job": "SENIOR SHIPPING SERVICE OFFICER II",
+    "Birthdate": "22-Feb-1977",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0025",
+    "EmployeeName": "BRIGHTON NDOSSI",
+    "Department": "MARITIME TRANSPORT REGULATION DIRECTORATE",
+    "Job": "SENIOR SHIPPING SERVICE OFFICER II",
+    "Birthdate": "15-Sep-1981",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0027",
+    "EmployeeName": "HEZRON LUSANGIJA",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "FLAG & PORT STATE CONTROL OFFICER I",
+    "Birthdate": "13-Mar-1971",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0028",
+    "EmployeeName": "VICTORIA MIYONGA",
+    "Department": "MARITIME TRANSPORT REGULATION DIRECTORATE",
+    "Job": "SHIPPING SERVICES OFFICER II",
+    "Birthdate": "23-Dec-1981",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0030",
+    "EmployeeName": "DILSHARD KAMRUDIN",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "MARITIME WATCH OFFICER II",
+    "Birthdate": "23-Oct-1988",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0031",
+    "EmployeeName": "JOSEPH MKUMBO",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "MARITIME WATCH OFFICER II",
+    "Birthdate": "15-May-1975",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0033",
+    "EmployeeName": "SAUMU KOMBO",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "ACCOUNTS OFFICER I",
+    "Birthdate": "04-Feb-1980",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0035",
+    "EmployeeName": "NAHSON  SIGALLA",
+    "Department": "ECONOMIC REGULATION UNIT",
+    "Job": "DIRECTOR",
+    "Birthdate": "24-Oct-1971",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0037",
+    "EmployeeName": "AMLLON MALINGOTI",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR DRIVER II",
+    "Birthdate": "12-Mar-1978",
+    "Gender": ""
+  },
+  {
+    "EmployeeCode": "TPF0038",
+    "EmployeeName": "RAMADHANI  MBWANA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "SENIOR DRIVER II",
+    "Birthdate": "30-Jul-1980",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0039",
+    "EmployeeName": "JOAS  MUTAZAMBA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "DRIVER  I",
+    "Birthdate": "03-Jul-1970",
+    "Gender": ""
+  },
+  {
+    "EmployeeCode": "TPF0041",
+    "EmployeeName": "AYUBU MANDALA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER  I",
+    "Birthdate": "06-Mar-1976",
+    "Gender": ""
+  },
+  {
+    "EmployeeCode": "TPF0042",
+    "EmployeeName": "MSAFIRI  KIZUKI",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER  I",
+    "Birthdate": "21-May-1978",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0043",
+    "EmployeeName": "ELIJAH MUGENDI",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER  I",
+    "Birthdate": "16-Dec-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0044",
+    "EmployeeName": "PYROTH KOMBA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "DRIVER  I",
+    "Birthdate": "23-Jul-1973",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0045",
+    "EmployeeName": "MAJID BIJAMPOLA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "DRIVER  I",
+    "Birthdate": "22-Apr-1968",
+    "Gender": ""
+  },
+  {
+    "EmployeeCode": "TPF0046",
+    "EmployeeName": "BAHATI  SEGENYA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR OFFICE ATTENDANT II",
+    "Birthdate": "03-Dec-1968",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0047",
+    "EmployeeName": "MARTHA NG'ASHA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "OFFICE MANAGEMENT SECRETARY II",
+    "Birthdate": "23-Nov-1979",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0048",
+    "EmployeeName": "JOHARI MBEGA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "OFFICE MANAGEMENT SECRETARY II",
+    "Birthdate": "26-Apr-1980",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0049",
+    "EmployeeName": "JUDITH MAKENE",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "OFFICE MANAGEMENT SECRETARY II",
+    "Birthdate": "16-Mar-1978",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0050",
+    "EmployeeName": "HAMISA ABDUL",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "OFFICE MANAGEMENT SECRETARY II",
+    "Birthdate": "29-Oct-1975",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0051",
+    "EmployeeName": "THERESIA KUYUNGA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "OFFICE MANAGEMENT SECRETARY II",
+    "Birthdate": "10-Jul-1978",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0052",
+    "EmployeeName": "ROSE  TOWO",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "PERSONAL SECRETARY I",
+    "Birthdate": "23-Mar-1981",
+    "Gender": ""
+  },
+  {
+    "EmployeeCode": "TPF0053",
+    "EmployeeName": "KASSIM  SAID",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "RECORDS MANAGEMENT ASSISTANT I",
+    "Birthdate": "06-Nov-1981",
+    "Gender": ""
+  },
+  {
+    "EmployeeCode": "TPF0054",
+    "EmployeeName": "ASHA  MADEGA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "HUMAN RESOURCE OFFICER II",
+    "Birthdate": "09-Dec-1974",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0055",
+    "EmployeeName": "WALTER  VASOLELA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "MANAGER HUMAN RESOURCES AND ADMINISTRATION",
+    "Birthdate": "31-Oct-1979",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0056",
+    "EmployeeName": "REHEMA  HUSSEIN",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "ADMINISTRATIVE OFFICER I",
+    "Birthdate": "13-Mar-1983",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0057",
+    "EmployeeName": "JACKLINE SHIRIMA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR ADMINISTRATIVE OFFICER I",
+    "Birthdate": "26-Nov-1984",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0058",
+    "EmployeeName": "CHESTER  KAPINGA",
+    "Department": "ECONOMIC REGULATION UNIT",
+    "Job": "SENIOR TARIFFS AND COMPETITION OFFICER  I",
+    "Birthdate": "14-Apr-1980",
+    "Gender": ""
+  },
+  {
+    "EmployeeCode": "TPF0059",
+    "EmployeeName": "ATHMAN ATHMAN",
+    "Department": "ICT & STATISTICS UNIT",
+    "Job": "SENIOR STATISTICIAN II",
+    "Birthdate": "11-Oct-1987",
+    "Gender": ""
+  },
+  {
+    "EmployeeCode": "TPF0060",
+    "EmployeeName": "MARTIN KILANOTA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "SENIOR ACCOUNTANT  II",
+    "Birthdate": "28-Jan-1982",
+    "Gender": ""
+  },
+  {
+    "EmployeeCode": "TPF0061",
+    "EmployeeName": "LEILA DIWANI",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "SENIOR ACCOUNTANT  II",
+    "Birthdate": "08-Dec-1986",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0062",
+    "EmployeeName": "RAMADHANI  M'MBADE",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "ACCOUNTANT II",
+    "Birthdate": "25-Aug-1985",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0063",
+    "EmployeeName": "ISMAIL KONDO",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "SENIOR ACCOUNTS OFFICER II",
+    "Birthdate": "18-Aug-1976",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0064",
+    "EmployeeName": "FRANK NGOTI",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "ACCOUNTANT II",
+    "Birthdate": "29-Jan-1978",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0065",
+    "EmployeeName": "FAUSTINE  MASALU",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "ACCOUNTANT I",
+    "Birthdate": "15-Feb-1986",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0066",
+    "EmployeeName": "ABDALLAH ABDALLAH",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "SENIOR ACCOUNTS OFFICER II",
+    "Birthdate": "25-Feb-1984",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0067",
+    "EmployeeName": "WILLIAM HAULE",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "ACCOUNTS OFFICER II",
+    "Birthdate": "10-Apr-1984",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0068",
+    "EmployeeName": "ADELITUS MWESIGWA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "ACCOUNTS OFFICER II",
+    "Birthdate": "07-Aug-1985",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0069",
+    "EmployeeName": "KASSIMU MSHAKAMAI",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "ACCOUNTANT II",
+    "Birthdate": "06-Nov-1981",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0070",
+    "EmployeeName": "FARAJI KADUMA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "PRINCIPAL ACCOUNTANT I",
+    "Birthdate": "30-May-1981",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0071",
+    "EmployeeName": "EDDA MWAKATOBE",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "SENIOR ACCOUNTANT I",
+    "Birthdate": "21-Nov-1980",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0072",
+    "EmployeeName": "GLORIA TETY",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "SENIOR ACCOUNTANT I",
+    "Birthdate": "06-Jul-1981",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0073",
+    "EmployeeName": "DORA NDABAGA",
+    "Department": "CHIEF INTERNAL AUDIT UNIT",
+    "Job": "SENIOR INTERNAL AUDITOR I",
+    "Birthdate": "17-Nov-1982",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0074",
+    "EmployeeName": "JUDITH KAKONGWE",
+    "Department": "LEGAL SERVICES UNIT",
+    "Job": "SENIOR LEGAL OFFICER I",
+    "Birthdate": "30-Jul-1975",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0076",
+    "EmployeeName": "EMMANUEL NDILANHA",
+    "Department": "ICT & STATISTICS UNIT",
+    "Job": "ICT OFFICER I",
+    "Birthdate": "19-Dec-1977",
+    "Gender": ""
+  },
+  {
+    "EmployeeCode": "TPF0077",
+    "EmployeeName": "SALMA MOHAMED",
+    "Department": "PROCUREMENT MANAGEMENT UNIT",
+    "Job": "PROCUREMENT SUPPLIES OFFICER II",
+    "Birthdate": "25-Jan-1989",
+    "Gender": ""
+  },
+  {
+    "EmployeeCode": "TPF0078",
+    "EmployeeName": "JOSEPH MUHIZI",
+    "Department": "PROCUREMENT MANAGEMENT UNIT",
+    "Job": "PROCUREMENT SUPPLIES OFFICER II",
+    "Birthdate": "22-Nov-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0079",
+    "EmployeeName": "AMINA MIRUKO",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR PUBLIC RELATION OFFICER II",
+    "Birthdate": "24-Oct-1984",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0080",
+    "EmployeeName": "ANNA MALYA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "ECONOMIST I",
+    "Birthdate": "23-Dec-1981",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0081",
+    "EmployeeName": "RUKIA KIMARIO",
+    "Department": "PROCUREMENT MANAGEMENT UNIT",
+    "Job": "SENIOR PROCUREMENT/SUPPLIES OFFICER II",
+    "Birthdate": "14-Apr-1984",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0082",
+    "EmployeeName": "GLORY MOLLEL",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "SENIOR ACCOUNTS OFFICER I",
+    "Birthdate": "07-Dec-1976",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0084",
+    "EmployeeName": "MARIAM MWAKO",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR RECORDS MANAGEMENT ASSISTANT II",
+    "Birthdate": "15-Nov-1984",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0085",
+    "EmployeeName": "MAKIRI NGANGAJI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "MANAGER PLANNING",
+    "Birthdate": "21-Aug-1975",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0086",
+    "EmployeeName": "MOSES NGONGI",
+    "Department": "ICT & STATISTICS UNIT",
+    "Job": "ICT OFFICER I",
+    "Birthdate": "07-Jun-1990",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0090",
+    "EmployeeName": "TAMALI SOVELA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "ACCOUNTS OFFICER I",
+    "Birthdate": "01-Oct-1986",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0091",
+    "EmployeeName": "GABRIEL ANTHONY",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIOR SHIPPING AGENCY OFFICER I",
+    "Birthdate": "12-May-1981",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0093",
+    "EmployeeName": "AHADI CHACHA",
+    "Department": "DIRECTOR GENERAL",
+    "Job": "CHIEF INTERNAL AUDITOR",
+    "Birthdate": "17-Oct-1969",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0094",
+    "EmployeeName": "MICHAEL SAKDALA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "PRINCIPAL CLEARING & FOWARDING OFFICER II",
+    "Birthdate": "04-Jun-1977",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0095",
+    "EmployeeName": "KONRAD SHIO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIOR SHIP TALLYING OFFICER I",
+    "Birthdate": "26-Nov-1967",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0096",
+    "EmployeeName": "HAMIDU KOMBA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIOR CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "07-Jul-1981",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0097",
+    "EmployeeName": "KAIMU MKEYENGE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "DIRECTOR GENERAL",
+    "Birthdate": "22-Feb-1980",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0099",
+    "EmployeeName": "NELSON MLALI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "MANAGER SHIP AGENCIES",
+    "Birthdate": "13-Apr-1967",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0100",
+    "EmployeeName": "NICHOLOUS KINYARIRI",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "HUMAN RESOURCE OFFICER II",
+    "Birthdate": "13-Dec-1978",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0101",
+    "EmployeeName": "NYIKURA MIHONYE",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR HUMAN RESOURCE OFFICER II",
+    "Birthdate": "10-Feb-1988",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0102",
+    "EmployeeName": "RAPHAEL WAMJUNGU",
+    "Department": "ICT & STATISTICS UNIT",
+    "Job": "STATISTICIAN I",
+    "Birthdate": "22-Jun-1986",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0103",
+    "EmployeeName": "MZEE  MVIHANGA",
+    "Department": "MARITIME TRANSPORT REGULATION DIRECTORATE",
+    "Job": "SHIPPING SERVICES OFFICER II",
+    "Birthdate": "09-Aug-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0104",
+    "EmployeeName": "EMANUEL CHUWA",
+    "Department": "PROCUREMENT MANAGEMENT UNIT",
+    "Job": "PROCUREMENT OFFICER 1",
+    "Birthdate": "24-Dec-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0106",
+    "EmployeeName": "FLORENCE SINGANO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING & FOWARDING OFFICER I",
+    "Birthdate": "18-Apr-1988",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0107",
+    "EmployeeName": "KATONGA RASHID",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "FLAG & PORT STATE CONTROL OFFICER I",
+    "Birthdate": "06-May-1975",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0108",
+    "EmployeeName": "BEATRICE CHAO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIOR SHIPPING SERVICE OFFICER II",
+    "Birthdate": "10-Jan-1983",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0109",
+    "EmployeeName": "ANDULILE MWAISAKA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR ECONOMIST I",
+    "Birthdate": "29-Jul-1972",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0110",
+    "EmployeeName": "CHRISTOPHER SHALUA",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "FLAG & PORT STATE CONTROL OFFICER I",
+    "Birthdate": "29-Oct-1970",
+    "Gender": ""
+  },
+  {
+    "EmployeeCode": "TPF0111",
+    "EmployeeName": "AMINA  MZIGHANI",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "SENIOR ACCOUNTANT I",
+    "Birthdate": "04-Aug-1983",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0112",
+    "EmployeeName": "FRANK LUBUVA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "SENIOR ACCOUNTANT I",
+    "Birthdate": "06-Jan-1976",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0113",
+    "EmployeeName": "RAMADHANI SHWAIBU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING & FOWARDING OFFICER I",
+    "Birthdate": "25-Dec-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0114",
+    "EmployeeName": "KHERRY SAADALLAH",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "27-Feb-1988",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0115",
+    "EmployeeName": "ANNO KOMBA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FOWARDING ASSISTANT II",
+    "Birthdate": "30-Sep-1996",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0116",
+    "EmployeeName": "NICKSON MBWAMBO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FOWARDING ASSISTANT II",
+    "Birthdate": "20-Oct-1980",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0117",
+    "EmployeeName": "PATRICK NUNGWE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING & FOWARDING OFFICER I",
+    "Birthdate": "03-Mar-1982",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0118",
+    "EmployeeName": "AIDANI  NIKATA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FOWARDING ASSISTANT II",
+    "Birthdate": "18-Mar-1985",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0119",
+    "EmployeeName": "Mary Makange",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FOWARDING ASSISTANT II",
+    "Birthdate": "11-Nov-1993",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0120",
+    "EmployeeName": "YOHANA TUBIKE",
+    "Department": "ICT & STATISTICS UNIT",
+    "Job": "ICT OFFICER II",
+    "Birthdate": "01-Jun-1992",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0121",
+    "EmployeeName": "JUMA MWACHA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING & FOWARDING OFFICER I",
+    "Birthdate": "07-Jul-1993",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0122",
+    "EmployeeName": "FARIDA SAIDI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "ASSISTANT CLEARING & FOWARDING II",
+    "Birthdate": "25-Jun-1996",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0123",
+    "EmployeeName": "GRACIAN  MUTABUZI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING & FOWARDING OFFICER I",
+    "Birthdate": "20-Apr-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0124",
+    "EmployeeName": "SOFIA MUSTAFA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FOWARDING ASSISTANT II",
+    "Birthdate": "03-Dec-1986",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0125",
+    "EmployeeName": "EVARISTA MTEY",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FOWARDING ASSISTANT II",
+    "Birthdate": "07-Apr-1994",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0126",
+    "EmployeeName": "NEEMA MAJIWA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "ASSISTANT CLEARING & FOWARDING II",
+    "Birthdate": "10-Apr-1994",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0127",
+    "EmployeeName": "ALLY MWAIGWISYA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FOWARDING ASSISTANT II",
+    "Birthdate": "08-Aug-1992",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0128",
+    "EmployeeName": "FADHILA BAKARI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FOWARDING ASSISTANT II",
+    "Birthdate": "02-Aug-1994",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0129",
+    "EmployeeName": "VICK MBISE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "ASSISTANT CLEARING & FOWARDING II",
+    "Birthdate": "27-Mar-1994",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0130",
+    "EmployeeName": "HAPPY SING'AMBI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "11-May-1995",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0131",
+    "EmployeeName": "ADELTUS THEONEST",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING & FOWARDING OFFICER I",
+    "Birthdate": "09-Sep-1989",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0132",
+    "EmployeeName": "DEONATUS MWILANGA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "ICT OFFICER II",
+    "Birthdate": "07-Oct-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0133",
+    "EmployeeName": "OMARI MCHINDU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "ASSISTANT CLEARING & FOWARDING II",
+    "Birthdate": "06-Dec-1991",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0134",
+    "EmployeeName": "ARONI MSHIU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "ASSISTANT CLEARING & FOWARDING II",
+    "Birthdate": "14-May-1991",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0135",
+    "EmployeeName": "MICHAEL MBWAMBO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FOWARDING ASSISTANT II",
+    "Birthdate": "17-Feb-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0136",
+    "EmployeeName": "GLORY SULAI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "ASSISTANT CLEARING & FOWARDING II",
+    "Birthdate": "27-Jun-1988",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0137",
+    "EmployeeName": "INNOCENT KAPINGA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FOWARDING ASSISTANT II",
+    "Birthdate": "17-Mar-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0138",
+    "EmployeeName": "ALLY SIMBE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "ASSISTANT CLEARING & FOWARDING II",
+    "Birthdate": "31-Jul-1989",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0139",
+    "EmployeeName": "BENJAMIN MATHIAS",
+    "Department": "ICT & STATISTICS UNIT",
+    "Job": "ICT OFFICER I",
+    "Birthdate": "21-Nov-1992",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0140",
+    "EmployeeName": "KISAMO MANDARI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "12-Apr-1990",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0141",
+    "EmployeeName": "SELINA MOKITI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "23-Jul-1989",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0142",
+    "EmployeeName": "NEEMA FIDILISHI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FOWARDING ASSISTANT II",
+    "Birthdate": "23-Mar-1989",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0143",
+    "EmployeeName": "HAMISI MIKARO",
+    "Department": "ICT & STATISTICS UNIT",
+    "Job": "ICT OFFICER I",
+    "Birthdate": "11-Apr-1982",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0144",
+    "EmployeeName": "THERESIA WASAGA",
+    "Department": "CHIEF INTERNAL AUDIT UNIT",
+    "Job": "INTERNAL AUDITOR I",
+    "Birthdate": "11-Nov-1985",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0145",
+    "EmployeeName": "FAUDHATI IBRAHIM",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "PERSONAL SECRETARY II",
+    "Birthdate": "18-Nov-1980",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0147",
+    "EmployeeName": "ROSE MENGO",
+    "Department": "ICT & STATISTICS UNIT",
+    "Job": "SENIOR  ICT OFFICER II",
+    "Birthdate": "05-Jun-1982",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0148",
+    "EmployeeName": "ROBERT ZIZI",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR RECORDS MANAGEMENT ASSISTANT II",
+    "Birthdate": "14-Oct-1982",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0149",
+    "EmployeeName": "SIGFRID  MWALUTAMBI",
+    "Department": "ICT & STATISTICS UNIT",
+    "Job": "PRINCIPAL STATISTICIAN I",
+    "Birthdate": "07-Aug-1971",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0150",
+    "EmployeeName": "JUMA MDAKI",
+    "Department": "CHIEF INTERNAL AUDIT UNIT",
+    "Job": "SENIOR INTERNAL AUDITOR I",
+    "Birthdate": "20-Dec-1978",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0151",
+    "EmployeeName": "DEVOTHA MANDANDA",
+    "Department": "LEGAL SERVICES UNIT",
+    "Job": "PRINCIPAL LEGAL OFFICER II",
+    "Birthdate": "20-Dec-1978",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0152",
+    "EmployeeName": "RANIEL SWAI",
+    "Department": "LEGAL SERVICES UNIT",
+    "Job": "LEGAL OFFICER I",
+    "Birthdate": "21-Mar-1988",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0153",
+    "EmployeeName": "JOHN BUTOTO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "PRINNCIPAL PORT SERVICES OFFICER II",
+    "Birthdate": "17-Jan-1989",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0154",
+    "EmployeeName": "SYLVESTER KANYIKA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "PRINNCIPAL PORT SERVICES OFFICER II",
+    "Birthdate": "20-Oct-1978",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0155",
+    "EmployeeName": "ELIPHACE MOLLEL",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIORTALLYING CLERK II",
+    "Birthdate": "09-Apr-1986",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0156",
+    "EmployeeName": "MOZA HAMIMU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIORTALLYING CLERK II",
+    "Birthdate": "01-May-1986",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0157",
+    "EmployeeName": "OSCAR  NGUVUMALI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIORTALLYING CLERK II",
+    "Birthdate": "07-Jun-1984",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0158",
+    "EmployeeName": "JENIFA  MATEMBA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIORTALLYING CLERK II",
+    "Birthdate": "27-Sep-1983",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0159",
+    "EmployeeName": "HERIETH MWAIJANDE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIOR TALLYING CLERK II",
+    "Birthdate": "23-Nov-1988",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0160",
+    "EmployeeName": "RAPHAEL KAHINDI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIOR TALLYING CLERK II",
+    "Birthdate": "02-Apr-1984",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0161",
+    "EmployeeName": "DONALD ADAMSON",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIOR TALLYING CLERK II",
+    "Birthdate": "02-Apr-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0162",
+    "EmployeeName": "JACKLINE MACHA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIOR TALLYING CLERK II",
+    "Birthdate": "19-Dec-1988",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0163",
+    "EmployeeName": "ATHUMANI HIZZA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIOR TALLYING CLERK II",
+    "Birthdate": "24-Jun-1986",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0164",
+    "EmployeeName": "JOHN MASHAURI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SENIOR SHIP AGENCY OFFICER II",
+    "Birthdate": "17-Feb-1979",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0165",
+    "EmployeeName": "SALUM SIOGOPI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP TALLYING OFFICER II",
+    "Birthdate": "15-Oct-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0166",
+    "EmployeeName": "ARNOLD LIFIGA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP TALLYING OFFICER II",
+    "Birthdate": "06-Jul-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0167",
+    "EmployeeName": "MAJILIO MARANGO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP TALLYING OFFICER II",
+    "Birthdate": "12-Dec-1993",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0168",
+    "EmployeeName": "JOSHUA KAYUNI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP TALLYING OFFICER II",
+    "Birthdate": "01-Sep-1993",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0169",
+    "EmployeeName": "ALLY NJAMA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP TALLYING OFFICER II",
+    "Birthdate": "24-Mar-1986",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0170",
+    "EmployeeName": "ALEX KAGERE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP TALLYING OFFICER II",
+    "Birthdate": "14-May-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0171",
+    "EmployeeName": "PHILLEMON RWEZAULA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP TALLYING OFFICER II",
+    "Birthdate": "03-Apr-1992",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0172",
+    "EmployeeName": "ERENEUS KASHANGAKI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP TALLYING OFFICER II",
+    "Birthdate": "28-Nov-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0173",
+    "EmployeeName": "TAMBILIJA PETER",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP TALLYING OFFICER II",
+    "Birthdate": "19-May-1992",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0174",
+    "EmployeeName": "KAMANYA SOGOYE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP TALLYING OFFICER II",
+    "Birthdate": "28-Aug-1992",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0175",
+    "EmployeeName": "ZAMDA SWALEHE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "02-Mar-1991",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0176",
+    "EmployeeName": "CLINTON KITIKU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "01-Dec-1996",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0177",
+    "EmployeeName": "SULTANI OMARI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "25-May-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0178",
+    "EmployeeName": "BARAKA LEGANGA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "01-Apr-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0179",
+    "EmployeeName": "PATIENCE BWEMELO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "16-Feb-1992",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0180",
+    "EmployeeName": "JAMES NIXSON",
+    "Department": "PROCUREMENT MANAGEMENT UNIT",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "21-May-1997",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0181",
+    "EmployeeName": "MOHAMEDI SELEMANI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "03-Mar-1996",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0182",
+    "EmployeeName": "KELVIN  BALEMA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "08-Nov-1991",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0184",
+    "EmployeeName": "ADVENTINA KIBURE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "01-Aug-1990",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0185",
+    "EmployeeName": "SAMWEL MARKI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "09-Aug-1998",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0186",
+    "EmployeeName": "SOPHIA SALIM",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "28-Feb-1980",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0187",
+    "EmployeeName": "HAMISI MRUWA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "29-Dec-1989",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0188",
+    "EmployeeName": "LISA MASHEMA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "13-Jul-1998",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0189",
+    "EmployeeName": "AHMADI MZEE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "31-Dec-1989",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0190",
+    "EmployeeName": "SALUM HASSAN",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "16-Sep-1989",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0191",
+    "EmployeeName": "HODARI MHINA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "08-Aug-1996",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0192",
+    "EmployeeName": "ABDULSAMAD KHAMIS",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "02-Mar-1997",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0193",
+    "EmployeeName": "SIWENGINE SALEHE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "05-May-1979",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0194",
+    "EmployeeName": "RAHMA UWESU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "27-Jun-1996",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0195",
+    "EmployeeName": "SALUM GWAJA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "10-Mar-1995",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0196",
+    "EmployeeName": "SCOLASTICA SWAI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "26-Jun-1994",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0197",
+    "EmployeeName": "AVITUS KARUNDE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "26-Mar-1995",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0198",
+    "EmployeeName": "MALIKI SWAI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "06-Nov-1996",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0199",
+    "EmployeeName": "AZIZA LABAY",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "07-Jul-1997",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0200",
+    "EmployeeName": "RAHMA MKUNDI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "11-May-1994",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0201",
+    "EmployeeName": "BRYCESON KORASSA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "02-Oct-1985",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0202",
+    "EmployeeName": "GEOGRE MNALI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "04-Dec-1982",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0203",
+    "EmployeeName": "GODFREY SESEMI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "07-Dec-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0204",
+    "EmployeeName": "MIRIAM NASSON",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "17-Jan-1990",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0205",
+    "EmployeeName": "RIDHIWAN DANIEL",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "07-Feb-1996",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0206",
+    "EmployeeName": "MUSTAFA MADEBE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK I",
+    "Birthdate": "30-Jul-1993",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0207",
+    "EmployeeName": "ASHIA BAKARI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "11-Nov-1996",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0208",
+    "EmployeeName": "EDGER MARANDU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "09-Jun-1989",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0209",
+    "EmployeeName": "NOEL MRABU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "12-Dec-1990",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0210",
+    "EmployeeName": "AMINA IMEDA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "01-Mar-1994",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0211",
+    "EmployeeName": "CHRISTINA KILUA",
+    "Department": "XXXX",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "06-Apr-1992",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0212",
+    "EmployeeName": "ERNEUS NDIMIKAGO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "25-Feb-1995",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0213",
+    "EmployeeName": "WESA WESA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK II",
+    "Birthdate": "14-Mar-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0214",
+    "EmployeeName": "ALLY HUSSEIN",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "MARITIME REGISTRATION OFFICER II",
+    "Birthdate": "06-Jul-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0215",
+    "EmployeeName": "BRIAN KAMASHO",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "MARITIME WATCH OFFICER II",
+    "Birthdate": "05-May-1990",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0216",
+    "EmployeeName": "BILALY BILALY",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "FLAG AND PORTS STATE CONTROL OFFICER II",
+    "Birthdate": "22-Aug-1993",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0217",
+    "EmployeeName": "Nurdin Basekangaya",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "FLAG AND PORTS STATE CONTROL OFFICER II",
+    "Birthdate": "22-Oct-1983",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0218",
+    "EmployeeName": "MOHAMED ZANDER",
+    "Department": "MARITIME TRANSPORT REGULATION DIRECTORATE",
+    "Job": "SHIPPING SERVICES OFFICER I",
+    "Birthdate": "29-Nov-1974",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0219",
+    "EmployeeName": "MOHAMED LYEMA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP AGENCY OFFICER I",
+    "Birthdate": "08-Aug-1980",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0220",
+    "EmployeeName": "BARAKA MGESI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP AGENCY OFFICER I",
+    "Birthdate": "05-Nov-1990",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0221",
+    "EmployeeName": "AMINA LIKATI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP AGENCY OFFICER I",
+    "Birthdate": "25-Mar-1981",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0222",
+    "EmployeeName": "ADAM SHAABAN",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP AGENCY OFFICER I",
+    "Birthdate": "06-Sep-1991",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0223",
+    "EmployeeName": "DOCTOR KUBINI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP AGENCY OFFICER I",
+    "Birthdate": "14-Jun-1991",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0224",
+    "EmployeeName": "MBWANA NG'ANZI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP AGENCY OFFICER I",
+    "Birthdate": "11-Nov-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0225",
+    "EmployeeName": "FRANK NZUNDA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP AGENCY OFFICER I",
+    "Birthdate": "11-Dec-1990",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0226",
+    "EmployeeName": "KASSIM MANAMBA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP AGENCY OFFICER I",
+    "Birthdate": "16-Mar-1976",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0227",
+    "EmployeeName": "STEVEN JUNIOR",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP AGENCY OFFICER I",
+    "Birthdate": "30-Aug-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0228",
+    "EmployeeName": "EUSTADIUS BUSHAIJABWE",
+    "Department": "MARITIME TRANSPORT REGULATION DIRECTORATE",
+    "Job": "SHIPPING SERVICES OFFICER II",
+    "Birthdate": "07-Sep-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0229",
+    "EmployeeName": "RAMLA KHAMISI",
+    "Department": "MARITIME TRANSPORT REGULATION DIRECTORATE",
+    "Job": "SHIPPING SERVICES OFFICER II",
+    "Birthdate": "22-Jun-1995",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0230",
+    "EmployeeName": "AGNES SHAYO",
+    "Department": "MARITIME TRANSPORT REGULATION DIRECTORATE",
+    "Job": "SHIPPING SERVICES OFFICER II",
+    "Birthdate": "27-Apr-1993",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0232",
+    "EmployeeName": "FATMA HILAL",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK I",
+    "Birthdate": "07-Jun-1990",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0233",
+    "EmployeeName": "MARCELLA MAYALLA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK I",
+    "Birthdate": "17-Jul-1987",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0234",
+    "EmployeeName": "GETRUDE KILEWO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK I",
+    "Birthdate": "06-Apr-1986",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0235",
+    "EmployeeName": "ALLY MTANDA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK I",
+    "Birthdate": "01-Sep-1992",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0236",
+    "EmployeeName": "NASRA ALLY",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK I",
+    "Birthdate": "22-Jan-1993",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0237",
+    "EmployeeName": "EVELYN MAGOGWA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK I",
+    "Birthdate": "03-Aug-1993",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0238",
+    "EmployeeName": "BEATRICE SEMKIWA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK I",
+    "Birthdate": "13-Dec-1985",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0239",
+    "EmployeeName": "IRENE DUMBA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TALLYING CLERK I",
+    "Birthdate": "09-Aug-1990",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0240",
+    "EmployeeName": "LUSAKO MWAKATOBE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP AGENCY OFFICER II",
+    "Birthdate": "31-Aug-1986",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0241",
+    "EmployeeName": "VEDASTUS MAHENDEKA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP AGENCY OFFICER II",
+    "Birthdate": "21-Jul-1993",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0243",
+    "EmployeeName": "VICTORIA MUSHI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP AGENCY OFFICER II",
+    "Birthdate": "12-Dec-1994",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0244",
+    "EmployeeName": "RENATUS MUYA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "SHIP AGENCY OFFICER II",
+    "Birthdate": "16-Mar-1991",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0245",
+    "EmployeeName": "HAMISI KITUNDU",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "26-Apr-1990",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0246",
+    "EmployeeName": "STEVEN MDUMA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "02-Mar-1983",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0247",
+    "EmployeeName": "BONIFACE KIPENDA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "07-May-1984",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0248",
+    "EmployeeName": "ASHERI CHAMBO",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "31-Jul-1988",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0249",
+    "EmployeeName": "HASSAN MLANZI",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "29-Oct-1991",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0250",
+    "EmployeeName": "BARAKA MBAGO",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "29-Dec-1981",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0251",
+    "EmployeeName": "ABUBAKARI MWANGOKA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "13-Feb-1977",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0252",
+    "EmployeeName": "HAMZA HUSSEIN",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "28-May-1993",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0253",
+    "EmployeeName": "ALLY  ALLY",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "14-Jun-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0254",
+    "EmployeeName": "JUMA ALLY",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "11-Feb-1983",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0255",
+    "EmployeeName": "HASSAN HAMIMU",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "07-Dec-1991",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0256",
+    "EmployeeName": "CHARLES UTONDO",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "02-Feb-1976",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0257",
+    "EmployeeName": "GABRIEL NINDORERA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "FLAG AND PORTS STATE CONTROL OFFICER II",
+    "Birthdate": "06-Dec-1988",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0258",
+    "EmployeeName": "ALLY YAKITI",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "PRINCIPAL ACCOUNTANT I",
+    "Birthdate": "04-Jun-1978",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0259",
+    "EmployeeName": "LANCE KAMBANGA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "CLEARING & FOWARDING OFFICER I",
+    "Birthdate": "08-Jun-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0260",
+    "EmployeeName": "ALBERT LYAMUYA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING & FOWARDING OFFICER I",
+    "Birthdate": "24-Mar-1993",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0261",
+    "EmployeeName": "FULGENCE LYIMO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING & FOWARDING OFFICER I",
+    "Birthdate": "29-May-1986",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0262",
+    "EmployeeName": "MBOKA MWAMAKULA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING & FOWARDING OFFICER I",
+    "Birthdate": "24-Jul-1983",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0263",
+    "EmployeeName": "JACKSON MREMA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING & FOWARDING OFFICER I",
+    "Birthdate": "13-Dec-1989",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0264",
+    "EmployeeName": "ARNOLD MWALUGELO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "10-Feb-1988",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0265",
+    "EmployeeName": "MAGOMA TUNGARAZA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "TRANSPORT OFFICER I",
+    "Birthdate": "13-Dec-1990",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0266",
+    "EmployeeName": "AISHA ABDALLA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "20-Sep-1995",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0267",
+    "EmployeeName": "MOHAMED  ABDALLAH",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "16-May-1995",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0268",
+    "EmployeeName": "NANCY AMANI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "29-Sep-1993",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0269",
+    "EmployeeName": "ANTHONY  ANTHONY",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "18-Jan-1995",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0270",
+    "EmployeeName": "ATHUMAN ATHUMAN",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "28-Feb-1995",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0271",
+    "EmployeeName": "FRANK BIGO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "04-Apr-1988",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0272",
+    "EmployeeName": "MUSA CHILENDU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "31-Aug-1996",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0273",
+    "EmployeeName": "MASUDI DAUD",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "25-Jul-1991",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0274",
+    "EmployeeName": "FRANK  FELIX",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "05-May-1985",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0275",
+    "EmployeeName": "ELIZABETH HIZZA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "17-Aug-1995",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0276",
+    "EmployeeName": "BILLY HUDSON",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "12-Mar-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0277",
+    "EmployeeName": "JOFFREY JORAM",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "09-Mar-1992",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0278",
+    "EmployeeName": "MOHAMED JUMAA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "30-Oct-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0279",
+    "EmployeeName": "BETTY KARUME",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "02-Nov-1987",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0280",
+    "EmployeeName": "KENAN KATINDASA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "22-Aug-1993",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0281",
+    "EmployeeName": "GEORGE KETAKETA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "09-Nov-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0282",
+    "EmployeeName": "AGNES KINGU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "06-Jul-1994",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0283",
+    "EmployeeName": "JULIUS KIMARO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "04-Jan-1993",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0284",
+    "EmployeeName": "BARAKA KINGURU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "23-Dec-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0285",
+    "EmployeeName": "THERESIA KISAKA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "01-Oct-1991",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0286",
+    "EmployeeName": "FESTO LEBA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "17-Feb-1996",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0287",
+    "EmployeeName": "FRANCIS LUGALA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "27-Sep-1984",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0288",
+    "EmployeeName": "KELVIN MACHA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "16-Jul-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0289",
+    "EmployeeName": "USWEGE MASALU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "01-Jan-1992",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0290",
+    "EmployeeName": "AMANI MASUE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "13-Aug-1992",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0291",
+    "EmployeeName": "MOSES MAYANJA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "26-Feb-1996",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0292",
+    "EmployeeName": "NASHON MIDAGWE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "13-Jul-1990",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0293",
+    "EmployeeName": "FREDRICK MUSHI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "05-Sep-1991",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0294",
+    "EmployeeName": "SELINA MWAIMU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "20-Nov-1988",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0295",
+    "EmployeeName": "NAKIJWA MWANGUO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "09-May-1995",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0296",
+    "EmployeeName": "CHARLES BEN",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "24-Jun-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0297",
+    "EmployeeName": "LUGANO MWASOMOLA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "13-Oct-1995",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0298",
+    "EmployeeName": "LUTENGANO MWAKATOBE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "06-Aug-1995",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0299",
+    "EmployeeName": "KASSIAN  MDASI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "04-Jul-1990",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0300",
+    "EmployeeName": "YONA MKOI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "29-Feb-1992",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0301",
+    "EmployeeName": "NAOMI MLIPU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "24-Apr-1994",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0302",
+    "EmployeeName": "HAPPINESS NKONOLAH",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "27-Dec-1990",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0303",
+    "EmployeeName": "CHRISTOPHER NDEGANI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "22-Feb-1996",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0304",
+    "EmployeeName": "IBRAHIM OSWAGO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "20-Apr-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0305",
+    "EmployeeName": "MUSA RASHIDI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "22-Oct-1993",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0306",
+    "EmployeeName": "GEORGE ROBERT",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "25-Nov-1991",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0307",
+    "EmployeeName": "FESTO SEJE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "15-Sep-1984",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0308",
+    "EmployeeName": "SHABANI SHEMA",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "24-Jul-1990",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0309",
+    "EmployeeName": "ESTHER SHEMU",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "07-Apr-1996",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0310",
+    "EmployeeName": "HAJRA SHOO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "22-Mar-1991",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0311",
+    "EmployeeName": "MOHAMED SHESHE",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "23-Apr-1996",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0312",
+    "EmployeeName": "FELICHISM TARIMO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "04-Aug-1993",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0313",
+    "EmployeeName": "ANDREW TEVELI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "21-Jul-1992",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0314",
+    "EmployeeName": "SUBIRA VALERIANI",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "30-Jul-1993",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0315",
+    "EmployeeName": "VENANCE  XAVERY",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FORWARDING OFFICER II",
+    "Birthdate": "22-Nov-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0316",
+    "EmployeeName": "MOSSY MUDONKO",
+    "Department": "ICT & STATISTICS UNIT",
+    "Job": "Head ICT & STATISTICS",
+    "Birthdate": "16-Apr-1967",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0317",
+    "EmployeeName": "BARAKA NG'INGO",
+    "Department": "SHIPPING BUSINESS DIRECTORATE",
+    "Job": "CLEARING AND FOWARDING ASSISTANT II",
+    "Birthdate": "05-Aug-1985",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0318",
+    "EmployeeName": "ABDULKARIM KISUGURU",
+    "Department": "CHIEF INTERNAL AUDIT UNIT",
+    "Job": "PRINCIPAL INTERNAL AUDITOR I",
+    "Birthdate": "21-Jun-1985",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0319",
+    "EmployeeName": "MARTHA JOACHIM",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR MARKETING OFFICER I",
+    "Birthdate": "16-Oct-1988",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0320",
+    "EmployeeName": "JESCA MAGUFULI",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "HUMAN RESOURCE OFFICER II",
+    "Birthdate": "03-Jan-1996",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0321",
+    "EmployeeName": "TUMAINI MFIKWA",
+    "Department": "LEGAL SERVICES UNIT",
+    "Job": "SENIOR LEGAL OFFICER II",
+    "Birthdate": "26-Aug-1982",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0322",
+    "EmployeeName": "JOSEPHINE BUJIKU",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "ACTING MANAGER MARKETING AND PUBLIC RELATIONS",
+    "Birthdate": "03-Aug-1969",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0323",
+    "EmployeeName": "KASSIM MPELI",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER  I",
+    "Birthdate": "15-Jan-1978",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0324",
+    "EmployeeName": "NEEMA SIMWANZA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR RECORDS MANAGEMENT ASSISTANT II",
+    "Birthdate": "20-Dec-1978",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0325",
+    "EmployeeName": "IDADI KIVIKE",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR DRIVER I",
+    "Birthdate": "07-Dec-1967",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0326",
+    "EmployeeName": "DEOGRATIAS MWAKAMALA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER  I",
+    "Birthdate": "12-Jul-1975",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0327",
+    "EmployeeName": "MOSES MABAMBA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DIRECTOR OF CORPORATE SERVICES",
+    "Birthdate": "07-Apr-1976",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0328",
+    "EmployeeName": "HIJRA KATTANGA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "ACCOUNTANT II",
+    "Birthdate": "11-May-1955",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0329",
+    "EmployeeName": "MAULID NSALAMBA",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "FLAG AND PORTS STATE CONTROL OFFICER II",
+    "Birthdate": "29-Jun-1988",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0330",
+    "EmployeeName": "LAMECK SONDO",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "FLAG AND PORTS STATE CONTROL OFFICER II",
+    "Birthdate": "03-Feb-1979",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0331",
+    "EmployeeName": "SELEMAN FELICIAN",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "FLAG AND PORTS STATE CONTROL OFFICER II",
+    "Birthdate": "28-Feb-1991",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0332",
+    "EmployeeName": "JOSEPH MYAKA",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "FLAG & PORT STATE CONTROL OFFICER I",
+    "Birthdate": "14-Jul-1979",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0333",
+    "EmployeeName": "SWEET CHRISTOPHER",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "MARITIME REGISTRATION OFFICER II",
+    "Birthdate": "30-Dec-1996",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0334",
+    "EmployeeName": "KHALID BANEY",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR DRIVER I",
+    "Birthdate": "12-Aug-1967",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0335",
+    "EmployeeName": "JOSEPH MFANGAVO",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "PRINCIPAL ADMINISTRATIVE OFFICER",
+    "Birthdate": "22-Feb-1973",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0336",
+    "EmployeeName": "RAHIM DHAHIRI",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "MARITIME REGISTRATION OFFICER II",
+    "Birthdate": "03-Mar-1993",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0337",
+    "EmployeeName": "MAGGID MWARASI",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER  I",
+    "Birthdate": "14-Jan-1985",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0338",
+    "EmployeeName": "TATU MKOYA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR RECORDS MANAGEMENT ASSISTANT II",
+    "Birthdate": "21-Feb-1968",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0339",
+    "EmployeeName": "AMINI DAFFA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER  I",
+    "Birthdate": "27-Aug-1974",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0340",
+    "EmployeeName": "ALLY DIWANI",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "FLAG AND PORTS STATE CONTROL OFFICER II",
+    "Birthdate": "19-Mar-1979",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0341",
+    "EmployeeName": "MARY SAID",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "OFFICE MANAGEMENT OFFICE I",
+    "Birthdate": "30-May-1972",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0342",
+    "EmployeeName": "HASSANI HASSANI",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER  I",
+    "Birthdate": "17-Aug-1980",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0343",
+    "EmployeeName": "DORAH ZAVALLA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "PERSONAL SECRETARY I",
+    "Birthdate": "23-May-1981",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0344",
+    "EmployeeName": "NSIANDE MWATI",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "PRINCIPAL ECONOMIST II",
+    "Birthdate": "03-Jan-2022",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0345",
+    "EmployeeName": "SAID KAHENEKO",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "FLAG & PORT STATE CONTROL OFFICER I",
+    "Birthdate": "13-Feb-1989",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0346",
+    "EmployeeName": "HASSAN MAKONGWA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR DRIVER I",
+    "Birthdate": "17-Nov-1973",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0347",
+    "EmployeeName": "SPERANSIA THOMAS",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "ADMINISTRATIVE OFFICER II",
+    "Birthdate": "25-Oct-1991",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0348",
+    "EmployeeName": "PHILIP MSAFIRI",
+    "Department": "ECONOMIC REGULATION UNIT",
+    "Job": "ECONOMIST I",
+    "Birthdate": "26-Jan-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0350",
+    "EmployeeName": "VEDASTUS KITURETI",
+    "Department": "LEGAL SERVICES UNIT",
+    "Job": "LEGAL OFFICER 11",
+    "Birthdate": "23-Nov-1990",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0351",
+    "EmployeeName": "BOSCO MTITU",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "26-Dec-1979",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0352",
+    "EmployeeName": "ASMA  MOHAMED",
+    "Department": "LEGAL SERVICES UNIT",
+    "Job": "SENIOR LEGAL OFFICER II",
+    "Birthdate": "18-Aug-1982",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0353",
+    "EmployeeName": "LENNY MACHUNDE",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "OFFICE MANAGEMENT SECRETARY I",
+    "Birthdate": "09-Sep-1973",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0354",
+    "EmployeeName": "PAUL MUSOKWA",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "FLAG AND PORTS STATE CONTROL OFFICER II",
+    "Birthdate": "17-Apr-1994",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0355",
+    "EmployeeName": "UPENDO CHOGOLO",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR RECORDS MANAGEMENT ASSISTANT II",
+    "Birthdate": "30-Dec-1983",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0356",
+    "EmployeeName": "ALLY MASANJA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "04-Dec-1995",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0357",
+    "EmployeeName": "LILIAN KARUMUNA",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "PRINCIPAL ACCOUNTS OFFICER I",
+    "Birthdate": "03-Nov-1970",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0358",
+    "EmployeeName": "STABUA BABIKER",
+    "Department": "LEGAL SERVICES UNIT",
+    "Job": "LEGAL OFFICER I",
+    "Birthdate": "28-Jul-1982",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0359",
+    "EmployeeName": "ROBERT DUDU",
+    "Department": "CHIEF INTERNAL AUDIT UNIT",
+    "Job": "SENIOR INTERNAL AUDITOR I",
+    "Birthdate": "02-Jun-1986",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0360",
+    "EmployeeName": "ALEX SHELUTETE",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR DRIVER I",
+    "Birthdate": "24-Mar-1969",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0361",
+    "EmployeeName": "GODFREY CHEGERE",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "SEAFARERS TRANING CERTIFICATION OFFICER II",
+    "Birthdate": "15-Jun-1984",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0362",
+    "EmployeeName": "SHABANI ALLY",
+    "Department": "MARITIME SAFETY SECURITY & ENVIRONMENT DIRECTORATE",
+    "Job": "PORT SERVICES OFFICER II",
+    "Birthdate": "12-Dec-1987",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0363",
+    "EmployeeName": "MASEKE  CHARALI",
+    "Department": "ICT & STATISTICS UNIT",
+    "Job": "SENIOR ICT OFFICER II",
+    "Birthdate": "01-Feb-1986",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0365",
+    "EmployeeName": "MARIAM MWAYELA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "SENIOR PUBLIC RELATION OFFICER II",
+    "Birthdate": "08-Dec-1983",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0366",
+    "EmployeeName": "MUSTAFA JUMA",
+    "Department": "ICT & STATISTICS UNIT",
+    "Job": "SENIOR ICT OFFICER II",
+    "Birthdate": "10-Sep-1983",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0367",
+    "EmployeeName": "ISMAIL CHAMI",
+    "Department": "FINANCE & ACCOUNTS UNIT",
+    "Job": "SENIOR ACCOUNTS OFFICERS II",
+    "Birthdate": "17-Sep-1977",
+    "Gender": "Male"
+  },
+  {
+    "EmployeeCode": "TPF0368",
+    "EmployeeName": "RACHEL MSANGA",
+    "Department": "PROCUREMENT MANAGEMENT UNIT",
+    "Job": "SENIOR PROCUREMENT OFFICER II",
+    "Birthdate": "17-May-1984",
+    "Gender": "Female"
+  },
+  {
+    "EmployeeCode": "TPF0369",
+    "EmployeeName": "VICTOR MWINGWA",
+    "Department": "CORPORATE SERVICE DIRECTORATE",
+    "Job": "DRIVER II",
+    "Birthdate": "22-Dec-1991",
+    "Gender": "Male"
+  }
+]

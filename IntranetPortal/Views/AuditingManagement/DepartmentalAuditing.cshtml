@@ -1,0 +1,207 @@
+﻿@{
+    Layout = "~/Views/Shared/_StaffMaster.cshtml";
+    ViewData["Title"] = "Home Page";
+}
+<script type="text/javascript">
+    //<![CDATA[
+    function onInitNewRow(e, MeetingId) {
+
+        e.data.MeetingId = MeetingId;
+
+    }
+    //]]>
+</script>
+<div class="page-header card">
+    <div class="row align-items-end">
+        <div class="col-lg-8">
+            <div class="page-header-title">
+                <i class="feather icon-users bg-c-blue"></i>
+                <div class="d-inline">
+                    <h5>Audit Details </h5>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+
+                <div class="row">
+
+
+
+
+
+
+
+                    <div class="col-xl-12 col-md-6">
+                        <div class="card table-card">
+                            <div class="card-header">
+                                <h5> Auditings & Responses</h5>
+                                <div class="card-header-right">
+                                    <ul class="list-unstyled card-option">
+                                        <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        <li><i class="feather icon-maximize full-card"></i></li>
+                                        <li><i class="feather icon-minus minimize-card"></i></li>
+                                        <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                        <li><i class="feather icon-trash close-card"></i></li>
+                                        <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-block">
+
+                                @(
+                                        Html.DevExtreme().DataGrid<IntranetPortal.Models.AuditingDetail>
+                                        ()
+                                        .DataSource(ds => ds.Mvc()
+                                        .Controller("AuditingManagementAPI")
+                                        //.InsertAction("AddAuditDetails")
+                                        .LoadAction("GetDepartmentalAuditings")
+                                        //.UpdateAction("UpdateMeeting")
+                                       // .DeleteAction("RemoveRole")
+                                        .Key("AuditingDetailID")
+
+
+                                        )
+                                        .RemoteOperations(true)
+                                        .Columns(columns =>
+                                        {
+
+
+
+                                            columns.AddFor(m => m.DepartmentCode).SetCellValue("setDepartmentCode").Lookup(r => r
+                                        .DataSource(ds => ds.Mvc().Controller("SetupAPI").LoadAction("GetDepartments").Key("DepartmentCode"))
+                                        .ValueExpr("DepartmentCode")
+                                        .DisplayExpr("DepartmentName"))
+                                        .ValidationRules(r => r
+                                        .AddRequired()
+                                        .Message("Department Name"));
+                                            columns.AddFor(m => m.SectionCode).Lookup(r => r
+                                        .DataSource("getSections")
+                                        .ValueExpr("SectionCode")
+                                        .DisplayExpr("SectionName"))
+                                        .ValidationRules(r => r
+                                        .AddRequired()
+                                        .Message("Section Name"));
+
+                                            columns.AddFor(m => m.InternalQueries);
+                                            columns.AddFor(m => m.ExternalQueries);
+                                            columns.AddFor(m => m.eGAQueries);
+                                            columns.AddFor(m => m.TRQueries);
+                                            columns.AddFor(m => m.QMSQueries);
+                                            columns.AddFor(m => m.IMSASQueries);
+
+                                            columns.AddFor(m => m.UpdatedBy).Caption("Attachments").CellTemplate(
+                                        @<text>
+                                            <a href="/AuditingManagement/AuditingAttachments?DepartmentCode=<%= data.DepartmentCode%>"><div class="feather icon-paperclip  text-primary">Attachment</div></a>
+                                        </text>);
+
+
+
+
+
+
+
+
+
+
+                                        })
+
+                                    .SearchPanel(f => f.Visible(true))
+
+                                    .Paging(p => p.PageSize(10))
+                                    .HeaderFilter(f => f.Visible(true))
+
+                                    .Grouping(g => g.ContextMenuEnabled(true))
+                                    .Grouping(g => g.AutoExpandAll(true))
+                                    .RemoteOperations(true)
+                                    .Selection(s => s.Mode(SelectionMode.Multiple))
+                                    .Export(e => e.Enabled(true).FileName("ListofActivities").AllowExportSelectedData(true))
+                                    .Editing(e => e
+                                    .AllowAdding(true)
+                                    .Popup(p => p
+                                    .Title("Add New Meeting")
+                                    .ShowTitle(true)
+                                    .Width(1000)
+                                    .Height(600)
+
+
+
+                                    )
+
+                                    .AllowUpdating(false)
+                                    .AllowDeleting(false)
+                                    .Mode(GridEditMode.Popup)
+                                    .UseIcons(true)
+                                    .Form(f => f
+                                    .ID("UserCreationD")
+                                    .ColCount(1)
+                                    .Items(items =>
+                                    {
+                                        items.AddGroup()
+                                        .ColCount(2)
+                                        .Items(groupItems =>
+                                        {
+
+                                            groupItems.AddSimpleFor(m => m.DepartmentCode);
+                                            groupItems.AddSimpleFor(m => m.SectionCode);
+                                            groupItems.AddSimpleFor(m => m.InternalQueries);
+                                            groupItems.AddSimpleFor(m => m.ExternalQueries);
+                                            groupItems.AddSimpleFor(m => m.IMSASQueries);
+                                            groupItems.AddSimpleFor(m => m.eGAQueries);
+                                            groupItems.AddSimpleFor(m => m.TRQueries);
+
+
+
+
+                                        });
+
+                                    })
+
+                                    )
+                                    )
+
+                                    )
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                   
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function getSections(options) {
+        return {
+            store: DevExpress.data.AspNet.createStore({
+                key: "SectionName",
+                loadUrl: '@Url.Action("GetSection", "SetupAPI", new { httproute = true })'
+            }),
+            filter: options.data ? ["DepartmentCode", "=", options.data.DepartmentCode] : null
+        };
+    }
+    function setDepartmentCode(rowData, value) {
+
+        rowData.DepartmentCode = value;
+        rowData.SectionName = null;
+    }
+
+
+
+</script>
+

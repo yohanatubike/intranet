@@ -2,9 +2,6 @@
     Layout = "~/Views/Shared/_StaffMaster.cshtml";
     ViewData["Title"] = "Home Page";
 }
-
-
-
 <div class="page-header card">
 <div class="row align-items-end">
 <div class="col-lg-8">
@@ -12,27 +9,16 @@
 <i class="feather icon-home bg-c-blue"></i>
 <div class="d-inline">
 <h5>System Setup</h5>
-
 </div>
 </div>
 </div>
-
 </div>
 </div>
-
 <div class="pcoded-inner-content">
 <div class="main-body">
 <div class="page-wrapper">
 <div class="page-body">
-
 <div class="row">
-
-
-
-
-
-
-
 <div class="col-xl-12 col-md-6">
 <div class="card table-card">
 <div class="card-header">
@@ -56,9 +42,8 @@
                                                     .Controller("SetupAPI")
                                                                 .InsertAction("AssignUserRole")
                                                                 .LoadAction("GetListOfUserRoles")
-                                                                .UpdateAction("UpdateUserRole")
-
-                                                        .Key("UserRoleId")
+                                    .UpdateAction("UpdateUserPermission")
+                                                                .Key("UserRoleId")
 
                                                     )
                                                     .RemoteOperations(true)

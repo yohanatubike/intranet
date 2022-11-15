@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IntranetPortal.Models
 {
@@ -10,5 +11,7 @@ namespace IntranetPortal.Models
         public string PFNumber { get; set; } = null!;
         public string CreatedBy { get; set; } = null!;
         public DateTime CreatedDate { get; set; }
+        [ForeignKey("RoleId")]
+        public virtual Role Roles { get; set; }
     }
 }
