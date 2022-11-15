@@ -30,7 +30,7 @@ namespace IntranetPortal.Controllers
             return Content(resultJson, "application/json");
         }
 
-        public object GetServiceOutputTargets(int id, DataSourceLoadOptions loadOptions)
+        public object GetStrategyTargets(int id, DataSourceLoadOptions loadOptions)
         {
             var result = DataSourceLoader.Load(_dbContext.Targets.Where(s => s.StrategyId == id), loadOptions);
             JsonSerializerSettings settings = new JsonSerializerSettings();

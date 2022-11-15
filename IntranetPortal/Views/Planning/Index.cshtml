@@ -64,7 +64,7 @@
                                         {
                                             md.Enabled(true);
                                             md.Template(@<text>
-                                                <div class="master-detail-caption"><%- data.Code %>'s Service Outputs:</div>
+                                                <div class="master-detail-caption"><%- data.Code %>'s Strategies:</div>
                                                 @(Html.DevExtreme().DataGrid<Strategy>()
                                                 .ColumnAutoWidth(true)
                                                 .ShowBorders(true)
@@ -76,8 +76,8 @@
                                                     columns.AddFor(m => m.CreatedBy);
                                                 })
                                                 .DataSource(d => d.Mvc()
-                                                .Controller("ServiceOutput")
-                                                .LoadAction("GetObjectiveServiceOutputs")
+                                                .Controller("Strategy")
+                                                .LoadAction("GetObjectiveStrategies")
                                                 .LoadParams(new { id = new JS("data.Id") })
                                                 )
                                                 )

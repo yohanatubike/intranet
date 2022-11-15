@@ -9,8 +9,7 @@ namespace IntranetPortal.Models
         {
         }
 
-        public IntranetDBContext(DbContextOptions<IntranetDBContext> options)
-            : base(options)
+        public IntranetDBContext(DbContextOptions<IntranetDBContext> options) : base(options)
         {
         }
 
@@ -58,7 +57,6 @@ namespace IntranetPortal.Models
             {
                 //optionsBuilder.UseNpgsql("Host=localhost;Database=IntranetDB;Username=postgres;Password=53401/T2005");
                 optionsBuilder.UseNpgsql("Host=localhost;Database=IntranetDB3;Username=postgres;Password=kujiamini");
-
             }
         }
 

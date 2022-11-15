@@ -3,10 +3,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-
-
-
-
 @(Html.DevExtreme().FileManager()
         .CurrentPath("Widescreen")
         .FileSystemProvider(provider => provider
@@ -17,11 +13,10 @@
             .Copy(true)
             .Move(true)
             .Delete(true)
-
             .Rename(true)
             .Upload(true)
-            .Download(true))
-        @*.OnSelectedFileOpened(@<text>
+            .Download(true))@*
+            .OnSelectedFileOpened(<text>
             function(e) {
                 var popup = $("#photo-popup").dxPopup("instance");
                 popup.option({
@@ -43,11 +38,3 @@
             }
                                         </text>)*@
         )
-
-
-
-
-
-
-
-
