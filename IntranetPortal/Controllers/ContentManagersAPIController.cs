@@ -7,7 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Data;
+using System.Net.Mail;
+using System.Net;
 using System.Security.Claims;
+using HtmlAgilityPack;
 
 namespace IntranetPortal.Controllers
 {
@@ -60,19 +63,47 @@ namespace IntranetPortal.Controllers
             JsonConvert.PopulateObject(values, newNews);
             newNews.CreatedBy = UserEmail;
             newNews.CreatedDate = DateTime.UtcNow;
+            var fromAddress = new MailAddress("noreply@tasac.go.tz", "News & Announcement");
 
-            if (!TryValidateModel(newNews))
-                return BadRequest(ValidationErrorMessage = "Failed to save details due to validation error");
-
+            var toAddress = new MailAddress(UserEmail, UserEmail);
+            const string fromPassword = "Tasac1234.";
+            const string subject = "Meeting Invitation";
+            string body = newNews.Description;
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(newNews.Description);
+            string s = doc.DocumentNode.SelectSingleNode(body).InnerText;
             try
             {
-                myContext.NewsEvents.Add(newNews);
-                await myContext.SaveChangesAsync();
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp2.eganet.go.tz",
+                    Port = 25,
+                    EnableSsl = false,
+
+
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = s
+
+                })
+                {
+                    smtp.Send(message);
+                    myContext.NewsEvents.Add(newNews);
+                    await myContext.SaveChangesAsync();
+                    return Ok(newNews);
+
+
+                }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                return Ok(e.Message);
+                return BadRequest(ValidationErrorMessage = ex.Message);
             }
+
+
             return Ok(newNews);
         }
         [HttpPost]
